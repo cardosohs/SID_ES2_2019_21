@@ -16,6 +16,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JToggleButton;
+import javax.swing.JList;
+import javax.swing.JSpinner;
+import javax.swing.JComboBox;
 
 public class SubscreverInvestig {
 
@@ -62,6 +65,17 @@ public class SubscreverInvestig {
 		ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/SubscricaoInvestigador.png"));
 		Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
 		
+		
+		String[] categoriasProfissionais = {"Phd Student", "PostDoc Student", "Investigador auxiliar", "Investigador principal", "Investigador Coordenador"};
+		JComboBox comboBox = new JComboBox(categoriasProfissionais);
+		comboBox.setAutoscrolls(true);
+		comboBox.setFocusTraversalPolicyProvider(true);
+		comboBox.setFocusCycleRoot(true);
+		comboBox.setDoubleBuffered(true);
+		comboBox.setEditable(true);
+		comboBox.setBounds(372, 279, 272, 22);
+		frmSubscreverInvestigador.getContentPane().add(comboBox);
+		
 		imagTopo.setIcon(new ImageIcon(imgOne));
 		
 		frmSubscreverInvestigador.getContentPane().add(imagTopo);
@@ -106,14 +120,6 @@ public class SubscreverInvestig {
 		textField.setBounds(288, 205, 357, 22);
 		frmSubscreverInvestigador.getContentPane().add(textField);
 		
-		TextField textField_1 = new TextField();
-		textField_1.setBounds(351, 243, 294, 22);
-		frmSubscreverInvestigador.getContentPane().add(textField_1);
-		
-		TextField textField_2 = new TextField();
-		textField_2.setBounds(398, 281, 247, 22);
-		frmSubscreverInvestigador.getContentPane().add(textField_2);
-		
 		TextField textField_3 = new TextField();
 		textField_3.setBounds(288, 319, 357, 22);
 		frmSubscreverInvestigador.getContentPane().add(textField_3);
@@ -135,5 +141,18 @@ public class SubscreverInvestig {
 		});
 		btnOk.setBounds(496, 499, 272, 27);
 		frmSubscreverInvestigador.getContentPane().add(btnOk);
+		
+		JList list = new JList();
+		list.setBounds(484, 293, 1, 1);
+		frmSubscreverInvestigador.getContentPane().add(list);
+		
+		
+		String[] departamentos = {"Biologia", "Química"};
+		JComboBox comboBox_1 = new JComboBox(departamentos);
+		comboBox_1.setFocusCycleRoot(true);
+		comboBox_1.setEditable(true);
+		comboBox_1.setDoubleBuffered(true);
+		comboBox_1.setBounds(337, 238, 307, 22);
+		frmSubscreverInvestigador.getContentPane().add(comboBox_1);
 	}
 }
