@@ -92,18 +92,4 @@ public class LonginWindow extends JFrame {
 }
 
 
-//JLabel lblNewLabel = new JLabel("Nome");
-//lblNewLabel.setBounds(76, 198, 46, 14);
-//frmSubscreverInvestigador.getContentPane().add(lblNewLabel);
-//
-//JLabel a = new JLabel("");
-//a.setBounds(0, 0, 834, 144);
-//
-//ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/SubscricaoInvestigador.png"));
-//Image imgOne =imgTopo.getImage().getScaledInstance(a.getWidth(), a.getHeight(), Image.SCALE_SMOOTH);
-//
-//imagTopo.setIcon(new ImageIcon(imgOne));
-//
-//frmSubscreverInvestigador.getContentPane().add(imagTopo);
-//}}
 
