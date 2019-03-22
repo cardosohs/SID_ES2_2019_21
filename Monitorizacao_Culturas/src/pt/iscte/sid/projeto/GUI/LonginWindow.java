@@ -22,6 +22,7 @@ public class LonginWindow extends JFrame {
 	private JTextField textField;
 	private JButton btnNewButton;
 	private JRadioButton rdbtnInvestigador;
+	private JButton btnSubscrever;
 
 	/**
 	 * Launch the application.
@@ -43,6 +44,7 @@ public class LonginWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public LonginWindow() {
+		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100,  834, 530);
 		contentPane = new JPanel();
@@ -70,7 +72,7 @@ public class LonginWindow extends JFrame {
 			btnNewButton = new JButton("Entrar");
 			btnNewButton.setForeground(Color.WHITE);
 			btnNewButton.setBackground(Color.DARK_GRAY);
-			btnNewButton.setBounds(662, 256, 86, 34);
+			btnNewButton.setBounds(600, 256, 104, 34);
 			contentPane.add(btnNewButton);
 			
 			rdbtnInvestigador = new JRadioButton("Investigador");
@@ -78,16 +80,22 @@ public class LonginWindow extends JFrame {
 			rdbtnInvestigador.setForeground(Color.WHITE);
 			rdbtnInvestigador.setBounds(709, 86, 109, 23);
 			contentPane.add(rdbtnInvestigador);
-			
-			JLabel fundoPagina = new JLabel("");
-			fundoPagina.setBounds(0, 0, 834, 490);
-			Image imgOne =imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
-			
-			
-			fundoPagina.setIcon(new ImageIcon(imgOne));
-			
 				
-				contentPane.add(fundoPagina);
+				btnSubscrever = new JButton("Subscrever");
+				btnSubscrever.setForeground(Color.WHITE);
+				btnSubscrever.setBackground(Color.DARK_GRAY);
+				btnSubscrever.setBounds(704, 256, 104, 34);
+				contentPane.add(btnSubscrever);
+				
+				JLabel fundoPagina = new JLabel("");
+				fundoPagina.setBounds(0, 0, 834, 490);
+				Image imgOne =imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
+				
+				
+				fundoPagina.setIcon(new ImageIcon(imgOne));
+				
+					
+					contentPane.add(fundoPagina);
 	}
 }
 
