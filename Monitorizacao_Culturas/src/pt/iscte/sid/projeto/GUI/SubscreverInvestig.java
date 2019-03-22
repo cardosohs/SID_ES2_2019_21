@@ -19,10 +19,13 @@ import javax.swing.JToggleButton;
 import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
 
 public class SubscreverInvestig {
 
 	private JFrame frmSubscreverInvestigador;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -73,7 +76,7 @@ public class SubscreverInvestig {
 		comboBox.setFocusCycleRoot(true);
 		comboBox.setDoubleBuffered(true);
 		comboBox.setEditable(true);
-		comboBox.setBounds(372, 279, 272, 22);
+		comboBox.setBounds(373, 238, 272, 22);
 		frmSubscreverInvestigador.getContentPane().add(comboBox);
 		
 		imagTopo.setIcon(new ImageIcon(imgOne));
@@ -86,51 +89,37 @@ public class SubscreverInvestig {
 		lblNewLabel.setBounds(217, 200, 49, 27);
 		frmSubscreverInvestigador.getContentPane().add(lblNewLabel);
 		
-		JLabel lblDepartamento = new JLabel("Departamento");
-		lblDepartamento.setForeground(new Color(100, 149, 237));
-		lblDepartamento.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblDepartamento.setBounds(217, 238, 110, 27);
-		frmSubscreverInvestigador.getContentPane().add(lblDepartamento);
-		
 		JLabel lblCategoriaProfissional = new JLabel("Categoria Profissional");
 		lblCategoriaProfissional.setForeground(new Color(100, 149, 237));
 		lblCategoriaProfissional.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCategoriaProfissional.setBounds(217, 276, 156, 27);
+		lblCategoriaProfissional.setBounds(217, 238, 156, 27);
 		frmSubscreverInvestigador.getContentPane().add(lblCategoriaProfissional);
 		
 		JLabel lblEmail = new JLabel("E-mail");
 		lblEmail.setForeground(new Color(100, 149, 237));
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblEmail.setBounds(217, 314, 49, 27);
+		lblEmail.setBounds(217, 276, 49, 27);
 		frmSubscreverInvestigador.getContentPane().add(lblEmail);
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setForeground(new Color(100, 149, 237));
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblPassword.setBounds(217, 352, 74, 27);
+		lblPassword.setBounds(217, 314, 74, 27);
 		frmSubscreverInvestigador.getContentPane().add(lblPassword);
 		
 		JLabel lblConfirmarPassword = new JLabel("Confirmar Password");
 		lblConfirmarPassword.setForeground(new Color(100, 149, 237));
 		lblConfirmarPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblConfirmarPassword.setBounds(217, 390, 143, 27);
+		lblConfirmarPassword.setBounds(217, 352, 143, 27);
 		frmSubscreverInvestigador.getContentPane().add(lblConfirmarPassword);
 		
 		TextField textField = new TextField();
-		textField.setBounds(288, 205, 357, 22);
+		textField.setBounds(272, 205, 373, 22);
 		frmSubscreverInvestigador.getContentPane().add(textField);
 		
 		TextField textField_3 = new TextField();
-		textField_3.setBounds(288, 319, 357, 22);
+		textField_3.setBounds(270, 281, 375, 22);
 		frmSubscreverInvestigador.getContentPane().add(textField_3);
-		
-		TextField textField_4 = new TextField();
-		textField_4.setBounds(315, 357, 330, 22);
-		frmSubscreverInvestigador.getContentPane().add(textField_4);
-		
-		TextField textField_5 = new TextField();
-		textField_5.setBounds(384, 395, 261, 22);
-		frmSubscreverInvestigador.getContentPane().add(textField_5);
 		
 		JButton btnOk = new JButton("Submeter para aprova\u00E7\u00E3o do Admin");
 		btnOk.setForeground(new Color(25, 25, 112));
@@ -146,13 +135,15 @@ public class SubscreverInvestig {
 		list.setBounds(484, 293, 1, 1);
 		frmSubscreverInvestigador.getContentPane().add(list);
 		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(295, 317, 350, 22);
+		frmSubscreverInvestigador.getContentPane().add(passwordField);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(373, 357, 272, 22);
+		frmSubscreverInvestigador.getContentPane().add(passwordField_1);
+		
 		
 		String[] departamentos = {"Biologia", "Química"};
-		JComboBox comboBox_1 = new JComboBox(departamentos);
-		comboBox_1.setFocusCycleRoot(true);
-		comboBox_1.setEditable(true);
-		comboBox_1.setDoubleBuffered(true);
-		comboBox_1.setBounds(337, 238, 307, 22);
-		frmSubscreverInvestigador.getContentPane().add(comboBox_1);
 	}
 }
