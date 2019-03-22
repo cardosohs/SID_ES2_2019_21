@@ -25,6 +25,8 @@ import javax.swing.JSeparator;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CulturasLista extends JFrame {
 
@@ -63,12 +65,24 @@ public class CulturasLista extends JFrame {
 		
 		ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/CulturasListagem.png"));
 		
+		JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura Seleccionada");
+		btnEliminarCulturaSeleccionada.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		JButton btnNewButton_1 = new JButton("Voltar");
+		btnNewButton_1.setBounds(650, 500, 89, 23);
+		CulturasSobResponsabilidade.add(btnNewButton_1);
+		btnEliminarCulturaSeleccionada.setBounds(78, 500, 216, 23);
+		CulturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
+		
 		JButton btnNewButton = new JButton("Submeter Altera\u00E7\u00F5es");
-		btnNewButton.setBounds(563, 500, 161, 23);
+		btnNewButton.setBounds(479, 500, 161, 23);
 		CulturasSobResponsabilidade.add(btnNewButton);
 		
 		JButton ButtonAddCultura = new JButton("Adicionar Nova Cultura");
-		ButtonAddCultura.setBounds(390, 500, 165, 23);
+		ButtonAddCultura.setBounds(304, 500, 165, 23);
 		CulturasSobResponsabilidade.add(ButtonAddCultura);
 		
 		JButton ButtonLoadTable = new JButton("Atualizar Info Culturas");
@@ -109,7 +123,7 @@ public class CulturasLista extends JFrame {
 		
 		txtParaApagarPara = new JTextField();
 		txtParaApagarPara.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura, a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
+		txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
 		txtParaApagarPara.setBounds(67, 514, 682, 36);
 		CulturasSobResponsabilidade.add(txtParaApagarPara);
 		txtParaApagarPara.setColumns(10);

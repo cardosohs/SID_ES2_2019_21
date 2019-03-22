@@ -66,7 +66,6 @@ public class AreaInvestigador extends JFrame {
 		contentPane.add(imagTopo);
 		
 		JLabel Menu = new JLabel("");
-		//Menu.setHorizontalAlignment(SwingConstants.RIGHT);
 		Menu.setBounds(212, 219, 363, 75);
 		ImageIcon menu = new ImageIcon(SubscreverInvestig.class.getResource("/images/MenuAreaInvest.png"));
 		Image imgTwo =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
@@ -103,18 +102,3 @@ public class AreaInvestigador extends JFrame {
 	}
 }
 
-
-//JLabel lblNewLabel = new JLabel("Nome");
-//lblNewLabel.setBounds(76, 198, 46, 14);
-//frmSubscreverInvestigador.getContentPane().add(lblNewLabel);
-//
-//JLabel imagTopo = new JLabel("");
-//imagTopo.setBounds(0, 0, 834, 144);
-//
-//ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/SubscricaoInvestigador.png"));
-//Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
-//
-//imagTopo.setIcon(new ImageIcon(imgOne));
-//
-//frmSubscreverInvestigador.getContentPane().add(imagTopo);
-//}}
