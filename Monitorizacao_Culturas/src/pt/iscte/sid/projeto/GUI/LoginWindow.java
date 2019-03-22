@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.Color;
 
-public class LonginWindow extends JFrame {
+public class LoginWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
@@ -30,7 +30,7 @@ public class LonginWindow extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LonginWindow frame = new LonginWindow();
+					LoginWindow frame = new LoginWindow();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class LonginWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LonginWindow() {
+	public LoginWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100,  834, 530);
 		contentPane = new JPanel();
