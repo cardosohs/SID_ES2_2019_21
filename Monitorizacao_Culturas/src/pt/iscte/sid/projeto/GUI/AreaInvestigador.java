@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 public class AreaInvestigador extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -52,25 +53,11 @@ public class AreaInvestigador extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel imagTopo = new JLabel("");
-		imagTopo.setBackground(Color.WHITE);
-		imagTopo.setBounds(0, 0, 834, 303);
-		
 		ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/area do investigador.png"));
-		Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
-		
-		imagTopo.setIcon(new ImageIcon(imgOne));
-		
-		
-		
-		contentPane.add(imagTopo);
 		
 		JLabel Menu = new JLabel("");
 		Menu.setBounds(212, 219, 363, 75);
 		ImageIcon menu = new ImageIcon(SubscreverInvestig.class.getResource("/images/MenuAreaInvest.png"));
-		Image imgTwo =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
-		
-		imagTopo.setIcon(new ImageIcon(imgTwo));
 		contentPane.add(Menu);
 		
 		JButton btnNewButton = new JButton("As Minhas Culturas");
@@ -99,6 +86,34 @@ public class AreaInvestigador extends JFrame {
 		JButton btnLogout = new JButton("LogOut");
 		btnLogout.setBounds(657, 498, 89, 23);
 		contentPane.add(btnLogout);
+		
+		textField = new JTextField();
+		textField.setText("Investigador");
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setForeground(Color.WHITE);
+		textField.setFont(textField.getFont().deriveFont(11f));
+		textField.setColumns(10);
+		textField.setBackground(new Color(0, 51, 102));
+		textField.setBounds(589, 72, 68, 21);
+		contentPane.add(textField);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(667, 73, 145, 20);
+		contentPane.add(textPane);
+		
+		JLabel imagTopo = new JLabel("");
+		imagTopo.setBackground(Color.WHITE);
+		imagTopo.setBounds(0, 0, 834, 303);
+		Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
+		
+		imagTopo.setIcon(new ImageIcon(imgOne));
+		
+		
+		
+		contentPane.add(imagTopo);
+		Image imgTwo =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
+		
+		imagTopo.setIcon(new ImageIcon(imgTwo));
 	}
 }
 
