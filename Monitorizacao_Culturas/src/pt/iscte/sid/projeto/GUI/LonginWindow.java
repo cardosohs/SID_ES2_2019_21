@@ -100,7 +100,7 @@ public class LonginWindow extends JFrame {
 				contentPane.add(btnSubscrever);
 							
 							JEditorPane dtrpnHjhkjkh = new JEditorPane();
-							dtrpnHjhkjkh.setForeground(Color.PINK);
+							dtrpnHjhkjkh.setForeground(Color.ORANGE);
 							dtrpnHjhkjkh.setFont(new Font("Tahoma", Font.ITALIC, 9));
 							dtrpnHjhkjkh.setBackground(Color.DARK_GRAY);
 							dtrpnHjhkjkh.setText("!Password - Apenas se aplica a user  Admin");
