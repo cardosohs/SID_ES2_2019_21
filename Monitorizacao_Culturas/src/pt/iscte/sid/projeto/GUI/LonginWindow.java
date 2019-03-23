@@ -107,7 +107,7 @@ public class LonginWindow extends JFrame {
 							dtrpnHjhkjkh.setBounds(592, 222, 217, 20);
 							contentPane.add(dtrpnHjhkjkh);
 							
-							JLabel fundoPagina = new JLabel("Apenas se Admin");
+							JLabel fundoPagina = new JLabel("");
 							fundoPagina.setForeground(Color.GRAY);
 							fundoPagina.setToolTipText("(Apenas se Admin)");
 							fundoPagina.setBounds(0, 0, 834, 490);
