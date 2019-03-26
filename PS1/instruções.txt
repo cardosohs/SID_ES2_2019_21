@@ -1,0 +1,9 @@
+pasta obrigatórias
+c:\destino
+c:\origem
+
+nome das bases de dados:
+origemg21db
+logsg21db
+Prefixo das tabelas de log
+log_<nome da tabela>
