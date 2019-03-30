@@ -2,7 +2,7 @@
  # esta informação é obrigatória para a correta exportação
 $OutputEncoding = [System.Text.Encoding]::Unicode
 [Console]::OutputEncoding=[System.Text.Encoding]::Unicode
-$PSDefaultParameterValues = @{ '*:Encoding' = 'utf16' }
+$PSDefaultParameterValues = @{ '*:Encoding' = 'ASCII' }
 
 try{
 Unregister-Event -SourceIdentifier FileOnOrign -ErrorAction SilentlyContinue
@@ -21,8 +21,9 @@ $ConnectionString= "Server=localhost;Uid=root; database=origemg21db"
 $user = "-uroot"
 $mysqlPaht = "C:\xampp\mysql\bin\mysql.exe " #--default-character-set=utf8"
 $database="OrigemG21DB"
-#o nome do ficheiro muda conforme a tabelal a terminação não
+#o nome do ficheiro muda conforme a tabela a terminação não
 $ResponseExtension=".xml"
+$responsePrefix="reply_"
 #$s=New-PSSession -ComputerName $IP
 
 Write-host "Activa anzol na pasta Origem"
@@ -49,7 +50,7 @@ Write-host 'obter dados do CSV'$name
 $data=Import-csv -path $FolderOrigin$name -Header "tabela","inicio","fim" -Delimiter "`t" -ErrorVariable $erroImport_csv
 remove-item $FolderOrigin$name 
 
-$ResponseFile= $DATA.tabela + $ResponseExtension
+$ResponseFile= $responsePrefix+$DATA.tabela + $ResponseExtension
 $swich='--xml -e "SELECT * FROM '+ $database+'.'+$DATA.tabela + " where dataHoraLog >='"+ $data.inicio + "' and dataHoraLog<='"+$data.fim +"'"+'" >'
  #Executa o Dump
 $cmd= $mysqlPaht+" "+ $user+" "+ $swich+" "+ $folderOrigin  + $ResponseFile
