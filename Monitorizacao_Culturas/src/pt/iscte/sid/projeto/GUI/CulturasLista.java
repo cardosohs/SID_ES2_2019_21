@@ -33,6 +33,7 @@ public class CulturasLista extends JFrame {
 	private JPanel CulturasSobResponsabilidade;
 	private JTextField txtInvestigador;
 	private JTextField txtParaApagarPara;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -71,10 +72,20 @@ public class CulturasLista extends JFrame {
 			}
 		});
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(110, 184, 620, 305);
+		CulturasSobResponsabilidade.add(scrollPane);
+		
+		txtParaApagarPara = new JTextField();
+		scrollPane.setViewportView(txtParaApagarPara);
+		txtParaApagarPara.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
+		txtParaApagarPara.setColumns(10);
+		
 		JButton btnNewButton_1 = new JButton("Voltar");
 		btnNewButton_1.setBounds(650, 500, 89, 23);
 		CulturasSobResponsabilidade.add(btnNewButton_1);
-		btnEliminarCulturaSeleccionada.setBounds(78, 500, 216, 23);
+		btnEliminarCulturaSeleccionada.setBounds(263, 500, 207, 23);
 		CulturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
 		
 		JButton btnNewButton = new JButton("Submeter Altera\u00E7\u00F5es");
@@ -82,7 +93,7 @@ public class CulturasLista extends JFrame {
 		CulturasSobResponsabilidade.add(btnNewButton);
 		
 		JButton ButtonAddCultura = new JButton("Adicionar Nova Cultura");
-		ButtonAddCultura.setBounds(304, 500, 165, 23);
+		ButtonAddCultura.setBounds(88, 500, 165, 23);
 		CulturasSobResponsabilidade.add(ButtonAddCultura);
 		
 		JButton ButtonLoadTable = new JButton("Atualizar Info Culturas");
@@ -96,13 +107,34 @@ public class CulturasLista extends JFrame {
 		txtInvestigador.setForeground(Color.WHITE);
 		txtInvestigador.setFont(txtInvestigador.getFont().deriveFont(11f));
 		txtInvestigador.setText("Investigador");
-		txtInvestigador.setBounds(594, 72, 68, 21);
+		txtInvestigador.setBounds(505, 71, 68, 21);
 		CulturasSobResponsabilidade.add(txtInvestigador);
 		txtInvestigador.setColumns(10);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(673, 73, 129, 20);
+		textPane.setBackground(SystemColor.menu);
+		textPane.setBounds(582, 71, 129, 20);
 		CulturasSobResponsabilidade.add(textPane);
+		
+		JEditorPane editorPane = new JEditorPane();
+		editorPane.setBounds(164, 231, 402, 254);
+		CulturasSobResponsabilidade.add(editorPane);
+		editorPane.setBackground(new Color(250, 235, 215));
+		
+		textField = new JTextField();
+		textField.setText("ID");
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setForeground(Color.WHITE);
+		textField.setFont(textField.getFont().deriveFont(11f));
+		textField.setColumns(10);
+		textField.setBackground(new Color(0, 51, 102));
+		textField.setBounds(726, 71, 24, 21);
+		CulturasSobResponsabilidade.add(textField);
+		
+		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setBackground(SystemColor.menu);
+		textPane_1.setBounds(760, 72, 36, 20);
+		CulturasSobResponsabilidade.add(textPane_1);
 		
 		JLabel imagemTopo = new JLabel("Investigador:");
 		imagemTopo.setBounds(0, 0, 834, 165);
@@ -111,22 +143,6 @@ public class CulturasLista extends JFrame {
 		imagemTopo.setIcon(new ImageIcon(imgOne));
 		
 		CulturasSobResponsabilidade.add(imagemTopo);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(110, 184, 620, 305);
-		CulturasSobResponsabilidade.add(scrollPane);
-		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBounds(164, 231, 402, 254);
-		CulturasSobResponsabilidade.add(editorPane);
-		editorPane.setBackground(new Color(250, 235, 215));
-		
-		txtParaApagarPara = new JTextField();
-		txtParaApagarPara.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
-		txtParaApagarPara.setBounds(67, 514, 682, 36);
-		CulturasSobResponsabilidade.add(txtParaApagarPara);
-		txtParaApagarPara.setColumns(10);
 	}
 }
 

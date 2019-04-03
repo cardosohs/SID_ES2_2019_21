@@ -69,8 +69,8 @@ public class ManutencaoUtilizadores extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		txtFaltaAdaptarPara = new JTextField();
-		txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Administradores");
-		txtFaltaAdaptarPara.setBounds(103, 235, 269, 39);
+		txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Administradores; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
+		txtFaltaAdaptarPara.setBounds(80, 235, 292, 30);
 		contentPane.add(txtFaltaAdaptarPara);
 		txtFaltaAdaptarPara.setColumns(10);
 		
