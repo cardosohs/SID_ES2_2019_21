@@ -1,10 +1,9 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `escreve_pedido`(IN rtabela varchar(20), in rinicio datetime, in rfim datetime)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_Escreve_Pedido`(IN rtabela varchar(20), in rinicio datetime, in rfim datetime)
 BEGIN
-
 
 declare EXIT handler for SQLEXCEPTION 
 # begin
-	insert into logsg21db.log_migracao (datahora,tabela, processo, resultado) values (@horaexecucao,rtabela,'request made',0);
+	insert into g21destino.log_migracao (datahoraMig,tabela, processo, resultado) values (@horaexecucao,rtabela,'request made',0);
 # END;
 
 set @horaexecucao=now();
@@ -24,7 +23,7 @@ SET @t1 =CONCAT('select * from pedido INTO OUTFILE \'c:/destino/request_',rtabel
 PREPARE stmt3 FROM @t1;
  EXECUTE stmt3;
  #insere sucesso para a operação de requer atualização
- insert into logsg21db.log_migracao (datahora,tabela, processo, resultado) values (@horaexecucao,rtabela,'request made',1);
+ insert into g21destino.log_migracao (datahoraMig,tabela, processo, resultado) values (@horaexecucao,rtabela,'request made',1);
  DEALLOCATE PREPARE stmt3;
 drop table pedido;
 
