@@ -24,6 +24,7 @@ public class CriarCultura extends JFrame {
 	private JButton btnNewButton;
 	private JButton btnAdicionarsMinhas;
 	private JButton btnVoltar;
+	private JTextField txtAquiNoDeve;
 
 	/**
 	 * Launch the application.
@@ -85,14 +86,6 @@ public class CriarCultura extends JFrame {
 		btnNewButton.setBounds(740, 344, 58, 27);
 		contentPane.add(btnNewButton);
 		
-		JLabel imagemFundo = new JLabel("");
-		imagemFundo.setBounds(0, 0, 834, 462);
-		Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
-		
-		imagemFundo.setIcon(new ImageIcon (imgm));
-		
-		contentPane.add(imagemFundo);
-		
 		btnAdicionarsMinhas = new JButton("Adicionar \u00E0s minhas Culturas");
 		btnAdicionarsMinhas.setBounds(498, 498, 211, 30);
 		contentPane.add(btnAdicionarsMinhas);
@@ -100,6 +93,20 @@ public class CriarCultura extends JFrame {
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(719, 498, 90, 30);
 		contentPane.add(btnVoltar);
+		
+		txtAquiNoDeve = new JTextField();
+		txtAquiNoDeve.setText("Aqui n\u00E3o deve ser necess\u00E1rio o ID da cultura nem o ID Investigador, nem a confirma\u00E7\u00E3o do e-mail . depende do codigo disto");
+		txtAquiNoDeve.setBounds(45, 409, 709, 20);
+		contentPane.add(txtAquiNoDeve);
+		txtAquiNoDeve.setColumns(10);
+		
+		JLabel imagemFundo = new JLabel("");
+		imagemFundo.setBounds(0, 0, 834, 462);
+		Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
+		
+		imagemFundo.setIcon(new ImageIcon (imgm));
+		
+		contentPane.add(imagemFundo);
 	}
 
 }
