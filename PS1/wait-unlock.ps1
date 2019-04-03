@@ -2,7 +2,7 @@
 param([string]$fileParam )
 write-host "waiting lock on "$fileParam
 #timer
-$timeout = 1 #s
+$timeout = 4 #s
 $timelapse=1 #mms
 
 #folder
@@ -33,7 +33,7 @@ write-host "abandonando ficheiro " $file " apos "$timer.Elapsed.TotalSeconds " s
 $response= $false
 }
 else {
-        Write-Host "ficheiro " $file " desbloqueado"
+        Write-Host "ficheiro " $file " desbloqueado apos" $timerElapsed.Elapsed.TotalSeconds
         $response=$true
     }
     $response

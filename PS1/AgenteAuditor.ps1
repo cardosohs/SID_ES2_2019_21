@@ -1,12 +1,12 @@
 ﻿## SCRIPT PARA A MAQUINA DO AUDITOR ##
- # esta informação é obrigatória para a correta exportação
+# esta informação é obrigatória para a correta exportação
 $OutputEncoding = [System.Text.Encoding]::Unicode
 [Console]::OutputEncoding=[System.Text.Encoding]::Unicode
-$PSDefaultParameterValues = @{ '*:Encoding' = 'ASCII' }
+$PSDefaultParameterValues = @{ '*:Encoding' = 'UTF8' }
 
 #remove jobs que já estejam ativos
 Unregister-Event -SourceIdentifier FileCreated -ErrorAction SilentlyContinue
-
+Write-host "activa escuta na pasta destino"
 #definição de variáveis
 #path
 $folder = 'C:\destino\'
@@ -23,6 +23,8 @@ $wait=$scriptFolder+"wait-unlock" #returns [boolen] param([string]$fileParam )
 $import=$scriptFolder+"import-XML"
 #Timer for replies
 $ReplyTimer=$scriptFolder+"Start-timeout"
+#deletes a file
+$deleteFile = $scriptFolder+"delete-file" #param([string]$file)
 
 #file watcher job
 $filter = '*.*'                             
@@ -32,7 +34,7 @@ $waitFile='waiting'
 
 #database connection
 $dbServer="localhost"
-$logdatabase="logsg21db"
+$logdatabase="g21destino"
 $dbUser="root"
 #$IP='127.0.0.10'
 
@@ -69,13 +71,13 @@ $onCreated = Register-ObjectEvent $fsw Created -SourceIdentifier FileCreated -Ac
  #Wait-Debugger
     if($prefixo -eq $RequestFile){
         $processo="send request"
-        #Write-Host "$prefixo -eq $RequestFile"
+        
         # $s=New-PSSession -ComputerName $IP
         Try{
             copy-Item ($folder+$file) -Destination $destinationFolder  -ErrorAction Stop #-ToSession $s
             $resultado=1
             Write-host "Request enviado"
-            Write-host "criado ficheiro temporário"  $folder+($waitFile+"_"+$tabela+".csv")
+            Write-host "criado ficheiro temporário"  $folder($waitFile+"_"+$tabela+".csv")
             New-Item -Path $folder -Name ($waitFile+"_"+$tabela+".csv") -ItemType "file" -Value (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
             
         }
@@ -84,12 +86,23 @@ $onCreated = Register-ObjectEvent $fsw Created -SourceIdentifier FileCreated -Ac
         $resultado = 0
         }
         if (&$wait ($file)){
-            Remove-Item ($folder+$file) -ErrorAction Continue
-            }
-        else{Write-host "falha ao apagar ficheiro"}
-            
+                Remove-Item ($folder+$file) -ErrorAction Continue
+                write-host $file "apagado"
+                }
+            else{Write-host "falha ao apagar ficheiro"}
+
+        #apagar o ficheiro asincronamente
+        <#
+        #$j=
+        Start-Job -ScriptBlock{
+            param($file)
+            Invoke-Expression ("C:\Destino\Scripts\delete-file.ps1 ("+$file+")")
+            } -name 'Delete Request' -ArgumentList $file
+           
+          # debug-job $J   
+        #>
         #escreve na tabela log_migração o resultado da operação;
-        Write-host "Inserindo o resultado da operação "
+        # Write-host "Inserindo o resultado da operação "
         &$insert  $tabela $processo $resultado
         Write-host "Fim do " $processo " foi " $resultado
     } #Fim de request#
@@ -120,11 +133,20 @@ $onCreated = Register-ObjectEvent $fsw Created -SourceIdentifier FileCreated -Ac
             &$insert $tabela $processo 0
         }
     } #fim de reply
-   
+   <#
     elseif($prefixo -eq $waitFile){
         #inicia a contagem do tempo de espera
+        Invoke-Command -ScriptBlock{  
+            param([string] $f)
+            &$ReplyTimer @PSBoundParameters
+            } -AsJob -Verbose -ArgumentList $file 
+      
+       <# Start-Job -ScriptBlock {
         &$ReplyTimer $file
-    }
+        } -Name ("timer_"+$tabela) #-ArgumentList $ReplyTimer, $file
+        
+        
+    }#>
     
     else{
     write-host "ficheiro não identificado"

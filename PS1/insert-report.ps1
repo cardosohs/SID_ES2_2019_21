@@ -5,10 +5,10 @@ Write-host "inserir relato..." $processo "para a tabela " $tabela "foi" $resulta
 #Wait-Debugger
 #definições de sistema
 $user="root"
-$logdatabase="logsg21db"
+$logdatabase="g21destino"
 $server="localhost"
 $agora=Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-$query="INSERT INTO logsg21db.log_migracao(datahora,tabela, processo, resultado) values(`'"+$agora+"`',`'"+$tabela+"`',`'"+ $processo + "`',"+$resultado +");"
+$query="INSERT INTO "+$logdatabase +".log_migracao(datahoraMig,tabela, processo, resultado) values(`'"+$agora+"`',`'"+$tabela+"`',`'"+ $processo + "`',"+$resultado +");"
 
 #configuração da ligação SQL
 $ConnectionString= "Server="+$server+";Uid="+$user+";database="+$logdatabase

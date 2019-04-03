@@ -25,7 +25,7 @@ $wait=$scriptFolder+"wait-unlock" #returns [boolen] param([string]$fileParam )
 
 #database connection
 $dbServer="localhost"
-$logdatabase="logsg21db"
+$logdatabase="g21destino"
 $dbUser="root"
 #$IP='127.0.0.10'
 
@@ -45,7 +45,8 @@ $oMYSQLCommand.Connection=$connection
                 $query="LOAD XML INFILE '"+$folderUx+$file+"' INTO TABLE "+$logdatabase+"."+$tabela+";"
                 write-host $query
                 $updateCOD = New-Object MySql.Data.MySqlClient.MySqlCommand($query, $connection)
-                $updateCOD.CommandText
+                #$updateCOD.CommandText
+                $updateCOD.CommandTimeout=4000
                 $iReturn=$updateCOD.ExecuteNonQuery() 
                 write-host "new rows "$iReturn
                 #verifica se houve valores inseridos

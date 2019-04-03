@@ -1,7 +1,7 @@
 ﻿param([string] $file)
 
 #timer
-$timeout = 2 #s
+$timeout = 5 #s
  $processo="receive reply"
 
 #folder
