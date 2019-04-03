@@ -63,7 +63,7 @@ public class CulturasLista extends JFrame {
 		setContentPane(CulturasSobResponsabilidade);
 		CulturasSobResponsabilidade.setLayout(null);
 		
-		ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/CulturasListagem.png"));
+		ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
 		
 		JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura Seleccionada");
 		btnEliminarCulturaSeleccionada.addActionListener(new ActionListener() {
@@ -113,7 +113,7 @@ public class CulturasLista extends JFrame {
 		CulturasSobResponsabilidade.add(imagemTopo);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(101, 184, 629, 301);
+		scrollPane.setBounds(110, 184, 620, 305);
 		CulturasSobResponsabilidade.add(scrollPane);
 		
 		JEditorPane editorPane = new JEditorPane();
