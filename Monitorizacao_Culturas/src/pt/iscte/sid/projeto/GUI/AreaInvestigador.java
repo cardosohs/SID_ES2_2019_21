@@ -18,10 +18,13 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class AreaInvestigador extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField txtId;
 
 	/**
 	 * Launch the application.
@@ -52,25 +55,11 @@ public class AreaInvestigador extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel imagTopo = new JLabel("");
-		imagTopo.setBackground(Color.WHITE);
-		imagTopo.setBounds(0, 0, 834, 303);
-		
-		ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/area do investigador.png"));
-		Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
-		
-		imagTopo.setIcon(new ImageIcon(imgOne));
-		
-		
-		
-		contentPane.add(imagTopo);
+		ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/area do investigador.png"));
 		
 		JLabel Menu = new JLabel("");
 		Menu.setBounds(212, 219, 363, 75);
-		ImageIcon menu = new ImageIcon(SubscreverInvestig.class.getResource("/images/MenuAreaInvest.png"));
-		Image imgTwo =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
-		
-		imagTopo.setIcon(new ImageIcon(imgTwo));
+		ImageIcon menu = new ImageIcon(SubscreverUtilizador.class.getResource("/images/MenuAreaInvest.png"));
 		contentPane.add(Menu);
 		
 		JButton btnNewButton = new JButton("As Minhas Culturas");
@@ -79,26 +68,70 @@ public class AreaInvestigador extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(165, 321, 165, 53);
+		btnNewButton.setBounds(151, 321, 176, 53);
 		contentPane.add(btnNewButton);
 		
 		JButton btnAppAndroid = new JButton("App Android");
 		btnAppAndroid.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAppAndroid.setBounds(340, 321, 158, 53);
+		btnAppAndroid.setBounds(337, 321, 158, 53);
 		contentPane.add(btnAppAndroid);
 		
-		JButton btnVerificarRegistoPessoal = new JButton("Verificar Registo Pessoal");
+		JButton btnVerificarRegistoPessoal = new JButton("Verificar Luz/Temperatura");
 		btnVerificarRegistoPessoal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnVerificarRegistoPessoal.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVerificarRegistoPessoal.setBounds(508, 321, 177, 53);
+		btnVerificarRegistoPessoal.setBounds(505, 321, 189, 53);
 		contentPane.add(btnVerificarRegistoPessoal);
 		
 		JButton btnLogout = new JButton("LogOut");
 		btnLogout.setBounds(657, 498, 89, 23);
 		contentPane.add(btnLogout);
+		
+		textField = new JTextField();
+		textField.setText("Investigador");
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setForeground(Color.WHITE);
+		textField.setFont(textField.getFont().deriveFont(11f));
+		textField.setColumns(10);
+		textField.setBackground(new Color(0, 51, 102));
+		textField.setBounds(508, 71, 68, 21);
+		contentPane.add(textField);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBackground(SystemColor.menu);
+		textPane.setBounds(586, 72, 145, 20);
+		contentPane.add(textPane);
+		
+		txtId = new JTextField();
+		txtId.setText("ID");
+		txtId.setHorizontalAlignment(SwingConstants.CENTER);
+		txtId.setForeground(Color.WHITE);
+		txtId.setFont(txtId.getFont().deriveFont(11f));
+		txtId.setColumns(10);
+		txtId.setBackground(new Color(0, 51, 102));
+		txtId.setBounds(741, 71, 24, 21);
+		contentPane.add(txtId);
+		
+		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setBackground(SystemColor.menu);
+		textPane_1.setBounds(775, 71, 36, 20);
+		contentPane.add(textPane_1);
+		
+		JLabel imagTopo = new JLabel("");
+		imagTopo.setBackground(Color.WHITE);
+		imagTopo.setBounds(0, 0, 834, 460);
+		Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
+		
+		imagTopo.setIcon(new ImageIcon(imgOne));
+		
+		
+		
+		contentPane.add(imagTopo);
+		Image imgTwo =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
+		
+		imagTopo.setIcon(new ImageIcon(imgTwo));
 	}
 }
 

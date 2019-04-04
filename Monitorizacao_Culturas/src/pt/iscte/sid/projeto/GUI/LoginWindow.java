@@ -18,10 +18,11 @@ import java.awt.Color;
 public class LoginWindow extends JFrame {
 
 	private JPanel contentPane;
-	private JPasswordField passwordField;
 	private JTextField textField;
 	private JButton btnNewButton;
-	private JRadioButton rdbtnInvestigador;
+	private JRadioButton radioButton_1;
+	private JRadioButton radioButton_2;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -50,44 +51,50 @@ public class LoginWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		ImageIcon imgFundo = new ImageIcon(SubscreverInvestig.class.getResource("/images/LoginWindow.png"));
-		
-		JRadioButton rdbtnAdmini = new JRadioButton("Administrador");
-		rdbtnAdmini.setForeground(Color.WHITE);
-		rdbtnAdmini.setBackground(Color.DARK_GRAY);
-		rdbtnAdmini.setBounds(592, 86, 109, 23);
-		contentPane.add(rdbtnAdmini);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(590, 191, 228, 34);
-		contentPane.add(passwordField);
+		ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/LoginWindow.png"));
 			
 			textField = new JTextField();
-			textField.setBounds(590, 129, 228, 34);
+			textField.setBounds(600, 146, 218, 34);
 			contentPane.add(textField);
 			textField.setColumns(10);
 			
 			btnNewButton = new JButton("Entrar");
 			btnNewButton.setForeground(Color.WHITE);
 			btnNewButton.setBackground(Color.DARK_GRAY);
-			btnNewButton.setBounds(662, 256, 86, 34);
+			btnNewButton.setBounds(649, 253, 95, 34);
 			contentPane.add(btnNewButton);
-			
-			rdbtnInvestigador = new JRadioButton("Investigador");
-			rdbtnInvestigador.setBackground(Color.DARK_GRAY);
-			rdbtnInvestigador.setForeground(Color.WHITE);
-			rdbtnInvestigador.setBounds(709, 86, 109, 23);
-			contentPane.add(rdbtnInvestigador);
-			
-			JLabel fundoPagina = new JLabel("");
-			fundoPagina.setBounds(0, 0, 834, 490);
-			Image imgOne =imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
-			
-			
-			fundoPagina.setIcon(new ImageIcon(imgOne));
-			
-				
-				contentPane.add(fundoPagina);
+					
+					JRadioButton radioButton = new JRadioButton("");
+					radioButton.setForeground(new Color(64, 64, 64));
+					radioButton.setBackground(Color.DARK_GRAY);
+					radioButton.setBounds(570, 86, 28, 23);
+					contentPane.add(radioButton);
+						
+						radioButton_1 = new JRadioButton("");
+						radioButton_1.setForeground(Color.DARK_GRAY);
+						radioButton_1.setBackground(Color.DARK_GRAY);
+						radioButton_1.setBounds(680, 86, 28, 23);
+						contentPane.add(radioButton_1);
+						
+						radioButton_2 = new JRadioButton("");
+						radioButton_2.setForeground(Color.DARK_GRAY);
+						radioButton_2.setBackground(Color.DARK_GRAY);
+						radioButton_2.setBounds(784, 86, 28, 23);
+						contentPane.add(radioButton_2);
+							
+							passwordField_1 = new JPasswordField();
+							passwordField_1.setBounds(600, 191, 218, 30);
+							contentPane.add(passwordField_1);
+							
+							JLabel fundoPagina = new JLabel("");
+							fundoPagina.setBounds(0, 0, 834, 490);
+							Image imgOne =imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
+							
+							
+							fundoPagina.setIcon(new ImageIcon(imgOne));
+							
+								
+								contentPane.add(fundoPagina);
 	}
 }
 
