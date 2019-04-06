@@ -2,7 +2,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_Escreve_Pedido_auto`(IN rtabela 
 BEGIN
 #uso: sp_escreve_pedido_auto (<nome da tabela>);
 
-#declare EXIT handler for SQLEXCEPTION 
+declare EXIT handler for SQLEXCEPTION 
 insert into g21destino.log_migracao (datahoraMig,tabela, processo, resultado) values (@horaexecucao,rtabela,'request made',0);
 
 set @tabelaAlvo=concat("g21destino.",rtabela);
