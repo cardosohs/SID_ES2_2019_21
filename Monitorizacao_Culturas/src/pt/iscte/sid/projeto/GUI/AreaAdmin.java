@@ -50,15 +50,7 @@ public class AreaAdmin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel fotoTopo = new JLabel("");
-		fotoTopo.setBounds(0, 0, 834, 301);
-		
-		ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/areaAdmin.png"));
-		Image imgOne =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
-		
-		fotoTopo.setIcon(new ImageIcon(imgOne));
-		
-		contentPane.add(fotoTopo);
+		ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaAdmin.png"));
 		
 		JButton btnCriaoDeUtilizadores = new JButton("Cria\u00E7\u00E3o de Utilizadores");
 		btnCriaoDeUtilizadores.addActionListener(new ActionListener() {
@@ -66,24 +58,40 @@ public class AreaAdmin extends JFrame {
 			}
 		});
 		btnCriaoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCriaoDeUtilizadores.setBounds(116, 348, 181, 53);
+		btnCriaoDeUtilizadores.setBounds(34, 368, 175, 35);
 		contentPane.add(btnCriaoDeUtilizadores);
 		
 		JButton btnManutenoDeUtilizadores = new JButton("Manuten\u00E7\u00E3o de Utilizadores");
 		btnManutenoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnManutenoDeUtilizadores.setBounds(307, 348, 201, 53);
+		btnManutenoDeUtilizadores.setBounds(222, 368, 195, 35);
 		contentPane.add(btnManutenoDeUtilizadores);
 		
 		JButton btnManutenoDeVariveis = new JButton("Manuten\u00E7\u00E3o de Vari\u00E1veis");
 		btnManutenoDeVariveis.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnManutenoDeVariveis.setBounds(518, 348, 181, 53);
+		btnManutenoDeVariveis.setBounds(427, 368, 185, 35);
 		contentPane.add(btnManutenoDeVariveis);
 		
 		JButton button = new JButton("LogOut");
 		button.setBounds(675, 499, 89, 23);
 		contentPane.add(button);
+		
+		JButton btnConfigurarLimites = new JButton("Configurar LimitesSistema");
+		btnConfigurarLimites.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnConfigurarLimites.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnConfigurarLimites.setBounds(628, 368, 185, 35);
+		contentPane.add(btnConfigurarLimites);
+		
+		JLabel fotoTopo = new JLabel("");
+		fotoTopo.setBounds(0, 0, 834, 476);
+		Image imgOne =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
+		
+		fotoTopo.setIcon(new ImageIcon(imgOne));
+		
+		contentPane.add(fotoTopo);
 	}
-
 }
 
 //JLabel lblNewLabel = new JLabel("Nome");
