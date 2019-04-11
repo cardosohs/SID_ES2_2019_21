@@ -556,6 +556,7 @@ GRANT SELECT, UPDATE, DELETE ON g21origem.investigador TO 'Administrador';
 GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.sistema TO 'Administrador';
 GRANT SELECT, UPDATE, DELETE ON g21origem.administrador TO 'Administrador';
 GRANT EXECUTE ON PROCEDURE g21origem.SP_CriaUtilizador TO 'Administrador';
+GRANT EXECUTE ON PROCEDURE g21origem.SP_ConsultaMedicao TO 'Investigador';
 
 GRANT SELECT ON g21origem.variaveis TO 'Investigador';
 GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.cultura TO 'Investigador';
