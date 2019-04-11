@@ -10,7 +10,7 @@ import java.util.Calendar;
  * Java PreparedStatement.
  * 
  */
-public class JavaMysqlPreparedStatementInsertExample
+public class Bulking_singleTable
 {
 
   public static void main(String[] args)

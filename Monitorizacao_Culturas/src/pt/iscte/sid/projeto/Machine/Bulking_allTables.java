@@ -11,7 +11,7 @@ package pt.iscte.sid.projeto.Machine;
 	 * Java PreparedStatement.
 	 * 
 	 */
-	public class JavaMysqlPreparedStatementInsertExample2
+	public class Bulking_allTables
 	{
 
 	  public static void main(String[] args)
