@@ -10,7 +10,7 @@ import java.util.Calendar;
  * Java PreparedStatement.
  * 
  */
-public class JavaMysqlPreparedStatementInsertExample
+public class Bulking_singleTable
 {
 
   public static void main(String[] args)
@@ -19,7 +19,7 @@ public class JavaMysqlPreparedStatementInsertExample
     {
       // create a mysql database connection
       String myDriver = "com.mysql.cj.jdbc.Driver";
-      String myUrl = "jdbc:mysql://localhost/origemg21db?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+      String myUrl = "jdbc:mysql://localhost/g21origem?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
       ////localhost:3306/database?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
       Class.forName(myDriver);
       Connection conn = DriverManager.getConnection(myUrl, "root", "");
@@ -48,7 +48,7 @@ public class JavaMysqlPreparedStatementInsertExample
   
 
       // execute the preparedstatement
-      for(int i=0; i<100000; i++) {
+      for(int i=0; i<10000; i++) {
     	  preparedStmt.execute();    	  
       }
       

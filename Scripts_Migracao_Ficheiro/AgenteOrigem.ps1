@@ -2,7 +2,7 @@
  # esta informação é obrigatória para a correta exportação
 $OutputEncoding = [System.Text.Encoding]::Unicode
 [Console]::OutputEncoding=[System.Text.Encoding]::Unicode
-$PSDefaultParameterValues = @{ '*:Encoding' = 'UTF8' }
+$PSDefaultParameterValues = @{ '*:Encoding' = 'utf16' }
 
 try{
 Unregister-Event -SourceIdentifier FileOnOrign -ErrorAction SilentlyContinue
@@ -12,22 +12,20 @@ write-host "não havia ganchos"
 }
 #definição de variáveis
 $folderOrigin = 'C:\Origem\'
-$filter = '*.*'                           
+$filter = '*.*'                             # <-- set this according to your requirements
 $destinationFolder='C:\destino\'
-$database="g21origem"
 #$IP='127.99.0.1'
 $RequestFile='request'
-$ConnectionString= "Server=localhost;Uid=root; database="+$database 
+$ConnectionString= "Server=localhost;Uid=root; database=origemg21db" 
 #$SP_GetData="AtualizaTabela"
 $user = "-uroot"
 $mysqlPaht = "C:\xampp\mysql\bin\mysql.exe " #--default-character-set=utf8"
-
-#o nome do ficheiro muda conforme a tabela a terminação não
+$database="OrigemG21DB"
+#o nome do ficheiro muda conforme a tabelal a terminação não
 $ResponseExtension=".xml"
-$responsePrefix="reply_"
 #$s=New-PSSession -ComputerName $IP
 
-Write-host "Activa escuta na pasta Origem"
+Write-host "Activa anzol na pasta Origem"
 $fsw = New-Object IO.FileSystemWatcher $folderOrigin, $filter -Property @{
  IncludeSubdirectories = $false              # <-- set this according to your requirements
  NotifyFilter = [IO.NotifyFilters]'FileName, LastWrite'
@@ -35,6 +33,9 @@ $fsw = New-Object IO.FileSystemWatcher $folderOrigin, $filter -Property @{
 $onCreated = Register-ObjectEvent $fsw Created -SourceIdentifier FileOnOrign -Action {
  #$path = $Event.SourceEventArgs.FullPath
  $name = $Event.SourceEventArgs.Name
+ #$changeType = $Event.SourceEventArgs.ChangeType
+ #$timeStamp = $Event.TimeGenerated
+ #Write-Host "The file '$name' was $changeType at $timeStamp" #for tests
  
  #Se for o ficheiro $RequestFile Obtem dados e exporta XML
  $prefixo=($name.Split('_'))[0]
@@ -48,18 +49,8 @@ Write-host 'obter dados do CSV'$name
 $data=Import-csv -path $FolderOrigin$name -Header "tabela","inicio","fim" -Delimiter "`t" -ErrorVariable $erroImport_csv
 remove-item $FolderOrigin$name 
 
-$ResponseFile= $responsePrefix+$DATA.tabela + $ResponseExtension
-if ($data.inicio -ne '/N'){
+$ResponseFile= $DATA.tabela + $ResponseExtension
 $swich='--xml -e "SELECT * FROM '+ $database+'.'+$DATA.tabela + " where dataHoraLog >='"+ $data.inicio + "' and dataHoraLog<='"+$data.fim +"'"+'" >'
-}
-elseif ($data.inicio -eq '/N'){
-Write-host "desde do inicio"
-$swich='--xml -e "SELECT * FROM '+ $database+'.'+$DATA.tabela + "' and dataHoraLog<='"+$data.fim +"'"+'" >'
-}
-else{
-write-host "erro na determinação do intervalo de tempo"
-return 0;
-}
  #Executa o Dump
 $cmd= $mysqlPaht+" "+ $user+" "+ $swich+" "+ $folderOrigin  + $ResponseFile
 
