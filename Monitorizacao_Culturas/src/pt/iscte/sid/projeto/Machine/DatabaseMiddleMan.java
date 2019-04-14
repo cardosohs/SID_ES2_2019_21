@@ -25,13 +25,20 @@ public class DatabaseMiddleMan {
     private final String DatabaseName="g21origem";
     private final static String DatabaseUser="root";
     private final static String UserPassword="";
-    private final String UsernameInvestigador;
-    private final String PasswordInvestigador;
+    private String UsernameInvestigador;
+    private String PasswordInvestigador;
+    private boolean failed;
     
     private Connection DatabaseConnection;
     
     public DatabaseMiddleMan(String username, String Password)
     {
+        StartConnection(username, Password);
+    }
+    
+    public void StartConnection(String username, String Password)
+    {
+        this.failed=true;
         this.PasswordInvestigador=Password;
         this.UsernameInvestigador=username;
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
@@ -39,10 +46,15 @@ public class DatabaseMiddleMan {
         try {
             Class.forName(DatabaseDriver);
             DatabaseConnection = DriverManager.getConnection(DatabaseURL, UsernameInvestigador, PasswordInvestigador);
+            this.failed=false;
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DatabaseMiddleMan.class.getName()).log(Level.SEVERE, null, ex);
+             System.out.println("Failed to login ");
+             this.failed=true;
+           // Logger.getLogger(DatabaseMiddleMan.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleMan.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(DatabaseMiddleMan.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Failed to login ");
+            this.failed=true;
         }
     }
     
@@ -98,11 +110,11 @@ public class DatabaseMiddleMan {
         }
         return false;
     }
-        public static void main(String[] args){
-            DatabaseMiddleMan d = new DatabaseMiddleMan("root","");
-            System.out.println(d.ReadFromDatabase("Investigador"));
-           if( !d.CloseConnection())
-               System.out.println("Falha no fecho da ligacao");
-        }
+    
+    public boolean getFailed()
+    {
+        return failed;
+    }
+      
 }
 
