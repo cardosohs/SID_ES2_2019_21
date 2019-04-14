@@ -10,15 +10,15 @@ package pt.iscte.sid.projeto.Machine;
  * @author Sérgio
  */
 public class main {
-      public static void main(String[] args){
-           DatabaseMiddleMan d = new DatabaseMiddleMan("alexandre","alex");
-            
-            if(d.getFailed())
-                System.out.println("nao deu para fazer login");
-            else
-                System.out.println(d.ReadFromDatabase("cultura"));
-           /* System.out.println(d.ReadFromDatabase("Investigador"));
-           if( !d.CloseConnection())
-               System.out.println("Falha no fecho da ligacao");*/
+    public static void main(String[] args){
+        DatabaseMiddleManForInvestigador d = new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com","123");
+        
+        if(d.Failed())
+            System.out.println("nao deu para fazer login");
+        else{
+           d.DeleteMedicao(25, 3, 1);
+            System.out.println(d.getMedicoes(3, 1));
         }
+        
+    }
 }
