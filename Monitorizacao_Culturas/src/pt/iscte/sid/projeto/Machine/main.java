@@ -11,14 +11,14 @@ package pt.iscte.sid.projeto.Machine;
  */
 public class main {
     public static void main(String[] args){
-        DatabaseMiddleManForInvestigador d = new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com","123");
+        DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("root","");
         
         if(d.Failed())
             System.out.println("nao deu para fazer login");
         else{
-           d.DeleteMedicao(25, 3, 1);
-            System.out.println(d.getMedicoes(3, 1));
+            d.DeleteInvestigador(2);
+           System.out.println(d.getInvestigador());
         }
-        
+
     }
 }

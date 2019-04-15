@@ -13,128 +13,19 @@ import java.util.logging.Logger;
 /**
  *  // CRUD culturas(done), R variavel(done), CRUD VM  (done)  CRUD medicoes R sistema(done) R medicoestmp e R medicoesluz
  * @author Sérgio
+ * Faz todas as operaçoes que o investigador pode fazer na BD, isto é, login, logout e operacoes CRUD(quando aplicavel)
  */
-public class DatabaseMiddleManForInvestigador {
-    private final String DatabaseName="g21origem";
-    private String UsernameInvestigador;
-    private String PasswordInvestigador;
-    private boolean failed;
-    private int IdInvestigador;
+public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
+ 
     private ArrayList<Integer> CulturasDoInvestigador = new ArrayList<>();
-    private ArrayList<Integer> VariaviesDaDatabase = new ArrayList<>();
-    
-    private Connection DatabaseConnection;
-    
-    public DatabaseMiddleManForInvestigador(String username, String Password)
-    {
-        StartConnection(username, Password);
-        GetInvetigadorId();
-    }
-    
-    
-    /**
-     * Inicia a ligacao a BD g21origem
-     * @param username
-     * @param Password
-     */
-    public void StartConnection(String username, String Password)
-    {
-        this.failed=true;
-        this.PasswordInvestigador=Password;
-        this.UsernameInvestigador=username;
-        
-        
-        String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
-        String DatabaseURL = "jdbc:mysql://localhost/"+DatabaseName+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        
-        try {
-            Class.forName(DatabaseDriver);
-            DatabaseConnection = DriverManager.getConnection(DatabaseURL, UsernameInvestigador, PasswordInvestigador);
-            this.failed=false;
-            
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Failed to login ");
-            this.failed=true;
-            
-            
-        } catch (SQLException ex) {
-            System.out.println("Failed to login ");
-            this.failed=true;
-        }
-    }
-    
-    
-    /**
-     * Termina a ligacao a BD
-     * @return
-     */
-    public boolean CloseConnection()
-    {
-        try {
-            DatabaseConnection.close();
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-    }
-    
-    /**
-     * Vai buscar o Id do investigador
-     */
-    private void GetInvetigadorId() {
-        String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
-        String DatabaseURL = "jdbc:mysql://localhost/"+DatabaseName+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        
-        try {
-            
-            Class.forName(DatabaseDriver);
-            Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, "root", "");
-            Statement stmt=DatabaseTMPConnection.createStatement();
-            
-            
-            String query = "select * from investigador where email='" + UsernameInvestigador+"';";
-            ResultSet rs=stmt.executeQuery(query);
-            
-            
-            while(rs.next()){
-                this.IdInvestigador=rs.getInt(1);
-            }
-            
-            DatabaseTMPConnection.close();
-            
-            
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Failed ao buscar o id do investigador");
-            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Failed ao buscar o id do investigador");
-        }
-    }
-    
 
-    
-    /**
-     * Retorna se a ligacao a BD falhou
-     * @return
-     */
-    public boolean Failed()
-    {
-        return failed;
+
+    public DatabaseMiddleManForInvestigador(String username, String Password) {
+        super(username, Password);
     }
+ 
     
-    
-    /**
-     * Retorna o id do investigador
-     * @return
-     */
-    public int getMyId()
-    {
-        return IdInvestigador;
-    }
+   
     
     
     /**
@@ -149,7 +40,7 @@ public class DatabaseMiddleManForInvestigador {
             String query1 = " insert into cultura(IdInvestigador,NomeCultura,DescricaoCultura) values (?, ?, ?)";
             PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);
             
-            preparedStmt1.setInt(1, IdInvestigador);
+            preparedStmt1.setInt(1, Id);
             preparedStmt1.setString (2, NomeDaCultura);
             preparedStmt1.setString (3, DescricaoDaCultura);
             
@@ -170,7 +61,7 @@ public class DatabaseMiddleManForInvestigador {
         String TableResult="";
         try{
             Statement stmt=DatabaseConnection.createStatement();
-            String query = "select * from cultura where idinvestigador=" + IdInvestigador;
+            String query = "select * from cultura where idinvestigador=" + Id;
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next()){
                 TableResult += "\nCultura \nID da cultura:" + rs.getString(1)+"\nNome da cultura:"+rs.getString(3)+"\nDescricao da cultura:"+rs.getString(4) + "\n\n";
@@ -244,30 +135,18 @@ public class DatabaseMiddleManForInvestigador {
     }
     
     
-    /**
-     * vai buscar as variaveis
-     * @return
-     */
-    public String getVariaveis()
-    {
-        String TableResult="";
-        try{
-            Statement stmt=DatabaseConnection.createStatement();
-            String query = "select * from variaveis";
-            ResultSet rs=stmt.executeQuery(query);
-            while(rs.next()){
-                if(!VariaviesDaDatabase.contains(Integer.parseInt(rs.getString(1))))
-                    VariaviesDaDatabase.add(Integer.parseInt(rs.getString(1)));
-                TableResult += "\nVariavel \nID da variavel:" + rs.getString(1)+"\nNome da variavel:"+rs.getString(2) +"\n\n";
-            }
-        }catch(Exception e){
-            System.out.println(e);
-            return null;
-        }
-        
-        return TableResult;
-    }
     
+    
+    
+    
+    /**
+     * Cria uma Variavel Medida associada à cultura do Investigador
+     * @param IdCultura
+     * @param IdVariavel
+     * @param LimiteInferior
+     * @param LimiteSuperior
+     * @return 
+     */
     public boolean CreateVariavelMedida(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
     {
         if(LimiteSuperior>LimiteInferior){
@@ -302,6 +181,13 @@ public class DatabaseMiddleManForInvestigador {
             return false;
     }
     
+    
+    /**
+     * Vai buscar as Variaveis Medidas associadas a uma cultura
+     * @param IdCultura
+     * @param IdVariavel
+     * @return 
+     */
     public String getVariaveisMedidas(int IdCultura, int IdVariavel)
     {
         getCulturas();
@@ -333,7 +219,14 @@ public class DatabaseMiddleManForInvestigador {
     }
     
     
-    
+    /**
+     * Atualiza uma variavel medida
+     * @param IdCultura
+     * @param IdVariavel
+     * @param LimiteInferior
+     * @param LimiteSuperior
+     * @return 
+     */
     public boolean UpdateVariaveisMedidas(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
     {
         if(LimiteSuperior>LimiteInferior){
@@ -366,7 +259,12 @@ public class DatabaseMiddleManForInvestigador {
     }
     
     
-    
+    /**
+     * Apaga uma variavel medida
+     * @param IdCultura
+     * @param IdVariavel
+     * @return 
+     */
     public boolean DeleteVariaveisMedidas(int IdCultura, int IdVariavel)
     {
         getCulturas();
@@ -391,29 +289,12 @@ public class DatabaseMiddleManForInvestigador {
             return false;
         }
     }
-    public String getSistema()
-    {
-        String TableResult="";
-        try{
-            Statement stmt=DatabaseConnection.createStatement();
-            String query = "select * from sistema";
-            ResultSet rs=stmt.executeQuery(query);
-            while(rs.next()){
-                TableResult +=
-                        "\nSistema \nID do Sistema:" + rs.getString(1)+"\nLimite inferior da temperatira:"
-                        +rs.getString(2)+ "\nLimite inferior da temperatira:"
-                        +rs.getString(3)+ "\nLimite superior da temperatira:"
-                        +rs.getString(4)+ "\nLimite inferior da Luz:"
-                        +rs.getString(5)+ "\nLimite superior da Luz:"
-                        +"\n\n";
-            }
-        }catch(Exception e){
-            System.out.println(e);
-            return null;
-        }
-        
-        return TableResult;
-    }
+   
+ 
+    /**
+     * Vai buscar os dados da tabela MedicoesTemperatura
+     * @return 
+     */
     public String getMedicoesTemperatura()
     {
         String TableResult="";
@@ -435,6 +316,12 @@ public class DatabaseMiddleManForInvestigador {
         
         return TableResult;
     }
+    
+    
+    /**
+     * Vai buscar os dados da tabela MedicoesLuz 
+     * @return 
+     */
     public String getMedicoesLuz()
     {
         String TableResult="";
@@ -458,7 +345,13 @@ public class DatabaseMiddleManForInvestigador {
     }
     
     
-    
+    /**
+     * Permite ao Investigador inserir dados na tabela Medicoes
+     * @param IdCultura
+     * @param IdVariavel
+     * @param ValorMed
+     * @return 
+     */
     public boolean CreateMedicoes(int IdCultura, int IdVariavel,double ValorMed)
     {
         getCulturas();
@@ -490,6 +383,15 @@ public class DatabaseMiddleManForInvestigador {
             return false;
         }
     }
+    
+    
+    
+    /**
+     * Vai buscar os dados da tabela Medicoes
+     * @param IdCultura
+     * @param IdVariavel
+     * @return 
+     */
     public String getMedicoes(int IdCultura, int IdVariavel)
     {
         getCulturas();
@@ -519,6 +421,15 @@ public class DatabaseMiddleManForInvestigador {
         }
     }
     
+    
+    /**
+     * Permite atualizar dados da tabela medicoes
+     * @param IdMed
+     * @param IdCultura
+     * @param IdVariavel
+     * @param ValorMed
+     * @return 
+     */
     public boolean UpdateMedicao(int IdMed ,int IdCultura, int IdVariavel,double ValorMed)
     {
         getCulturas();
@@ -547,7 +458,13 @@ public class DatabaseMiddleManForInvestigador {
     }
     
     
-    
+    /**
+     * Permite ao Investigador apagar medicoes
+     * @param IdMed
+     * @param IdCultura
+     * @param IdVariavel
+     * @return 
+     */
     public boolean DeleteMedicao(int IdMed,int IdCultura, int IdVariavel)
     {
         
