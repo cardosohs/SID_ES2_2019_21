@@ -28,7 +28,7 @@ public class MongoJavaRead {
 	public static void main (String[] args) throws UnknownHostException {
 		
 		//Estabelece ligação com a MongoDB PRIMARIA
-		MongoClient mongoClient = new MongoClient("localhost", 27017);
+		MongoClient mongoClient = new MongoClient("localhost", 25017);
 		System.out.println("Connection established");
 		
 		//Request da DB "mydb"
