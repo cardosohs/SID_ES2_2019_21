@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *  // CRUD culturas(done), R variavel(done), CRUD VM  (done)  CRUD medicoes R sistema(done) R medicoestmp e R medicoesluz
+ * 
  * @author Sérgio
  * Faz todas as operaçoes que o investigador pode fazer na BD, isto é, login, logout e operacoes CRUD(quando aplicavel)
  */
@@ -156,7 +156,6 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 if(CulturasDoInvestigador.contains(IdCultura) && VariaviesDaDatabase.contains(IdVariavel) ){
                     String query1 = " insert into variaveismedidas(IdCultura,IdVariavel,LimiteInferior,LimiteSuperior) values (?, ?, ?,?)";
                     PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);
-                    // System.out.println(query1);
                     preparedStmt1.setInt(1, IdCultura);
                     preparedStmt1.setInt(2, IdVariavel);
                     preparedStmt1.setInt(3, LimiteInferior);
@@ -362,7 +361,6 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 Statement stmt=DatabaseConnection.createStatement();
                 String query1 = "insert into medicoes(IdCultura,IdVariavel,ValorMed) values(?,?,?)";
                 PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);
-                // System.out.println(query1);
                 preparedStmt1.setInt(1, IdCultura);
                 preparedStmt1.setInt(2, IdVariavel);
                 preparedStmt1.setDouble(3, ValorMed);
