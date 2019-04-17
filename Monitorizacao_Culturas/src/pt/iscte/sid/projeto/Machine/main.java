@@ -1,29 +1,23 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package pt.iscte.sid.projeto.Machine;
 
 /**
- *
+ * Esta classe serve para testar o backend de ES por favor nao apagar
  * @author Sérgio
  */
 public class main {
     public static void main(String[] args){
-        DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("root","");
-        
-        if(d.Failed())
-            System.out.println("nao deu para fazer login");
-        else{
-            //d.UpdateInvestigador(7, "NewEmail", "umnovoinves", "bananeiro");
-            //d.UpdateUserNaBD("Email", "NewEmail");
-            d.DeleteAdmin(4);
-            //d.DeleteUserNaBD("Email");
-           // d.DeleteUserNaBD("tmp");
-           //d.ExecuteSP("NovoInvestigador", "123", "Email", "bananeiro", "I");
-           //System.out.println(d.getOneInvestigador(4));
-        }
-
+        UserIdentifier d = new UserIdentifier();
+        String tmp =d.StartConnection("root", "123");
+        if(tmp.equals("A"))
+            System.out.println("Eu sou um admin");
+        else if(tmp.equals("I"))
+            System.out.println("Eu sou um investigador");
+        else
+            System.out.println("Login falhou");
     }
 }

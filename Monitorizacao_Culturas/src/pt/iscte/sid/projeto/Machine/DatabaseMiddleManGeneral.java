@@ -33,6 +33,8 @@ public class DatabaseMiddleManGeneral {
         StartConnection(username, Password);
         GetId();
     }
+    
+    
     /**
      * Inicia a ligacao a BD g21origem
      * @param username
@@ -54,12 +56,10 @@ public class DatabaseMiddleManGeneral {
             this.failed=false;
             
         } catch (ClassNotFoundException ex) {
-            System.out.println("Failed to login ");
             this.failed=true;
             
             
         } catch (SQLException ex) {
-            System.out.println("Failed to login ");
             this.failed=true;
         }
     }
