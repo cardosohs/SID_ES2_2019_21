@@ -18,11 +18,14 @@ public class main {
         else{
             //d.UpdateInvestigador(7, "NewEmail", "umnovoinves", "bananeiro");
             //d.UpdateUserNaBD("Email", "NewEmail");
-            d.DeleteAdmin(4);
+          //  d.DeleteAdmin(4);
+          //  d.ExecuteSP("userteste","123", "EmailDeTeste", "adsasgf", "I");
+            //d.UpdateInvestigadorPassword(5, "12345");
             //d.DeleteUserNaBD("Email");
            // d.DeleteUserNaBD("tmp");
-           //d.ExecuteSP("NovoInvestigador", "123", "Email", "bananeiro", "I");
+           //d.ExecuteSP("NovoAdmin", "123", "EmailAdmin", "bananeiro", "A");
            //System.out.println(d.getOneInvestigador(4));
+            d.UpdateAdministradorPassword(3, "12345");
         }
 
     }

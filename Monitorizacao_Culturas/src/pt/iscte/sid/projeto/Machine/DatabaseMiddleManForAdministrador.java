@@ -15,10 +15,8 @@ import java.util.logging.Logger;
 
 /**
  * 
- * FALTA TESTAR AS ALTERACOES DE PASSWORD E O LOGIN E TESTAR PROFUDAMENTE
  * 
  * @author Sérgio
- * Faz todas as operaçoes que o admin pode fazer na BD, isto é, login, logout, chamar SP e operacoes CRUD(quando aplicavel)
  *
  */
 public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
@@ -28,7 +26,13 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }
     
     
-    private String getOneInvestigador(int id)
+    
+    /**
+     * metodo de suporte que vai buscar o email de um investigador
+     * @param id
+     * @return 
+     */
+    private String getinvestigadorEmail(int id)
     {
         String TableResult="";
         try{
@@ -46,7 +50,13 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
         return TableResult;
     }
     
-    private String getOneAdministrador(int id)
+    
+    /**
+     * clase de suporte que vai buscar o email de um Admin
+     * @param id
+     * @return 
+     */
+    private String getAdministradorEmail(int id)
     {
         String TableResult="";
         try{
@@ -64,7 +74,12 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
         return TableResult;
     }
     
-    
+    /**
+     * classe de suporte que atualiza o nome de um utilizador na base de dados
+     * @param OldEmail
+     * @param NewEmail
+     * @return 
+     */
     private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
         try {
             String query="RENAME USER '"+OldEmail+"'@'localhost' to '"+NewEmail+"'@'localhost';";
@@ -77,6 +92,12 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
         }
     }
     
+    
+    /**
+     * Classe de suporte que apaga um utilizador da base de dados
+     * @param Email
+     * @return 
+     */
     private boolean DeleteUserNaBD(String Email)
     {
         try {
@@ -89,6 +110,8 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
             return false;
         }
     }
+    
+    
     /**
      * vai buscar os Investigadores
      * @return
@@ -120,7 +143,6 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param CategoriaProfe
      * @return
      */
-    //Esta por acabar, falta alterar o na tabela mysql.user
     public boolean UpdateInvestigador(int IdInvestigador, String Email, String Nome, String CategoriaProfe)
     {
         try {
@@ -130,20 +152,25 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
                     +"' where idInvestigador=" + IdInvestigador;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
-            return UpdateUserNaBD(getOneInvestigador(IdInvestigador),Email);
+            return UpdateUserNaBD(getinvestigadorEmail(IdInvestigador),Email);
         } catch (SQLException ex) {
             System.err.println("Erro ao executar a accao");
             return false;
         }
     }
     
-    
+    /**
+     * Atualiza apenas a password de um investigador
+     * @param IdInvestigador
+     * @param Password
+     * @return 
+     */
     public boolean UpdateInvestigadorPassword(int IdInvestigador, String Password)
     {
         try {
             String query="";
-            String Email=getOneInvestigador(IdInvestigador);
-            query="ALTER USER '"+Email+"'@'localhost' IDENTIFIED BY '"+Password+"'";
+            String Email=getinvestigadorEmail(IdInvestigador);
+            query="SET PASSWORD FOR '"+Email+"'@'localhost' = PASSWORD('"+Password+"');";
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
             return true;
@@ -160,12 +187,11 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param IdInvestigador
      * @return
      */
-    //Falta remover o user da tabela mysql.user
     public boolean DeleteInvestigador(int IdInvestigador)
     {
         boolean success=false;
         try {
-            success= DeleteUserNaBD(getOneInvestigador(IdInvestigador));
+            success= DeleteUserNaBD(getinvestigadorEmail(IdInvestigador));
             if(success){
                 String query = " delete from investigador where idinvestigador=" + IdInvestigador;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
@@ -210,8 +236,6 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param Nome
      * @return
      */
-    
-    //Esta como o UpdateInvestigador
     public boolean UpdateAdministrador(int IdAdmin, String Email, String Nome)
     {
         try {
@@ -221,19 +245,26 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
                     +"' where idInvestigador=" + IdAdmin;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
-            return UpdateUserNaBD(getOneAdministrador(IdAdmin),Email);
+            return UpdateUserNaBD(getAdministradorEmail(IdAdmin),Email);
         } catch (SQLException ex) {
             System.err.println("Erro ao executar a accao");
             return false;
         }
     }
     
+    
+    /**
+     * Atualiza a password de um admin
+     * @param IdAdministrador
+     * @param Password
+     * @return 
+     */
     public boolean UpdateAdministradorPassword(int IdAdministrador, String Password)
     {
         try {
             String query="";
-            String Email=getOneAdministrador(IdAdministrador);
-            query="ALTER USER '"+Email+"'@'localhost' IDENTIFIED BY '"+Password+"'";
+            String Email=getAdministradorEmail(IdAdministrador);
+            query=query="SET PASSWORD FOR '"+Email+"'@'localhost' = PASSWORD('"+Password+"');";
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
             return true;
@@ -251,13 +282,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param IdAdmin
      * @return
      */
-    
-    //esta como o DeleteInvestigador
     public boolean DeleteAdmin(int IdAdmin)
     {
-        boolean success=false;
         try {
-            success= DeleteUserNaBD(getOneAdministrador(IdAdmin));
+          boolean  success= DeleteUserNaBD(getAdministradorEmail(IdAdmin));
             if(success){
                 String query = " delete from administrador where idadmin=" + IdAdmin;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
@@ -393,7 +421,15 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
         
     }
     
-    
+    /**
+     * Executa a SP_CriaUtilizador
+     * @param InNome
+     * @param InPassword
+     * @param InEmail
+     * @param InCategoriaProfe
+     * @param InTipo
+     * @return 
+     */
     public boolean ExecuteSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
     {
         CallableStatement cs = null;
