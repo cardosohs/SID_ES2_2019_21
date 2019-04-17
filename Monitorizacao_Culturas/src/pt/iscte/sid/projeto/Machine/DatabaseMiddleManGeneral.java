@@ -176,12 +176,11 @@ public class DatabaseMiddleManGeneral {
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next()){
                 TableResult +=
-                        "\nSistema \nID do Sistema:" + rs.getString(1)+"\nLimite inferior da temperatira:"
-                        +rs.getString(2)+ "\nLimite inferior da temperatira:"
-                        +rs.getString(3)+ "\nLimite superior da temperatira:"
-                        +rs.getString(4)+ "\nLimite inferior da Luz:"
-                        +rs.getString(5)+ "\nLimite superior da Luz:"
-                        +"\n\n";
+                        "\nSistema \nID do Sistema:" + rs.getString(1)+"\nLimite inferior da temperatura:"
+                        +rs.getString(2)+ "\nLimite superior da temperatura:"
+                        +rs.getString(3)+ "\nLimite inferior da luz:"
+                        +rs.getString(4)+ "\nLimite superior da Luz:"
+                        +rs.getString(5)+"\n\n";
             }
         }catch(Exception e){
             System.out.println(e);

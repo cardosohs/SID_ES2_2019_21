@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *  // CRUD culturas(done), R variavel(done), CRUD VM  (done)  CRUD medicoes R sistema(done) R medicoestmp e R medicoesluz
+ * 
  * @author Sérgio
  * Faz todas as operaçoes que o investigador pode fazer na BD, isto é, login, logout e operacoes CRUD(quando aplicavel)
  */

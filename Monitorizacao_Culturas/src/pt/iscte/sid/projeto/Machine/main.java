@@ -16,8 +16,13 @@ public class main {
         if(d.Failed())
             System.out.println("nao deu para fazer login");
         else{
-            d.DeleteInvestigador(2);
-           System.out.println(d.getInvestigador());
+            //d.UpdateInvestigador(7, "NewEmail", "umnovoinves", "bananeiro");
+            //d.UpdateUserNaBD("Email", "NewEmail");
+            d.DeleteAdmin(4);
+            //d.DeleteUserNaBD("Email");
+           // d.DeleteUserNaBD("tmp");
+           //d.ExecuteSP("NovoInvestigador", "123", "Email", "bananeiro", "I");
+           //System.out.println(d.getOneInvestigador(4));
         }
 
     }
