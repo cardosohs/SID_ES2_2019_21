@@ -18,7 +18,7 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 		static final String BROKER_URL = "wss://iot.eclipse.org:443/ws";
 		static final String M2MIO_DOMAIN = "iot.eclipse.org";
 		static final String M2MIO_STUFF = "things";
-		static final String M2MIO_THING = "js-utility-j28jB";
+		static final String M2MIO_THING = "js-utility-ZlS49";
 		static final String M2MIO_USERNAME = "alex";
 		static final String M2MIO_PASSWORD_MD5 = "123";
 

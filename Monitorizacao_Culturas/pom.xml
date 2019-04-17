@@ -54,12 +54,27 @@
     <version>3.4.3</version>
 </dependency>
 
+<!-- http://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/installation/ -->
+<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongodb-driver</artifactId>
+    <version>3.10.1</version>
+</dependency>
+
 <!-- https://www.eclipse.org/paho/clients/java/ -->
 <dependency>
     <groupId>org.eclipse.paho</groupId>
     <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.mongodb/bson -->
+<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>bson</artifactId>
+    <version>3.0.4</version>
+</dependency>
+
 
 </dependencies>
 </project>

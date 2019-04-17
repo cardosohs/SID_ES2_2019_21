@@ -16,5 +16,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/cardo/Desktop/LEI-PL/EI_3_ANO/2_semestre/SID/PROJETO/MONGODB/driversMongoJavaConnect/jackson-all-1.9.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
