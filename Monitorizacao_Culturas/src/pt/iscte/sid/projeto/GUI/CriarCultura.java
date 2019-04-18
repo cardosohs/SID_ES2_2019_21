@@ -12,19 +12,20 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CriarCultura extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JButton btnNewButton;
-	private JButton btnAdicionarsMinhas;
-	private JButton btnVoltar;
-	private JTextField txtAquiNoDeve;
+	private JTextField textField;
+	private JButton button;
+	private JTextField textField_3;
+	private JButton btnAdicionarVariavel;
 
 	/**
 	 * Launch the application.
@@ -59,46 +60,42 @@ public class CriarCultura extends JFrame {
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(199, 242, 230, 27);
+		textField_2.setBounds(206, 299, 294, 27);
 		contentPane.add(textField_2);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(152, 291, 240, 27);
-		contentPane.add(textField_3);
+		textField_1 = new JTextField();
+		textField_1.setToolTipText("Apenas se deseja alterar uma cultura existente");
+		textField_1.setColumns(10);
+		textField_1.setBounds(167, 175, 126, 27);
+		contentPane.add(textField_1);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(303, 344, 434, 27);
-		contentPane.add(textField_4);
+		btnNewButton = new JButton("Adicionar/Alterar Cultura");
+		btnNewButton.setBounds(378, 435, 177, 29);
+		contentPane.add(btnNewButton);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(154, 191, 58, 27);
+		textField.setBounds(167, 364, 618, 27);
 		contentPane.add(textField);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(357, 191, 58, 27);
-		contentPane.add(textField_1);
+		button = new JButton("Voltar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CulturasLista cl = new CulturasLista();
+				cl.setVisible(true);
+			}
+		});
+		button.setBounds(717, 500, 89, 23);
+		contentPane.add(button);
 		
-		btnNewButton = new JButton("OK");
-		btnNewButton.setBounds(740, 344, 58, 27);
-		contentPane.add(btnNewButton);
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(205, 238, 126, 27);
+		contentPane.add(textField_3);
 		
-		btnAdicionarsMinhas = new JButton("Adicionar \u00E0s minhas Culturas");
-		btnAdicionarsMinhas.setBounds(498, 498, 211, 30);
-		contentPane.add(btnAdicionarsMinhas);
-		
-		btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(719, 498, 90, 30);
-		contentPane.add(btnVoltar);
-		
-		txtAquiNoDeve = new JTextField();
-		txtAquiNoDeve.setText("Aqui n\u00E3o deve ser necess\u00E1rio o ID da cultura nem o ID Investigador, nem a confirma\u00E7\u00E3o do e-mail . depende do codigo disto");
-		txtAquiNoDeve.setBounds(45, 409, 709, 20);
-		contentPane.add(txtAquiNoDeve);
-		txtAquiNoDeve.setColumns(10);
+		btnAdicionarVariavel = new JButton("Adicionar Variavel");
+		btnAdicionarVariavel.setBounds(228, 435, 140, 29);
+		contentPane.add(btnAdicionarVariavel);
 		
 		JLabel imagemFundo = new JLabel("");
 		imagemFundo.setBounds(0, 0, 834, 462);

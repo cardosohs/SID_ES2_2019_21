@@ -21,7 +21,6 @@ public class LoginWindow extends JFrame {
 	private JTextField textField;
 	private JButton btnNewButton;
 	private JRadioButton radioButton_1;
-	private JRadioButton radioButton_2;
 	private JPasswordField passwordField_1;
 
 	/**
@@ -44,9 +43,11 @@ public class LoginWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginWindow() {
+		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100,  834, 530);
+		setBounds(100, 100, 850, 600);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -54,40 +55,34 @@ public class LoginWindow extends JFrame {
 		ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/LoginWindow.png"));
 			
 			textField = new JTextField();
-			textField.setBounds(600, 146, 218, 34);
+			textField.setBounds(600, 179, 244, 37);
 			contentPane.add(textField);
 			textField.setColumns(10);
 			
 			btnNewButton = new JButton("Entrar");
 			btnNewButton.setForeground(Color.WHITE);
 			btnNewButton.setBackground(Color.DARK_GRAY);
-			btnNewButton.setBounds(649, 253, 95, 34);
+			btnNewButton.setBounds(652, 292, 95, 34);
 			contentPane.add(btnNewButton);
 					
 					JRadioButton radioButton = new JRadioButton("");
 					radioButton.setForeground(new Color(64, 64, 64));
 					radioButton.setBackground(Color.DARK_GRAY);
-					radioButton.setBounds(570, 86, 28, 23);
+					radioButton.setBounds(640, 132, 28, 23);
 					contentPane.add(radioButton);
 						
 						radioButton_1 = new JRadioButton("");
 						radioButton_1.setForeground(Color.DARK_GRAY);
 						radioButton_1.setBackground(Color.DARK_GRAY);
-						radioButton_1.setBounds(680, 86, 28, 23);
+						radioButton_1.setBounds(745, 132, 28, 23);
 						contentPane.add(radioButton_1);
-						
-						radioButton_2 = new JRadioButton("");
-						radioButton_2.setForeground(Color.DARK_GRAY);
-						radioButton_2.setBackground(Color.DARK_GRAY);
-						radioButton_2.setBounds(784, 86, 28, 23);
-						contentPane.add(radioButton_2);
 							
 							passwordField_1 = new JPasswordField();
-							passwordField_1.setBounds(600, 191, 218, 30);
+							passwordField_1.setBounds(600, 227, 244, 37);
 							contentPane.add(passwordField_1);
 							
 							JLabel fundoPagina = new JLabel("");
-							fundoPagina.setBounds(0, 0, 834, 490);
+							fundoPagina.setBounds(0, 33, 844, 506);
 							Image imgOne =imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
 							
 							

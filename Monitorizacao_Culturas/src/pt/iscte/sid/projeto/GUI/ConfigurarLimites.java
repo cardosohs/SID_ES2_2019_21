@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ConfigurarLimites extends JFrame {
 
@@ -25,6 +27,8 @@ public class ConfigurarLimites extends JFrame {
 	private JButton btnAdicionarNovosLimites;
 	private JButton button_2;
 	private JButton btnEliminar;
+	private JTextField textField_4;
+	private JLabel lblIdDosLimites;
 
 	/**
 	 * Launch the application.
@@ -78,6 +82,12 @@ public class ConfigurarLimites extends JFrame {
 		contentPane.add(textField_3);
 		
 		button = new JButton("Voltar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AreaAdmin ad = new AreaAdmin();
+				ad.setVisible(true);
+			}
+		});
 		button.setBounds(721, 509, 85, 30);
 		contentPane.add(button);
 		
@@ -88,19 +98,28 @@ public class ConfigurarLimites extends JFrame {
 		contentPane.add(txtFaltaAdaptarPara);
 		
 		btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");
+		btnAdicionarNovosLimites.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAdicionarNovosLimites.setBounds(602, 390, 177, 30);
 		contentPane.add(btnAdicionarNovosLimites);
 		
 		button_2 = new JButton("Submeter Altera\u00E7\u00F5es");
-		button_2.setBounds(271, 429, 158, 30);
+		button_2.setBounds(281, 472, 162, 30);
 		contentPane.add(button_2);
 		
 		btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(136, 429, 105, 30);
+		btnEliminar.setBounds(281, 431, 162, 30);
 		contentPane.add(btnEliminar);
 		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(202, 447, 70, 29);
+		contentPane.add(textField_4);
+		
 		JLabel imagemFundo = new JLabel("");
-		imagemFundo.setBounds(0, 0, 834, 476);
+		imagemFundo.setBounds(0, 0, 834, 420);
 		Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
 		
 		
@@ -108,6 +127,10 @@ public class ConfigurarLimites extends JFrame {
 		imagemFundo.setIcon(new ImageIcon (imgm));
 		
 		contentPane.add(imagemFundo);
+		
+		lblIdDosLimites = new JLabel("ID dos Limites");
+		lblIdDosLimites.setBounds(120, 453, 86, 16);
+		contentPane.add(lblIdDosLimites);
 	}
 
 }
