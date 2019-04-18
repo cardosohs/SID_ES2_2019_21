@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JToggleButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
@@ -70,8 +71,7 @@ public class SubscreverUtilizador {
 		Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
 		
 		
-		//String[] categoriasProfissionais = {"Phd Student", "PostDoc Student", "Investigador auxiliar", "Investigador principal", "Investigador Coordenador"};
-		String[] categoriasProfissionais = {""};
+		String[] categoriasProfissionais = {" ","Phd Student", "PostDoc Student", "Investigador auxiliar", "Investigador principal", "Investigador Coordenador"};
 		JComboBox comboBox = new JComboBox(categoriasProfissionais);
 		comboBox.setToolTipText("Se Investigador");
 		comboBox.setAutoscrolls(true);
@@ -129,6 +129,8 @@ public class SubscreverUtilizador {
 		btnOk.setBackground(Color.WHITE);
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ManutencaoUtilizadores n= new ManutencaoUtilizadores();
+				n.setVisible(true);
 			}
 		});
 		btnOk.setBounds(612, 499, 156, 27);
@@ -163,4 +165,6 @@ public class SubscreverUtilizador {
 		
 		String[] departamentos = {"Biologia", "Química"};
 	}
+
+	
 }

@@ -55,7 +55,7 @@ public class AreaInvestigador extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/area do investigador.png"));
+		ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaInvestigador.png"));
 		
 		JLabel Menu = new JLabel("");
 		Menu.setBounds(212, 219, 363, 75);
@@ -65,27 +65,38 @@ public class AreaInvestigador extends JFrame {
 		JButton btnNewButton = new JButton("As Minhas Culturas");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CulturasLista cl = new CulturasLista();
+				cl.setVisible(true);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(151, 321, 176, 53);
+		btnNewButton.setBounds(157, 288, 162, 69);
 		contentPane.add(btnNewButton);
 		
 		JButton btnAppAndroid = new JButton("App Android");
 		btnAppAndroid.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAppAndroid.setBounds(337, 321, 158, 53);
+		btnAppAndroid.setBounds(336, 288, 169, 69);
 		contentPane.add(btnAppAndroid);
 		
-		JButton btnVerificarRegistoPessoal = new JButton("Verificar Luz/Temperatura");
+		JButton btnVerificarRegistoPessoal = new JButton("Consultar Vari\u00E1veis");
 		btnVerificarRegistoPessoal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InserirDados clt = new InserirDados();
+			//	clt.setVisible(true);                                                             //Problema aqui - perceber pq
+				
 			}
 		});
 		btnVerificarRegistoPessoal.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVerificarRegistoPessoal.setBounds(505, 321, 189, 53);
+		btnVerificarRegistoPessoal.setBounds(515, 288, 169, 69);
 		contentPane.add(btnVerificarRegistoPessoal);
 		
 		JButton btnLogout = new JButton("LogOut");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						LoginWindow lw = new LoginWindow();
+						lw.setVisible(true);
+			}
+		});
 		btnLogout.setBounds(657, 498, 89, 23);
 		contentPane.add(btnLogout);
 		

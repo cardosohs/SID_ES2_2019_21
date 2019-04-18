@@ -1,25 +1,31 @@
 package pt.iscte.sid.projeto.GUI;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
 
 public class InserirDados {
 
-	private JFrame frame;
+	private JFrame frmConsultarVariveis;
+	private JTable table;
+	private JButton btnAdicionarVariavel;
+	private JLabel lblSeleccionarIdDa;
 	private JTextField textField;
+	private JButton btnApagarVariavel;
+	private JLabel lblNewLabel_1;
+	private JButton btnVoltar;
+	private JLabel lblSeleccionaridDaCultura;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
 
 	/**
 	 * Launch the application.
@@ -29,7 +35,7 @@ public class InserirDados {
 			public void run() {
 				try {
 					InserirDados window = new InserirDados();
-					window.frame.setVisible(true);
+					window.frmConsultarVariveis.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,118 +54,63 @@ public class InserirDados {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 850, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmConsultarVariveis = new JFrame();
+		frmConsultarVariveis.getContentPane().setBackground(Color.WHITE);
+		frmConsultarVariveis.setTitle("Consultar Vari\u00E1veis");
+		frmConsultarVariveis.setBounds(100, 100, 850, 600);
+		frmConsultarVariveis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmConsultarVariveis.getContentPane().setLayout(null);
 		
-		JLabel lblInserirDados = new JLabel("Inserir Dados");
-		lblInserirDados.setBounds(332, 137, 87, 16);
-		frame.getContentPane().add(lblInserirDados);
+		ImageIcon imagem = new ImageIcon (InserirDados.class.getResource("/images/listaVariaveis.png"));
 		
-		JLabel lblNewLabel = new JLabel("(inserir Imagem)");
-		lblNewLabel.setBounds(558, 44, 121, 16);
-		frame.getContentPane().add(lblNewLabel);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(110, 204, 618, 262);
+		frmConsultarVariveis.getContentPane().add(scrollPane);
 		
-		JLabel lblNewLabel_1 = new JLabel("ID Cultura");
-		lblNewLabel_1.setBounds(38, 219, 67, 16);
-		frame.getContentPane().add(lblNewLabel_1);
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		
-		JLabel lblPhMeio = new JLabel("ph Meio");
-		lblPhMeio.setBounds(38, 253, 135, 16);
-		frame.getContentPane().add(lblPhMeio);
+		btnAdicionarVariavel = new JButton("Adicionar variavel");
+		btnAdicionarVariavel.setBounds(340, 511, 149, 23);
+		frmConsultarVariveis.getContentPane().add(btnAdicionarVariavel);
 		
-		JLabel lblConcentraoO = new JLabel("Concentracao O2");
-		lblConcentraoO.setBounds(38, 282, 121, 16);
-		frame.getContentPane().add(lblConcentraoO);
-		
-		JLabel lblConcentracaoCo = new JLabel("Concentracao CO2");
-		lblConcentracaoCo.setBounds(38, 311, 121, 16);
-		frame.getContentPane().add(lblConcentracaoCo);
-		
-		JLabel lblTempoGeracao = new JLabel("Tempo Geracao");
-		lblTempoGeracao.setBounds(38, 340, 121, 16);
-		frame.getContentPane().add(lblTempoGeracao);
-		
-		JLabel lblContaminantes = new JLabel("Contaminantes?");
-		lblContaminantes.setBounds(38, 368, 121, 16);
-		frame.getContentPane().add(lblContaminantes);
-		
-		JLabel lblEspecieEmCrescimento = new JLabel("Especie em Crescimento");
-		lblEspecieEmCrescimento.setBounds(396, 219, 155, 16);
-		frame.getContentPane().add(lblEspecieEmCrescimento);
-		
-		JLabel lblColonias = new JLabel("# Colonias");
-		lblColonias.setBounds(396, 253, 155, 16);
-		frame.getContentPane().add(lblColonias);
-		
-		JLabel lblNutrientesEmFalta = new JLabel("Nutrientes em falta");
-		lblNutrientesEmFalta.setBounds(396, 282, 155, 16);
-		frame.getContentPane().add(lblNutrientesEmFalta);
-		
-		JLabel lblNutrientes = new JLabel("Nutrientes?");
-		lblNutrientes.setBounds(396, 311, 155, 16);
-		frame.getContentPane().add(lblNutrientes);
-		
-		JLabel lblColniasAmostra = new JLabel("# colnias amostra");
-		lblColniasAmostra.setBounds(396, 340, 155, 16);
-		frame.getContentPane().add(lblColniasAmostra);
-		
-		JButton btnAssociar = new JButton("Associar");
-		btnAssociar.setBounds(664, 414, 97, 25);
-		frame.getContentPane().add(btnAssociar);
+		lblSeleccionarIdDa = new JLabel("Seleccionar ID da Variavel");
+		lblSeleccionarIdDa.setBounds(112, 496, 149, 16);
+		frmConsultarVariveis.getContentPane().add(lblSeleccionarIdDa);
 		
 		textField = new JTextField();
-		textField.setBounds(185, 219, 116, 22);
-		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		textField.setBounds(271, 490, 47, 29);
+		frmConsultarVariveis.getContentPane().add(textField);
+		
+		btnApagarVariavel = new JButton("Apagar variavel");
+		btnApagarVariavel.setBounds(499, 511, 149, 23);
+		frmConsultarVariveis.getContentPane().add(btnApagarVariavel);
+		
+		lblNewLabel_1 = new JLabel("Aqui fica a tabela Variaveis ver https://www.youtube.com/watch?v=hg1S3QHFNrE");
+		lblNewLabel_1.setBounds(209, 166, 496, 14);
+		frmConsultarVariveis.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("VER https://www.youtube.com/watch?v=hg1S3QHFNrE");
+		lblNewLabel.setBounds(0, 0, 834, 485);
+		
+		Image img = imagem.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
+		lblNewLabel.setIcon(new ImageIcon(img));
+		
+		frmConsultarVariveis.getContentPane().add(lblNewLabel);
+		
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(715, 526, 84, 23);
+		frmConsultarVariveis.getContentPane().add(btnVoltar);
+		
+		lblSeleccionaridDaCultura = new JLabel("ID da Cultura");
+		lblSeleccionaridDaCultura.setBounds(191, 529, 149, 16);
+		frmConsultarVariveis.getContentPane().add(lblSeleccionaridDaCultura);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(185, 253, 116, 22);
-		frame.getContentPane().add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(185, 285, 116, 22);
-		frame.getContentPane().add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(185, 314, 116, 22);
-		frame.getContentPane().add(textField_3);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(185, 343, 116, 22);
-		frame.getContentPane().add(textField_4);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(563, 219, 116, 22);
-		frame.getContentPane().add(textField_6);
-		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(563, 253, 116, 22);
-		frame.getContentPane().add(textField_7);
-		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(563, 282, 116, 22);
-		frame.getContentPane().add(textField_8);
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("sim");
-		chckbxNewCheckBox.setBounds(566, 307, 113, 25);
-		frame.getContentPane().add(chckbxNewCheckBox);
-		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(563, 340, 116, 22);
-		frame.getContentPane().add(textField_9);
-		
-		JCheckBox chckbxSim = new JCheckBox("sim");
-		chckbxSim.setBounds(185, 367, 113, 25);
-		frame.getContentPane().add(chckbxSim);
+		textField_1.setBounds(271, 523, 47, 29);
+		frmConsultarVariveis.getContentPane().add(textField_1);
 	}
 }
+

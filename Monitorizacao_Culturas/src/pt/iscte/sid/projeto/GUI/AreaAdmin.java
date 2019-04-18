@@ -22,7 +22,7 @@ public class AreaAdmin extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Launch the application 
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -55,6 +55,8 @@ public class AreaAdmin extends JFrame {
 		JButton btnCriaoDeUtilizadores = new JButton("Cria\u00E7\u00E3o de Utilizadores");
 		btnCriaoDeUtilizadores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SubscreverUtilizador su = new SubscreverUtilizador();
+	//			su.setVisible(true);
 			}
 		});
 		btnCriaoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -62,22 +64,42 @@ public class AreaAdmin extends JFrame {
 		contentPane.add(btnCriaoDeUtilizadores);
 		
 		JButton btnManutenoDeUtilizadores = new JButton("Manuten\u00E7\u00E3o de Utilizadores");
+		btnManutenoDeUtilizadores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ManutencaoUtilizadores mu = new ManutencaoUtilizadores();
+				mu.setVisible(true);
+			}
+		});
 		btnManutenoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnManutenoDeUtilizadores.setBounds(222, 368, 195, 35);
 		contentPane.add(btnManutenoDeUtilizadores);
 		
 		JButton btnManutenoDeVariveis = new JButton("Manuten\u00E7\u00E3o de Vari\u00E1veis");
+		btnManutenoDeVariveis.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ManutencaoVariaveis mv = new ManutencaoVariaveis();
+				mv.setVisible(true);
+			}
+		});
 		btnManutenoDeVariveis.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnManutenoDeVariveis.setBounds(427, 368, 185, 35);
 		contentPane.add(btnManutenoDeVariveis);
 		
 		JButton button = new JButton("LogOut");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoginWindow lw = new LoginWindow();
+				lw.setVisible(true);
+			}
+		});
 		button.setBounds(675, 499, 89, 23);
 		contentPane.add(button);
 		
 		JButton btnConfigurarLimites = new JButton("Configurar LimitesSistema");
 		btnConfigurarLimites.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ConfigurarLimites ls = new ConfigurarLimites();
+				ls.setVisible(true);
 			}
 		});
 		btnConfigurarLimites.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -94,18 +116,5 @@ public class AreaAdmin extends JFrame {
 	}
 }
 
-//JLabel lblNewLabel = new JLabel("Nome");
-//lblNewLabel.setBounds(76, 198, 46, 14);
-//frmSubscreverInvestigador.getContentPane().add(lblNewLabel);
-//
-//JLabel a = new JLabel("");
-//a.setBounds(0, 0, 834, 144);
-//
-//ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/SubscricaoInvestigador.png"));
-//Image imgOne =imgTopo.getImage().getScaledInstance(a.getWidth(), a.getHeight(), Image.SCALE_SMOOTH);
-//
-//imagTopo.setIcon(new ImageIcon(imgOne));
-//
-//frmSubscreverInvestigador.getContentPane().add(imagTopo);
-//}}
+
 

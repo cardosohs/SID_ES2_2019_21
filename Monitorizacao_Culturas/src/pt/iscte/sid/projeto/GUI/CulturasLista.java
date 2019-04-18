@@ -34,6 +34,8 @@ public class CulturasLista extends JFrame {
 	private JTextField txtInvestigador;
 	private JTextField txtParaApagarPara;
 	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -66,7 +68,7 @@ public class CulturasLista extends JFrame {
 		
 		ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
 		
-		JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura Seleccionada");
+		JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
 		btnEliminarCulturaSeleccionada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -79,25 +81,43 @@ public class CulturasLista extends JFrame {
 		txtParaApagarPara = new JTextField();
 		scrollPane.setViewportView(txtParaApagarPara);
 		txtParaApagarPara.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
+		txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura + VariaveisMedidas + Medicoes (JOIN) (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
 		txtParaApagarPara.setColumns(10);
 		
 		JButton btnNewButton_1 = new JButton("Voltar");
-		btnNewButton_1.setBounds(650, 500, 89, 23);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AreaInvestigador ai = new AreaInvestigador();
+				ai.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(731, 527, 77, 23);
 		CulturasSobResponsabilidade.add(btnNewButton_1);
-		btnEliminarCulturaSeleccionada.setBounds(263, 500, 207, 23);
+		btnEliminarCulturaSeleccionada.setBounds(211, 500, 149, 23);
 		CulturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
 		
-		JButton btnNewButton = new JButton("Submeter Altera\u00E7\u00F5es");
-		btnNewButton.setBounds(479, 500, 161, 23);
+		JButton btnNewButton = new JButton("Alterar Cultura ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CriarCultura cc = new CriarCultura();
+				cc.setVisible(true);;
+			}
+		});
+		btnNewButton.setBounds(211, 527, 149, 23);
 		CulturasSobResponsabilidade.add(btnNewButton);
 		
 		JButton ButtonAddCultura = new JButton("Adicionar Nova Cultura");
-		ButtonAddCultura.setBounds(88, 500, 165, 23);
+		ButtonAddCultura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CriarCultura cc = new CriarCultura();
+				cc.setVisible(true);
+			}
+		});
+		ButtonAddCultura.setBounds(222, 150, 165, 23);
 		CulturasSobResponsabilidade.add(ButtonAddCultura);
 		
 		JButton ButtonLoadTable = new JButton("Atualizar Info Culturas");
-		ButtonLoadTable.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		ButtonLoadTable.setFont(new Font("Tahoma", Font.BOLD, 11));
 		ButtonLoadTable.setBounds(563, 150, 165, 23);
 		CulturasSobResponsabilidade.add(ButtonLoadTable);
 		
@@ -135,6 +155,40 @@ public class CulturasLista extends JFrame {
 		textPane_1.setBackground(SystemColor.menu);
 		textPane_1.setBounds(760, 72, 36, 20);
 		CulturasSobResponsabilidade.add(textPane_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(154, 514, 47, 29);
+		CulturasSobResponsabilidade.add(textField_1);
+		
+		JLabel lblIdDaCultura = new JLabel("SeleccionarID da Cultura");
+		lblIdDaCultura.setBounds(10, 520, 149, 16);
+		CulturasSobResponsabilidade.add(lblIdDaCultura);
+		
+		JLabel lblSeleccionaridDaVariavel = new JLabel("SeleccionarID da Variavel");
+		lblSeleccionaridDaVariavel.setBounds(370, 520, 149, 16);
+		CulturasSobResponsabilidade.add(lblSeleccionaridDaVariavel);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(517, 514, 47, 29);
+		CulturasSobResponsabilidade.add(textField_2);
+		
+		JButton btnEliminarVariavel = new JButton("Eliminar Variavel");
+		btnEliminarVariavel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEliminarVariavel.setBounds(572, 500, 149, 23);
+		CulturasSobResponsabilidade.add(btnEliminarVariavel);
+		
+		JButton btnAlterarVariavel = new JButton("Alterar Variavel ");
+		btnAlterarVariavel.setBounds(572, 527, 149, 23);
+		CulturasSobResponsabilidade.add(btnAlterarVariavel);
+		
+		JButton btnAdicionarNovaVariavel = new JButton("Adicionar Nova Variavel");
+		btnAdicionarNovaVariavel.setBounds(388, 150, 172, 23);
+		CulturasSobResponsabilidade.add(btnAdicionarNovaVariavel);
 		
 		JLabel imagemTopo = new JLabel("Investigador:");
 		imagemTopo.setBounds(0, 0, 834, 165);
