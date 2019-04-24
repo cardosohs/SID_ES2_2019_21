@@ -1,4 +1,4 @@
-# _*Projeto ES2/SID 2018/2019 - Monitorizacao_de_Culturas*_
+# _*Projeto ES2/SID 2018/2019 - Monitorizacao_Culturas*_
 
 
 
