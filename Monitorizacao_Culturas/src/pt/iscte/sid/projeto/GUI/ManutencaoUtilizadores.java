@@ -14,12 +14,16 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ManutencaoUtilizadores extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtFaltaAdaptarPara;
 	private JTextField txtFaltaAdaptarPara_1;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -43,7 +47,7 @@ public class ManutencaoUtilizadores extends JFrame {
 	public ManutencaoUtilizadores() {
 		setTitle("Manuten\u00E7\u00E3o de Utilizadores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100,  834, 530);
+		setBounds(100, 100, 850, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,20 +56,40 @@ public class ManutencaoUtilizadores extends JFrame {
 		
 		ImageIcon image = new ImageIcon (ManutencaoUtilizadores.class.getResource("/images/manutencaoUtilizadores.png"));
 		
-		JButton btnSubmeterAlteraes = new JButton("Submeter Altera\u00E7\u00F5es");
-		btnSubmeterAlteraes.setBounds(235, 438, 158, 30);
+		JButton btnSubmeterAlteraes = new JButton("Alterar Utilizador");
+		btnSubmeterAlteraes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSubmeterAlteraes.setBounds(390, 497, 158, 30);
 		contentPane.add(btnSubmeterAlteraes);
 		
-		JButton btnAdicionarUtilizador = new JButton("Adicionar Utilizador");
-		btnAdicionarUtilizador.setBounds(393, 438, 158, 30);
+		JButton btnAdicionarUtilizador = new JButton("Adicionar Novo Utilizador");
+		btnAdicionarUtilizador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SubscreverUtilizador goWindow= new SubscreverUtilizador();
+			//	goWindow.setVisible(true);
+			}
+		});
+		btnAdicionarUtilizador.setBounds(547, 497, 179, 30);
 		contentPane.add(btnAdicionarUtilizador);
 		
-		JButton btnEliminarUtilizador = new JButton("Eliminar Utilizador");
-		btnEliminarUtilizador.setBounds(551, 438, 152, 30);
+		JButton btnEliminarUtilizador = new JButton("Eliminar Utilizador com este ID");
+		btnEliminarUtilizador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEliminarUtilizador.setBounds(185, 497, 206, 30);
 		contentPane.add(btnEliminarUtilizador);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(703, 438, 85, 30);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AreaAdmin ad = new AreaAdmin();
+				ad.setVisible(true);
+			}
+		});
+		btnVoltar.setBounds(725, 497, 85, 30);
 		contentPane.add(btnVoltar);
 		
 		txtFaltaAdaptarPara = new JTextField();
@@ -80,12 +104,30 @@ public class ManutencaoUtilizadores extends JFrame {
 		txtFaltaAdaptarPara_1.setBounds(456, 244, 269, 39);
 		contentPane.add(txtFaltaAdaptarPara_1);
 		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(143, 487, 31, 20);
+		contentPane.add(textField);
+		
 		JLabel imagemFundo = new JLabel("");
-		imagemFundo.setBounds(0, 0, 818, 468);
+		imagemFundo.setBounds(0, 0, 834, 458);
 		Image img = image.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
 		
 		imagemFundo.setIcon(new ImageIcon (img));
 		
 		contentPane.add(imagemFundo);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(143, 518, 31, 20);
+		contentPane.add(textField_1);
+		
+		JLabel lblIdAdministrador = new JLabel("ID Administrador");
+		lblIdAdministrador.setBounds(48, 487, 97, 16);
+		contentPane.add(lblIdAdministrador);
+		
+		JLabel lblIdInvestigador = new JLabel("ID Investigador");
+		lblIdInvestigador.setBounds(48, 518, 97, 16);
+		contentPane.add(lblIdInvestigador);
 	}
 }

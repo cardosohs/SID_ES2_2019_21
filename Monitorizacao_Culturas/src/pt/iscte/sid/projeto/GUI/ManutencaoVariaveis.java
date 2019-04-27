@@ -13,6 +13,8 @@ import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ManutencaoVariaveis extends JFrame {
 
@@ -65,6 +67,12 @@ public class ManutencaoVariaveis extends JFrame {
 		contentPane.add(btnEliminarVarivel);
 		
 		JButton button_1 = new JButton("Voltar");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AreaAdmin aa = new AreaAdmin();
+				aa.setVisible(true);
+			}
+		});
 		button_1.setBounds(708, 450, 85, 30);
 		contentPane.add(button_1);
 		
