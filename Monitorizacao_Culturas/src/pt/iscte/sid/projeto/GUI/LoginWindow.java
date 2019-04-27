@@ -32,6 +32,8 @@ public class LoginWindow extends JFrame {
     //private JRadioButton UserSelectionRadioButton;
     private JPasswordField PasswordInputField;
     private UserIdentifier userIdentifier= new UserIdentifier();
+    private JLabel PasswordLabel;
+    private JLabel Emaillabel;
     
     /**
      * Launch the application.
@@ -70,10 +72,20 @@ public class LoginWindow extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPanel);
+        //setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
-        ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/LoginWindow.png"));
+        PasswordLabel = new JLabel("Password");
+        PasswordLabel.setForeground(new Color(255, 255, 255));
+        PasswordLabel.setBounds(508, 227, 59, 25);
+        contentPanel.add(PasswordLabel);
+        
+        Emaillabel = new JLabel("Email");
+        Emaillabel.setForeground(new Color(255, 255, 255));
+        Emaillabel.setBounds(508, 179, 59, 25);
+        contentPanel.add(Emaillabel);
+        
+        
         
         EmailInputField = new JTextField();
         EmailInputField.setBounds(600, 179, 244, 37);
@@ -104,16 +116,18 @@ public class LoginWindow extends JFrame {
         
         JLabel fundoPagina = new JLabel("");
         fundoPagina.setBounds(0, 33, 844, 506);
-        Image imgOne =imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
         
-        
-        
-        fundoPagina.setIcon(new ImageIcon(imgOne));
+        //ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("images/LoginWindow.png"));
+        ImageIcon imgOne = new ImageIcon("/Monitorizacao_Culturas/src/images/LoginWindow.png");
+        		//imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
+        fundoPagina.setIcon(new ImageIcon(LoginWindow.class.getResource("/images/LoginWindow.png")));
         
         
         contentPanel.add(fundoPagina);
         
-        frame.add(contentPanel);
+        frame.getContentPane().add(contentPanel);
+        
+        
         LoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
