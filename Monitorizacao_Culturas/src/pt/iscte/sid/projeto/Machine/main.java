@@ -11,13 +11,13 @@ package pt.iscte.sid.projeto.Machine;
  */
 public class main {
     public static void main(String[] args){
-        UserIdentifier d = new UserIdentifier();
+       /* UserIdentifier d = new UserIdentifier();
         String tmp =d.StartConnection("root", "123");
         if(tmp.equals("A"))
             System.out.println("Eu sou um admin");
         else if(tmp.equals("I"))
             System.out.println("Eu sou um investigador");
         else
-            System.out.println("Login falhou");
+            System.out.println("Login falhou");*/
     }
 }
