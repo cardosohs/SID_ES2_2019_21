@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.MongoJavaConnect;
+package pt.iscte.sid.projeto.ligacao1e2;
 
 import java.net.UnknownHostException;
 
@@ -13,14 +13,14 @@ public class MongoJavaWrite {
 	public static void main (String[] args) throws UnknownHostException {
 		
 		//Estabelece ligação com a MongoDB PRIMARIA
-		MongoClient mongoClient = new MongoClient("localhost", 25017);
+		MongoClient mongoClient = new MongoClient("localhost", 27017);
 		System.out.println("Connection established");
 		
 		//Request da DB "mydb"
-		MongoDatabase database = mongoClient.getDatabase("mydb");
+		MongoDatabase database = mongoClient.getDatabase("mybd");
 		
 		//Request de TODAS as coleccoes de "mydb"
-		MongoCollection<Document> collection = database.getCollection("test");
+		MongoCollection<Document> collection = database.getCollection("MedicoesSensor");
 
 		
 		/*Cria uma nova entrada na colecao "test"

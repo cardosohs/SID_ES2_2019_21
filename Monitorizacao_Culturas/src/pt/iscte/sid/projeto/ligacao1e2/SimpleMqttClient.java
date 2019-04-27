@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.MongoJavaConnect;
+package pt.iscte.sid.projeto.ligacao1e2;
 
 	
 	import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
