@@ -46,7 +46,9 @@ public class AreaInvestigador extends JFrame {
             }
         });
     }*/
-    
+    private void CloseWindow() {
+        frame.setVisible(false);
+    }
     
     public AreaInvestigador(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
@@ -86,8 +88,7 @@ public class AreaInvestigador extends JFrame {
         JButton btnNewButton = new JButton("As Minhas Culturas");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CulturasLista cl = new CulturasLista();
-                cl.setVisible(true);
+                CulturasLista cl = new CulturasLista(databaseConnection);
             }
         });
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -102,7 +103,7 @@ public class AreaInvestigador extends JFrame {
         JButton btnVerificarRegistoPessoal = new JButton("Consultar Vari\u00E1veis");
         btnVerificarRegistoPessoal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                InserirDados clt = new InserirDados();
+                InserirDados clt = new InserirDados(databaseConnection);
                 //	clt.setVisible(true);                                                             //Problema aqui - perceber pq
                 
             }
@@ -115,7 +116,7 @@ public class AreaInvestigador extends JFrame {
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 LoginWindow lw = new LoginWindow();
-                lw.setVisible(true);
+                databaseConnection.CloseConnection();
             }
         });
         btnLogout.setBounds(657, 498, 89, 23);

@@ -24,21 +24,26 @@ public class AreaAdmin extends JFrame {
     private JFrame frame;
     private DatabaseMiddleManForAdministrador databaseConnection;
     
+    
+    private void CloseWindow() {
+        frame.setVisible(false);
+    }
+    
     /**
      * Launch the application
      */
-   /* public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    AreaAdmin frame = new AreaAdmin();
-                    //frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }*/
+    public static void main(String[] args) {
+    EventQueue.invokeLater(new Runnable() {
+    public void run() {
+    try {
+    AreaAdmin frame = new AreaAdmin();
+    //frame.setVisible(true);
+    } catch (Exception e) {
+    e.printStackTrace();
+    }
+    }
+    });
+    }
     
     public AreaAdmin(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
@@ -72,8 +77,8 @@ public class AreaAdmin extends JFrame {
         JButton btnCriaoDeUtilizadores = new JButton("Cria\u00E7\u00E3o de Utilizadores");
         btnCriaoDeUtilizadores.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SubscreverUtilizador su = new SubscreverUtilizador();
-                //			su.setVisible(true);
+                SubscreverUtilizador su = new SubscreverUtilizador(databaseConnection);
+                CloseWindow();
             }
         });
         btnCriaoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -83,8 +88,8 @@ public class AreaAdmin extends JFrame {
         JButton btnManutenoDeUtilizadores = new JButton("Manuten\u00E7\u00E3o de Utilizadores");
         btnManutenoDeUtilizadores.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ManutencaoUtilizadores mu = new ManutencaoUtilizadores();
-                mu.setVisible(true);
+                ManutencaoUtilizadores mu = new ManutencaoUtilizadores(databaseConnection);
+                CloseWindow();
             }
         });
         btnManutenoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -94,8 +99,8 @@ public class AreaAdmin extends JFrame {
         JButton btnManutenoDeVariveis = new JButton("Manuten\u00E7\u00E3o de Vari\u00E1veis");
         btnManutenoDeVariveis.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ManutencaoVariaveis mv = new ManutencaoVariaveis();
-                mv.setVisible(true);
+                ManutencaoVariaveis mv = new ManutencaoVariaveis(databaseConnection);
+                CloseWindow();
             }
         });
         btnManutenoDeVariveis.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -106,7 +111,8 @@ public class AreaAdmin extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 LoginWindow lw = new LoginWindow();
-                lw.setVisible(true);
+                databaseConnection.CloseConnection();
+                CloseWindow();
             }
         });
         button.setBounds(675, 499, 89, 23);
@@ -116,7 +122,7 @@ public class AreaAdmin extends JFrame {
         btnConfigurarLimites.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ConfigurarLimites ls = new ConfigurarLimites();
-                ls.setVisible(true);
+                CloseWindow();
             }
         });
         btnConfigurarLimites.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -130,7 +136,7 @@ public class AreaAdmin extends JFrame {
         fotoTopo.setIcon(new ImageIcon(imgOne));
         
         contentPanel.add(fotoTopo);
-                frame.add(contentPanel);
+        frame.add(contentPanel);
     }
 }
 
