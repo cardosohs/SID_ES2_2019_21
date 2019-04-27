@@ -105,7 +105,7 @@ public class CriarCultura extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CulturasLista cl = new CulturasLista();
-                cl.setVisible(true);
+                CloseWindow();
             }
         });
         button.setBounds(717, 500, 89, 23);
@@ -124,7 +124,7 @@ public class CriarCultura extends JFrame {
         imagemFundo.setBounds(0, 0, 834, 462);
         Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
         
-        imagemFundo.setIcon(new ImageIcon (imgm));
+       imagemFundo.setIcon(new ImageIcon (imgm));
         
         contentPanel.add(imagemFundo);
         frame.add(contentPanel);

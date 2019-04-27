@@ -75,7 +75,7 @@ public class ConsultarLuzTemp extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaInvestigador ai = new AreaInvestigador();
-                ai.setVisible(true);
+               CloseWindow();
             }
         });
         button.setBounds(728, 469, 85, 30);

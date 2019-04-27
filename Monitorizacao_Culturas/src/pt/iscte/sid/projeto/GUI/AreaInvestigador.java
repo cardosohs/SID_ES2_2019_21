@@ -78,7 +78,7 @@ public class AreaInvestigador extends JFrame {
         setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
-        //ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaInvestigador.png"));
+        ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaInvestigador.png"));
         
         JLabel Menu = new JLabel("");
         Menu.setBounds(212, 219, 363, 75);
@@ -89,6 +89,7 @@ public class AreaInvestigador extends JFrame {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CulturasLista cl = new CulturasLista(databaseConnection);
+                CloseWindow();
             }
         });
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -104,6 +105,7 @@ public class AreaInvestigador extends JFrame {
         btnVerificarRegistoPessoal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 InserirDados clt = new InserirDados(databaseConnection);
+                CloseWindow();
                 //	clt.setVisible(true);                                                             //Problema aqui - perceber pq
                 
             }
@@ -115,8 +117,9 @@ public class AreaInvestigador extends JFrame {
         JButton btnLogout = new JButton("LogOut");
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                LoginWindow lw = new LoginWindow();
                 databaseConnection.CloseConnection();
+                CloseWindow();
+                LoginWindow lw = new LoginWindow();
             }
         });
         btnLogout.setBounds(657, 498, 89, 23);
@@ -155,16 +158,16 @@ public class AreaInvestigador extends JFrame {
         JLabel fotoTopo = new JLabel("");
         fotoTopo.setBackground(Color.WHITE);
         fotoTopo.setBounds(0, 0, 834, 460);
-      //  Image imgOne =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
+        Image imgOne =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
         
-        //fotoTopo.setIcon(new ImageIcon(imgOne));
+        fotoTopo.setIcon(new ImageIcon(imgOne));
         
         
         contentPanel.add(fotoTopo);
         frame.add(contentPanel);
-      //  Image imgTwo =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
+        Image imgTwo =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
         
-       // fotoTopo.setIcon(new ImageIcon(imgTwo));*/
+        fotoTopo.setIcon(new ImageIcon(imgTwo));
     }
 }
 

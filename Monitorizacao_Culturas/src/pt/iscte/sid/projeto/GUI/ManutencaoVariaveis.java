@@ -92,7 +92,7 @@ public class ManutencaoVariaveis extends JFrame {
         button_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaAdmin aa = new AreaAdmin();
-                aa.setVisible(true);
+                CloseWindow();
             }
         });
         button_1.setBounds(708, 450, 85, 30);

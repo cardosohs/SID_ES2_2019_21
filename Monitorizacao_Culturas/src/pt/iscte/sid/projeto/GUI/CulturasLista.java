@@ -91,7 +91,7 @@ public class CulturasLista extends JFrame {
         setContentPane(CulturasSobResponsabilidade);
         CulturasSobResponsabilidade.setLayout(null);
         
-        ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
+       ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
         
         JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
         btnEliminarCulturaSeleccionada.addActionListener(new ActionListener() {
@@ -113,7 +113,7 @@ public class CulturasLista extends JFrame {
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaInvestigador ai = new AreaInvestigador();
-                ai.setVisible(true);
+                CloseWindow();
             }
         });
         btnNewButton_1.setBounds(731, 527, 77, 23);
@@ -217,9 +217,9 @@ public class CulturasLista extends JFrame {
         
         JLabel imagemTopo = new JLabel("Investigador:");
         imagemTopo.setBounds(0, 0, 834, 165);
-        Image imgOne =imgTopo.getImage().getScaledInstance(imagemTopo.getWidth(), imagemTopo.getHeight(), Image.SCALE_SMOOTH);
+       Image imgOne =imgTopo.getImage().getScaledInstance(imagemTopo.getWidth(), imagemTopo.getHeight(), Image.SCALE_SMOOTH);
         
-        imagemTopo.setIcon(new ImageIcon(imgOne));
+       imagemTopo.setIcon(new ImageIcon(imgOne));
         
         CulturasSobResponsabilidade.add(imagemTopo);
         frame.add(CulturasSobResponsabilidade);
