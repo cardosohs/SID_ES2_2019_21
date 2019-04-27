@@ -7,8 +7,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class Subscriber {
+	 static String[] valores = new String[4];
+	 
     public static void main(String[] args) {
-
+    	
+    	//resultados obtidos da mensagem:
+    	
+    	
         String topic = "/sid_lab_2019";
         String broker = "tcp://broker.mqtt-dashboard.com:1883";
         String clientId = "Client1";
@@ -28,6 +33,7 @@ public class Subscriber {
 
                 public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                     System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+                    valores = MessageParser.parse(mqttMessage.toString());
                 }
 
                 public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
