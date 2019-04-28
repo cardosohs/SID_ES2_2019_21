@@ -4,6 +4,8 @@ import org.bson.Document;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -13,8 +15,83 @@ import java.util.concurrent.TimeUnit;
 
 public class Subscriber {
 	
+
+	public static void main(String[] args) {
+
+		//resultados obtidos da mensagem:
+
+
+		String topic = "/sid_lab_2019";
+		String broker = "tcp://broker.mqtt-dashboard.com:1883";
+		String clientId = "Client1";
+		String dbName = "mybd";
+		String colName = "MedicoesSensor";
+
+		MemoryPersistence persistence = new MemoryPersistence();
+
+		//Estabelece ligação com a MongoDB PRIMARIA
+		MongoClient mongoClient = new MongoClient("localhost", 27017);
+		System.out.println("Connection established");
+
+		//Request da DB
+		MongoDatabase database = mongoClient.getDatabase(dbName);
+
+		//Request da coleção
+		MongoCollection<Document> collection = database.getCollection(colName);
+
+
+		try {
+			MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
+			MqttConnectOptions connOpts = new MqttConnectOptions();
+			connOpts.setCleanSession(true);
+			sampleClient.connect(connOpts);
+
+			sampleClient.subscribe(topic);
+			sampleClient.setCallback(new MqttCallback() {
+				public void connectionLost(Throwable throwable) {
+					throwable.printStackTrace();
+				}
+				
+				public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
+					String js1 = mqttMessage.toString();
+					String js = js1.replace("\"sens\":\"eth\"", "");
+					ObjectMapper mapper = new ObjectMapper();
+					JsonNode actualObj = mapper.readTree(js);
+					JsonNode jsonNode1 = actualObj.get("cell");
+
+					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+					System.out.println(jsonNode1);
+				}
+
+//				public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
+//
+//					Document doct = Document.parse(mqttMessage.toString());
+//					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+//					collection.insertOne(doct);
+//					System.out.println("Topic : " + topic + " Message : " + mqttMessage.toString());
+//					System.out.println("Mqttmessage: " + mqttMessage);
+//					System.out.println("Mqttmessagestr: " + mqttMessage.toString());
+//				}
+
+
+
+				public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
+					System.out.println("Delivery complete : " + iMqttDeliveryToken);
+				}
+
+			});
+			//timer para terminar recolha de info ... alterar conforme necessário
+			new CountDownLatch(1).await(100, TimeUnit.SECONDS);
+			sampleClient.disconnect();            
+		} catch (MqttException | InterruptedException e) {
+			e.printStackTrace();
+		}
+		mongoClient.close();
+	}
 	
-	//Sample of mqttMessage: {"tmp":"25.40","hum":"39.70","dat":"27/4/2019","tim":"21:15:5","cell":"18""sens":"eth"}
+	
+	
+/*	//Sample of mqttMessage: {"tmp":"25.40","hum":"39.70","dat":"27/4/2019","tim":"21:15:5","cell":"18""sens":"eth"}
 	public static void trataString (MqttMessage message) {
 		String luz, tmp, data, hora = "";
 		String temp1 = message.toString();
@@ -35,76 +112,5 @@ public class Subscriber {
 		System.out.println("A data é: " + data);
 		System.out.println("A hora é: " + hora);
 	}
-	
-
-    public static void main(String[] args) {
-    	
-    	//resultados obtidos da mensagem:
-    	
-    	
-        String topic = "/sid_lab_2019";
-        String broker = "tcp://broker.mqtt-dashboard.com:1883";
-        String clientId = "Client1";
-        
-    	String dbName = "mybd";
-    	String colName = "MedicoesSensor";
-    	
-        MemoryPersistence persistence = new MemoryPersistence();
-        
-//        //Estabelece ligação com a MongoDB PRIMARIA
-//        MongoClient mongoClient = new MongoClient("localhost", 27017);
-//    	System.out.println("Connection established");
-//    	
-//    	//Request da DB
-//    	MongoDatabase database = mongoClient.getDatabase(dbName);
-//    	
-//    	//Request da coleção
-//    	MongoCollection<Document> collection = database.getCollection(colName);
-    	
-    
-        try {
-            MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
-            MqttConnectOptions connOpts = new MqttConnectOptions();
-            connOpts.setCleanSession(true);
-            sampleClient.connect(connOpts);
-
-            sampleClient.subscribe(topic);
-            sampleClient.setCallback(new MqttCallback() {
-                public void connectionLost(Throwable throwable) {
-                    throwable.printStackTrace();
-                }
-
-                public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-
-            Document doct = Document.parse(mqttMessage.toString());
-             			 	
-               
-               trataString(mqttMessage);
-
-                    System.out.println("Topic : " + topic + " Message : " + mqttMessage);
-              
-
-
-             	 //collection.insertOne(doct);
-                  //  System.out.println("Topic : " + topic + " Message : " + mqttMessage.toString());
-                  //  System.out.println("Mqttmessage: " + mqttMessage);
-                  //  System.out.println("Mqttmessagestr: " + mqttMessage.toString());
-                }
-                
-               
-                
-                public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
-                    System.out.println("Delivery complete : " + iMqttDeliveryToken);
-                }
-                
-            });
-            //timer para terminar recolha de info ... alterar conforme necessário
-            new CountDownLatch(1).await(100, TimeUnit.SECONDS);
-            sampleClient.disconnect();            
-        } catch (MqttException | InterruptedException e) {
-            e.printStackTrace();
-        }
-      // mongoClient.close();
-        
-    }
+*/	
 }
