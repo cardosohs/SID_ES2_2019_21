@@ -1,19 +1,40 @@
 package pt.iscte.sid.projeto.sensor;
 
+import org.bson.BsonTimestamp;
 import org.bson.Document;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class Subscriber {
+	
+	
+	private static String [] resultados  = new String [3];
+	private static Document [] docs = new Document [2];
+	
+	
+	
+	private static void createDocuments () {
+		Document docTemp = new Document ("tmp", resultados[1])
+						.append("timestamp", resultados[0])
+						.append("time_med", new BsonTimestamp());
+		Document docLuz = new Document ("lum", resultados[2]).
+						append("timestamp", resultados[0]).
+						append("time_med", new BsonTimestamp());
+		docs[0] = docTemp;
+		docs[1] = docLuz;
+	}
+	
 	
 
 	public static void main(String[] args) {
@@ -24,8 +45,9 @@ public class Subscriber {
 		String topic = "/sid_lab_2019";
 		String broker = "tcp://broker.mqtt-dashboard.com:1883";
 		String clientId = "Client1";
-		String dbName = "mybd";
+		String dbName = "sensorbd";
 		String colName = "MedicoesSensor";
+		 
 
 		MemoryPersistence persistence = new MemoryPersistence();
 
@@ -38,7 +60,7 @@ public class Subscriber {
 
 		//Request da coleção
 		MongoCollection<Document> collection = database.getCollection(colName);
-
+		 
 
 		try {
 			MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
@@ -52,28 +74,19 @@ public class Subscriber {
 					throwable.printStackTrace();
 				}
 				
+				
+				// Sample [28/4/2019 11:10:43, 32.20, 5]
 				public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
 					String js1 = mqttMessage.toString();
-					String js = js1.replace("\"sens\":\"eth\"", "");
-					ObjectMapper mapper = new ObjectMapper();
-					JsonNode actualObj = mapper.readTree(js);
-					JsonNode jsonNode1 = actualObj.get("cell");
-
-					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
-					System.out.println(jsonNode1);
-				}
-
-//				public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-//
-//					Document doct = Document.parse(mqttMessage.toString());
+					resultados = MessageParser.parse(js1);
+					createDocuments();
+					
+					collection.insertOne(docs[0]);
+					collection.insertOne(docs[1]);
+					
 //					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
-//					collection.insertOne(doct);
-//					System.out.println("Topic : " + topic + " Message : " + mqttMessage.toString());
-//					System.out.println("Mqttmessage: " + mqttMessage);
-//					System.out.println("Mqttmessagestr: " + mqttMessage.toString());
-//				}
-
-
+//					System.out.println(resultados);
+				}
 
 				public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
 					System.out.println("Delivery complete : " + iMqttDeliveryToken);
@@ -88,29 +101,4 @@ public class Subscriber {
 		}
 		mongoClient.close();
 	}
-	
-	
-	
-/*	//Sample of mqttMessage: {"tmp":"25.40","hum":"39.70","dat":"27/4/2019","tim":"21:15:5","cell":"18""sens":"eth"}
-	public static void trataString (MqttMessage message) {
-		String luz, tmp, data, hora = "";
-		String temp1 = message.toString();
-		String temp2 = temp1.replaceAll("\"", "");
-		String temp3 = temp2.replace("{", "");
-		String temp4 = temp3.replace("}", "");
-		String temp5 = temp4.replace("sens:eth", "");
-		String [] temp6 = temp5.split(",");
-		tmp = temp6[0].substring(4,9);
-		luz = temp6[4].substring(5,8);
-		data = temp6[2].substring(4,13);
-		if (temp6[3].length() == 12)
-			hora = temp6[3].substring(4,12);
-		else 
-			hora = temp6[3].substring(4,11);
-		System.out.println("A luz é: " + luz);
-		System.out.println("A temp é: " + tmp);
-		System.out.println("A data é: " + data);
-		System.out.println("A hora é: " + hora);
-	}
-*/	
 }

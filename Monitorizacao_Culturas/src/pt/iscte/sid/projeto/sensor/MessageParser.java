@@ -21,14 +21,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class MessageParser {
 	
-	public static String[] parse (String fullMessage) {
+	public static String [] parse (String fullMessage) {
 		
-		String[] valores = new String[4];
+		String[] valores = new String[3];
 		
-		//byte[] messageData = fullMessage;
+		//Insere a vírgula que faltava
+		String treated = fullMessage.replace("\"\"", "\",\"");
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		//Medicao med = new Medicao();
 		String data="NULL";
 		String hora="NULL";
 		String temp="NULL";
@@ -36,7 +36,7 @@ public class MessageParser {
 		
 		JsonNode jsonNode;
 		try {
-			jsonNode = objectMapper.readTree(fullMessage);
+			jsonNode = objectMapper.readTree(treated);
 			data = jsonNode.get("dat").asText();
 			hora = jsonNode.get("tim").asText();
 			temp = jsonNode.get("tmp").asText();
@@ -49,14 +49,11 @@ public class MessageParser {
 			e.printStackTrace();
 		}
 	
+		valores[0]=data+" "+hora;
+		valores[1]=temp;
+		valores[2]=lum;
 		
-		
-		valores[0]=data;
-		valores[1]=hora;
-		valores[2]=temp;
-		valores[3]=lum;
 		return valores;
-		
 	}
 
 }
