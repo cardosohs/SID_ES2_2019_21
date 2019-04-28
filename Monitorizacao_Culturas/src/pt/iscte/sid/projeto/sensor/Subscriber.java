@@ -30,15 +30,18 @@ public class Subscriber {
 			hora = temp6[3].substring(4,12);
 		else 
 			hora = temp6[3].substring(4,11);
-		System.out.println("A luz È: " + luz);
-		System.out.println("A temp È: " + tmp);
-		System.out.println("A data È: " + data);
-		System.out.println("A hora È: " + hora);
+		System.out.println("A luz √©: " + luz);
+		System.out.println("A temp √©: " + tmp);
+		System.out.println("A data √©: " + data);
+		System.out.println("A hora √©: " + hora);
 	}
 	
 	
     public static void main(String[] args) {
-
+    	
+    	//resultados obtidos da mensagem:
+    	
+    	
         String topic = "/sid_lab_2019";
         String broker = "tcp://broker.mqtt-dashboard.com:1883";
         String clientId = "Client1";
@@ -48,14 +51,14 @@ public class Subscriber {
     	
         MemoryPersistence persistence = new MemoryPersistence();
         
-//        //Estabelece ligaÁ„o com a MongoDB PRIMARIA
+//        //Estabelece liga√ß√£o com a MongoDB PRIMARIA
 //        MongoClient mongoClient = new MongoClient("localhost", 27017);
 //    	System.out.println("Connection established");
 //    	
 //    	//Request da DB
 //    	MongoDatabase database = mongoClient.getDatabase(dbName);
 //    	
-//    	//Request da coleÁ„o
+//    	//Request da cole√ß√£o
 //    	MongoCollection<Document> collection = database.getCollection(colName);
     	
     
@@ -72,10 +75,16 @@ public class Subscriber {
                 }
 
                 public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-                	 Document doct = Document.parse(mqttMessage.toString());
+
+               Document doct = Document.parse(mqttMessage.toString());
              			 	
                
                trataString(mqttMessage);
+
+               System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+                 
+                }
+
 
              	 //collection.insertOne(doct);
                   //  System.out.println("Topic : " + topic + " Message : " + mqttMessage.toString());
@@ -90,7 +99,7 @@ public class Subscriber {
                 }
                 
             });
-            //timer para terminar recolha de info ... alterar conforme necess·rio
+            //timer para terminar recolha de info ... alterar conforme necess√°rio
             new CountDownLatch(1).await(100, TimeUnit.SECONDS);
             sampleClient.disconnect();            
         } catch (MqttException | InterruptedException e) {
