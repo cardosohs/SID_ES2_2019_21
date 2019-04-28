@@ -12,7 +12,7 @@ import org.bson.Document;
 
 
 
-public class Inicia {
+public class Migrador {
 
 //	private final static String tabelaLuz= "medicoesluz";
 //	private final static String tabelaTemperatura="medicoestemp";

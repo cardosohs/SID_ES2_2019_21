@@ -12,10 +12,10 @@ public class Processa {
 	static HashMap<Timestamp,Double> preparaTemperatura(List<Document> listaBruta) {
 		HashMap<Timestamp,Double> listaLimpa = new HashMap<Timestamp,Double>();
 		
-		if (listaBruta.get(1).containsKey("temp")) {
+		if (listaBruta.get(1).containsKey("tmp")) {
 			for (Document doc : listaBruta) {
-				Double temp = Double.parseDouble( (String) doc.get("temp"));
-				Timestamp momento = Timestamp.valueOf((String) doc.get( "timestamp"));
+				Double temp = Double.parseDouble( (String) doc.get("tmp"));
+				Timestamp momento = Timestamp.valueOf(transformaString((String) doc.get( "timestamp")));
 			
 				listaLimpa.put(momento,temp);
 			}
@@ -34,7 +34,7 @@ public class Processa {
 		if (listaBruta.get(1).containsKey("lum")) {
 			for (Document doc : listaBruta) {
 				Integer lum = Integer.parseInt((String) doc.get("lum"));
-				Timestamp momento = Timestamp.valueOf((String) doc.get( "timestamp"));
+				Timestamp momento = Timestamp.valueOf(transformaString((String) doc.get( "timestamp")));
 			
 				listaLimpa.put(momento,lum);
 			}
@@ -45,6 +45,17 @@ public class Processa {
 				}
 		return listaLimpa;			 	
 			}
+
+	//transforma o timeStamp em yyyy-mm-dd hh:mm:ss
+	private static String transformaString(String badstring) {
+		String hora = (badstring.split(" "))[1];
+		String data = (badstring.split(" "))[0];
+		String dia = (data.split("/"))[0];
+		String mes = (data.split("/"))[1];
+		String ano = (data.split("/"))[2];
+		String goodString = ano+"-"+mes+"-"+dia+" "+hora;
+		return goodString;
+	}
 
 
 }
