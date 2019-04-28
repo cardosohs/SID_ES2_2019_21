@@ -23,7 +23,9 @@ public class Subscriber {
 	private static Document [] docs = new Document [2];
 	
 	
-	
+	/**
+	 * Create two documents and 
+	 */
 	private static void createDocuments () {
 		Document docTemp = new Document ("tmp", resultados[1])
 						.append("timestamp", resultados[0])
@@ -40,8 +42,6 @@ public class Subscriber {
 	public static void main(String[] args) {
 
 		//resultados obtidos da mensagem:
-
-
 		String topic = "/sid_lab_2019";
 		String broker = "tcp://broker.mqtt-dashboard.com:1883";
 		String clientId = "Client1";
