@@ -36,9 +36,12 @@ public class Subscriber {
 		System.out.println("A hora é: " + hora);
 	}
 	
-	
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+    	
+    	//resultados obtidos da mensagem:
+    	
+    	
         String topic = "/sid_lab_2019";
         String broker = "tcp://broker.mqtt-dashboard.com:1883";
         String clientId = "Client1";
@@ -72,10 +75,15 @@ public class Subscriber {
                 }
 
                 public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-                	 Document doct = Document.parse(mqttMessage.toString());
+
+            Document doct = Document.parse(mqttMessage.toString());
              			 	
                
                trataString(mqttMessage);
+
+                    System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+              
+
 
              	 //collection.insertOne(doct);
                   //  System.out.println("Topic : " + topic + " Message : " + mqttMessage.toString());
