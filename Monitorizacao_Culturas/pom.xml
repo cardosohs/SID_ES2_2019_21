@@ -23,57 +23,75 @@
         <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
     </repository>
 </repositories>
-  
+ 
 <dependencies>
-
-	<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 	<dependency>
-		<groupId>org.mongodb</groupId>
-		<artifactId>mongo-java-driver</artifactId>
-		<version>3.10.2</version>
+	   	<groupId>org.apache.poi</groupId>
+	   	<artifactId>poi</artifactId>
+	   	<version>4.0.1</version>
 	</dependency>
-
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+	<dependency>
+	   	<groupId>org.apache.poi</groupId>
+	   	<artifactId>poi-ooxml</artifactId>
+	   	<version>4.0.1</version>
+	</dependency>
+		
+	<dependency>
+	   	<groupId>mysql</groupId>
+	   	<artifactId>mysql-connector-java</artifactId>
+	   	<version>8.0.15</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+	
+	<dependency>
+	    <groupId>org.mongodb</groupId>
+	    <artifactId>mongo-java-driver</artifactId>
+	    <version>3.10.2</version>
+	</dependency>
+	
 	<!-- https://mvnrepository.com/artifact/org.mongodb/bson -->
 	<dependency>
-		<groupId>org.mongodb</groupId>
-		<artifactId>bson</artifactId>
-		<version>3.10.2</version>
+	    <groupId>org.mongodb</groupId>
+	    <artifactId>bson</artifactId>
+	    <version>3.10.2</version>
 	</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.2.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.15</version>
-		</dependency>
-
-
-		<!-- http://mongodb.github.io/mongo-java-driver/3.4/driver-async/getting-started/installation/ -->
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongodb-driver-async</artifactId>
-			<version>3.4.3</version>
-		</dependency>
-
-		<!-- http://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/installation/ -->
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongodb-driver</artifactId>
-			<version>3.10.1</version>
-		</dependency>
-
-		<!-- https://www.eclipse.org/paho/clients/java/ -->
-		<dependency>
-			<groupId>org.eclipse.paho</groupId>
-			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-			<version>1.2.1</version>
-		</dependency>
-
+	
+	
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.2.3</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.15</version>
+	</dependency>
+	
+	
+	<!-- http://mongodb.github.io/mongo-java-driver/3.4/driver-async/getting-started/installation/ -->
+	<dependency>
+		<groupId>org.mongodb</groupId>
+		<artifactId>mongodb-driver-async</artifactId>
+		<version>3.4.3</version>
+	</dependency>
+	
+	<!-- http://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/installation/ -->
+	<dependency>
+		<groupId>org.mongodb</groupId>
+		<artifactId>mongodb-driver</artifactId>
+		<version>3.10.1</version>
+	</dependency>
+	
+	<!-- https://www.eclipse.org/paho/clients/java/ -->
+	<dependency>
+		<groupId>org.eclipse.paho</groupId>
+		<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+		<version>1.2.1</version>
+	</dependency>
 </dependencies>
-
 </project>
