@@ -23,11 +23,11 @@ public class MessageParser {
 	
 	public static String [] parse (String fullMessage) {
 		
-		String[] valores = new String[3];
+		String [] valores = new String[3];
 		
 		//Insere a vírgula que faltava
 		String treated = fullMessage.replace("\"\"", "\",\"");
-		
+	
 		ObjectMapper objectMapper = new ObjectMapper();
 		String data="NULL";
 		String hora="NULL";
