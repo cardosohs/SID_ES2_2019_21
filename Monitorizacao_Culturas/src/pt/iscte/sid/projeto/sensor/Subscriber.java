@@ -84,7 +84,7 @@ public class Subscriber {
 					collection.insertOne(docs[0]);
 					collection.insertOne(docs[1]);
 					
-//					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
 //					System.out.println(resultados);
 				}
 

@@ -42,10 +42,9 @@ public class MessageParser {
 			temp = jsonNode.get("tmp").asText();
 			lum = jsonNode.get("cell").asText();
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("erro ao processar mensagem Valor colocado a NULL");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("erro de IO");
 			e.printStackTrace();
 		}
 	
