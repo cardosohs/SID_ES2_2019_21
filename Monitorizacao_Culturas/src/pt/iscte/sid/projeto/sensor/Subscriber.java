@@ -12,6 +12,31 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class Subscriber {
+	
+	
+	//Sample of mqttMessage: {"tmp":"25.40","hum":"39.70","dat":"27/4/2019","tim":"21:15:5","cell":"18""sens":"eth"}
+	public static void trataString (MqttMessage message) {
+		String luz, tmp, data, hora = "";
+		String temp1 = message.toString();
+		String temp2 = temp1.replaceAll("\"", "");
+		String temp3 = temp2.replace("{", "");
+		String temp4 = temp3.replace("}", "");
+		String temp5 = temp4.replace("sens:eth", "");
+		String [] temp6 = temp5.split(",");
+		tmp = temp6[0].substring(4,9);
+		luz = temp6[4].substring(5,8);
+		data = temp6[2].substring(4,13);
+		if (temp6[3].length() == 12)
+			hora = temp6[3].substring(4,12);
+		else 
+			hora = temp6[3].substring(4,11);
+		System.out.println("A luz é: " + luz);
+		System.out.println("A temp é: " + tmp);
+		System.out.println("A data é: " + data);
+		System.out.println("A hora é: " + hora);
+	}
+	
+	
     public static void main(String[] args) {
 
         String topic = "/sid_lab_2019";
@@ -23,16 +48,17 @@ public class Subscriber {
     	
         MemoryPersistence persistence = new MemoryPersistence();
         
-        //Estabelece ligação com a MongoDB PRIMARIA
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
-    	System.out.println("Connection established");
+//        //Estabelece ligação com a MongoDB PRIMARIA
+//        MongoClient mongoClient = new MongoClient("localhost", 27017);
+//    	System.out.println("Connection established");
+//    	
+//    	//Request da DB
+//    	MongoDatabase database = mongoClient.getDatabase(dbName);
+//    	
+//    	//Request da coleção
+//    	MongoCollection<Document> collection = database.getCollection(colName);
     	
-    	//Request da DB
-    	MongoDatabase database = mongoClient.getDatabase(dbName);
-    	
-    	//Request da coleção
-    	MongoCollection<Document> collection = database.getCollection(colName);
-    	
+    
         try {
             MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
             MqttConnectOptions connOpts = new MqttConnectOptions();
@@ -48,14 +74,21 @@ public class Subscriber {
                 public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 	 Document doct = Document.parse(mqttMessage.toString());
              			 	
+               
+               trataString(mqttMessage);
 
-             	 collection.insertOne(doct);
-                    System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+             	 //collection.insertOne(doct);
+                  //  System.out.println("Topic : " + topic + " Message : " + mqttMessage.toString());
+                  //  System.out.println("Mqttmessage: " + mqttMessage);
+                  //  System.out.println("Mqttmessagestr: " + mqttMessage.toString());
                 }
-
+                
+               
+                
                 public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
                     System.out.println("Delivery complete : " + iMqttDeliveryToken);
                 }
+                
             });
             //timer para terminar recolha de info ... alterar conforme necessário
             new CountDownLatch(1).await(100, TimeUnit.SECONDS);
@@ -63,6 +96,7 @@ public class Subscriber {
         } catch (MqttException | InterruptedException e) {
             e.printStackTrace();
         }
-        mongoClient.close();
+      // mongoClient.close();
+        
     }
 }

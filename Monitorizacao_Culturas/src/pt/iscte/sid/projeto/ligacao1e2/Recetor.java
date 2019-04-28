@@ -4,7 +4,14 @@ import com.mongodb.ConnectionString;
 import com.mongodb.ServerAddress;
 import com.mongodb.WriteConcern;
 import com.mongodb.async.client.*;
-import com.mongodb.async.SingleResultCallback;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.MqttTopic;
 
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
@@ -29,7 +36,7 @@ public class Recetor {
 	
 	public static void main (String[] args){
 	
-	
+
 //	 public void messageArrived(String topic, MqttMessage mqttMessage) {
 //	 try {
 //		 final Document document = Document.parse(mqttMessage.toString());
