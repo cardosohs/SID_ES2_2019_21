@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.MongoJavaConnect;
+package pt.iscte.sid.projeto.ligacao1e2;
 
 import com.mongodb.MongoClient;
 
@@ -17,14 +17,14 @@ public class MongoJavaRead {
 	public static void main (String[] args) throws UnknownHostException {
 		
 		//Estabelece ligação com a MongoDB PRIMARIA
-		MongoClient mongoClient = new MongoClient("localhost", 25017);
+		MongoClient mongoClient = new MongoClient("localhost", 27017);
 		System.out.println("Connection established");
 		
 		//Request da DB "mydb"
 		MongoDatabase database = mongoClient.getDatabase("mydb");
 		
 		//Request de TODAS as coleccoes designadas "test" da DB "mydb"
-		MongoCollection<Document> collection = database.getCollection("test");
+		MongoCollection<Document> collection = database.getCollection("MedicoesSensor");
 		
 		//Imprime todos os elementos de uma coleção
 		MongoCursor<Document> cursor = collection.find().iterator();

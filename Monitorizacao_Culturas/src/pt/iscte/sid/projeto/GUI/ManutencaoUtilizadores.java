@@ -108,7 +108,11 @@ public class ManutencaoUtilizadores extends JFrame {
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaAdmin ad = new AreaAdmin();
+<<<<<<< HEAD
                 CloseWindow();
+=======
+                ad.setVisible(true);
+>>>>>>> master
             }
         });
         btnVoltar.setBounds(725, 497, 85, 30);

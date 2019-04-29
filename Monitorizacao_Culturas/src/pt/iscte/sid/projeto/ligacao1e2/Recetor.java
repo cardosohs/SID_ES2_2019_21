@@ -1,10 +1,17 @@
-package pt.iscte.sid.projeto.MongoJavaConnect;
+package pt.iscte.sid.projeto.ligacao1e2;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.ServerAddress;
 import com.mongodb.WriteConcern;
 import com.mongodb.async.client.*;
-import com.mongodb.async.SingleResultCallback;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.MqttTopic;
 
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
@@ -29,27 +36,7 @@ public class Recetor {
 	
 	public static void main (String[] args){
 	
-	MongoClient mongoClient = MongoClients.create();
-	MongoDatabase database = mongoClient.getDatabase("mydb");
-	MongoCollection<Document> collection = database.getCollection("sensor");
-	
-	
-	Document document = new Document("name", "Café Con Leche")
-			.append("contact", new Document("phone", "228-555-0149")
-			.append("email", "cafeconleche@example.com")
-			.append("location",Arrays.asList(-73.92502, 40.8279556)))
-			.append("stars", 3)
-			.append("categories", Arrays.asList("Bakery", "Coffee", "Pastries"));
 
-			collection.insertOne(document, new SingleResultCallback<Void>() {
-				@Override
-				public void onResult(final Void result, final Throwable t) {
-					System.out.println("Inserted!");
-				}
-			});
-	
-	
-	
 //	 public void messageArrived(String topic, MqttMessage mqttMessage) {
 //	 try {
 //		 final Document document = Document.parse(mqttMessage.toString());
