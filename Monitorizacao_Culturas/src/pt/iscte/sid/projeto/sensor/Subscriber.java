@@ -51,14 +51,14 @@ public class Subscriber {
 		MemoryPersistence persistence = new MemoryPersistence();
 
 		
-		//Estabelece ligaÁ„o com a MongoDB PRIMARIA
+		//Estabelece liga√ß√£o com a MongoDB PRIMARIA
 		MongoClient mongoClient = new MongoClient("localhost", 27017);
 		System.out.println("Connection established");
 
 		//Request da DB
 		MongoDatabase database = mongoClient.getDatabase(dbName);
 
-		//Request da coleÁ„o
+		//Request da cole√ß√£o
 		MongoCollection<Document> collection = database.getCollection(colName);
 		 
 
@@ -85,7 +85,10 @@ public class Subscriber {
 					docs.clear();
 					
 					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+
 					System.out.println(resultados);
+
+
 				}
 
 				public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
@@ -93,7 +96,7 @@ public class Subscriber {
 				}
 
 			});
-			//timer para terminar recolha de info ... alterar conforme necess·rio
+			//timer para terminar recolha de info ... alterar conforme necess√°rio
 			new CountDownLatch(1).await(100, TimeUnit.SECONDS);
 			sampleClient.disconnect();            
 		} catch (MqttException | InterruptedException e) {
