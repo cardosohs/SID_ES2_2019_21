@@ -85,7 +85,7 @@ public class Subscriber {
 					docs.clear();
 					
 					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
-					System.out.println(resultados);
+					//System.out.println(resultados);
 				}
 
 				public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
