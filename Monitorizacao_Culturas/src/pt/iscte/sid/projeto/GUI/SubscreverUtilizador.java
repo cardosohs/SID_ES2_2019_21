@@ -30,11 +30,8 @@ public class SubscreverUtilizador {
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JFrame frame;
     private JPasswordField passwordField;
-<<<<<<< HEAD
     private JPasswordField ConfirmPassword;
-=======
     private JPasswordField passwordField_1;
->>>>>>> master
     
     /**
      * Launch the application.
@@ -43,14 +40,10 @@ public class SubscreverUtilizador {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-<<<<<<< HEAD
                 	DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
                     SubscreverUtilizador window = new SubscreverUtilizador(d);
                   //  window.frame.setVisible(true);
-=======
-                    SubscreverUtilizador window = new SubscreverUtilizador();
                     window.frame.setVisible(true);
->>>>>>> master
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -95,7 +88,7 @@ public class SubscreverUtilizador {
         
         
         String[] categoriasProfissionais = {" ","Phd Student", "PostDoc Student", "Investigador auxiliar", "Investigador principal", "Investigador Coordenador"};
-<<<<<<< HEAD
+
         JComboBox CategoriaProfcomboBox = new JComboBox(categoriasProfissionais);
         CategoriaProfcomboBox.setToolTipText("Se Investigador");
         CategoriaProfcomboBox.setAutoscrolls(true);
@@ -105,17 +98,7 @@ public class SubscreverUtilizador {
         CategoriaProfcomboBox.setEditable(true);
         CategoriaProfcomboBox.setBounds(373, 261, 272, 22);
         frame.getContentPane().add(CategoriaProfcomboBox);
-=======
-        JComboBox comboBox = new JComboBox(categoriasProfissionais);
-        comboBox.setToolTipText("Se Investigador");
-        comboBox.setAutoscrolls(true);
-        comboBox.setFocusTraversalPolicyProvider(true);
-        comboBox.setFocusCycleRoot(true);
-        comboBox.setDoubleBuffered(true);
-        comboBox.setEditable(true);
-        comboBox.setBounds(373, 261, 272, 22);
-        frame.getContentPane().add(comboBox);
->>>>>>> master
+
         
         imagTopo.setIcon(new ImageIcon(imgOne));
         
@@ -151,7 +134,6 @@ public class SubscreverUtilizador {
         lblConfirmarPassword.setBounds(217, 377, 143, 27);
         frame.getContentPane().add(lblConfirmarPassword);
         
-<<<<<<< HEAD
         TextField NameTextField = new TextField();
         NameTextField.setBounds(272, 228, 373, 22);
         frame.getContentPane().add(NameTextField);
@@ -159,14 +141,7 @@ public class SubscreverUtilizador {
         TextField Email = new TextField();
         Email.setBounds(270, 304, 375, 22);
         frame.getContentPane().add(Email);
-=======
-        TextField textField = new TextField();
-        textField.setBounds(272, 228, 373, 22);
-        frame.getContentPane().add(textField);
-        
-        TextField textField_3 = new TextField();
-        textField_3.setBounds(270, 304, 375, 22);
-        frame.getContentPane().add(textField_3);
+
         
         JButton btnOk = new JButton("Adicionar Utilizador");
         btnOk.setForeground(new Color(25, 25, 112));
@@ -179,8 +154,7 @@ public class SubscreverUtilizador {
         });
         btnOk.setBounds(612, 499, 156, 27);
         frame.getContentPane().add(btnOk);
->>>>>>> master
-        
+
         JList list = new JList();
         list.setBounds(484, 293, 1, 1);
         frame.getContentPane().add(list);
@@ -189,15 +163,11 @@ public class SubscreverUtilizador {
         passwordField.setBounds(295, 340, 350, 22);
         frame.getContentPane().add(passwordField);
         
-<<<<<<< HEAD
+
         ConfirmPassword = new JPasswordField();
         ConfirmPassword.setBounds(361, 380, 284, 22);
         frame.getContentPane().add(ConfirmPassword);
-=======
-        passwordField_1 = new JPasswordField();
-        passwordField_1.setBounds(361, 380, 284, 22);
-        frame.getContentPane().add(passwordField_1);
->>>>>>> master
+
         
         JRadioButton rdbtnNewRadioButton = new JRadioButton("Investigador");
         rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -211,7 +181,7 @@ public class SubscreverUtilizador {
         rdbtnAdministrador.setForeground(new Color(25, 25, 112));
         rdbtnAdministrador.setBackground(Color.WHITE);
         rdbtnAdministrador.setBounds(471, 174, 124, 23);
-<<<<<<< HEAD
+
         ButtonGroup group = new ButtonGroup();
         group.add(rdbtnAdministrador);
         group.add(rdbtnNewRadioButton);
@@ -268,10 +238,7 @@ public class SubscreverUtilizador {
         frame.getContentPane().add(ButtonAdicionar);
         
        
-=======
-        frame.getContentPane().add(rdbtnAdministrador);
-        
->>>>>>> master
+
         JButton logout = new JButton("Voltar");
         logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

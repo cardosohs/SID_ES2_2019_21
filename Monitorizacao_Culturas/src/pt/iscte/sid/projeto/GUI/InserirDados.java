@@ -73,10 +73,8 @@ public class InserirDados {
         frame.setBounds(100, 100, 850, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
-<<<<<<< HEAD
         frame.setVisible(true);
-=======
->>>>>>> master
+
         
         ImageIcon imagem = new ImageIcon (InserirDados.class.getResource("/images/listaVariaveis.png"));
         
@@ -111,19 +109,15 @@ public class InserirDados {
         JLabel lblNewLabel = new JLabel("VER https://www.youtube.com/watch?v=hg1S3QHFNrE");
         lblNewLabel.setBounds(0, 0, 834, 485);
         
-<<<<<<< HEAD
+
        Image img = imagem.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
        lblNewLabel.setIcon(new ImageIcon(img));
-=======
-        Image img = imagem.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
-        lblNewLabel.setIcon(new ImageIcon(img));
->>>>>>> master
+
         
         frame.getContentPane().add(lblNewLabel);
         
         btnVoltar = new JButton("Voltar");
         btnVoltar.setBounds(715, 526, 84, 23);
-<<<<<<< HEAD
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaInvestigador AI = new AreaInvestigador(databaseConnection);
@@ -132,8 +126,7 @@ public class InserirDados {
                 
             }
         });
-=======
->>>>>>> master
+
         frame.getContentPane().add(btnVoltar);
         
         lblSeleccionaridDaCultura = new JLabel("ID da Cultura");
