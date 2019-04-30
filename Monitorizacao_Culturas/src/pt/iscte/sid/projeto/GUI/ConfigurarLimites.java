@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 public class ConfigurarLimites extends JFrame {
@@ -21,17 +22,7 @@ public class ConfigurarLimites extends JFrame {
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JFrame frame;
     private JPanel contentPanel;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
-    private JButton button;
-    private JTextField txtFaltaAdaptarPara;
-    private JButton btnAdicionarNovosLimites;
-    private JButton button_2;
-    private JButton btnEliminar;
-    private JTextField textField_4;
-    private JLabel lblIdDosLimites;
+    
     
     /**
      * Launch the application.
@@ -40,7 +31,9 @@ public class ConfigurarLimites extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ConfigurarLimites frame = new ConfigurarLimites();
+                    DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
+                    
+                    ConfigurarLimites frame = new ConfigurarLimites(d);
                     //frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -52,12 +45,12 @@ public class ConfigurarLimites extends JFrame {
     private void CloseWindow() {
         frame.setVisible(false);
     }
-
+    
     public ConfigurarLimites(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartConfigurarLimites();
     }
-
+    
     public ConfigurarLimites() {
         StartConfigurarLimites();
     }
@@ -86,62 +79,75 @@ public class ConfigurarLimites extends JFrame {
         
         ImageIcon img = new ImageIcon (ConfigurarLimites.class.getResource("/images/configurarLimites.png"));
         
-        textField = new JTextField();
-        textField.setBounds(648, 195, 86, 29);
-        contentPanel.add(textField);
-        textField.setColumns(10);
+        JTextField TmpMax = new JTextField();
+        TmpMax.setBounds(648, 195, 86, 29);
+        contentPanel.add(TmpMax);
+        TmpMax.setColumns(10);
         
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(648, 237, 86, 29);
-        contentPanel.add(textField_1);
+        JTextField TmpMin = new JTextField();
+        TmpMin.setColumns(10);
+        TmpMin.setBounds(648, 237, 86, 29);
+        contentPanel.add(TmpMin);
         
-        textField_2 = new JTextField();
-        textField_2.setColumns(10);
-        textField_2.setBounds(648, 295, 86, 29);
-        contentPanel.add(textField_2);
+        JTextField LumMax = new JTextField();
+        LumMax.setColumns(10);
+        LumMax.setBounds(648, 295, 86, 29);
+        contentPanel.add(LumMax);
         
-        textField_3 = new JTextField();
-        textField_3.setColumns(10);
-        textField_3.setBounds(648, 340, 86, 29);
-        contentPanel.add(textField_3);
+        JTextField  LumMin = new JTextField();
+        LumMin.setColumns(10);
+        LumMin.setBounds(648, 340, 86, 29);
+        contentPanel.add(LumMin);
         
-        button = new JButton("Voltar");
-        button.addActionListener(new ActionListener() {
+        JButton BotaoVoltar = new JButton("Voltar");
+        BotaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaAdmin ad = new AreaAdmin();
                 CloseWindow();
             }
         });
-        button.setBounds(721, 509, 85, 30);
-        contentPanel.add(button);
+        BotaoVoltar.setBounds(721, 509, 85, 30);
+        contentPanel.add(BotaoVoltar);
         
-        txtFaltaAdaptarPara = new JTextField();
+        JTextField  txtFaltaAdaptarPara = new JTextField();
         txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Sistema; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
         txtFaltaAdaptarPara.setColumns(10);
         txtFaltaAdaptarPara.setBounds(157, 260, 292, 30);
         contentPanel.add(txtFaltaAdaptarPara);
         
-        btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");
+        JButton btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");
         btnAdicionarNovosLimites.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                if(!TmpMax.getText().equals("") && !TmpMin.getText().equals("")
+                        && !LumMax.getText().equals("") && !LumMin.getText().equals("")
+                        && Integer.parseInt(TmpMax.getText()) >= Integer.parseInt(TmpMin.getText())
+                        && Integer.parseInt(LumMax.getText()) >= Integer.parseInt(LumMin.getText())){
+                    
+                    if(databaseConnection.CreateSistema(Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())
+                            , Integer.parseInt(LumMin.getText()), Integer.parseInt(LumMax.getText())))
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Succeso",
+                                "Information",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Ocorreu um erro",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                }
+                else
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "Os limites inferiores nao podem ser maiores que os inferiores",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
             }
         });
-        btnAdicionarNovosLimites.setBounds(602, 390, 177, 30);
-        contentPanel.add(btnAdicionarNovosLimites);
         
-        button_2 = new JButton("Submeter Altera\u00E7\u00F5es");
-        button_2.setBounds(281, 472, 162, 30);
-        contentPanel.add(button_2);
         
-        btnEliminar = new JButton("Eliminar");
-        btnEliminar.setBounds(281, 431, 162, 30);
-        contentPanel.add(btnEliminar);
-        
-        textField_4 = new JTextField();
-        textField_4.setColumns(10);
-        textField_4.setBounds(202, 447, 70, 29);
-        contentPanel.add(textField_4);
+        JTextField IdtextField = new JTextField();
+        IdtextField.setColumns(10);
+        IdtextField.setBounds(202, 447, 70, 29);
+        contentPanel.add(IdtextField);
         
         JLabel imagemFundo = new JLabel("");
         imagemFundo.setBounds(0, 0, 834, 420);
@@ -153,9 +159,71 @@ public class ConfigurarLimites extends JFrame {
         
         contentPanel.add(imagemFundo);
         
-        lblIdDosLimites = new JLabel("ID dos Limites");
+        JLabel  lblIdDosLimites = new JLabel("ID dos Limites");
         lblIdDosLimites.setBounds(120, 453, 86, 16);
         contentPanel.add(lblIdDosLimites);
+        
+        btnAdicionarNovosLimites.setBounds(602, 390, 177, 30);
+        contentPanel.add(btnAdicionarNovosLimites);
+        
+        JButton btnAlteracao = new JButton("Submeter Altera\u00E7\u00F5es");
+        btnAlteracao.setBounds(281, 472, 162, 30);
+        btnAlteracao.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            if(!TmpMax.getText().equals("") && !TmpMin.getText().equals("")
+                        && !LumMax.getText().equals("") && !LumMin.getText().equals("")
+                        && !IdtextField.getText().equals("")
+                        && Integer.parseInt(TmpMax.getText()) >= Integer.parseInt(TmpMin.getText())
+                        && Integer.parseInt(LumMax.getText()) >= Integer.parseInt(LumMin.getText())){
+                    
+                    if(databaseConnection.UpdateSistema(Integer.parseInt(IdtextField.getText()),Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())
+                            , Integer.parseInt(LumMin.getText()), Integer.parseInt(LumMax.getText())))
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Succeso",
+                                "Information",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Ocorreu um erro",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                }
+                else
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "Os limites inferiores nao podem ser maiores que os inferiores",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+            
+                
+            }
+        });
+        contentPanel.add(btnAlteracao);
+        
+        JButton btnEliminar = new JButton("Eliminar");
+        btnEliminar.setBounds(281, 431, 162, 30);
+        btnEliminar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(IdtextField.getText().equals(""))
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "O campo ID esta vazio",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                else{
+                    if(databaseConnection.DeleteSistema(Integer.parseInt(IdtextField.getText())))
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Successo",
+                                "Information",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Ocurreu um erro",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                }
+                
+            }
+        });
+        contentPanel.add(btnEliminar);
         frame.add(contentPanel);
     }
     

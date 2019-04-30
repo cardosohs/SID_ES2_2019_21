@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 public class ManutencaoVariaveis extends JFrame {
@@ -85,10 +86,51 @@ public class ManutencaoVariaveis extends JFrame {
         
         JButton btnAdicionarVarivel = new JButton("Adicionar Vari\u00E1vel");
         btnAdicionarVarivel.setBounds(519, 382, 142, 29);
+         btnAdicionarVarivel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(!textField.getText().equals(""))
+                    if(databaseConnection.CreateVariavel(textField.getText()))
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Sucesso",
+                                "Information",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Ocorreu um erro",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "O campo nao pode estar vazio",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        
         contentPanel.add(btnAdicionarVarivel);
         
         JButton btnEliminarVarivel = new JButton("Eliminar Vari\u00E1vel");
         btnEliminarVarivel.setBounds(663, 381, 130, 30);
+        btnEliminarVarivel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(!textField.getText().equals(""))
+                    if(databaseConnection.DeleteVariavel(Integer.parseInt(textField.getText())))
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Sucesso",
+                                "Information",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Ocorreu um erro",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "O campo nao pode estar vazio",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+            }
+        });
         contentPanel.add(btnEliminarVarivel);
         
         JButton button_1 = new JButton("Voltar");
