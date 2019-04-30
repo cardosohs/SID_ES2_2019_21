@@ -110,7 +110,11 @@ public class ConfigurarLimites extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaAdmin ad = new AreaAdmin();
+
                 CloseWindow();
+
+                ad.setVisible(true);
+
             }
         });
         button.setBounds(721, 509, 85, 30);

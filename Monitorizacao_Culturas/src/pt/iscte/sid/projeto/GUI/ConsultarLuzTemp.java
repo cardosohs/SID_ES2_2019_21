@@ -41,7 +41,7 @@ public class ConsultarLuzTemp extends JFrame {
         StartConsultarLuzTemp();
     }
 
-    
+
     public ConsultarLuzTemp(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartConsultarLuzTemp();

@@ -30,8 +30,9 @@ public class SubscreverUtilizador {
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JFrame frame;
     private JPasswordField passwordField;
+    
     private JPasswordField ConfirmPassword;
-    private JPasswordField passwordField_1;
+    
     
     /**
      * Launch the application.
@@ -40,9 +41,10 @@ public class SubscreverUtilizador {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                	DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
+                    
+                    DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
                     SubscreverUtilizador window = new SubscreverUtilizador(d);
-                  //  window.frame.setVisible(true);
+                    //  window.frame.setVisible(true);
                     window.frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -57,10 +59,10 @@ public class SubscreverUtilizador {
     public SubscreverUtilizador() {
         initialize();
     }
-
+    
     public SubscreverUtilizador(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
-          initialize();
+        initialize();
     }
     
     
@@ -88,7 +90,8 @@ public class SubscreverUtilizador {
         
         
         String[] categoriasProfissionais = {" ","Phd Student", "PostDoc Student", "Investigador auxiliar", "Investigador principal", "Investigador Coordenador"};
-
+        
+        
         JComboBox CategoriaProfcomboBox = new JComboBox(categoriasProfissionais);
         CategoriaProfcomboBox.setToolTipText("Se Investigador");
         CategoriaProfcomboBox.setAutoscrolls(true);
@@ -98,7 +101,7 @@ public class SubscreverUtilizador {
         CategoriaProfcomboBox.setEditable(true);
         CategoriaProfcomboBox.setBounds(373, 261, 272, 22);
         frame.getContentPane().add(CategoriaProfcomboBox);
-
+        
         
         imagTopo.setIcon(new ImageIcon(imgOne));
         
@@ -134,6 +137,7 @@ public class SubscreverUtilizador {
         lblConfirmarPassword.setBounds(217, 377, 143, 27);
         frame.getContentPane().add(lblConfirmarPassword);
         
+        
         TextField NameTextField = new TextField();
         NameTextField.setBounds(272, 228, 373, 22);
         frame.getContentPane().add(NameTextField);
@@ -141,7 +145,8 @@ public class SubscreverUtilizador {
         TextField Email = new TextField();
         Email.setBounds(270, 304, 375, 22);
         frame.getContentPane().add(Email);
-
+        
+        
         
         JButton btnOk = new JButton("Adicionar Utilizador");
         btnOk.setForeground(new Color(25, 25, 112));
@@ -154,7 +159,6 @@ public class SubscreverUtilizador {
         });
         btnOk.setBounds(612, 499, 156, 27);
         frame.getContentPane().add(btnOk);
-
         JList list = new JList();
         list.setBounds(484, 293, 1, 1);
         frame.getContentPane().add(list);
@@ -163,11 +167,11 @@ public class SubscreverUtilizador {
         passwordField.setBounds(295, 340, 350, 22);
         frame.getContentPane().add(passwordField);
         
-
+        
+        
         ConfirmPassword = new JPasswordField();
         ConfirmPassword.setBounds(361, 380, 284, 22);
         frame.getContentPane().add(ConfirmPassword);
-
         
         JRadioButton rdbtnNewRadioButton = new JRadioButton("Investigador");
         rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -181,7 +185,8 @@ public class SubscreverUtilizador {
         rdbtnAdministrador.setForeground(new Color(25, 25, 112));
         rdbtnAdministrador.setBackground(Color.WHITE);
         rdbtnAdministrador.setBounds(471, 174, 124, 23);
-
+        
+        
         ButtonGroup group = new ButtonGroup();
         group.add(rdbtnAdministrador);
         group.add(rdbtnNewRadioButton);
@@ -194,51 +199,51 @@ public class SubscreverUtilizador {
         ButtonAdicionar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //ManutencaoUtilizadores n= new ManutencaoUtilizadores();
-            	 String PasswordHasString="";
-                 char[] PasswordHasCharArray = passwordField.getPassword();
-                 for(int index=0;index<PasswordHasCharArray.length;index++)
-                     PasswordHasString+=PasswordHasCharArray[index];
-                 
-                 String PasswordConfirmHasString="";
-                 char[] PasswordConfirmHasCharArray = passwordField.getPassword();
-                 for(int index=0;index<PasswordConfirmHasCharArray.length;index++)
-                     PasswordConfirmHasString+=PasswordConfirmHasCharArray[index];
-            	 if(!(PasswordHasString.equals(PasswordConfirmHasString))) {
-                 	JOptionPane.showMessageDialog(frame.getContentPane(),
-                             "Passwords nao sao iguais",
-                             "ERROR",
-                             JOptionPane.ERROR_MESSAGE);
-            	 }
-                 else if(!rdbtnAdministrador.isSelected() && !rdbtnNewRadioButton.isSelected())
-                 	JOptionPane.showMessageDialog(frame.getContentPane(),
-                             "Escolha admin ou invesstigador",
-                             "ERROR",
-                             JOptionPane.ERROR_MESSAGE);
-                 
-                 else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("") 
-                 		&& !passwordField.getPassword().equals(null)) {
-                 	
-                 	databaseConnection.ExecuteSP(NameTextField.getText(), PasswordHasString, Email.getText(), "", "A");
-                 	
-                 }
-                 else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("") 
-                 		&& !passwordField.getPassword().equals(null)) {
-                 
-                 	databaseConnection.ExecuteSP(NameTextField.getText(), PasswordHasString, Email.getText(), CategoriaProfcomboBox.getSelectedItem().toString(), "I");
-                 	
-                 }
-                 else
-                 	JOptionPane.showMessageDialog(frame.getContentPane(),
-                             "Generic Error",
-                             "ERROR",
-                             JOptionPane.ERROR_MESSAGE);
+                String PasswordHasString="";
+                char[] PasswordHasCharArray = passwordField.getPassword();
+                for(int index=0;index<PasswordHasCharArray.length;index++)
+                    PasswordHasString+=PasswordHasCharArray[index];
+                
+                String PasswordConfirmHasString="";
+                char[] PasswordConfirmHasCharArray = passwordField.getPassword();
+                for(int index=0;index<PasswordConfirmHasCharArray.length;index++)
+                    PasswordConfirmHasString+=PasswordConfirmHasCharArray[index];
+                if(!(PasswordHasString.equals(PasswordConfirmHasString))) {
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "Passwords nao sao iguais",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                else if(!rdbtnAdministrador.isSelected() && !rdbtnNewRadioButton.isSelected())
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "Escolha admin ou invesstigador",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE);
+                
+                else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("")
+                        && !passwordField.getPassword().equals(null)) {
+                    
+                    databaseConnection.ExecuteSP(NameTextField.getText(), PasswordHasString, Email.getText(), "", "A");
+                    
+                }
+                else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("")
+                        && !passwordField.getPassword().equals(null)) {
+                    
+                    databaseConnection.ExecuteSP(NameTextField.getText(), PasswordHasString, Email.getText(), CategoriaProfcomboBox.getSelectedItem().toString(), "I");
+                    
+                }
+                else
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "Generic Error",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE);
             }
         });
         ButtonAdicionar.setBounds(612, 499, 156, 27);
         frame.getContentPane().add(ButtonAdicionar);
         
-       
-
+        
+        
         JButton logout = new JButton("Voltar");
         logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

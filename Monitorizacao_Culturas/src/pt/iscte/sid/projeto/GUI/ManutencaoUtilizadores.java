@@ -109,6 +109,7 @@ public class ManutencaoUtilizadores extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 AreaAdmin ad = new AreaAdmin();
 
+
                 CloseWindow();
 
                 ad.setVisible(true);

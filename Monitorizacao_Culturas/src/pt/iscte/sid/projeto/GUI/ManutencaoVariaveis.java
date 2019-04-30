@@ -93,6 +93,7 @@ public class ManutencaoVariaveis extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 AreaAdmin aa = new AreaAdmin();
                 CloseWindow();
+
                 aa.setVisible(true);
             }
         });
