@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
@@ -71,6 +73,10 @@ public class InserirDados {
         frame.setBounds(100, 100, 850, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+
+        frame.setVisible(true);
+
+
         
         ImageIcon imagem = new ImageIcon (InserirDados.class.getResource("/images/listaVariaveis.png"));
         
@@ -105,13 +111,24 @@ public class InserirDados {
         JLabel lblNewLabel = new JLabel("VER https://www.youtube.com/watch?v=hg1S3QHFNrE");
         lblNewLabel.setBounds(0, 0, 834, 485);
         
-        Image img = imagem.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
-        lblNewLabel.setIcon(new ImageIcon(img));
+       Image img = imagem.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
+       lblNewLabel.setIcon(new ImageIcon(img));
+
+
         
         frame.getContentPane().add(lblNewLabel);
         
         btnVoltar = new JButton("Voltar");
         btnVoltar.setBounds(715, 526, 84, 23);
+        btnVoltar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AreaInvestigador AI = new AreaInvestigador(databaseConnection);
+                CloseWindow();
+                //	clt.setVisible(true);                                                             //Problema aqui - perceber pq
+                
+            }
+        });
+
         frame.getContentPane().add(btnVoltar);
         
         lblSeleccionaridDaCultura = new JLabel("ID da Cultura");

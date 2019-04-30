@@ -36,7 +36,7 @@ public class ManutencaoUtilizadores extends JFrame {
             public void run() {
                 try {
                     ManutencaoUtilizadores frame = new ManutencaoUtilizadores();
-                    frame.setVisible(true);
+                   // frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -91,6 +91,7 @@ public class ManutencaoUtilizadores extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 SubscreverUtilizador goWindow= new SubscreverUtilizador();
                 //	goWindow.setVisible(true);
+                CloseWindow();
             }
         });
         btnAdicionarUtilizador.setBounds(547, 497, 179, 30);
@@ -108,7 +109,12 @@ public class ManutencaoUtilizadores extends JFrame {
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaAdmin ad = new AreaAdmin();
-                ad.setVisible(true);
+
+
+                CloseWindow();
+
+            //    ad.setVisible(true);
+
             }
         });
         btnVoltar.setBounds(725, 497, 85, 30);
