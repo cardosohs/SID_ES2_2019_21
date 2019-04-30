@@ -364,10 +364,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
             preparedStmt1.setInt(3, LimiteInferiorLuz);
             preparedStmt1.setInt(4, LimiteSuperiorLuz);
             preparedStmt1.execute();
+            return true;
         } catch (SQLException ex) {
             return false;
         }
-        return true;
         
     }
     
