@@ -364,10 +364,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
             preparedStmt1.setInt(3, LimiteInferiorLuz);
             preparedStmt1.setInt(4, LimiteSuperiorLuz);
             preparedStmt1.execute();
+            return true;
         } catch (SQLException ex) {
             return false;
         }
-        return true;
         
     }
     
@@ -432,16 +432,16 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      */
     public boolean ExecuteSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
     {
-        CallableStatement cs = null;
+       // PreparedStatement cs = null;
         try {
-            cs = DatabaseConnection.prepareCall("{call SP_CriaUtilizador(?,?,?,?,?)}");
+            PreparedStatement cs = DatabaseConnection.prepareCall("{call SP_CriaUtilizador(?,?,?,?,?)}");
             cs.setString(1, InNome);
             cs.setString(2, InPassword);
             cs.setString(3, InEmail);
             cs.setString(4, InCategoriaProfe);
             cs.setString(5, InTipo);
             cs.execute();
-            return cs.execute();
+            return true;
         } catch (SQLException e) {
             System.err.println("SQLException: " + e.getMessage());
             return false;
