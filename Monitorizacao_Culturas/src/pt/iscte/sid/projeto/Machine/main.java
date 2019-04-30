@@ -11,7 +11,10 @@ package pt.iscte.sid.projeto.Machine;
  */
 public class main {
     public static void main(String[] args){
-        DatabaseMiddleManForInvestigador d = new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123");
-        System.out.println(d.getCulturas());
+        DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("root", "");
+        System.out.println(d.DeleteInvestigador(9));
+        System.out.println(d.DeleteInvestigador(8));
+        System.out.println(d.DeleteInvestigador(7));
+        System.out.println(d.DeleteInvestigador(6));
     }
 }

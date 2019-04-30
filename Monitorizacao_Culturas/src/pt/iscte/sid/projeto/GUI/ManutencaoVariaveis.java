@@ -21,8 +21,8 @@ public class ManutencaoVariaveis extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JPanel contentPanel;
-    private JTextField textField;
-    private JTextField txtFaltaAdaptarPara;
+  //  private JTextField textField;
+   // private JTextField txtFaltaAdaptarPara;
     private JFrame frame;
     
     /**
@@ -32,8 +32,10 @@ public class ManutencaoVariaveis extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ManutencaoVariaveis frame = new ManutencaoVariaveis();
-                    frame.setVisible(true);
+                    DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
+                    
+                    ManutencaoVariaveis frame = new ManutencaoVariaveis(d);
+                  //  frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -75,7 +77,8 @@ public class ManutencaoVariaveis extends JFrame {
         
         ImageIcon img = new ImageIcon(ManutencaoVariaveis.class.getResource("/images/manutencaoVariaveis.png"));
         
-        textField = new JTextField();
+        
+        JTextField textField = new JTextField();
         textField.setBounds(165, 382, 350, 29);
         contentPanel.add(textField);
         textField.setColumns(10);
@@ -94,13 +97,13 @@ public class ManutencaoVariaveis extends JFrame {
                 AreaAdmin aa = new AreaAdmin();
                 CloseWindow();
 
-                aa.setVisible(true);
+             //   aa.setVisible(true);
             }
         });
         button_1.setBounds(708, 450, 85, 30);
         contentPanel.add(button_1);
         
-        txtFaltaAdaptarPara = new JTextField();
+        JTextField txtFaltaAdaptarPara = new JTextField();
         txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Variaveis; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
         txtFaltaAdaptarPara.setColumns(10);
         txtFaltaAdaptarPara.setBounds(220, 243, 429, 30);

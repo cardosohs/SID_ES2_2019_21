@@ -40,7 +40,7 @@ public class DatabaseMiddleManGeneral {
      * @param username
      * @param Password
      */
-    public void StartConnection(String username, String Password)
+    private void StartConnection(String username, String Password)
     {
         this.failed=true;
         this.Password=Password;

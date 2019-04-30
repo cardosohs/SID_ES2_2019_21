@@ -92,9 +92,7 @@ public class CulturasLista extends JFrame {
         CulturasSobResponsabilidade.setLayout(null);
         
 
-
        ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
-
 
         
         JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
@@ -118,10 +116,9 @@ public class CulturasLista extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 AreaInvestigador ai = new AreaInvestigador();
 
-
                 CloseWindow();
 
-                ai.setVisible(true);
+               // ai.setVisible(true);
 
             }
         });
@@ -226,7 +223,6 @@ public class CulturasLista extends JFrame {
         
         JLabel imagemTopo = new JLabel("Investigador:");
         imagemTopo.setBounds(0, 0, 834, 165);
-
        Image imgOne =imgTopo.getImage().getScaledInstance(imagemTopo.getWidth(), imagemTopo.getHeight(), Image.SCALE_SMOOTH);
         
        imagemTopo.setIcon(new ImageIcon(imgOne));
