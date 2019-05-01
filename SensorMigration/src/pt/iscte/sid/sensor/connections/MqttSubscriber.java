@@ -49,7 +49,7 @@ public class MqttSubscriber {
 					throwable.printStackTrace();
 				}				
 				/* mqttMessage Sample 
-				 {"tmp":"31.30","hum":"24.20","dat":"1/5/2019","tim":"8:15:14","cell":"32""sens":"eth"}
+				 {"tmp":"23.60","hum":"60.50","dat":"1/5/2019","tim":"11:43:11","cell":"1851""sens":"wifi"}
 				*/
 				public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
 					System.out.println("Topic : " + topic + " Message : " + mqttMessage);					
