@@ -12,11 +12,10 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MqttSubscriber {	
 	
-	String topic = "/sid_lab_2019_2";
-	String broker = "tcp://broker.mqtt-dashboard.com:1883";
-	String clientId = "Client1";
-	String dbName = "sensorbd";
-	String colName = "MedicoesSensor";
+	private String topic = "/sid_lab_2019_2";
+	private String broker = "tcp://broker.mqtt-dashboard.com:1883";
+	private String clientId = "Client1";
+	private Boolean isMqttAlive = false; // flag para determinar se a coneção existe
 	MemoryPersistence persistence = new MemoryPersistence();
 	
 	/**
@@ -38,13 +37,13 @@ public class MqttSubscriber {
 	
 	public void connectSensor() {
 		try {
-			MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
+			MqttClient Client = new MqttClient(broker, clientId, persistence);
 			MqttConnectOptions connOpts = new MqttConnectOptions();
 			connOpts.setCleanSession(true);
-			sampleClient.connect(connOpts);
+			Client.connect(connOpts);
 
-			sampleClient.subscribe(topic);
-			sampleClient.setCallback(new MqttCallback() {
+			Client.subscribe(topic);
+			Client.setCallback(new MqttCallback() {
 				public void connectionLost(Throwable throwable) {
 					throwable.printStackTrace();
 				}				
@@ -61,7 +60,7 @@ public class MqttSubscriber {
 			});
 			//timer para terminar recolha de info ... alterar conforme necessário
 			new CountDownLatch(1).await(100, TimeUnit.SECONDS);
-			sampleClient.disconnect();            
+			Client.disconnect();            
 		} catch (MqttException | InterruptedException e) {
 			e.printStackTrace();
 		}

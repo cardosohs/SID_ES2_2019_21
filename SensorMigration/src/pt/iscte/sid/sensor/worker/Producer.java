@@ -15,11 +15,12 @@ public class Producer implements Runnable  {
 
 	@Override
 	public void run() {
-		/*
-		 * Receber a string
-		 * transformar em json
-		 * criar documento
-		 * tentar inserir 
+		
+		/*		 
+		 * tenta inserir na mongoDB
+		 * se consegue trata o seguinte 
+		 * se falha mete na blockingQueue
+		 * 
 		 */
 		
 	}
