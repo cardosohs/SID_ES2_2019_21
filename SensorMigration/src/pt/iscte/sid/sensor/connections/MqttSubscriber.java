@@ -67,4 +67,14 @@ public class MqttSubscriber {
 			
 	}
 
+	public Boolean getIsMqttAlive() {
+		return isMqttAlive;
+	}
+
+	public void setIsMqttAlive(Boolean isMqttAlive) {
+		this.isMqttAlive = isMqttAlive;
+	}
+	
+	
+
 }

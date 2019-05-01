@@ -6,6 +6,7 @@ public class MongoCon {
 	private String colName = "MedicoesSensor";
 	private Boolean isMongoAlive = false; // flag para determinar se a coneção existe
 	
+	
 	/**
 	 * Implementação de uma singleton pattern para garantir que só existe 1 instância a correr
 	 */
@@ -25,5 +26,15 @@ public class MongoCon {
 		
 		
 	}
+	
+	public Boolean getIsMongoAlive() {
+		return isMongoAlive;
+	}
+
+
+	public void setIsMongoAlive(Boolean isMongoAlive) {
+		this.isMongoAlive = isMongoAlive;
+	}
+
 
 }
