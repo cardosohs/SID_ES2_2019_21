@@ -6,18 +6,18 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument;
 import org.bson.Document;
-
-
 
 public class Migrador {
 
 //	private final static String tabelaLuz= "medicoesluz";
 //	private final static String tabelaTemperatura="medicoestemp";
-	
+
 	public static void main(String[] args) {
+		// inicializacao de variaveis
 		List<Document> leiturasLuz = new ArrayList<Document>();
 		List<Document> leiturasTemperatura = new ArrayList<Document>();
 
@@ -25,20 +25,29 @@ public class Migrador {
 		MySQL.liga();
 		MongoDb.liga();
 
+		// tenta obter o último log e outros dados de inicializacao
+		DadosInicializacao init = Inicializa.getInitData();
+
 		// ler dados MongoDb
-		leiturasLuz = MongoDb.le("lum");
-		leiturasTemperatura = MongoDb.le("tmp");
-		
+		if (init != null) {
+			// ou pede os dados depois do último log
+			leiturasLuz = MongoDb.le("lum", init.ultimoLog);
+			leiturasTemperatura = MongoDb.le("tmp",init.ultimoLog);
+
+		} else {
+			// ou pede todos os dados
+			leiturasLuz = MongoDb.le("lum");
+			leiturasTemperatura = MongoDb.le("tmp");
+		}
 		// prepara os dados
-		HashMap<Timestamp,Integer> leiturasLuzProntas = Processa.preparaLuz(leiturasLuz);
-		HashMap<Timestamp,Double> leiturasTemperaturaProntas = Processa.preparaTemperatura(leiturasTemperatura);
-		
+		ConcurrentHashMap<Timestamp, MedicaoLuz> leiturasLuzProntas = Processa.preparaLuz(leiturasLuz);
+		ConcurrentHashMap<Timestamp, MedicaoTemperatura> leiturasTemperaturaProntas = Processa
+				.preparaTemperatura(leiturasTemperatura);
+
 		// escrever dados no MySQL
 		MySQL.escreveLuz(leiturasLuzProntas);
 		MySQL.escreveTemperatura(leiturasTemperaturaProntas);
 
 	}
-
-	
 
 }
