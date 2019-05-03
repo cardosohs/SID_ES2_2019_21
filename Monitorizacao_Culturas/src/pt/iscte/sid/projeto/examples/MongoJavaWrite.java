@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.ligacao1e2;
+package pt.iscte.sid.projeto.examples;
 
 import java.net.UnknownHostException;
 

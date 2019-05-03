@@ -1,4 +1,4 @@
-package migrador;
+package pt.iscte.sid.projeto.migrador;
 
 import java.math.BigDecimal;
 import java.sql.Connection;

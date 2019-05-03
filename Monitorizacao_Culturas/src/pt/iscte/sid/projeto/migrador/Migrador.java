@@ -1,4 +1,4 @@
-package migrador;
+package pt.iscte.sid.projeto.migrador;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
