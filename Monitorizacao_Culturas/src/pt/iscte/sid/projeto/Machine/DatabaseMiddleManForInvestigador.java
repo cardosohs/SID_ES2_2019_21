@@ -121,7 +121,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 String query = " delete from cultura where idcultura=" + IdCultura;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
                 preparedStmt.execute();
-                CulturasDoInvestigador.remove(IdCultura);
+                RemoveFromList(CulturasDoInvestigador,IdCultura);
                 return true;
             } catch (SQLException ex) {
                 System.err.println("Erro ao executar a accao");
@@ -491,6 +491,11 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     }
     
     
-    
+    private void RemoveFromList(ArrayList array,int valor )
+    {
+        for(int i=0;i<array.size();i++)
+            if(array.get(i).equals(valor))
+                array.remove(i);
+    }
 }
 

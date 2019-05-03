@@ -34,18 +34,18 @@ public class AreaInvestigador extends JFrame {
     /**
      * Launch the application.
      */
-  /*  public static void main(String[] args) {
+    public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    AreaInvestigador frame = new AreaInvestigador();
+                    AreaInvestigador frame = new AreaInvestigador(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
                    // frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
-    }*/
+    }
     private void CloseWindow() {
         frame.setVisible(false);
     }

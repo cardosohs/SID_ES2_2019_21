@@ -15,10 +15,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
 public class ConsultarLuzTemp extends JFrame {
     
-    private DatabaseMiddleManForAdministrador databaseConnection;
+    private DatabaseMiddleManForInvestigador databaseConnection;
     private JPanel contentPanel;
     private JFrame frame;
     /**
@@ -28,8 +29,8 @@ public class ConsultarLuzTemp extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ConsultarLuzTemp frame = new ConsultarLuzTemp();
-                    frame.setVisible(true);
+                    ConsultarLuzTemp frame = new ConsultarLuzTemp(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
+                   // frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -42,7 +43,7 @@ public class ConsultarLuzTemp extends JFrame {
     }
 
 
-    public ConsultarLuzTemp(DatabaseMiddleManForAdministrador databaseConnection) {
+    public ConsultarLuzTemp(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartConsultarLuzTemp();
     }
@@ -76,7 +77,7 @@ public class ConsultarLuzTemp extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AreaInvestigador ai = new AreaInvestigador();
-                ai.setVisible(true);
+               // ai.setVisible(true);
             }
         });
         button.setBounds(728, 469, 85, 30);
