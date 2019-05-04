@@ -64,7 +64,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
             String query = "select * from cultura where idinvestigador=" + Id;
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next()){
-                TableResult += "\nCultura \nID da cultura:" + rs.getString(1)+"\nNome da cultura:"+rs.getString(3)+"\nDescricao da cultura:"+rs.getString(4) + "\n\n";
+                TableResult +=rs.getString(1)+"BREAKCOLUMN"+rs.getString(2)+"BREAKCOLUMN"+rs.getString(3)+"BREAKCOLUMN"+rs.getString(4)+ "BREAKLINE";
                 if(!CulturasDoInvestigador.contains(Integer.parseInt(rs.getString(1))))
                     CulturasDoInvestigador.add(Integer.parseInt(rs.getString(1)));
             }
@@ -199,7 +199,8 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 ResultSet rs=stmt.executeQuery(query);
                 while(rs.next()){
                     if(CulturasDoInvestigador.contains(Integer.parseInt(rs.getString(1))))
-                        TableResult += "\nVariavel Medida \nID da cultura:" + rs.getString(1)+"\nId da variavel:"+rs.getString(2)+"\nLimite Inferior:"+rs.getString(3)+"\nLimite Superior:"+rs.getString(4) + "\n\n";
+                        TableResult +=  rs.getString(1)+"BREAKCOLUMN"+rs.getString(2)
+                                +"BREAKCOLUMN"+rs.getString(3)+"BREAKCOLUMN"+rs.getString(4)+ "BREAKLINE";
                 }
             }catch(Exception e){
                 System.out.println(e);
@@ -304,9 +305,10 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
             while(rs.next()){
                 VariaviesDaDatabase.add(Integer.parseInt(rs.getString(1)));
                 TableResult +=
-                        "\nMedicao Temperatura \nID da medicao:" + rs.getString(1)
-                        +"\nData da Medicao:"+rs.getString(2)
-                        +"\nvalor da medicao:"+rs.getString(3) +"\n\n";
+                        rs.getString(1)
+                        +"BREAKCOLUMN"+rs.getString(2)
+                        +"BREAKCOLUMN"+rs.getString(3)
+                        + "BREAKLINE";
             }
         }catch(Exception e){
             System.out.println(e);
@@ -331,9 +333,10 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
             while(rs.next()){
                 VariaviesDaDatabase.add(Integer.parseInt(rs.getString(1)));
                 TableResult +=
-                        "\nMedicao Luz \nID da medicao:" + rs.getString(1)
-                        +"\nData da Medicao:"+rs.getString(2)
-                        +"\nvalor da medicao:"+rs.getString(3) +"\n\n";
+                         rs.getString(1)
+                        +"BREAKCOLUMN"+rs.getString(2)
+                        +"BREAKCOLUMN"+rs.getString(3)
+                        + "BREAKLINE";
             }
         }catch(Exception e){
             System.out.println(e);
@@ -401,7 +404,8 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 String query = "select * from medicoes where IdCultura=" + IdCultura + " and IdVariavel=" + IdVariavel;
                 ResultSet rs=stmt.executeQuery(query);
                 while(rs.next()){
-                    TableResult += "\nMedicao\nId da Medicao"+rs.getString(1) +"DataHora:" + rs.getString(4)+"\nValor:"+rs.getString(5)+"\n\n";
+                    TableResult += "BREAKLINE"+rs.getString(1) +"BREAKCOLUMN" 
+                            + rs.getString(4)+"BREAKCOLUMN"+rs.getString(5);
                 }
             }catch(Exception e){
                 System.out.println(e);

@@ -28,6 +28,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
@@ -45,7 +48,7 @@ public class CulturasLista extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    CulturasLista frame = new CulturasLista(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
+                    new CulturasLista(new DatabaseMiddleManForInvestigador("NovoInvestigador", "12345"));
                     // frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -94,7 +97,7 @@ public class CulturasLista extends JFrame {
         
         
         
-        JScrollPane scrollPane = new JScrollPane();
+        /*JScrollPane scrollPane = new JScrollPane();
         scrollPane.setBounds(110, 184, 620, 305);
         CulturasSobResponsabilidade.add(scrollPane);
         
@@ -103,16 +106,26 @@ public class CulturasLista extends JFrame {
         txtParaApagarPara.setFont(new Font("Tahoma", Font.PLAIN, 9));
         txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura + VariaveisMedidas + Medicoes (JOIN) (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
         txtParaApagarPara.setColumns(10);
+        */
+        String[] Invesheader={"IdCultura","IdInvestigador","NomeCultura","Descricao"};
+        String[][] Invesdata=GetList(databaseConnection.getCulturas());
+        DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+        JTable table = new JTable(Invesmodel);
+        //table.setCellSelectionEnabled(true);
+        // Investable.setCellSelectionEnabled(true);
+        ListSelectionModel selectInves= table.getSelectionModel();
+        selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JScrollPane Invesjs=new JScrollPane(table);
+        Invesjs.setVisible(true);
+        Invesjs.setBounds(110, 184, 620, 305);
+        CulturasSobResponsabilidade.add(Invesjs);
+        
         
         JButton Voltar = new JButton("Voltar");
         Voltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AreaInvestigador ai = new AreaInvestigador();
-                
+                new AreaInvestigador(databaseConnection);
                 CloseWindow();
-                
-                // ai.setVisible(true);
-                
             }
         });
         Voltar.setBounds(731, 527, 77, 23);
@@ -122,8 +135,7 @@ public class CulturasLista extends JFrame {
         JButton ButtonAlterarrCultura = new JButton("Alterar Cultura ");
         ButtonAlterarrCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CriarCultura cc = new CriarCultura();
-                //cc.setVisible(true);
+                new CriarCultura();
                 CloseWindow();
             }
         });
@@ -133,8 +145,8 @@ public class CulturasLista extends JFrame {
         JButton ButtonAddCultura = new JButton("Adicionar Nova Cultura");
         ButtonAddCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CriarCultura cc = new CriarCultura();
-                cc.setVisible(true);
+                new CriarCultura();
+                CloseWindow();
             }
         });
         ButtonAddCultura.setBounds(222, 150, 165, 23);
@@ -143,6 +155,24 @@ public class CulturasLista extends JFrame {
         JButton ButtonLoadTable = new JButton("Atualizar Info Culturas");
         ButtonLoadTable.setFont(new Font("Tahoma", Font.BOLD, 11));
         ButtonLoadTable.setBounds(563, 150, 165, 23);
+        ButtonLoadTable.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                CulturasSobResponsabilidade.remove(Invesjs);
+                String[] Invesheader={"IdCultura","IdInvestigador","NomeCultura","Descricao"};
+                String[][] Invesdata=GetList(databaseConnection.getCulturas());
+                DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+                JTable table = new JTable(Invesmodel);
+                //table.setCellSelectionEnabled(true);
+                // Investable.setCellSelectionEnabled(true);
+                ListSelectionModel selectInves= table.getSelectionModel();
+                selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                JScrollPane Invesjs=new JScrollPane(table);
+                Invesjs.setVisible(true);
+                Invesjs.setBounds(110, 184, 620, 305);
+                CulturasSobResponsabilidade.add(Invesjs);
+                
+            }
+        });
         CulturasSobResponsabilidade.add(ButtonLoadTable);
         
         JTextField txtInvestigador = new JTextField();
@@ -226,8 +256,7 @@ public class CulturasLista extends JFrame {
         btnAlterarVariavel.setBounds(572, 527, 149, 23);
         btnAlterarVariavel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CriarCultura cc = new CriarCultura();
-                //cc.setVisible(true);
+                new CriarCultura();
                 CloseWindow();
             }
         });
@@ -235,6 +264,12 @@ public class CulturasLista extends JFrame {
         
         JButton btnAdicionarNovaVariavel = new JButton("Adicionar Nova Variavel");
         btnAdicionarNovaVariavel.setBounds(388, 150, 172, 23);
+        btnAdicionarNovaVariavel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CriarCultura();
+                CloseWindow();
+            }
+        });
         CulturasSobResponsabilidade.add(btnAdicionarNovaVariavel);
         
         JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
@@ -270,6 +305,16 @@ public class CulturasLista extends JFrame {
         
         CulturasSobResponsabilidade.add(imagemTopo);
         frame.add(CulturasSobResponsabilidade);
+    }
+    private String[][] GetList(String arg)
+    {
+        String[] lines = arg.split("BREAKLINE");
+        String[][] linesCsv = new String[lines.length][];
+        
+        for (int i=0; i<lines.length; i++) {
+            linesCsv[i] = lines[i].split("BREAKCOLUMN");
+        }
+        return linesCsv;
     }
 }
 

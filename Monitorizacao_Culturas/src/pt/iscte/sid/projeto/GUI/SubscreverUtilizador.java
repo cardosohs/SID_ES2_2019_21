@@ -231,8 +231,7 @@ public class SubscreverUtilizador {
                                     "Succeso",
                                     "Information",
                                     JOptionPane.INFORMATION_MESSAGE);
-                            ManutencaoUtilizadores n= new ManutencaoUtilizadores(databaseConnection);
-                            n.setVisible(true);
+                            new ManutencaoUtilizadores(databaseConnection);
                             CloseWindow();
                         }
                         else
@@ -250,8 +249,7 @@ public class SubscreverUtilizador {
                                     "Succeso",
                                     "Information",
                                     JOptionPane.INFORMATION_MESSAGE);
-                            ManutencaoUtilizadores n= new ManutencaoUtilizadores(databaseConnection);
-                            n.setVisible(true);
+                            new ManutencaoUtilizadores(databaseConnection);
                             CloseWindow();
                         }
                         else
@@ -280,7 +278,7 @@ public class SubscreverUtilizador {
         JButton logout = new JButton("Voltar");
         logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AreaAdmin lw = new AreaAdmin(databaseConnection);
+                new AreaAdmin(databaseConnection);
                 CloseWindow();
             }
         });

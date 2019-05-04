@@ -50,12 +50,12 @@ public class LoginWindow extends JFrame {
             }
         });
     }
-   
+    
     public LoginWindow()
     {
         StartLoginWindow();
     }
-   
+    
     private void CloseWindow() {
         frame.setVisible(false);
     }
@@ -119,7 +119,7 @@ public class LoginWindow extends JFrame {
         
         //ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("images/LoginWindow.png"));
         ImageIcon imgOne = new ImageIcon("/Monitorizacao_Culturas/src/images/LoginWindow.png");
-        		//imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
+        //imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
         fundoPagina.setIcon(new ImageIcon(LoginWindow.class.getResource("/images/LoginWindow.png")));
         
         
