@@ -40,12 +40,19 @@ public class Subscriber {
 	
 
 	public static void main(String[] args) {
+		
+		//simulador
+		String topic        = "SimuladorMensagemSensor";
+        //int qos             = 2;
+        String broker       = "tcp://iot.eclipse.org:1883";
+        String clientId     = "SimuladorMensagemSensor";
 
-		//resultados obtidos da mensagem:
-		String topic = "/sid_lab_2019";
-		String broker = "tcp://broker.mqtt-dashboard.com:1883";
-		String clientId = "Client1";
-		String dbName = "sensorbd";
+//		//resultados obtidos da mensagem:
+//		String topic = "/sid_lab_2019";
+//		String broker = "tcp://broker.mqtt-dashboard.com:1883";
+//		String clientId = "Client1";
+		
+        String dbName = "sensorbd";
 		String colName = "MedicoesSensor";
 		 
 
@@ -85,7 +92,7 @@ public class Subscriber {
 					collection.insertOne(docs[1]);
 					
 					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
-//					System.out.println(resultados);
+					System.out.println(resultados);
 				}
 
 				public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {

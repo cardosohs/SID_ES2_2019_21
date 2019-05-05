@@ -1,4 +1,4 @@
-package migrador;
+package pt.iscte.sid.projeto.migrador;
 
 import org.bson.BsonTimestamp;
 
