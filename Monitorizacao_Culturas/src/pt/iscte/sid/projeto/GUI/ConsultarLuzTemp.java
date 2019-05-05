@@ -73,7 +73,7 @@ public class ConsultarLuzTemp extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPanel);
+        //setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
         ImageIcon background = new ImageIcon(ConsultarLuzTemp.class.getResource("/images/consultarLuzTemp.png"));

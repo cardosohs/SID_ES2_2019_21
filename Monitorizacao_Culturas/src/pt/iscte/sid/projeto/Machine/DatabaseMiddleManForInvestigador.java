@@ -404,8 +404,8 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 String query = "select * from medicoes where IdCultura=" + IdCultura + " and IdVariavel=" + IdVariavel;
                 ResultSet rs=stmt.executeQuery(query);
                 while(rs.next()){
-                    TableResult += "BREAKLINE"+rs.getString(1) +"BREAKCOLUMN" 
-                            + rs.getString(4)+"BREAKCOLUMN"+rs.getString(5);
+                    TableResult += rs.getString(1) +"BREAKCOLUMN" 
+                            + rs.getString(4)+"BREAKCOLUMN"+rs.getString(5)+"BREAKLINE";
                 }
             }catch(Exception e){
                 System.out.println(e);

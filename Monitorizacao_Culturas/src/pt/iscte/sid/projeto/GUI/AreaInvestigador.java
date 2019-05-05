@@ -75,7 +75,6 @@ public class AreaInvestigador extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
         ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaInvestigador.png"));
@@ -135,10 +134,12 @@ public class AreaInvestigador extends JFrame {
         textField.setBounds(508, 71, 68, 21);
         contentPanel.add(textField);
         
-        JTextPane textPane = new JTextPane();
-        textPane.setBackground(SystemColor.menu);
-        textPane.setBounds(586, 72, 145, 20);
-        contentPanel.add(textPane);
+        JTextPane InvestigadorTextField = new JTextPane();
+        InvestigadorTextField.setBackground(SystemColor.menu);
+        InvestigadorTextField.setBounds(586, 72, 145, 20);
+        InvestigadorTextField.setText(String.valueOf(databaseConnection.getMyName()));
+        InvestigadorTextField.setEditable(false);
+        contentPanel.add(InvestigadorTextField);
         
         txtId = new JTextField();
         txtId.setText("ID");
@@ -150,10 +151,12 @@ public class AreaInvestigador extends JFrame {
         txtId.setBounds(741, 71, 24, 21);
         contentPanel.add(txtId);
         
-        JTextPane textPane_1 = new JTextPane();
-        textPane_1.setBackground(SystemColor.menu);
-        textPane_1.setBounds(775, 71, 36, 20);
-        contentPanel.add(textPane_1);
+        JTextPane IdTextField = new JTextPane();
+        IdTextField.setBackground(SystemColor.menu);
+        IdTextField.setBounds(775, 71, 36, 20);
+        IdTextField.setText(String.valueOf(databaseConnection.getMyId()));
+        IdTextField.setEditable(false);
+        contentPanel.add(IdTextField);
         
         JLabel fotoTopo = new JLabel("");
         fotoTopo.setBackground(Color.WHITE);
@@ -166,7 +169,7 @@ public class AreaInvestigador extends JFrame {
         
         
         contentPanel.add(fotoTopo);
-        frame.add(contentPanel);
+        frame.getContentPane().add(contentPanel);
         
         Image imgTwo =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
         

@@ -122,7 +122,7 @@ public class AreaAdmin extends JFrame {
         JButton btnConfigurarLimites = new JButton("Configurar LimitesSistema");
         btnConfigurarLimites.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new ConfigurarLimites();
+                new ConfigurarLimites(databaseConnection);
                 CloseWindow();
             }
         });

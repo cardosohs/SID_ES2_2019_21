@@ -73,7 +73,7 @@ public class CriarCultura extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(new Color(255, 255, 255));
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPanel);
+        
         contentPanel.setLayout(null);
         
         ImageIcon img = new ImageIcon(ManutencaoVariaveis.class.getResource("/images/criarCultura.png"));
@@ -108,11 +108,13 @@ public class CriarCultura extends JFrame {
         JTextField IdInvestigador = new JTextField();
         IdInvestigador.setColumns(10);
         IdInvestigador.setBounds(205, 238, 126, 27);
+        IdInvestigador.setText(String.valueOf(databaseConnection.getMyId()));
+        IdInvestigador.setEditable(false);
         contentPanel.add(IdInvestigador);
         
         JButton btnAdicionarVariavel = new JButton("Adicionar Variavel");
         btnAdicionarVariavel.setBounds(228, 435, 140, 29);
-        contentPanel.add(btnAdicionarVariavel);
+        //contentPanel.add(btnAdicionarVariavel);
         
         JLabel imagemFundo = new JLabel("");
         imagemFundo.setBounds(0, 0, 834, 462);

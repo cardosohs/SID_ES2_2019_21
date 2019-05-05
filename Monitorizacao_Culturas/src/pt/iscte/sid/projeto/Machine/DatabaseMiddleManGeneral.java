@@ -22,6 +22,7 @@ public class DatabaseMiddleManGeneral {
 
     public final String DatabaseName = "g21origem";
     public String Username;
+    public String Nome;
     public String Password;
     public boolean failed;
     public int Id;
@@ -93,6 +94,7 @@ public class DatabaseMiddleManGeneral {
 
             while (rs.next()) {
                 this.Id = rs.getInt(1);
+                this.Nome=rs.getString(3);
             }
 
             DatabaseTMPConnection.close();
@@ -123,6 +125,15 @@ public class DatabaseMiddleManGeneral {
      */
     public int getMyId() {
         return Id;
+    }
+    
+    
+    /**
+     * Retorna o username do utilizador
+     * @return
+     */
+    public String getMyName() {
+        return Nome;
     }
 
     /**
@@ -163,7 +174,8 @@ public class DatabaseMiddleManGeneral {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 TableResult
-                        +=rs.getString(2) + "BREAKCOLUMN"
+                        +=rs.getString(1) + "BREAKCOLUMN"
+                        + rs.getString(2) + "BREAKCOLUMN"
                         + rs.getString(3) + "BREAKCOLUMN"
                         + rs.getString(4) + "BREAKCOLUMN"
                         + rs.getString(5) + "BREAKLINE";
