@@ -6,13 +6,13 @@ public class Consumer implements Runnable  {
 	
 	protected BlockingQueue<Object> queue;
 	
-	Consumer(BlockingQueue<Object> theQueue) {
+	public Consumer(BlockingQueue<Object> theQueue) {
         this.queue = theQueue;
     }
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

@@ -1,5 +1,6 @@
 package pt.iscte.sid.sensor.connections;
 
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -12,18 +13,20 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MqttSubscriber {	
 	
-	private String topic = "/sid_lab_2019_2";
-	private String broker = "tcp://broker.mqtt-dashboard.com:1883";
-	private String clientId = "Client1";
-	private Boolean isMqttAlive = false; // flag para determinar se a coneção existe
+	private String topic = "/sid_lab_2019";
+	private String broker = "tcp://iot.eclipse.org:1883";
+	private String clientId = "Grupo21SID2019";
+	private Boolean isMqttAlive = false; // flag para determinar se a conexão existe
 	MemoryPersistence persistence = new MemoryPersistence();
+	MqttClient Client;
 	
+		
 	/**
 	 * Implementação de uma singleton pattern para garantir que só existe 1 instância a correr
 	 */
 	private MqttSubscriber() {};
 	
-	private static class MqttSubscriberHelper{
+	private static class MqttSubscriberHelper {
 		private static final MqttSubscriber INSTANCE = new MqttSubscriber();
 	}
 	
@@ -35,13 +38,12 @@ public class MqttSubscriber {
 	 * Metodo para ligar ao sensor e receber as mensagens
 	 */
 	
-	public void connectSensor() {
+	public void connectSensor(){
 		try {
-			MqttClient Client = new MqttClient(broker, clientId, persistence);
+			Client = new MqttClient(broker, clientId, persistence);
 			MqttConnectOptions connOpts = new MqttConnectOptions();
 			connOpts.setCleanSession(true);
 			Client.connect(connOpts);
-
 			Client.subscribe(topic);
 			Client.setCallback(new MqttCallback() {
 				public void connectionLost(Throwable throwable) {
@@ -59,9 +61,11 @@ public class MqttSubscriber {
 				}
 			});
 			//timer para terminar recolha de info ... alterar conforme necessário
-			new CountDownLatch(1).await(100, TimeUnit.SECONDS);
-			Client.disconnect();            
-		} catch (MqttException | InterruptedException e) {
+			//new CountDownLatch(1).await(30, TimeUnit.SECONDS);
+			//Client.disconnect();
+			
+		//} catch (MqttException | InterruptedException e) {	
+		} catch (MqttException e) {
 			e.printStackTrace();
 		}
 			
@@ -74,7 +78,11 @@ public class MqttSubscriber {
 	public void setIsMqttAlive(Boolean isMqttAlive) {
 		this.isMqttAlive = isMqttAlive;
 	}
-	
-	
 
+	public MqttClient getClient() {
+		return Client;
+	}
+	
+	
+	
 }

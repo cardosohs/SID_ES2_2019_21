@@ -3,18 +3,26 @@ package pt.iscte.sid.sensor.worker;
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import pt.iscte.sid.sensor.connections.MongoCon;
+import pt.iscte.sid.sensor.connections.MqttSubscriber;
 
 public class Producer implements Runnable  {
 	
 	protected BlockingQueue<Object> queue;
 	
-	Producer(BlockingQueue<Object> theQueue) {
+	public Producer(BlockingQueue<Object> theQueue) {
         this.queue = theQueue;
     }
 
 	@Override
 	public void run() {
+		
+		MongoCon.getInstance().connectMongoBd();
+		MqttSubscriber.getInstance().connectSensor();
 		
 		/*		 
 		 * tenta inserir na mongoDB
@@ -25,7 +33,14 @@ public class Producer implements Runnable  {
 		
 	}
 	
-	
+	public String dealWithString(MqttMessage mqttMessage) {
+		String js1 = mqttMessage.toString();
+		String treated = js1.replace("\"\"", "\",\"");
+		if(isJSONValid(treated)==false) {
+			return null;
+		}
+		return treated;
+	}
 	
 	
 	public static boolean isJSONValid(String isJsonString ) {
