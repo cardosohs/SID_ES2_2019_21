@@ -5,16 +5,37 @@
 */
 package pt.iscte.sid.projeto.Machine;
 
+import javax.swing.JFrame;
+import javax.swing.JTable;
+
 /**
  * Esta classe serve para testar o backend de ES por favor nao apagar
  * @author Sérgio
  */
 public class main {
     public static void main(String[] args){
-        DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("root", "");
-        System.out.println(d.DeleteInvestigador(9));
-        System.out.println(d.DeleteInvestigador(8));
-        System.out.println(d.DeleteInvestigador(7));
-        System.out.println(d.DeleteInvestigador(6));
+       DatabaseMiddleManForInvestigador d = new DatabaseMiddleManForInvestigador("NovoInvestigador", "12345");
+        System.err.println(d.getCulturas());
     }
-}
+
+    
+}/*
+Investigador
+ID do Investigador:4
+Email do Investigador:svbro@iscte-iul.com
+Nome do Investigador:sergio
+Categoria do Investigador marteladas
+
+
+Investigador
+ID do Investigador:5
+Email do Investigador:EmailDeTeste
+Nome do Investigador:userteste
+Categoria do Investigador adsasgf
+
+
+Investigador
+ID do Investigador:10
+Email do Investigador:NovoInvestigador
+Nome do Investigador:NovoInvestigador
+Categoria do Investigador Investigador auxiliar*/

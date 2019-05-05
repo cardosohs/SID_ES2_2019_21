@@ -15,6 +15,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 public class ConfigurarLimites extends JFrame {
@@ -102,18 +106,32 @@ public class ConfigurarLimites extends JFrame {
         JButton BotaoVoltar = new JButton("Voltar");
         BotaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AreaAdmin ad = new AreaAdmin();
+                new AreaAdmin(databaseConnection);
                 CloseWindow();
             }
         });
         BotaoVoltar.setBounds(721, 509, 85, 30);
         contentPanel.add(BotaoVoltar);
         
-        JTextField  txtFaltaAdaptarPara = new JTextField();
+       /* JTextField  txtFaltaAdaptarPara = new JTextField();
         txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Sistema; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
         txtFaltaAdaptarPara.setColumns(10);
         txtFaltaAdaptarPara.setBounds(157, 260, 292, 30);
-        contentPanel.add(txtFaltaAdaptarPara);
+        contentPanel.add(txtFaltaAdaptarPara);*/
+        
+        
+        String[] Invesheader={"IdVariavel","Nome"};
+        String[][] Invesdata=GetList(databaseConnection.getVariaveis());
+        DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+        JTable table = new JTable(Invesmodel);
+        table.setCellSelectionEnabled(true); 
+       // Investable.setCellSelectionEnabled(true);
+        ListSelectionModel selectInves= table.getSelectionModel();
+        selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JScrollPane Invesjs=new JScrollPane(table);
+        Invesjs.setVisible(true);
+        Invesjs.setBounds(157, 260, 292, 100);
+        contentPanel.add(Invesjs);
         
         JButton btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");
         btnAdicionarNovosLimites.addActionListener(new ActionListener() {
@@ -226,5 +244,14 @@ public class ConfigurarLimites extends JFrame {
         contentPanel.add(btnEliminar);
         frame.add(contentPanel);
     }
-    
+      private String[][] GetList(String arg)
+    {
+        String[] lines = arg.split("BREAKLINE");
+        String[][] linesCsv = new String[lines.length][];
+        
+        for (int i=0; i<lines.length; i++) {
+            linesCsv[i] = lines[i].split("BREAKCOLUMN");
+        }
+        return linesCsv;
+    }
 }

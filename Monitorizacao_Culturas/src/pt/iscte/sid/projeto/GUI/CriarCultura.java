@@ -15,20 +15,17 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import javax.swing.JOptionPane;
+//import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
 public class CriarCultura extends JFrame {
-   
-    private DatabaseMiddleManForAdministrador databaseConnection;
+    
+    private DatabaseMiddleManForInvestigador databaseConnection;
     private JFrame frame;
     private JPanel contentPanel;
-    private JTextField textField_2;
-    private JTextField textField_1;
-    private JButton btnNewButton;
-    private JTextField textField;
-    private JButton button;
-    private JTextField textField_3;
-    private JButton btnAdicionarVariavel;
+    
+    
     
     /**
      * Launch the application.
@@ -37,20 +34,20 @@ public class CriarCultura extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    CriarCultura frame = new CriarCultura();
-                    frame.setVisible(true);
+                    CriarCultura frame = new CriarCultura(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
+                    // frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-
+    
     public CriarCultura() {
         StartCriarCultura();
     }
-
-    public CriarCultura(DatabaseMiddleManForAdministrador databaseConnection) {
+    
+    public CriarCultura(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartCriarCultura();
     }
@@ -81,46 +78,39 @@ public class CriarCultura extends JFrame {
         
         ImageIcon img = new ImageIcon(ManutencaoVariaveis.class.getResource("/images/criarCultura.png"));
         
-        textField_2 = new JTextField();
-        textField_2.setColumns(10);
-        textField_2.setBounds(206, 299, 294, 27);
-        contentPanel.add(textField_2);
+        JTextField NomeCultura = new JTextField();
+        NomeCultura.setColumns(10);
+        NomeCultura.setBounds(206, 299, 294, 27);
+        contentPanel.add(NomeCultura);
         
-        textField_1 = new JTextField();
-        textField_1.setToolTipText("Apenas se deseja alterar uma cultura existente");
-        textField_1.setColumns(10);
-        textField_1.setBounds(167, 175, 126, 27);
-        contentPanel.add(textField_1);
+        JTextField IdCultura = new JTextField();
+        IdCultura.setToolTipText("Apenas se deseja alterar uma cultura existente");
+        IdCultura.setColumns(10);
+        IdCultura.setBounds(167, 175, 126, 27);
+        contentPanel.add(IdCultura);
         
-        btnNewButton = new JButton("Adicionar/Alterar Cultura");
-        btnNewButton.setBounds(378, 435, 177, 29);
-        contentPanel.add(btnNewButton);
         
-        textField = new JTextField();
-        textField.setColumns(10);
-        textField.setBounds(167, 364, 618, 27);
-        contentPanel.add(textField);
+        JTextField Descricao = new JTextField();
+        Descricao.setColumns(10);
+        Descricao.setBounds(167, 364, 618, 27);
+        contentPanel.add(Descricao);
         
-        button = new JButton("Voltar");
-        button.addActionListener(new ActionListener() {
+        JButton Return = new JButton("Voltar");
+        Return.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CulturasLista cl = new CulturasLista();
-
+                new CulturasLista(databaseConnection);
                 CloseWindow();
-
-                cl.setVisible(true);
-
             }
         });
-        button.setBounds(717, 500, 89, 23);
-        contentPanel.add(button);
+        Return.setBounds(717, 500, 89, 23);
+        contentPanel.add(Return);
         
-        textField_3 = new JTextField();
-        textField_3.setColumns(10);
-        textField_3.setBounds(205, 238, 126, 27);
-        contentPanel.add(textField_3);
+        JTextField IdInvestigador = new JTextField();
+        IdInvestigador.setColumns(10);
+        IdInvestigador.setBounds(205, 238, 126, 27);
+        contentPanel.add(IdInvestigador);
         
-        btnAdicionarVariavel = new JButton("Adicionar Variavel");
+        JButton btnAdicionarVariavel = new JButton("Adicionar Variavel");
         btnAdicionarVariavel.setBounds(228, 435, 140, 29);
         contentPanel.add(btnAdicionarVariavel);
         
@@ -128,9 +118,46 @@ public class CriarCultura extends JFrame {
         imagemFundo.setBounds(0, 0, 834, 462);
         Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
         
-
+        
         imagemFundo.setIcon(new ImageIcon (imgm));
-
+        JButton ACultura = new JButton("Adicionar/Alterar Cultura");
+        ACultura.setBounds(378, 435, 177, 29);
+        ACultura.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(!IdInvestigador.getText().equals("")
+                        && !NomeCultura.getText().equals("") && !Descricao.getText().equals(""))
+                    if(IdCultura.getText().equals(""))
+                        if(databaseConnection.CreateCultura(NomeCultura.getText(), Descricao.getText()))
+                            JOptionPane.showMessageDialog(frame.getContentPane(),
+                                    "Succeso",
+                                    "Information",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        else
+                            JOptionPane.showMessageDialog(frame.getContentPane(),
+                                    "Erro ao criar uma cultura",
+                                    "Error",
+                                    JOptionPane.ERROR_MESSAGE);
+                    else
+                        if(databaseConnection.UpdateCultura(Integer.parseInt(IdCultura.getText()),NomeCultura.getText(), Descricao.getText()))
+                            JOptionPane.showMessageDialog(frame.getContentPane(),
+                                    "Succeso",
+                                    "Information",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        else
+                            JOptionPane.showMessageDialog(frame.getContentPane(),
+                                    "Erro ao criar uma cultura",
+                                    "Error",
+                                    JOptionPane.ERROR_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "Os campos estao vazios",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                
+            }
+        });
+        contentPanel.add(ACultura);
+        
         
         contentPanel.add(imagemFundo);
         frame.add(contentPanel);

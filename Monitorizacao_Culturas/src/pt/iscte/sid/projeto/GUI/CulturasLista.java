@@ -27,17 +27,17 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
 public class CulturasLista extends JFrame {
     
     private JPanel CulturasSobResponsabilidade;
-    private JTextField txtInvestigador;
-    private JTextField txtParaApagarPara;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
+    
     private JFrame frame;
     private DatabaseMiddleManForInvestigador databaseConnection;
     
@@ -48,15 +48,15 @@ public class CulturasLista extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    CulturasLista frame = new CulturasLista();
-                    frame.setVisible(true);
+                    new CulturasLista(new DatabaseMiddleManForInvestigador("NovoInvestigador", "12345"));
+                    // frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-
+    
     
     
     public CulturasLista(DatabaseMiddleManForInvestigador databaseConnection) {
@@ -91,57 +91,62 @@ public class CulturasLista extends JFrame {
         setContentPane(CulturasSobResponsabilidade);
         CulturasSobResponsabilidade.setLayout(null);
         
-
-       ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
-
         
-        JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
-        btnEliminarCulturaSeleccionada.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
+        ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
         
-        JScrollPane scrollPane = new JScrollPane();
+        
+        
+        
+        /*JScrollPane scrollPane = new JScrollPane();
         scrollPane.setBounds(110, 184, 620, 305);
         CulturasSobResponsabilidade.add(scrollPane);
         
-        txtParaApagarPara = new JTextField();
+        JTextField txtParaApagarPara = new JTextField();
         scrollPane.setViewportView(txtParaApagarPara);
         txtParaApagarPara.setFont(new Font("Tahoma", Font.PLAIN, 9));
         txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura + VariaveisMedidas + Medicoes (JOIN) (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
         txtParaApagarPara.setColumns(10);
+        */
+        String[] Invesheader={"IdCultura","IdInvestigador","NomeCultura","Descricao"};
+        String[][] Invesdata=GetList(databaseConnection.getCulturas());
+        DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+        JTable table = new JTable(Invesmodel);
+        //table.setCellSelectionEnabled(true);
+        // Investable.setCellSelectionEnabled(true);
+        ListSelectionModel selectInves= table.getSelectionModel();
+        selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JScrollPane Invesjs=new JScrollPane(table);
+        Invesjs.setVisible(true);
+        Invesjs.setBounds(110, 184, 620, 305);
+        CulturasSobResponsabilidade.add(Invesjs);
         
-        JButton btnNewButton_1 = new JButton("Voltar");
-        btnNewButton_1.addActionListener(new ActionListener() {
+        
+        JButton Voltar = new JButton("Voltar");
+        Voltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AreaInvestigador ai = new AreaInvestigador();
-
+                new AreaInvestigador(databaseConnection);
                 CloseWindow();
-
-               // ai.setVisible(true);
-
             }
         });
-        btnNewButton_1.setBounds(731, 527, 77, 23);
-        CulturasSobResponsabilidade.add(btnNewButton_1);
-        btnEliminarCulturaSeleccionada.setBounds(211, 500, 149, 23);
-        CulturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
+        Voltar.setBounds(731, 527, 77, 23);
+        CulturasSobResponsabilidade.add(Voltar);
         
-        JButton btnNewButton = new JButton("Alterar Cultura ");
-        btnNewButton.addActionListener(new ActionListener() {
+        
+        JButton ButtonAlterarrCultura = new JButton("Alterar Cultura ");
+        ButtonAlterarrCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CriarCultura cc = new CriarCultura();
-                cc.setVisible(true);;
+                new CriarCultura();
+                CloseWindow();
             }
         });
-        btnNewButton.setBounds(211, 527, 149, 23);
-        CulturasSobResponsabilidade.add(btnNewButton);
+        ButtonAlterarrCultura.setBounds(211, 527, 149, 23);
+        CulturasSobResponsabilidade.add(ButtonAlterarrCultura);
         
         JButton ButtonAddCultura = new JButton("Adicionar Nova Cultura");
         ButtonAddCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CriarCultura cc = new CriarCultura();
-                cc.setVisible(true);
+                new CriarCultura();
+                CloseWindow();
             }
         });
         ButtonAddCultura.setBounds(222, 150, 165, 23);
@@ -150,9 +155,27 @@ public class CulturasLista extends JFrame {
         JButton ButtonLoadTable = new JButton("Atualizar Info Culturas");
         ButtonLoadTable.setFont(new Font("Tahoma", Font.BOLD, 11));
         ButtonLoadTable.setBounds(563, 150, 165, 23);
+        ButtonLoadTable.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                CulturasSobResponsabilidade.remove(Invesjs);
+                String[] Invesheader={"IdCultura","IdInvestigador","NomeCultura","Descricao"};
+                String[][] Invesdata=GetList(databaseConnection.getCulturas());
+                DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+                JTable table = new JTable(Invesmodel);
+                //table.setCellSelectionEnabled(true);
+                // Investable.setCellSelectionEnabled(true);
+                ListSelectionModel selectInves= table.getSelectionModel();
+                selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                JScrollPane Invesjs=new JScrollPane(table);
+                Invesjs.setVisible(true);
+                Invesjs.setBounds(110, 184, 620, 305);
+                CulturasSobResponsabilidade.add(Invesjs);
+                
+            }
+        });
         CulturasSobResponsabilidade.add(ButtonLoadTable);
         
-        txtInvestigador = new JTextField();
+        JTextField txtInvestigador = new JTextField();
         txtInvestigador.setHorizontalAlignment(SwingConstants.CENTER);
         txtInvestigador.setBackground(new Color(0, 51, 102));
         txtInvestigador.setForeground(Color.WHITE);
@@ -172,7 +195,7 @@ public class CulturasLista extends JFrame {
         CulturasSobResponsabilidade.add(editorPane);
         editorPane.setBackground(new Color(250, 235, 215));
         
-        textField = new JTextField();
+        JTextField textField = new JTextField();
         textField.setText("ID");
         textField.setHorizontalAlignment(SwingConstants.CENTER);
         textField.setForeground(Color.WHITE);
@@ -187,10 +210,10 @@ public class CulturasLista extends JFrame {
         textPane_1.setBounds(760, 72, 36, 20);
         CulturasSobResponsabilidade.add(textPane_1);
         
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(154, 514, 47, 29);
-        CulturasSobResponsabilidade.add(textField_1);
+        JTextField CulturaId = new JTextField();
+        CulturaId.setColumns(10);
+        CulturaId.setBounds(154, 514, 47, 29);
+        CulturasSobResponsabilidade.add(CulturaId);
         
         JLabel lblIdDaCultura = new JLabel("SeleccionarID da Cultura");
         lblIdDaCultura.setBounds(10, 520, 149, 16);
@@ -200,14 +223,30 @@ public class CulturasLista extends JFrame {
         lblSeleccionaridDaVariavel.setBounds(370, 520, 149, 16);
         CulturasSobResponsabilidade.add(lblSeleccionaridDaVariavel);
         
-        textField_2 = new JTextField();
-        textField_2.setColumns(10);
-        textField_2.setBounds(517, 514, 47, 29);
-        CulturasSobResponsabilidade.add(textField_2);
+        JTextField VariavelId = new JTextField();
+        VariavelId.setColumns(10);
+        VariavelId.setBounds(517, 514, 47, 29);
+        CulturasSobResponsabilidade.add(VariavelId);
         
         JButton btnEliminarVariavel = new JButton("Eliminar Variavel");
         btnEliminarVariavel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                if(VariavelId.getText().equals("") || CulturaId.getText().equals(""))
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "O campo esta vazio",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                else
+                    if(!databaseConnection.DeleteVariaveisMedidas(Integer.parseInt(CulturaId.getText()),Integer.parseInt(VariavelId.getText())))
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Está a mexer numa variavel que não lhe pertence",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Successo",
+                                "Information",
+                                JOptionPane.INFORMATION_MESSAGE);
             }
         });
         btnEliminarVariavel.setBounds(572, 500, 149, 23);
@@ -215,21 +254,67 @@ public class CulturasLista extends JFrame {
         
         JButton btnAlterarVariavel = new JButton("Alterar Variavel ");
         btnAlterarVariavel.setBounds(572, 527, 149, 23);
+        btnAlterarVariavel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CriarCultura();
+                CloseWindow();
+            }
+        });
         CulturasSobResponsabilidade.add(btnAlterarVariavel);
         
         JButton btnAdicionarNovaVariavel = new JButton("Adicionar Nova Variavel");
         btnAdicionarNovaVariavel.setBounds(388, 150, 172, 23);
+        btnAdicionarNovaVariavel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CriarCultura();
+                CloseWindow();
+            }
+        });
         CulturasSobResponsabilidade.add(btnAdicionarNovaVariavel);
+        
+        JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
+        btnEliminarCulturaSeleccionada.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(CulturaId.getText().equals(""))
+                    JOptionPane.showMessageDialog(frame.getContentPane(),
+                            "O campo esta vazio",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                else
+                    if(!databaseConnection.DeleteCultura(Integer.parseInt(CulturaId.getText())))
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Está a mexer numa cultura que não lhe pertence",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame.getContentPane(),
+                                "Successo",
+                                "Information",
+                                JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        btnEliminarCulturaSeleccionada.setBounds(211, 500, 149, 23);
+        CulturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
         
         JLabel imagemTopo = new JLabel("Investigador:");
         imagemTopo.setBounds(0, 0, 834, 165);
-       Image imgOne =imgTopo.getImage().getScaledInstance(imagemTopo.getWidth(), imagemTopo.getHeight(), Image.SCALE_SMOOTH);
+        Image imgOne =imgTopo.getImage().getScaledInstance(imagemTopo.getWidth(), imagemTopo.getHeight(), Image.SCALE_SMOOTH);
         
-       imagemTopo.setIcon(new ImageIcon(imgOne));
-
+        imagemTopo.setIcon(new ImageIcon(imgOne));
+        
         
         CulturasSobResponsabilidade.add(imagemTopo);
         frame.add(CulturasSobResponsabilidade);
+    }
+    private String[][] GetList(String arg)
+    {
+        String[] lines = arg.split("BREAKLINE");
+        String[][] linesCsv = new String[lines.length][];
+        
+        for (int i=0; i<lines.length; i++) {
+            linesCsv[i] = lines[i].split("BREAKCOLUMN");
+        }
+        return linesCsv;
     }
 }
 

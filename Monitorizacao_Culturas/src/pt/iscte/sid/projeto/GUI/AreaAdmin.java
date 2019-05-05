@@ -33,16 +33,16 @@ public class AreaAdmin extends JFrame {
      * Launch the application
      */
     public static void main(String[] args) {
-    EventQueue.invokeLater(new Runnable() {
-    public void run() {
-    try {
-    AreaAdmin frame = new AreaAdmin();
-    //frame.setVisible(true);
-    } catch (Exception e) {
-    e.printStackTrace();
-    }
-    }
-    });
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    AreaAdmin frame = new AreaAdmin(new DatabaseMiddleManForAdministrador("EmailAdmin", "12345"));
+                    //frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
     
     public AreaAdmin(DatabaseMiddleManForAdministrador databaseConnection) {
@@ -77,7 +77,7 @@ public class AreaAdmin extends JFrame {
         JButton btnCriaoDeUtilizadores = new JButton("Cria\u00E7\u00E3o de Utilizadores");
         btnCriaoDeUtilizadores.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SubscreverUtilizador su = new SubscreverUtilizador(databaseConnection);
+                new SubscreverUtilizador(databaseConnection);
                 CloseWindow();
             }
         });
@@ -88,7 +88,7 @@ public class AreaAdmin extends JFrame {
         JButton btnManutenoDeUtilizadores = new JButton("Manuten\u00E7\u00E3o de Utilizadores");
         btnManutenoDeUtilizadores.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ManutencaoUtilizadores mu = new ManutencaoUtilizadores(databaseConnection);
+                new ManutencaoUtilizadores(databaseConnection);
                 CloseWindow();
             }
         });
@@ -99,7 +99,7 @@ public class AreaAdmin extends JFrame {
         JButton btnManutenoDeVariveis = new JButton("Manuten\u00E7\u00E3o de Vari\u00E1veis");
         btnManutenoDeVariveis.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ManutencaoVariaveis mv = new ManutencaoVariaveis(databaseConnection);
+                new ManutencaoVariaveis(databaseConnection);
                 CloseWindow();
             }
         });
@@ -110,9 +110,10 @@ public class AreaAdmin extends JFrame {
         JButton button = new JButton("LogOut");
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                LoginWindow lw = new LoginWindow();
-                databaseConnection.CloseConnection();
+                new LoginWindow();
                 CloseWindow();
+                databaseConnection.CloseConnection();
+                
             }
         });
         button.setBounds(675, 499, 89, 23);
@@ -121,7 +122,7 @@ public class AreaAdmin extends JFrame {
         JButton btnConfigurarLimites = new JButton("Configurar LimitesSistema");
         btnConfigurarLimites.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ConfigurarLimites ls = new ConfigurarLimites();
+                new ConfigurarLimites();
                 CloseWindow();
             }
         });

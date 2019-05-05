@@ -124,8 +124,8 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
             String query = "select * from investigador";
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next()){
-                TableResult += "\nInvestigador \nID do Investigador:" + rs.getString(1)+"\nEmail do Investigador:"+rs.getString(2)
-                        +"\nNome do Investigador:"+rs.getString(3) +"\nCategoria do Investigador " + rs.getString(4) +"\n\n";
+                TableResult += rs.getString(1)+"BREAKCOLUMN"+rs.getString(2)
+                        +"BREAKCOLUMN"+rs.getString(3) +"BREAKCOLUMN" + rs.getString(4) + "BREAKLINE";
             }
         }catch(Exception e){
             System.out.println(e);
@@ -215,11 +215,11 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
         String TableResult="";
         try{
             Statement stmt=DatabaseConnection.createStatement();
-            String query = "select * from Administrator";
+            String query = "select * from administrador";
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next()){
-                TableResult += "\nIAdmin \nID do admin:" + rs.getString(1)+"\nEmail do admin:"+rs.getString(2)
-                        +"\nNome do Admin:"+rs.getString(3)+"\n\n";
+                TableResult += rs.getString(1)+"BREAKCOLUMN"+rs.getString(2)
+                        +"BREAKCOLUMN"+rs.getString(3)+ "BREAKLINE";
             }
         }catch(Exception e){
             System.out.println(e);
@@ -240,9 +240,9 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     {
         try {
             String query =
-                    " update investigador set email= '" + Email
-                    + "', NomeInvestigador='" + Nome
-                    +"' where idInvestigador=" + IdAdmin;
+                    " update administrador set email= '" + Email
+                    + "', NomeAdmin='" + Nome
+                    +"' where idAdmin=" + IdAdmin;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
             return UpdateUserNaBD(getAdministradorEmail(IdAdmin),Email);
