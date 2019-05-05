@@ -88,7 +88,6 @@ public class CulturasLista extends JFrame {
         CulturasSobResponsabilidade = new JPanel();
         CulturasSobResponsabilidade.setBackground(Color.WHITE);
         CulturasSobResponsabilidade.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(CulturasSobResponsabilidade);
         CulturasSobResponsabilidade.setLayout(null);
         
         
@@ -135,21 +134,21 @@ public class CulturasLista extends JFrame {
         JButton ButtonAlterarrCultura = new JButton("Alterar Cultura ");
         ButtonAlterarrCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new CriarCultura();
+                new CriarCultura(databaseConnection);
                 CloseWindow();
             }
         });
-        ButtonAlterarrCultura.setBounds(211, 527, 149, 23);
+        ButtonAlterarrCultura.setBounds(402, 150, 149, 23);
         CulturasSobResponsabilidade.add(ButtonAlterarrCultura);
         
         JButton ButtonAddCultura = new JButton("Adicionar Nova Cultura");
         ButtonAddCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new CriarCultura();
+                new CriarCultura(databaseConnection);
                 CloseWindow();
             }
         });
-        ButtonAddCultura.setBounds(222, 150, 165, 23);
+        ButtonAddCultura.setBounds(227, 150, 165, 23);
         CulturasSobResponsabilidade.add(ButtonAddCultura);
         
         JButton ButtonLoadTable = new JButton("Atualizar Info Culturas");
@@ -185,10 +184,12 @@ public class CulturasLista extends JFrame {
         CulturasSobResponsabilidade.add(txtInvestigador);
         txtInvestigador.setColumns(10);
         
-        JTextPane textPane = new JTextPane();
-        textPane.setBackground(SystemColor.menu);
-        textPane.setBounds(582, 71, 129, 20);
-        CulturasSobResponsabilidade.add(textPane);
+        JTextPane InvestigadorTextBox = new JTextPane();
+        InvestigadorTextBox.setBackground(SystemColor.menu);
+        InvestigadorTextBox.setBounds(582, 71, 129, 20);
+        InvestigadorTextBox.setText(databaseConnection.getMyName());
+        InvestigadorTextBox.setEditable(false);
+        CulturasSobResponsabilidade.add(InvestigadorTextBox);
         
         JEditorPane editorPane = new JEditorPane();
         editorPane.setBounds(164, 231, 402, 254);
@@ -205,10 +206,12 @@ public class CulturasLista extends JFrame {
         textField.setBounds(726, 71, 24, 21);
         CulturasSobResponsabilidade.add(textField);
         
-        JTextPane textPane_1 = new JTextPane();
-        textPane_1.setBackground(SystemColor.menu);
-        textPane_1.setBounds(760, 72, 36, 20);
-        CulturasSobResponsabilidade.add(textPane_1);
+        JTextPane IdTextBox = new JTextPane();
+        IdTextBox.setBackground(SystemColor.menu);
+        IdTextBox.setBounds(760, 72, 36, 20);
+        IdTextBox.setText(String.valueOf(databaseConnection.getMyId()));
+        IdTextBox.setEditable(false);
+        CulturasSobResponsabilidade.add(IdTextBox);
         
         JTextField CulturaId = new JTextField();
         CulturaId.setColumns(10);
@@ -218,59 +221,6 @@ public class CulturasLista extends JFrame {
         JLabel lblIdDaCultura = new JLabel("SeleccionarID da Cultura");
         lblIdDaCultura.setBounds(10, 520, 149, 16);
         CulturasSobResponsabilidade.add(lblIdDaCultura);
-        
-        JLabel lblSeleccionaridDaVariavel = new JLabel("SeleccionarID da Variavel");
-        lblSeleccionaridDaVariavel.setBounds(370, 520, 149, 16);
-        CulturasSobResponsabilidade.add(lblSeleccionaridDaVariavel);
-        
-        JTextField VariavelId = new JTextField();
-        VariavelId.setColumns(10);
-        VariavelId.setBounds(517, 514, 47, 29);
-        CulturasSobResponsabilidade.add(VariavelId);
-        
-        JButton btnEliminarVariavel = new JButton("Eliminar Variavel");
-        btnEliminarVariavel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if(VariavelId.getText().equals("") || CulturaId.getText().equals(""))
-                    JOptionPane.showMessageDialog(frame.getContentPane(),
-                            "O campo esta vazio",
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE);
-                else
-                    if(!databaseConnection.DeleteVariaveisMedidas(Integer.parseInt(CulturaId.getText()),Integer.parseInt(VariavelId.getText())))
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Está a mexer numa variavel que não lhe pertence",
-                                "Error",
-                                JOptionPane.ERROR_MESSAGE);
-                    else
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Successo",
-                                "Information",
-                                JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
-        btnEliminarVariavel.setBounds(572, 500, 149, 23);
-        CulturasSobResponsabilidade.add(btnEliminarVariavel);
-        
-        JButton btnAlterarVariavel = new JButton("Alterar Variavel ");
-        btnAlterarVariavel.setBounds(572, 527, 149, 23);
-        btnAlterarVariavel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new CriarCultura();
-                CloseWindow();
-            }
-        });
-        CulturasSobResponsabilidade.add(btnAlterarVariavel);
-        
-        JButton btnAdicionarNovaVariavel = new JButton("Adicionar Nova Variavel");
-        btnAdicionarNovaVariavel.setBounds(388, 150, 172, 23);
-        btnAdicionarNovaVariavel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new CriarCultura();
-                CloseWindow();
-            }
-        });
-        CulturasSobResponsabilidade.add(btnAdicionarNovaVariavel);
         
         JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
         btnEliminarCulturaSeleccionada.addActionListener(new ActionListener() {
@@ -293,7 +243,7 @@ public class CulturasLista extends JFrame {
                                 JOptionPane.INFORMATION_MESSAGE);
             }
         });
-        btnEliminarCulturaSeleccionada.setBounds(211, 500, 149, 23);
+        btnEliminarCulturaSeleccionada.setBounds(208, 517, 149, 23);
         CulturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
         
         JLabel imagemTopo = new JLabel("Investigador:");
@@ -304,7 +254,7 @@ public class CulturasLista extends JFrame {
         
         
         CulturasSobResponsabilidade.add(imagemTopo);
-        frame.add(CulturasSobResponsabilidade);
+        frame.getContentPane().add(CulturasSobResponsabilidade);
     }
     private String[][] GetList(String arg)
     {
