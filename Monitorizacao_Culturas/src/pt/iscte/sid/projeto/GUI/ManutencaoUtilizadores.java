@@ -228,7 +228,7 @@ public class ManutencaoUtilizadores extends JFrame {
         contentPanel.add(btnEliminarUtilizador);
         
         JButton btnSubmeterAlteraes = new JButton("Alterar Utilizador");
-        /*btnSubmeterAlteraes.addActionListener(new ActionListener() {
+        btnSubmeterAlteraes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                if(!AdminSelected[0].equals(null))
                     if(databaseConnection.UpdateAdministrador(Integer.parseInt(AdminSelected[0]), AdminSelected[1], AdminSelected[2]))
@@ -258,7 +258,7 @@ public class ManutencaoUtilizadores extends JFrame {
                             "ERROR",
                             JOptionPane.ERROR_MESSAGE);
             }
-        });*/
+        });
         btnSubmeterAlteraes.setBounds(390, 497, 158, 30);
         contentPanel.add(btnSubmeterAlteraes);
         
