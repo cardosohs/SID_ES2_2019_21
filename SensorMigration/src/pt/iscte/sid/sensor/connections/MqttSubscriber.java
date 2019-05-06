@@ -1,8 +1,7 @@
 package pt.iscte.sid.sensor.connections;
 
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -19,7 +18,7 @@ public class MqttSubscriber {
 	private Boolean isMqttAlive = false; // flag para determinar se a conexão existe
 	MemoryPersistence persistence = new MemoryPersistence();
 	MqttClient Client;
-	
+	private String teste="";
 		
 	/**
 	 * Implementação de uma singleton pattern para garantir que só existe 1 instância a correr
@@ -53,7 +52,9 @@ public class MqttSubscriber {
 				 {"tmp":"23.60","hum":"60.50","dat":"1/5/2019","tim":"11:43:11","cell":"1851""sens":"wifi"}
 				*/
 				public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-					System.out.println("Topic : " + topic + " Message : " + mqttMessage);					
+					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
+					msg(mqttMessage.toString());
+					
 				}
 
 				public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
@@ -70,6 +71,10 @@ public class MqttSubscriber {
 		}
 			
 	}
+	
+	public String msg(String s) {
+		return s;
+	}
 
 	public Boolean getIsMqttAlive() {
 		return isMqttAlive;
@@ -82,6 +87,12 @@ public class MqttSubscriber {
 	public MqttClient getClient() {
 		return Client;
 	}
+
+	public String getTeste() {
+		return teste;
+	}
+	
+	
 	
 	
 	

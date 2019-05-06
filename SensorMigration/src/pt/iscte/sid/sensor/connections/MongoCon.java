@@ -32,7 +32,7 @@ public class MongoCon {
 	
 	public void connectMongoBd() {		
 		mongoClient = new MongoClient("localhost", 27017);
-		System.out.println("Connection established");
+		//System.out.println("Connection established");
 		//Request da DB
 		database = mongoClient.getDatabase(dbName);
 		//Request da colecao

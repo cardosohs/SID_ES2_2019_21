@@ -2,28 +2,26 @@ package pt.iscte.sid.sensor.worker;
 
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
-
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import pt.iscte.sid.sensor.connections.MongoCon;
-import pt.iscte.sid.sensor.connections.MqttSubscriber;
 
 public class Producer implements Runnable  {
 	
 	protected BlockingQueue<Object> queue;
+	protected String MsgSensor;
 	
-	public Producer(BlockingQueue<Object> theQueue) {
+	public Producer(BlockingQueue<Object> theQueue, String MsgSensor) {
         this.queue = theQueue;
+        this.MsgSensor = MsgSensor;
     }
 
 	@Override
 	public void run() {
 		
-		MongoCon.getInstance().connectMongoBd();
-		MqttSubscriber.getInstance().connectSensor();
-		
+		System.out.println(MsgSensor);
+		//MqttSubscriber.getInstance().connectSensor();
+		//MongoCon.getInstance().connectMongoBd();
+				
 		/*		 
 		 * tenta inserir na mongoDB
 		 * se consegue trata o seguinte 
@@ -51,8 +49,7 @@ public class Producer implements Runnable  {
 		}catch (IOException e) { 
 			return false;
 		}	
-	}
-	
-	
+	}	
 
 }
+
