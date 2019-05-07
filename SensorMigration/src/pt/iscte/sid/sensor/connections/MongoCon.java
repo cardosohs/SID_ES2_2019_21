@@ -2,9 +2,12 @@ package pt.iscte.sid.sensor.connections;
 
 import org.bson.Document;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.reactivestreams.client.MongoClient;
+import com.mongodb.reactivestreams.client.MongoClients;
+import com.mongodb.reactivestreams.client.MongoCollection;
+import com.mongodb.reactivestreams.client.MongoDatabase;
+
+
 
 public class MongoCon {
 	
@@ -30,8 +33,9 @@ public class MongoCon {
 	}
 	
 	
-	public void connectMongoBd() {		
-		mongoClient = new MongoClient("localhost", 27017);
+	public void connectMongoBd() {
+		mongoClient = MongoClients.create("mongodb://localhost");
+		//mongoClient = new MongoClient("localhost", 27017);
 		//System.out.println("Connection established");
 		//Request da DB
 		database = mongoClient.getDatabase(dbName);
