@@ -120,7 +120,7 @@ public class ManutencaoUtilizadores extends JFrame {
         
         DefaultTableModel Adminmodel = new DefaultTableModel(Admindata,Adminheader);
         JTable Admintable = new JTable(Adminmodel);
-        Admintable.setCellSelectionEnabled(true);
+        Admintable.setCellSelectionEnabled(false);
         ListSelectionModel selectAdmin= Admintable.getSelectionModel();
         selectAdmin.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         selectAdmin.addListSelectionListener(new ListSelectionListener() {
@@ -146,8 +146,7 @@ public class ManutencaoUtilizadores extends JFrame {
         String[][] Invesdata=GetList(databaseConnection.getInvestigador());
         DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
         JTable Investable = new JTable(Invesmodel);
-        Investable.setCellSelectionEnabled(true); 
-        Investable.setCellSelectionEnabled(true);
+        Investable.setCellSelectionEnabled(false); 
         ListSelectionModel selectInves= Investable.getSelectionModel();
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         selectInves.addListSelectionListener(new ListSelectionListener() {
@@ -230,35 +229,15 @@ public class ManutencaoUtilizadores extends JFrame {
         JButton btnSubmeterAlteraes = new JButton("Alterar Utilizador");
         btnSubmeterAlteraes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               if(!AdminSelected[0].equals(null))
-                    if(databaseConnection.UpdateAdministrador(Integer.parseInt(AdminSelected[0]), AdminSelected[1], AdminSelected[2]))
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Successo",
-                                "Information",
-                                JOptionPane.INFORMATION_MESSAGE);
-                    else
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Aconteceu um erro",
-                                "ERROR",
-                                JOptionPane.ERROR_MESSAGE);
-                else  if(!InvesSelected[0].equals(null))
-                    if(databaseConnection.UpdateInvestigador(Integer.parseInt(InvesSelected[0]), InvesSelected[1], InvesSelected[2], InvesSelected[3]))
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Successo",
-                                "Information",
-                                JOptionPane.INFORMATION_MESSAGE);
-                    else
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Aconteceu um erro",
-                                "ERROR",
-                                JOptionPane.ERROR_MESSAGE);
-                else
-                    JOptionPane.showMessageDialog(frame.getContentPane(),
-                            "O campo nao pode estar vazio",
-                            "ERROR",
-                            JOptionPane.ERROR_MESSAGE);
-            }
-        });
+                JFrame PopUpFrame = new JFrame();
+                JPanel PopUpPanel = new JPanel();
+                JTextField a = new JTextField();
+                JLabel as= new JLabel("aaa");
+                PopUpFrame.add(a);
+                PopUpFrame.add(as);
+             
+               JOptionPane.showInputDialog(PopUpFrame);
+        }});
         btnSubmeterAlteraes.setBounds(390, 497, 158, 30);
         contentPanel.add(btnSubmeterAlteraes);
         
