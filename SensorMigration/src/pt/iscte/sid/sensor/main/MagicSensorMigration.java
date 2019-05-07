@@ -24,14 +24,11 @@ public class MagicSensorMigration {
 		
 		
 		//MongoCon.getInstance().connectMongoBd();
-		MqttSubscriber.getInstance().connectSensor();
-		String mqttString = MqttSubscriber.getInstance().msg(null);
-		
-		
+		MqttSubscriber.getInstance().connectSensor();		
 		
 	   // int numConsumers = 1;
 		
-		Producer myRunnable = new Producer(myQueue,mqttString);
+		Producer myRunnable = new Producer(myQueue);
 		new Thread(myRunnable).start();	    
 	   
 	    /*
