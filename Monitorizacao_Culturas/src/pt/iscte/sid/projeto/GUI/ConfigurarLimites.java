@@ -31,7 +31,7 @@ public class ConfigurarLimites extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -45,7 +45,7 @@ public class ConfigurarLimites extends JFrame {
             }
         });
     }
-    
+    */
     private void CloseWindow() {
         frame.setVisible(false);
     }
@@ -54,11 +54,7 @@ public class ConfigurarLimites extends JFrame {
         this.databaseConnection = databaseConnection;
         StartConfigurarLimites();
     }
-    
-    public ConfigurarLimites() {
-        StartConfigurarLimites();
-    }
-    
+
     
     
     

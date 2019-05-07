@@ -32,7 +32,7 @@ public class AreaAdmin extends JFrame {
     /**
      * Launch the application
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -44,15 +44,13 @@ public class AreaAdmin extends JFrame {
             }
         });
     }
-    
+    */
     public AreaAdmin(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartAreaAdmin() ;
     }
     
-    public AreaAdmin() {
-        StartAreaAdmin() ;
-    }
+
     
     /**
      * Create the frame.
@@ -77,7 +75,7 @@ public class AreaAdmin extends JFrame {
         JButton btnCriaoDeUtilizadores = new JButton("Cria\u00E7\u00E3o de Utilizadores");
         btnCriaoDeUtilizadores.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SubscreverUtilizador(databaseConnection);
+                new SubscreverUtilizador(databaseConnection,true);
                 CloseWindow();
             }
         });

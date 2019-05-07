@@ -39,7 +39,7 @@ public class ManutencaoUtilizadores extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -50,17 +50,14 @@ public class ManutencaoUtilizadores extends JFrame {
                 }
             }
         });
-    }
+    }*/
     
     public ManutencaoUtilizadores(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartManutencaoUtilizadores();
     }
     
-    public ManutencaoUtilizadores() {
-        StartManutencaoUtilizadores();
-    }
-    
+
     
     private void CloseWindow() {
         frame.setVisible(false);
@@ -89,7 +86,7 @@ public class ManutencaoUtilizadores extends JFrame {
         JButton btnAdicionarUtilizador = new JButton("Adicionar Novo Utilizador");
         btnAdicionarUtilizador.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SubscreverUtilizador();
+                new SubscreverUtilizador(databaseConnection,true);
                 CloseWindow();
             }
         });
@@ -229,14 +226,8 @@ public class ManutencaoUtilizadores extends JFrame {
         JButton btnSubmeterAlteraes = new JButton("Alterar Utilizador");
         btnSubmeterAlteraes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFrame PopUpFrame = new JFrame();
-                JPanel PopUpPanel = new JPanel();
-                JTextField a = new JTextField();
-                JLabel as= new JLabel("aaa");
-                PopUpFrame.add(a);
-                PopUpFrame.add(as);
-             
-               JOptionPane.showInputDialog(PopUpFrame);
+                new SubscreverUtilizador(databaseConnection,false);
+                CloseWindow();
         }});
         btnSubmeterAlteraes.setBounds(390, 497, 158, 30);
         contentPanel.add(btnSubmeterAlteraes);

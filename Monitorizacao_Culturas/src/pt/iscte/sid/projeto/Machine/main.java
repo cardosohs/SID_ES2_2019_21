@@ -14,8 +14,8 @@ import javax.swing.JTable;
  */
 public class main {
     public static void main(String[] args){
-       DatabaseMiddleManForInvestigador d = new DatabaseMiddleManForInvestigador("NovoInvestigador", "12345");
-        System.err.println(d.getCulturas());
+       DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("root", "");
+        System.err.println(d.DeleteAdmin(1));
     }
 
     

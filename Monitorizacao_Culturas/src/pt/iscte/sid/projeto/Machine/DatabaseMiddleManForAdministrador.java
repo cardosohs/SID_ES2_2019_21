@@ -82,40 +82,36 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param NewEmail
      * @return
      */
-    private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
+   /* private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
         String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-
+        
         try {
-
+            
             Class.forName(DatabaseDriver);
             Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, "root", "");
             Statement stmt = DatabaseTMPConnection.createStatement();
-
-            String query="RENAME USER '"+OldEmail+"'@'localhost' to '"+NewEmail+"'@'localhost';";
-            ResultSet rs = stmt.executeQuery(query);
-
-            while (rs.next()) {
-                this.Id = rs.getInt(1);
-                this.Nome=rs.getString(3);
-            }
-
+            
+            String query="RENAME USER '"+OldEmail+"'@'localhost' to '"+NewEmail+"'@'localhost'";
+            int rs = stmt.executeUpdate(query);
+          
+            
             DatabaseTMPConnection.close();
             return true;
-
+            
         } catch (ClassNotFoundException ex) {
             //System.out.println("Failed ao buscar o id do investigador");
             Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
             return false;
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
             //System.out.println("Failed ao buscar o id do investigador");
             return false;
         }
-                
         
-    }
+        
+    }*/
     
     /**
      * Classe de suporte que apaga um utilizador da base de dados
@@ -124,14 +120,29 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      */
     private boolean DeleteUserNaBD(String Email)
     {
+        String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
+        String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
         try {
-            String query= "DROP USER "+Email+"@localhost;";
-            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
-            preparedStmt.execute();
+            Class.forName(DatabaseDriver);
+            Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, "root", "");
+            Statement stmt=DatabaseTMPConnection.createStatement();
+            String query= "DROP USER '"+Email+"'@'localhost'";
+            int rs=stmt.executeUpdate(query);          
+           // System.out.println(query);
+            DatabaseTMPConnection.close();
             return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleManForAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } catch (ClassNotFoundException ex) {
+            //System.out.println("Failed ao buscar o id do investigador");
+            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println("Failed ao buscar o id do investigador");
+            return false;
+            
         }
     }
     
@@ -167,16 +178,15 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param CategoriaProfe
      * @return
      */
-    public boolean UpdateInvestigador(int IdInvestigador, String Email, String Nome, String CategoriaProfe)
+    public boolean UpdateInvestigador(int IdInvestigador, String Nome, String CategoriaProfe)
     {
         try {
             String query =
-                    " update investigador set email= '" + Email
-                    + "', NomeInvestigador='" + Nome+ "', CategoriaProfe='"+ CategoriaProfe
+                    " update investigador set NomeInvesigador='" + Nome+ "', CategoriaProfe='"+ CategoriaProfe
                     +"' where idInvestigador=" + IdInvestigador;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
-            return UpdateUserNaBD(getinvestigadorEmail(IdInvestigador),Email);
+            return true;
         } catch (SQLException ex) {
             System.err.println("Erro ao executar a accao");
             return false;
@@ -269,7 +279,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
                     +"' where idAdmin=" + IdAdmin;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
-            return UpdateUserNaBD(getAdministradorEmail(IdAdmin),Email);
+            return true;
         } catch (SQLException ex) {
             System.err.println("Erro ao executar a accao");
             return false;

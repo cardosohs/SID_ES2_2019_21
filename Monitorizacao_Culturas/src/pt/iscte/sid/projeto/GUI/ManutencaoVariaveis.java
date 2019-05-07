@@ -35,7 +35,7 @@ public class ManutencaoVariaveis extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -49,16 +49,13 @@ public class ManutencaoVariaveis extends JFrame {
             }
         });
     }
-    
+    */
     public ManutencaoVariaveis(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartManutencaoVariaveis();
     }
     
-    public ManutencaoVariaveis() {
-        StartManutencaoVariaveis();
-    }
-    
+
     
     private void CloseWindow() {
         frame.setVisible(false);
