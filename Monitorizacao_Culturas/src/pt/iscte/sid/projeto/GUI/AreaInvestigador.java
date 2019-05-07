@@ -34,7 +34,7 @@ public class AreaInvestigador extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -45,7 +45,7 @@ public class AreaInvestigador extends JFrame {
                 }
             }
         });
-    }
+    }*/
     private void CloseWindow() {
         frame.setVisible(false);
     }
@@ -54,11 +54,7 @@ public class AreaInvestigador extends JFrame {
         this.databaseConnection = databaseConnection;
         StartAreaInvestigador();
     }
-    
-    public AreaInvestigador() {
-        // this.databaseConnection = databaseConnection;
-        StartAreaInvestigador();
-    }
+
     
     /**
      * Create the frame.

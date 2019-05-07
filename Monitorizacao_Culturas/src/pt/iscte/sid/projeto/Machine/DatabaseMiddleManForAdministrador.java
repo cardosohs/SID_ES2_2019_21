@@ -6,6 +6,8 @@
 package pt.iscte.sid.projeto.Machine;
 
 import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,8 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * 
+ *
+ *
  * @author Sérgio
  *
  */
@@ -30,7 +32,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     /**
      * metodo de suporte que vai buscar o email de um investigador
      * @param id
-     * @return 
+     * @return
      */
     private String getinvestigadorEmail(int id)
     {
@@ -54,7 +56,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     /**
      * clase de suporte que vai buscar o email de um Admin
      * @param id
-     * @return 
+     * @return
      */
     private String getAdministradorEmail(int id)
     {
@@ -78,36 +80,69 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * classe de suporte que atualiza o nome de um utilizador na base de dados
      * @param OldEmail
      * @param NewEmail
-     * @return 
+     * @return
      */
-    private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
+   /* private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
+        String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
+        String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        
         try {
-            String query="RENAME USER '"+OldEmail+"'@'localhost' to '"+NewEmail+"'@'localhost';";
-            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
-            preparedStmt.execute();
+            
+            Class.forName(DatabaseDriver);
+            Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, "root", "");
+            Statement stmt = DatabaseTMPConnection.createStatement();
+            
+            String query="RENAME USER '"+OldEmail+"'@'localhost' to '"+NewEmail+"'@'localhost'";
+            int rs = stmt.executeUpdate(query);
+          
+            
+            DatabaseTMPConnection.close();
             return true;
+            
+        } catch (ClassNotFoundException ex) {
+            //System.out.println("Failed ao buscar o id do investigador");
+            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+            
         } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleManForAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println("Failed ao buscar o id do investigador");
             return false;
         }
-    }
-    
+        
+        
+    }*/
     
     /**
      * Classe de suporte que apaga um utilizador da base de dados
      * @param Email
-     * @return 
+     * @return
      */
     private boolean DeleteUserNaBD(String Email)
     {
+        String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
+        String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
         try {
-            String query= "DROP USER "+Email+"@localhost;";
-            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
-            preparedStmt.execute();
+            Class.forName(DatabaseDriver);
+            Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, "root", "");
+            Statement stmt=DatabaseTMPConnection.createStatement();
+            String query= "DROP USER '"+Email+"'@'localhost'";
+            int rs=stmt.executeUpdate(query);          
+           // System.out.println(query);
+            DatabaseTMPConnection.close();
             return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleManForAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } catch (ClassNotFoundException ex) {
+            //System.out.println("Failed ao buscar o id do investigador");
+            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println("Failed ao buscar o id do investigador");
+            return false;
+            
         }
     }
     
@@ -143,16 +178,15 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param CategoriaProfe
      * @return
      */
-    public boolean UpdateInvestigador(int IdInvestigador, String Email, String Nome, String CategoriaProfe)
+    public boolean UpdateInvestigador(int IdInvestigador, String Nome, String CategoriaProfe)
     {
         try {
             String query =
-                    " update investigador set email= '" + Email
-                    + "', NomeInvestigador='" + Nome+ "', CategoriaProfe='"+ CategoriaProfe
+                    " update investigador set NomeInvesigador='" + Nome+ "', CategoriaProfe='"+ CategoriaProfe
                     +"' where idInvestigador=" + IdInvestigador;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
-            return UpdateUserNaBD(getinvestigadorEmail(IdInvestigador),Email);
+            return true;
         } catch (SQLException ex) {
             System.err.println("Erro ao executar a accao");
             return false;
@@ -163,7 +197,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Atualiza apenas a password de um investigador
      * @param IdInvestigador
      * @param Password
-     * @return 
+     * @return
      */
     public boolean UpdateInvestigadorPassword(int IdInvestigador, String Password)
     {
@@ -245,7 +279,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
                     +"' where idAdmin=" + IdAdmin;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
-            return UpdateUserNaBD(getAdministradorEmail(IdAdmin),Email);
+            return true;
         } catch (SQLException ex) {
             System.err.println("Erro ao executar a accao");
             return false;
@@ -257,7 +291,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Atualiza a password de um admin
      * @param IdAdministrador
      * @param Password
-     * @return 
+     * @return
      */
     public boolean UpdateAdministradorPassword(int IdAdministrador, String Password)
     {
@@ -285,7 +319,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     public boolean DeleteAdmin(int IdAdmin)
     {
         try {
-          boolean  success= DeleteUserNaBD(getAdministradorEmail(IdAdmin));
+            boolean  success= DeleteUserNaBD(getAdministradorEmail(IdAdmin));
             if(success){
                 String query = " delete from administrador where idadmin=" + IdAdmin;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
@@ -428,11 +462,11 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param InEmail
      * @param InCategoriaProfe
      * @param InTipo
-     * @return 
+     * @return
      */
     public boolean ExecuteSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
     {
-       // PreparedStatement cs = null;
+        // PreparedStatement cs = null;
         try {
             PreparedStatement cs = DatabaseConnection.prepareCall("{call SP_CriaUtilizador(?,?,?,?,?)}");
             cs.setString(1, InNome);

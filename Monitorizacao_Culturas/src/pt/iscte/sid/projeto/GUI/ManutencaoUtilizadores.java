@@ -39,7 +39,7 @@ public class ManutencaoUtilizadores extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -50,17 +50,14 @@ public class ManutencaoUtilizadores extends JFrame {
                 }
             }
         });
-    }
+    }*/
     
     public ManutencaoUtilizadores(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartManutencaoUtilizadores();
     }
     
-    public ManutencaoUtilizadores() {
-        StartManutencaoUtilizadores();
-    }
-    
+
     
     private void CloseWindow() {
         frame.setVisible(false);
@@ -89,7 +86,7 @@ public class ManutencaoUtilizadores extends JFrame {
         JButton btnAdicionarUtilizador = new JButton("Adicionar Novo Utilizador");
         btnAdicionarUtilizador.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SubscreverUtilizador();
+                new SubscreverUtilizador(databaseConnection,true);
                 CloseWindow();
             }
         });
@@ -120,7 +117,7 @@ public class ManutencaoUtilizadores extends JFrame {
         
         DefaultTableModel Adminmodel = new DefaultTableModel(Admindata,Adminheader);
         JTable Admintable = new JTable(Adminmodel);
-        Admintable.setCellSelectionEnabled(true);
+        Admintable.setCellSelectionEnabled(false);
         ListSelectionModel selectAdmin= Admintable.getSelectionModel();
         selectAdmin.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         selectAdmin.addListSelectionListener(new ListSelectionListener() {
@@ -146,8 +143,7 @@ public class ManutencaoUtilizadores extends JFrame {
         String[][] Invesdata=GetList(databaseConnection.getInvestigador());
         DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
         JTable Investable = new JTable(Invesmodel);
-        Investable.setCellSelectionEnabled(true); 
-        Investable.setCellSelectionEnabled(true);
+        Investable.setCellSelectionEnabled(false); 
         ListSelectionModel selectInves= Investable.getSelectionModel();
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         selectInves.addListSelectionListener(new ListSelectionListener() {
@@ -228,37 +224,11 @@ public class ManutencaoUtilizadores extends JFrame {
         contentPanel.add(btnEliminarUtilizador);
         
         JButton btnSubmeterAlteraes = new JButton("Alterar Utilizador");
-        /*btnSubmeterAlteraes.addActionListener(new ActionListener() {
+        btnSubmeterAlteraes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               if(!AdminSelected[0].equals(null))
-                    if(databaseConnection.UpdateAdministrador(Integer.parseInt(AdminSelected[0]), AdminSelected[1], AdminSelected[2]))
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Successo",
-                                "Information",
-                                JOptionPane.INFORMATION_MESSAGE);
-                    else
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Aconteceu um erro",
-                                "ERROR",
-                                JOptionPane.ERROR_MESSAGE);
-                else  if(!InvesSelected[0].equals(null))
-                    if(databaseConnection.UpdateInvestigador(Integer.parseInt(InvesSelected[0]), InvesSelected[1], InvesSelected[2], InvesSelected[3]))
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Successo",
-                                "Information",
-                                JOptionPane.INFORMATION_MESSAGE);
-                    else
-                        JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Aconteceu um erro",
-                                "ERROR",
-                                JOptionPane.ERROR_MESSAGE);
-                else
-                    JOptionPane.showMessageDialog(frame.getContentPane(),
-                            "O campo nao pode estar vazio",
-                            "ERROR",
-                            JOptionPane.ERROR_MESSAGE);
-            }
-        });*/
+                new SubscreverUtilizador(databaseConnection,false);
+                CloseWindow();
+        }});
         btnSubmeterAlteraes.setBounds(390, 497, 158, 30);
         contentPanel.add(btnSubmeterAlteraes);
         
