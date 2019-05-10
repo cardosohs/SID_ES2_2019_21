@@ -1,0 +1,8 @@
+Meter a pasta scripts em C:\xampp\htdocs\
+Instalar a APK no telemovel
+Na aplicacao usar o IP privado do computador (na mesma rede) com o porto 80
+NOTAS:
+	IMPORTANTE: 
+	GRANT SELECT ON g21origem.Investigador TO 'Investigador';
+	é necessario esta permissao para os scripts funcionarem, pois é necessario
+	ir buscar o email do investigador na tabela Investigador.
