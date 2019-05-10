@@ -29,22 +29,24 @@ public class Subscriber {
 	public static void main(String[] args) {
 
 		String topic = "/sid_lab_2019";
-		String broker = "tcp://broker.mqtt-dashboard.com:1883";
+		//String topic = "/sid_lab_2019";
+		//String broker = "tcp://broker.mqtt-dashboard.com:1883";
+		String broker = "tcp://broker.mqttdashboard.com:1883";
 		String clientId = "Client1";
 		String dbName = "sensorbd";
 		String colName = "MedicoesSensor";
 		 
 		MemoryPersistence persistence = new MemoryPersistence();
 		
-		//Estabelece ligacao com a MongoDB PRIMARIA
-		MongoClient mongoClient = new MongoClient("localhost", 27017);
-		System.out.println("Connection established");
-
-		//Request da DB
-		MongoDatabase database = mongoClient.getDatabase(dbName);
-
-		//Request da colecao
-		MongoCollection<Document> collection = database.getCollection(colName);
+//		//Estabelece ligacao com a MongoDB PRIMARIA
+//		MongoClient mongoClient = new MongoClient("localhost", 27017);
+//		System.out.println("Connection established");
+//
+//		//Request da DB
+//		MongoDatabase database = mongoClient.getDatabase(dbName);
+//
+//		//Request da colecao
+//		MongoCollection<Document> collection = database.getCollection(colName);
 		 
 
 		try {
@@ -65,13 +67,13 @@ public class Subscriber {
 					//String js1 = mqttMessage.toString();
 					//resultados = MessageParser.parse(js1);
 					
-					createDocuments(mqttMessage);
-					
-					if (!docs.isEmpty())
-						for (Document d : docs)
-							collection.insertOne(d);
-					
-					docs.clear();
+//					createDocuments(mqttMessage);
+//					
+//					if (!docs.isEmpty())
+//						for (Document d : docs)
+//							collection.insertOne(d);
+//					
+//					docs.clear();
 					
 					System.out.println("Topic : " + topic + " Message : " + mqttMessage);
 
@@ -89,7 +91,7 @@ public class Subscriber {
 		} catch (MqttException | InterruptedException e) {
 			e.printStackTrace();
 		}
-		mongoClient.close();
+		//mongoClient.close();
 	}
 	
 	
