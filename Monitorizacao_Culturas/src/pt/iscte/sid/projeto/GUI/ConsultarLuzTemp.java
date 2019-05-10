@@ -101,7 +101,7 @@ public class ConsultarLuzTemp extends JFrame {
         
         JScrollPane jsLuz=new JScrollPane(tableLuz);
         jsLuz.setVisible(true);
-        jsLuz.setBounds(80, 235, 292, 150);
+        jsLuz.setBounds(55, 218, 344, 204);
         
         contentPanel.add(jsLuz);
         
@@ -115,7 +115,7 @@ public class ConsultarLuzTemp extends JFrame {
         
         JScrollPane jsTemp=new JScrollPane(tableTemp);
         jsTemp.setVisible(true);
-        jsTemp.setBounds(450, 235, 292, 100);
+        jsTemp.setBounds(435, 221, 344, 197);
         
         contentPanel.add(jsTemp);
         
@@ -138,7 +138,7 @@ public class ConsultarLuzTemp extends JFrame {
         
         
         contentPanel.add(backPhoto);
-        frame.add(contentPanel);
+        frame.getContentPane().add(contentPanel);
     }
     
     
