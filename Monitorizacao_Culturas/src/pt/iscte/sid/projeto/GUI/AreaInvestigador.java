@@ -28,7 +28,7 @@ public class AreaInvestigador extends JFrame {
     private JTextField textField;
     private JTextField txtId;
     private DatabaseMiddleManForInvestigador databaseConnection;
-
+    
     
     
     /**
@@ -38,8 +38,8 @@ public class AreaInvestigador extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    AreaInvestigador frame = new AreaInvestigador();
-                   // frame.setVisible(true);
+                    AreaInvestigador frame = new AreaInvestigador(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
+                    // frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -54,11 +54,7 @@ public class AreaInvestigador extends JFrame {
         this.databaseConnection = databaseConnection;
         StartAreaInvestigador();
     }
-    
-    public AreaInvestigador() {
-       // this.databaseConnection = databaseConnection;
-        StartAreaInvestigador();
-    }
+
     
     /**
      * Create the frame.
@@ -75,11 +71,10 @@ public class AreaInvestigador extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPanel);
         contentPanel.setLayout(null);
-       
+        
         ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaInvestigador.png"));
-
+        
         JLabel Menu = new JLabel("");
         Menu.setBounds(212, 219, 363, 75);
         ImageIcon menu = new ImageIcon(SubscreverUtilizador.class.getResource("/images/MenuAreaInvest.png"));
@@ -88,10 +83,9 @@ public class AreaInvestigador extends JFrame {
         JButton btnNewButton = new JButton("As Minhas Culturas");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CulturasLista cl = new CulturasLista(databaseConnection);
-
+                new CulturasLista(databaseConnection);
                 CloseWindow();
-
+                
             }
         });
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -106,12 +100,8 @@ public class AreaInvestigador extends JFrame {
         JButton btnVerificarRegistoPessoal = new JButton("Consultar Vari\u00E1veis");
         btnVerificarRegistoPessoal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                InserirDados clt = new InserirDados(databaseConnection);
-
+                new InserirDados(databaseConnection);
                 CloseWindow();
-
-                //	clt.setVisible(true);                                                             //Problema aqui - perceber pq
-                
             }
         });
         btnVerificarRegistoPessoal.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -121,12 +111,10 @@ public class AreaInvestigador extends JFrame {
         JButton btnLogout = new JButton("LogOut");
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
-                databaseConnection.CloseConnection();
+                new LoginWindow();
                 CloseWindow();
-                LoginWindow lw = new LoginWindow();
-
-
+                databaseConnection.CloseConnection();
+                
             }
         });
         btnLogout.setBounds(657, 498, 89, 23);
@@ -142,10 +130,12 @@ public class AreaInvestigador extends JFrame {
         textField.setBounds(508, 71, 68, 21);
         contentPanel.add(textField);
         
-        JTextPane textPane = new JTextPane();
-        textPane.setBackground(SystemColor.menu);
-        textPane.setBounds(586, 72, 145, 20);
-        contentPanel.add(textPane);
+        JTextPane InvestigadorTextField = new JTextPane();
+        InvestigadorTextField.setBackground(SystemColor.menu);
+        InvestigadorTextField.setBounds(586, 72, 145, 20);
+        InvestigadorTextField.setText(String.valueOf(databaseConnection.getMyName()));
+        InvestigadorTextField.setEditable(false);
+        contentPanel.add(InvestigadorTextField);
         
         txtId = new JTextField();
         txtId.setText("ID");
@@ -157,28 +147,30 @@ public class AreaInvestigador extends JFrame {
         txtId.setBounds(741, 71, 24, 21);
         contentPanel.add(txtId);
         
-        JTextPane textPane_1 = new JTextPane();
-        textPane_1.setBackground(SystemColor.menu);
-        textPane_1.setBounds(775, 71, 36, 20);
-        contentPanel.add(textPane_1);
+        JTextPane IdTextField = new JTextPane();
+        IdTextField.setBackground(SystemColor.menu);
+        IdTextField.setBounds(775, 71, 36, 20);
+        IdTextField.setText(String.valueOf(databaseConnection.getMyId()));
+        IdTextField.setEditable(false);
+        contentPanel.add(IdTextField);
         
         JLabel fotoTopo = new JLabel("");
         fotoTopo.setBackground(Color.WHITE);
         fotoTopo.setBounds(0, 0, 834, 460);
-
+        
         Image imgOne =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
         
         fotoTopo.setIcon(new ImageIcon(imgOne));
-
+        
         
         
         contentPanel.add(fotoTopo);
-        frame.add(contentPanel);
+        frame.getContentPane().add(contentPanel);
         
         Image imgTwo =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);
         
         fotoTopo.setIcon(new ImageIcon(imgTwo));
-
+        
     }
 }
 

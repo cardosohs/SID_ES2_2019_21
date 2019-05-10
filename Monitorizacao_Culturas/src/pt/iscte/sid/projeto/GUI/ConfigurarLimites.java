@@ -15,6 +15,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 public class ConfigurarLimites extends JFrame {
@@ -27,7 +31,7 @@ public class ConfigurarLimites extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -41,7 +45,7 @@ public class ConfigurarLimites extends JFrame {
             }
         });
     }
-    
+    */
     private void CloseWindow() {
         frame.setVisible(false);
     }
@@ -50,11 +54,7 @@ public class ConfigurarLimites extends JFrame {
         this.databaseConnection = databaseConnection;
         StartConfigurarLimites();
     }
-    
-    public ConfigurarLimites() {
-        StartConfigurarLimites();
-    }
-    
+
     
     
     
@@ -74,7 +74,7 @@ public class ConfigurarLimites extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(new Color(255, 255, 255));
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPanel);
+       // setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
         ImageIcon img = new ImageIcon (ConfigurarLimites.class.getResource("/images/configurarLimites.png"));
@@ -102,18 +102,32 @@ public class ConfigurarLimites extends JFrame {
         JButton BotaoVoltar = new JButton("Voltar");
         BotaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AreaAdmin ad = new AreaAdmin();
+                new AreaAdmin(databaseConnection);
                 CloseWindow();
             }
         });
         BotaoVoltar.setBounds(721, 509, 85, 30);
         contentPanel.add(BotaoVoltar);
         
-        JTextField  txtFaltaAdaptarPara = new JTextField();
+       /* JTextField  txtFaltaAdaptarPara = new JTextField();
         txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Sistema; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
         txtFaltaAdaptarPara.setColumns(10);
         txtFaltaAdaptarPara.setBounds(157, 260, 292, 30);
-        contentPanel.add(txtFaltaAdaptarPara);
+        contentPanel.add(txtFaltaAdaptarPara);*/
+        
+        
+        String[] Invesheader={"Id","LimiteInfTemp","LimiteSupTemp","LimiteInfLuz","LimiteSupLuz"};
+        String[][] Invesdata=GetList(databaseConnection.getSistema());
+        DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+        JTable table = new JTable(Invesmodel);
+        table.setCellSelectionEnabled(true); 
+       // Investable.setCellSelectionEnabled(true);
+        ListSelectionModel selectInves= table.getSelectionModel();
+        selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JScrollPane Invesjs=new JScrollPane(table);
+        Invesjs.setVisible(true);
+        Invesjs.setBounds(57, 195, 464, 225);
+        contentPanel.add(Invesjs);
         
         JButton btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");
         btnAdicionarNovosLimites.addActionListener(new ActionListener() {
@@ -224,7 +238,38 @@ public class ConfigurarLimites extends JFrame {
             }
         });
         contentPanel.add(btnEliminar);
-        frame.add(contentPanel);
+        frame.getContentPane().add(contentPanel);
+        
+        JButton ButtonLoadTable = new JButton("Atualizar tabela");
+        ButtonLoadTable.setBounds(600, 431, 162, 30);
+        ButtonLoadTable.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                contentPanel.remove(Invesjs);
+                String[] Invesheader={"Id","LimiteInfTemp","LimiteSupTemp","LimiteInfLuz","LimiteSupLuz"};
+                String[][] Invesdata=GetList(databaseConnection.getSistema());
+                DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+                JTable table = new JTable(Invesmodel);
+                //table.setCellSelectionEnabled(true);
+                // Investable.setCellSelectionEnabled(true);
+                ListSelectionModel selectInves= table.getSelectionModel();
+                selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                JScrollPane Invesjs=new JScrollPane(table);
+                Invesjs.setVisible(true);
+                Invesjs.setBounds(157, 260, 292, 100);
+                contentPanel.add(Invesjs);
+                
+            }
+        });
+        contentPanel.add(ButtonLoadTable);
     }
-    
+      private String[][] GetList(String arg)
+    {
+        String[] lines = arg.split("BREAKLINE");
+        String[][] linesCsv = new String[lines.length][];
+        
+        for (int i=0; i<lines.length; i++) {
+            linesCsv[i] = lines[i].split("BREAKCOLUMN");
+        }
+        return linesCsv;
+    }
 }

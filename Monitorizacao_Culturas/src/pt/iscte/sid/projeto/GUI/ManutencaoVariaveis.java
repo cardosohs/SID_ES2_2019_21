@@ -16,43 +16,46 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 public class ManutencaoVariaveis extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JPanel contentPanel;
-  //  private JTextField textField;
-   // private JTextField txtFaltaAdaptarPara;
+    //  private JTextField textField;
+    // private JTextField txtFaltaAdaptarPara;
     private JFrame frame;
     
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
                     DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
                     
                     ManutencaoVariaveis frame = new ManutencaoVariaveis(d);
-                  //  frame.setVisible(true);
+                    //  frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-
+    */
     public ManutencaoVariaveis(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartManutencaoVariaveis();
     }
-
-    public ManutencaoVariaveis() {
-        StartManutencaoVariaveis();
-    }
     
+
     
     private void CloseWindow() {
         frame.setVisible(false);
@@ -86,7 +89,7 @@ public class ManutencaoVariaveis extends JFrame {
         
         JButton btnAdicionarVarivel = new JButton("Adicionar Vari\u00E1vel");
         btnAdicionarVarivel.setBounds(519, 382, 142, 29);
-         btnAdicionarVarivel.addActionListener(new ActionListener() {
+        btnAdicionarVarivel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!textField.getText().equals(""))
                     if(databaseConnection.CreateVariavel(textField.getText()))
@@ -136,20 +139,31 @@ public class ManutencaoVariaveis extends JFrame {
         JButton button_1 = new JButton("Voltar");
         button_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AreaAdmin aa = new AreaAdmin();
+                new AreaAdmin(databaseConnection);
                 CloseWindow();
-
-             //   aa.setVisible(true);
             }
         });
         button_1.setBounds(708, 450, 85, 30);
         contentPanel.add(button_1);
         
-        JTextField txtFaltaAdaptarPara = new JTextField();
+        /*JTextField txtFaltaAdaptarPara = new JTextField();
         txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Variaveis; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
         txtFaltaAdaptarPara.setColumns(10);
         txtFaltaAdaptarPara.setBounds(220, 243, 429, 30);
-        contentPanel.add(txtFaltaAdaptarPara);
+        contentPanel.add(txtFaltaAdaptarPara);*/
+        
+        String[] Invesheader={"IdVariavel","Nome"};
+        String[][] Invesdata=GetList(databaseConnection.getVariaveis());
+        DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
+        JTable table = new JTable(Invesmodel);
+        table.setCellSelectionEnabled(true); 
+       // Investable.setCellSelectionEnabled(true);
+        ListSelectionModel selectInves= table.getSelectionModel();
+        selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JScrollPane Invesjs=new JScrollPane(table);
+        Invesjs.setVisible(true);
+        Invesjs.setBounds(220, 243, 429, 100);
+        contentPanel.add(Invesjs);
         
         JLabel imagemFundo = new JLabel("");
         imagemFundo.setBounds(0, 0, 818, 467);
@@ -161,5 +175,14 @@ public class ManutencaoVariaveis extends JFrame {
         contentPanel.add(imagemFundo);
         frame.add(contentPanel);
     }
-    
+     private String[][] GetList(String arg)
+    {
+        String[] lines = arg.split("BREAKLINE");
+        String[][] linesCsv = new String[lines.length][];
+        
+        for (int i=0; i<lines.length; i++) {
+            linesCsv[i] = lines[i].split("BREAKCOLUMN");
+        }
+        return linesCsv;
+    }
 }
