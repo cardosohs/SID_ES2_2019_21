@@ -1,4 +1,4 @@
-ZZpackage pt.iscte.sid.projeto.GUI;
+package pt.iscte.sid.projeto.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
