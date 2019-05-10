@@ -130,7 +130,7 @@ public class ManutencaoUtilizadores extends JFrame {
         });
         JScrollPane Adminjs=new JScrollPane(Admintable);
         Adminjs.setVisible(true);
-        Adminjs.setBounds(80, 235, 292, 100);
+        Adminjs.setBounds(57, 219, 344, 202);
         
         contentPanel.add(Adminjs);
         
@@ -158,7 +158,7 @@ public class ManutencaoUtilizadores extends JFrame {
         });
         JScrollPane Invesjs=new JScrollPane(Investable);
         Invesjs.setVisible(true);
-        Invesjs.setBounds(456, 244, 269, 100);
+        Invesjs.setBounds(435, 219, 344, 202);
         contentPanel.add(Invesjs);
         
         JTextField IdAdmin = new JTextField();
@@ -233,7 +233,7 @@ public class ManutencaoUtilizadores extends JFrame {
         contentPanel.add(btnSubmeterAlteraes);
         
         
-        frame.add(contentPanel);
+        frame.getContentPane().add(contentPanel);
     }
     
     private String[][] GetList(String arg)

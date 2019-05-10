@@ -126,7 +126,7 @@ public class ConfigurarLimites extends JFrame {
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
-        Invesjs.setBounds(57, 195, 464, 225);
+        Invesjs.setBounds(55, 195, 466, 225);
         contentPanel.add(Invesjs);
         
         JButton btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");

@@ -76,19 +76,19 @@ public class ManutencaoVariaveis extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(new Color(255, 255, 255));
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPanel);
+       //ZZ setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
         ImageIcon img = new ImageIcon(ManutencaoVariaveis.class.getResource("/images/manutencaoVariaveis.png"));
         
         
         JTextField textField = new JTextField();
-        textField.setBounds(165, 382, 350, 29);
+        textField.setBounds(176, 394, 350, 29);
         contentPanel.add(textField);
         textField.setColumns(10);
         
         JButton btnAdicionarVarivel = new JButton("Adicionar Vari\u00E1vel");
-        btnAdicionarVarivel.setBounds(519, 382, 142, 29);
+        btnAdicionarVarivel.setBounds(529, 394, 142, 29);
         btnAdicionarVarivel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!textField.getText().equals(""))
@@ -113,7 +113,7 @@ public class ManutencaoVariaveis extends JFrame {
         contentPanel.add(btnAdicionarVarivel);
         
         JButton btnEliminarVarivel = new JButton("Eliminar Vari\u00E1vel");
-        btnEliminarVarivel.setBounds(663, 381, 130, 30);
+        btnEliminarVarivel.setBounds(681, 393, 130, 30);
         btnEliminarVarivel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!textField.getText().equals(""))
@@ -162,18 +162,18 @@ public class ManutencaoVariaveis extends JFrame {
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
-        Invesjs.setBounds(220, 243, 429, 100);
+        Invesjs.setBounds(176, 194, 495, 175);
         contentPanel.add(Invesjs);
         
         JLabel imagemFundo = new JLabel("");
-        imagemFundo.setBounds(0, 0, 818, 467);
+        imagemFundo.setBounds(10, 13, 818, 467);
         
         Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
         
         imagemFundo.setIcon(new ImageIcon (imgm));
         
         contentPanel.add(imagemFundo);
-        frame.add(contentPanel);
+        frame.getContentPane().add(contentPanel);
     }
      private String[][] GetList(String arg)
     {
