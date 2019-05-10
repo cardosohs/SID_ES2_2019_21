@@ -37,6 +37,7 @@ public class Producer implements Runnable  {
 
         //liga o sensor
         MqttSubscriber.getInstance().getClient().setCallback(new MqttCallback() {
+        	
             public void connectionLost(Throwable throwable) {
                 throwable.printStackTrace();
                 System.out.println("fodeu a ligacao por timeout e tratas aqui");
