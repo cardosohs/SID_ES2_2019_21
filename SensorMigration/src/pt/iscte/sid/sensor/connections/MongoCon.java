@@ -15,7 +15,6 @@ public class MongoCon {
     private MongoDatabase database;
     private MongoCollection<Document> collection;
 
-
     /**
      * Implementação de uma singleton pattern para garantir que só existe 1 instância a correr
      */

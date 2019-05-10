@@ -30,7 +30,6 @@ public class Producer implements Runnable  {
         this.queue = theQueue;
     }
 
-
     @Override
     public void run() {
         //liga a mongodb

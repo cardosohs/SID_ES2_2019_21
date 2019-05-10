@@ -15,7 +15,6 @@ public class MagicSensorMigration {
 
     public static void main(String[] args) {
 
-
         /*
          * em principio não deve ser necessário alterar para Document...
          * serve para iniciar o Produtor e Consumidor com a mesma fila

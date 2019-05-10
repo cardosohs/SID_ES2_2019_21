@@ -15,7 +15,6 @@ public class Consumer implements Runnable {
         this.failedDocuments = failedDocuments;
     }
 
-
     @Override
     public void run() {
         final AtomicBoolean failedInsert = new AtomicBoolean(false);

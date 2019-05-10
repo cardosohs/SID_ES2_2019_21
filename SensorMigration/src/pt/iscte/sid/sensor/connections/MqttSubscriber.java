@@ -14,7 +14,6 @@ public class MqttSubscriber {
     MemoryPersistence persistence = new MemoryPersistence();
     MqttClient Client;
     private String teste="";
-
     /**
      * Implementação de uma singleton pattern para garantir que só existe 1 instância a correr
      */
