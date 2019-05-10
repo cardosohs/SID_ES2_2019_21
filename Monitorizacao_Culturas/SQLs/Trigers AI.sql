@@ -1,3 +1,21 @@
+-- ao receber uma medicao nova em sensormigracaolog vai chamar a SP respectiva para identificar se é outlier ou nao
+
+CREATE DEFINER=`root`@`localhost` TRIGGER `g21origem`.`processa`
+ AFTER INSERT ON `sensormigracaolog` FOR EACH ROW
+BEGIN
+CASE
+	WHEN new.sensor="lum" THEN CALL sp_processaLuz(new.momento,new.ordem, new.sensor, new.medicao, new.datetime_sensor);
+   WHEN new.sensor='tmp' then CALL sp_processaTemp(new.momento,new.ordem, new.sensor, new.medicao, new.datetime_sensor);
+end case;
+END
+
+-- fim
+-- ---
+
+
+
+
+
 -- verifica medicoes de luz
 
 CREATE DEFINER=`root`@`localhost` TRIGGER `g21origem`.`medicoestemp_AFTER_INSERT` AFTER INSERT ON `medicoestemp` FOR EACH ROW
