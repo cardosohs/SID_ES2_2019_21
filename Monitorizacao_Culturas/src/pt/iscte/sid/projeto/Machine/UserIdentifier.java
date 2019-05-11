@@ -18,13 +18,13 @@ import java.util.ArrayList;
  */
 public class UserIdentifier {
     
-    public final String DatabaseName="g21origem";
-    public String Username;
-    public String Password;
-    public boolean failed;
-    public int Id;
-    public Connection DatabaseConnection;
-    public ArrayList<Integer> VariaviesDaDatabase = new ArrayList<>();
+    private final String DatabaseName="g21origem";
+    private String Username;
+    private String Password;
+    private boolean failed;
+    private int Id;
+    private Connection DatabaseConnection;
+    private ArrayList<Integer> VariaviesDaDatabase = new ArrayList<>();
     
     /**
      * Vai ver se o utilizador e admin ou investigador
@@ -34,7 +34,7 @@ public class UserIdentifier {
      * @param username
      * @param Password
      */
-    public String StartConnection(String username, String Password)
+    public String WhatUserIsThis(String username, String Password)
     {
         
         this.Password=Password;

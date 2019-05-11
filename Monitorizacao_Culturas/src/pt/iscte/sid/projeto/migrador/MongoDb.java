@@ -118,6 +118,4 @@ public class MongoDb {
 		return resultado;
 	}
 
-
-
 }

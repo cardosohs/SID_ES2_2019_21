@@ -88,9 +88,6 @@ ConcurrentHashMap<BsonTimestamp,Medicao> listaLimpa = new ConcurrentHashMap<Bson
 			 
 		return listaLimpa;		
 	}
-
-
-
 }
 
 

@@ -19,58 +19,54 @@ import java.util.logging.Logger;
  * @author Sérgio
  */
 public class DatabaseMiddleManGeneral {
-    public final String DatabaseName="g21origem";
+
+    public final String DatabaseName = "g21origem";
     public String Username;
+    public String Nome;
     public String Password;
     public boolean failed;
     public int Id;
     public Connection DatabaseConnection;
     public ArrayList<Integer> VariaviesDaDatabase = new ArrayList<>();
-    
-    
-    public DatabaseMiddleManGeneral(String username, String Password)
-    {
+
+    public DatabaseMiddleManGeneral(String username, String Password) {
         StartConnection(username, Password);
         GetId();
     }
-    
-    
+
     /**
      * Inicia a ligacao a BD g21origem
+     *
      * @param username
      * @param Password
      */
-    public void StartConnection(String username, String Password)
-    {
-        this.failed=true;
-        this.Password=Password;
-        this.Username=username;
-        
-        
+    private void StartConnection(String username, String Password) {
+        this.failed = true;
+        this.Password = Password;
+        this.Username = username;
+
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
-        String DatabaseURL = "jdbc:mysql://localhost/"+DatabaseName+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        
+        String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
         try {
             Class.forName(DatabaseDriver);
             DatabaseConnection = DriverManager.getConnection(DatabaseURL, Username, this.Password);
-            this.failed=false;
-            
+            this.failed = false;
+
         } catch (ClassNotFoundException ex) {
-            this.failed=true;
-            
-            
+            this.failed = true;
+
         } catch (SQLException ex) {
-            this.failed=true;
+            this.failed = true;
         }
     }
-    
-    
+
     /**
      * Termina a ligacao a BD
+     *
      * @return
      */
-    public boolean CloseConnection()
-    {
+    public boolean CloseConnection() {
         try {
             DatabaseConnection.close();
             return true;
@@ -79,115 +75,117 @@ public class DatabaseMiddleManGeneral {
             return false;
         }
     }
-    
+
     /**
      * Vai buscar o Id do Utilizador
      */
     private void GetId() {
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
-        String DatabaseURL = "jdbc:mysql://localhost/"+DatabaseName+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        
+        String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
         try {
-            
+
             Class.forName(DatabaseDriver);
             Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, "root", "");
-            Statement stmt=DatabaseTMPConnection.createStatement();
-            
-            
-            String query = "select * from investigador where email='" + Username+"';";
-            ResultSet rs=stmt.executeQuery(query);
-            
-            
-            while(rs.next()){
-                this.Id=rs.getInt(1);
+            Statement stmt = DatabaseTMPConnection.createStatement();
+
+            String query = "select * from investigador where email='" + Username + "';";
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                this.Id = rs.getInt(1);
+                this.Nome=rs.getString(3);
             }
-            
+
             DatabaseTMPConnection.close();
-            
-            
+
         } catch (ClassNotFoundException ex) {
             System.out.println("Failed ao buscar o id do investigador");
             Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Failed ao buscar o id do investigador");
         }
     }
-    
 
-    
     /**
      * Retorna se a ligacao a BD falhou
+     *
      * @return
      */
-    public boolean Failed()
-    {
+    public boolean Failed() {
         return failed;
     }
-    
-    
+
     /**
      * Retorna o id do Utilizador
+     *
      * @return
      */
-    public int getMyId()
-    {
+    public int getMyId() {
         return Id;
     }
     
     
     /**
-     * vai buscar as variaveis
+     * Retorna o username do utilizador
      * @return
      */
-    public String getVariaveis()
-    {
-        String TableResult="";
-        try{
-            Statement stmt=DatabaseConnection.createStatement();
-            String query = "select * from variaveis";
-            ResultSet rs=stmt.executeQuery(query);
-            while(rs.next()){
-                if(!VariaviesDaDatabase.contains(Integer.parseInt(rs.getString(1))))
-                    VariaviesDaDatabase.add(Integer.parseInt(rs.getString(1)));
-                TableResult += "\nVariavel \nID da variavel:" + rs.getString(1)+"\nNome da variavel:"+rs.getString(2) +"\n\n";
-            }
-        }catch(Exception e){
-            System.out.println(e);
-            return null;
-        }
-        
-        return TableResult;
+    public String getMyName() {
+        return Nome;
     }
-    
-    
-     /**
-     * Vai buscar os dados da tabela sistema
-     * @return 
+
+    /**
+     * vai buscar as variaveis
+     *
+     * @return
      */
-    public String getSistema()
-    {
-        String TableResult="";
-        try{
-            Statement stmt=DatabaseConnection.createStatement();
-            String query = "select * from sistema";
-            ResultSet rs=stmt.executeQuery(query);
-            while(rs.next()){
-                TableResult +=
-                        "\nSistema \nID do Sistema:" + rs.getString(1)+"\nLimite inferior da temperatura:"
-                        +rs.getString(2)+ "\nLimite superior da temperatura:"
-                        +rs.getString(3)+ "\nLimite inferior da luz:"
-                        +rs.getString(4)+ "\nLimite superior da Luz:"
-                        +rs.getString(5)+"\n\n";
+    public String getVariaveis() {
+        String TableResult = "";
+        try {
+            Statement stmt = DatabaseConnection.createStatement();
+            String query = "select * from variaveis";
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                if (!VariaviesDaDatabase.contains(Integer.parseInt(rs.getString(1)))) {
+                    VariaviesDaDatabase.add(Integer.parseInt(rs.getString(1)));
+                }
+                TableResult += rs.getString(1) + "BREAKCOLUMN" + rs.getString(2)+"BREAKLINE";
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
             return null;
         }
-        
+
         return TableResult;
     }
-    
+
+    /**
+     * Vai buscar os dados da tabela sistema
+     *
+     * @return
+     */
+    public String getSistema() {
+        String TableResult = "";
+        try {
+            Statement stmt = DatabaseConnection.createStatement();
+            String query = "select * from sistema";
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                TableResult
+                        +=rs.getString(1) + "BREAKCOLUMN"
+                        + rs.getString(2) + "BREAKCOLUMN"
+                        + rs.getString(3) + "BREAKCOLUMN"
+                        + rs.getString(4) + "BREAKCOLUMN"
+                        + rs.getString(5) + "BREAKLINE";
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+
+        return TableResult;
+    }
+
 }
