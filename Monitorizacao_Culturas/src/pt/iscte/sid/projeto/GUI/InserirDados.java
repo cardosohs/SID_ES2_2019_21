@@ -65,7 +65,7 @@ public class InserirDados {
         frame.setBounds(100, 100, 850, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
-        
+        frame.setResizable(false);
         frame.setVisible(true);
         
         

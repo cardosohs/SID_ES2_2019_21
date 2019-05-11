@@ -64,6 +64,7 @@ public class CriarCultura extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        frame.setResizable(false);
         setTitle("Criar Nova Cultura");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100,  850, 600);

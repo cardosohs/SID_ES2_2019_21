@@ -68,6 +68,7 @@ public class ConfigurarLimites extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        frame.setResizable(false);
         setTitle("Configurar Limites de Vari\u00E1veis de Sistema");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100,  850, 600);
@@ -255,7 +256,7 @@ public class ConfigurarLimites extends JFrame {
                 selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 JScrollPane Invesjs=new JScrollPane(table);
                 Invesjs.setVisible(true);
-                Invesjs.setBounds(157, 260, 292, 100);
+                Invesjs.setBounds(55, 195, 466, 225);
                 contentPanel.add(Invesjs);
                 
             }

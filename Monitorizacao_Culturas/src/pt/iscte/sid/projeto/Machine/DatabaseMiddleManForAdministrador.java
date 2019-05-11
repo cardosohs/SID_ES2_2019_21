@@ -182,7 +182,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     {
         try {
             String query =
-                    " update investigador set NomeInvesigador='" + Nome+ "', CategoriaProfe='"+ CategoriaProfe
+                    " update investigador set NomeInvestigador='" + Nome+ "', CategoriaProfe='"+ CategoriaProfe
                     +"' where idInvestigador=" + IdInvestigador;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();
@@ -270,12 +270,11 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param Nome
      * @return
      */
-    public boolean UpdateAdministrador(int IdAdmin, String Email, String Nome)
+    public boolean UpdateAdministrador(int IdAdmin, String Nome)
     {
         try {
             String query =
-                    " update administrador set email= '" + Email
-                    + "', NomeAdmin='" + Nome
+                    " update administrador set NomeAdmin='" + Nome
                     +"' where idAdmin=" + IdAdmin;
             PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
             preparedStmt.execute();

@@ -66,6 +66,7 @@ public class LoginWindow extends JFrame {
     public void StartLoginWindow() {
         frame= new JFrame();
         frame.setTitle("Login");
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);

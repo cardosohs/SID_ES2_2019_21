@@ -70,6 +70,7 @@ public class ManutencaoVariaveis extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        frame.setResizable(false);
         setTitle("Manuten\u00E7\u00E3o de Vari\u00E1veis");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100,  834, 530);
@@ -162,7 +163,7 @@ public class ManutencaoVariaveis extends JFrame {
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
-        Invesjs.setBounds(176, 194, 495, 175);
+        Invesjs.setBounds(176, 194, 495, 182);
         contentPanel.add(Invesjs);
         
         JLabel imagemFundo = new JLabel("");

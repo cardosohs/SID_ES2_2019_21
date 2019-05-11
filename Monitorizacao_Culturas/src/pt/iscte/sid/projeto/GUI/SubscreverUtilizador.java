@@ -83,7 +83,7 @@ public class SubscreverUtilizador {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         frame.setVisible(true);
-        
+        frame.setResizable(false);
         JLabel imagTopo = new JLabel("");
         imagTopo.setBounds(0, 0, 834, 151);
         
@@ -285,13 +285,13 @@ public class SubscreverUtilizador {
                     
                     if(!rdbtnAdministrador.isSelected() && !rdbtnNewRadioButton.isSelected())
                         JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Escolha admin ou invesstigador",
+                                "Escolha admin ou investigador",
                                 "ERROR",
                                 JOptionPane.ERROR_MESSAGE);
                     
-                    else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("")) {
+                    else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("")) {
                         
-                        if(databaseConnection.UpdateAdministrador(Integer.parseInt(IdTextField.getText()),Email.getText(),NameTextField.getText())){
+                        if(databaseConnection.UpdateAdministrador(Integer.parseInt(IdTextField.getText()),NameTextField.getText())){
                             JOptionPane.showMessageDialog(frame.getContentPane(),
                                     "Succeso",
                                     "Information",
@@ -306,8 +306,7 @@ public class SubscreverUtilizador {
                                     JOptionPane.ERROR_MESSAGE);
                         
                     }
-                    else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("")
-                            && !passwordField.getPassword().equals(null)) {
+                    else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("")) {
                         
                         if(databaseConnection.UpdateInvestigador(Integer.parseInt(IdTextField.getText()),NameTextField.getText(),CategoriaProfcomboBox.getSelectedItem().toString())){
                             JOptionPane.showMessageDialog(frame.getContentPane(),
