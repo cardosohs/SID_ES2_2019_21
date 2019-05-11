@@ -15,7 +15,7 @@ import javax.swing.JTable;
 public class main {
     public static void main(String[] args){
        DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("root", "");
-        System.err.println(d.DeleteAdmin(1));
+        //System.err.println(d.DeleteAdmin(1));
     }
 
     
