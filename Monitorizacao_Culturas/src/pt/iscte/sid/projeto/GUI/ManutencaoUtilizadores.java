@@ -25,6 +25,12 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
+
+/**
+ * Esta classe constroi o interface grafico para a Manutencao de Utilizadores
+ * @author Grupo 21
+ *
+ */
 public class ManutencaoUtilizadores extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
@@ -36,9 +42,6 @@ public class ManutencaoUtilizadores extends JFrame {
     private JTextField txtFaltaAdaptarPara_1;
     
     
-    /**
-     * Launch the application.
-     */
  /*   public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -52,19 +55,27 @@ public class ManutencaoUtilizadores extends JFrame {
         });
     }*/
     
+    /**
+     * Metodo para lancar a interface manutencao de utilizadores com ligacao a base de dados
+     * @param databaseConnection conexao a base de dados mysql
+     */
+    
     public ManutencaoUtilizadores(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartManutencaoUtilizadores();
     }
     
 
-    
+    /**
+     * Metodo para ocultar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
     /**
-     * Create the frame.
+     * Metodo para criar a janela de Manutencao de Utilizadores
+     * 
      */
     public void StartManutencaoUtilizadores() {
         frame= new JFrame();
@@ -237,6 +248,12 @@ public class ManutencaoUtilizadores extends JFrame {
         frame.getContentPane().add(contentPanel);
     }
     
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores da tabela de utilizadores 
+     * @param arg string com os valores do sistema concatenados
+     * @return matriz de string
+     */
     private String[][] GetList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
