@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.sensor;
+package pt.iscte.sid.projeto.codigoauxiliar;
 import org.bson.BsonTimestamp;
 import org.bson.Document;
 import org.eclipse.paho.client.mqttv3.*;

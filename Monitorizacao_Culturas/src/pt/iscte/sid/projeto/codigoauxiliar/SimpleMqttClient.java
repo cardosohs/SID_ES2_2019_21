@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.examples;
+package pt.iscte.sid.projeto.codigoauxiliar;
 
 	
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;

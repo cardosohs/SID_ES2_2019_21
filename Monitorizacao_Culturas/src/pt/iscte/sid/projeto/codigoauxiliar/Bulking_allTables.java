@@ -1,11 +1,8 @@
-package pt.iscte.sid.projeto.Machine;
-import java.sql.*;
-import java.util.Calendar;
-import java.util.Random;
+package pt.iscte.sid.projeto.codigoauxiliar;
 
-
-public class fillIt {
-
+	import java.sql.*;
+	import java.util.Calendar;
+	import java.util.Random;
 
 	/**
 	 * A Java MySQL PreparedStatement INSERT example.
@@ -14,16 +11,16 @@ public class fillIt {
 	 * Java PreparedStatement.
 	 * 
 	 */
-
+	public class Bulking_allTables
+	{
 
 	  public static void main(String[] args)
 	  {
 	    try{
-	    	final int NUM =15000;
+	    	final int NUM =20000;
 	    	final String DB = "g21origem"; 
 	      // create a mysql database connection
 	    	String myDriver = "com.mysql.cj.jdbc.Driver";
-	
 	    	String myUrl = "jdbc:mysql://localhost/"+DB+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	      ////localhost:3306/database?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
 	    	Class.forName(myDriver);
@@ -202,6 +199,3 @@ public class fillIt {
 	    }
 	  }
 	}
-	
-	
-
