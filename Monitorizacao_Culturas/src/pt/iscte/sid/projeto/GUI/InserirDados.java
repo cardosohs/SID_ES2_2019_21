@@ -21,6 +21,11 @@ import javax.swing.JScrollPane;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
+/**
+ * Esta classe e referente a interface grafico para o investigador poder inserir dados
+ * @author Grupo 21
+ *
+ */
 public class InserirDados {
     
     private DatabaseMiddleManForInvestigador databaseConnection;
@@ -28,9 +33,7 @@ public class InserirDados {
     
     
     
-    /**
-     * Launch the application.
-     */
+  
     /*	public static void main(String[] args) {
     EventQueue.invokeLater(new Runnable() {
     public void run() {
@@ -44,19 +47,28 @@ public class InserirDados {
     });
     }
     */
+    
+    
     /**
-     * Create the application.
+     * Lanca a interface para o investigador inserir dados
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
      */
     public InserirDados(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         initialize();
     }
     
+    
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
+    
     /**
-     * Initialize the contents of the frame.
+     * Cria a janela para o Investigador poder inserir dados referentes as variaveis.
      */
     private void initialize() {
         frame = new JFrame();
@@ -155,6 +167,12 @@ public class InserirDados {
         
     }
     
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores das variaveis do investigador
+     * @param arg recebe uma string
+     * @return matriz de string
+     */
     private String[][] GetList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
