@@ -18,6 +18,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
+/**
+ * Esta classe constroi o interface gráfico para o Administrador  
+ * @author Grupo 21
+ *
+ */
+
+
 public class AreaAdmin extends JFrame {
     
     private JPanel contentPanel;
@@ -28,10 +35,7 @@ public class AreaAdmin extends JFrame {
     private void CloseWindow() {
         frame.setVisible(false);
     }
-    
-    /**
-     * Launch the application
-     */
+      
     /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -45,6 +49,12 @@ public class AreaAdmin extends JFrame {
         });
     }
     */
+    
+    /**
+     * Metodo para lançar a interface com ligação à base de dados
+     * 
+     * @param databaseConnection a conexão
+     */
     public AreaAdmin(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartAreaAdmin() ;
@@ -53,7 +63,7 @@ public class AreaAdmin extends JFrame {
 
     
     /**
-     * Create the frame.
+     * Cria a janela do administrador
      */
     public void StartAreaAdmin() {
         frame= new JFrame();
