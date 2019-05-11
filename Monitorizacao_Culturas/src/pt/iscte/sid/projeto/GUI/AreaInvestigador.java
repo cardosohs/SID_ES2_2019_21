@@ -74,11 +74,7 @@ public class AreaInvestigador extends JFrame {
         contentPanel.setLayout(null);
         
         ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaInvestigador.png"));
-        
-        JLabel Menu = new JLabel("");
-        Menu.setBounds(212, 219, 363, 75);
         ImageIcon menu = new ImageIcon(SubscreverUtilizador.class.getResource("/images/MenuAreaInvest.png"));
-        contentPanel.add(Menu);
         
         JButton btnNewButton = new JButton("As Minhas Culturas");
         btnNewButton.addActionListener(new ActionListener() {
@@ -88,13 +84,26 @@ public class AreaInvestigador extends JFrame {
                 
             }
         });
+        
+        JButton btnLuzETemperatura = new JButton("Ver Luz/Temperatura");
+        btnLuzETemperatura.setFont(new Font("Tahoma", Font.BOLD, 11));
+        btnLuzETemperatura.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+                    new ConsultarLuzTemp(databaseConnection);
+                    CloseWindow();
+                    
+                
+        	}
+        });
+        btnLuzETemperatura.setBounds(410, 299, 189, 69);
+        contentPanel.add(btnLuzETemperatura);
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-        btnNewButton.setBounds(157, 288, 162, 69);
+        btnNewButton.setBounds(81, 299, 162, 69);
         contentPanel.add(btnNewButton);
         
         JButton btnAppAndroid = new JButton("App Android");
         btnAppAndroid.setFont(new Font("Tahoma", Font.BOLD, 11));
-        btnAppAndroid.setBounds(336, 288, 169, 69);
+        btnAppAndroid.setBounds(598, 299, 169, 69);
         contentPanel.add(btnAppAndroid);
         
         JButton btnVerificarRegistoPessoal = new JButton("Consultar Vari\u00E1veis");
@@ -105,7 +114,7 @@ public class AreaInvestigador extends JFrame {
             }
         });
         btnVerificarRegistoPessoal.setFont(new Font("Tahoma", Font.BOLD, 11));
-        btnVerificarRegistoPessoal.setBounds(515, 288, 169, 69);
+        btnVerificarRegistoPessoal.setBounds(242, 299, 169, 69);
         contentPanel.add(btnVerificarRegistoPessoal);
         
         JButton btnLogout = new JButton("LogOut");

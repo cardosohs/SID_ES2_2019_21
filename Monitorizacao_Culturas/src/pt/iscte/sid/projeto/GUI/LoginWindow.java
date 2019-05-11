@@ -70,17 +70,18 @@ public class LoginWindow extends JFrame {
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
         contentPanel = new JPanel();
+        contentPanel.setBounds(0, 0, 834, 561);
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
         //setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
-        PasswordLabel = new JLabel("Password");
+        PasswordLabel = new JLabel("");
         PasswordLabel.setForeground(new Color(255, 255, 255));
         PasswordLabel.setBounds(508, 227, 59, 25);
         contentPanel.add(PasswordLabel);
         
-        Emaillabel = new JLabel("Email");
+        Emaillabel = new JLabel("");
         Emaillabel.setForeground(new Color(255, 255, 255));
         Emaillabel.setBounds(508, 179, 59, 25);
         contentPanel.add(Emaillabel);
@@ -88,14 +89,14 @@ public class LoginWindow extends JFrame {
         
         
         EmailInputField = new JTextField();
-        EmailInputField.setBounds(600, 179, 244, 37);
+        EmailInputField.setBounds(592, 154, 242, 37);
         contentPanel.add(EmailInputField);
         EmailInputField.setColumns(10);
         
         LoginButton = new JButton("Entrar");
         LoginButton.setForeground(Color.WHITE);
         LoginButton.setBackground(Color.DARK_GRAY);
-        LoginButton.setBounds(652, 292, 95, 34);
+        LoginButton.setBounds(648, 270, 95, 34);
         contentPanel.add(LoginButton);
         
         /*  JRadioButton radioButton = new JRadioButton("");
@@ -111,18 +112,18 @@ public class LoginWindow extends JFrame {
         contentPane.add(UserSelectionRadioButton);
         */
         PasswordInputField = new JPasswordField();
-        PasswordInputField.setBounds(600, 227, 244, 37);
+        PasswordInputField.setBounds(592, 202, 242, 37);
         contentPanel.add(PasswordInputField);
         
         JLabel fundoPagina = new JLabel("");
-        fundoPagina.setBounds(0, 33, 844, 506);
+        fundoPagina.setBounds(-31, 0, 875, 521);
         
         //ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("images/LoginWindow.png"));
-        ImageIcon imgOne = new ImageIcon("/Monitorizacao_Culturas/src/images/LoginWindow.png");
-        //imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
-        fundoPagina.setIcon(new ImageIcon(LoginWindow.class.getResource("/images/LoginWindow.png")));
+        ImageIcon imgOne = new ImageIcon(LoginWindow.class.getResource("/images/LoginWindow.png"));
+        Image img = imgOne.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
         
-        
+        fundoPagina.setIcon(new ImageIcon(img));
+       
         contentPanel.add(fundoPagina);
         
         frame.getContentPane().add(contentPanel);

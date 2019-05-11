@@ -239,7 +239,7 @@ public class CulturasLista extends JFrame {
                                 JOptionPane.INFORMATION_MESSAGE);
             }
         });
-        btnEliminarCulturaSeleccionada.setBounds(208, 517, 149, 23);
+        btnEliminarCulturaSeleccionada.setBounds(388, 517, 149, 23);
         CulturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
         
         JLabel imagemTopo = new JLabel("Investigador:");
@@ -251,6 +251,19 @@ public class CulturasLista extends JFrame {
         
         CulturasSobResponsabilidade.add(imagemTopo);
         frame.getContentPane().add(CulturasSobResponsabilidade);
+        
+        JButton BtnNewButton = new JButton("Ver Variáveis Medidas");
+        BtnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+               
+//        		new Variaveis_Medidas(databaseConnection);
+//                CloseWindow();
+            
+        		
+        	}
+        });
+        BtnNewButton.setBounds(211, 517, 167, 23);
+        CulturasSobResponsabilidade.add(BtnNewButton);
     }
     private String[][] GetList(String arg)
     {
