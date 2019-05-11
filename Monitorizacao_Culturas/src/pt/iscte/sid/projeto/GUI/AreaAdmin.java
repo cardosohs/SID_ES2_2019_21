@@ -31,7 +31,9 @@ public class AreaAdmin extends JFrame {
     private JFrame frame;
     private DatabaseMiddleManForAdministrador databaseConnection;
     
-    
+    /**
+     *  Metodo para ocultar a janela administrador
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
@@ -51,9 +53,9 @@ public class AreaAdmin extends JFrame {
     */
     
     /**
-     * Metodo para lançar a interface com ligação à base de dados
+     * Metodo para lancar a interface com ligacao a base de dados
      * 
-     * @param databaseConnection a conexão
+     * @param databaseConnection conexao a base de dados mysql
      */
     public AreaAdmin(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;

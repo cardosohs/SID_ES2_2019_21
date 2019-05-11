@@ -21,16 +21,20 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
+
+
+/**
+ * Esta classe constroi o interface gráfico para a configuração de limites 
+ * 
+ * @author grupo 21
+ *
+ */
 public class ConfigurarLimites extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JFrame frame;
-    private JPanel contentPanel;
-    
-    
-    /**
-     * Launch the application.
-     */
+    private JPanel contentPanel;    
+  
     /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -46,9 +50,19 @@ public class ConfigurarLimites extends JFrame {
         });
     }
     */
+    /**
+     * Metodo para ocultar a janela de configuração de limites
+     */
+    
     private void CloseWindow() {
         frame.setVisible(false);
     }
+    
+    /**
+     * Metodo para lancar a interface com ligacao a base de dados
+     * 
+     * @param databaseConnection conexao a base de dados mysql
+     */
     
     public ConfigurarLimites(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
@@ -60,7 +74,7 @@ public class ConfigurarLimites extends JFrame {
     
     
     /**
-     * Create the frame.
+     * Cria a janela do administrador
      */
     public void StartConfigurarLimites() {
         frame= new JFrame();
@@ -263,6 +277,12 @@ public class ConfigurarLimites extends JFrame {
         });
         contentPanel.add(ButtonLoadTable);
     }
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores dos limites definidos no sistema
+     * @param arg string com os valores do sistema concatenados
+     * @return matriz de string
+     */
       private String[][] GetList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
