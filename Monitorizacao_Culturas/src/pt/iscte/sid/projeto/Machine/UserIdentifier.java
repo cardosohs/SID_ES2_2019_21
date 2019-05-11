@@ -13,8 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
+ *	Classe para identificar o utilizador
  *
- * @author Sérgio
+ * @author Grupo 21
  */
 public class UserIdentifier {
     
@@ -31,8 +32,8 @@ public class UserIdentifier {
      * Retorna I se for investgador
      * retorna A se for admin
      * return F caso falhe o login, por exemplo, credenciais erradas
-     * @param username
-     * @param Password
+     * @param username recebe uma string com um username
+     * @param Password recebe uma string com uma password
      */
     public String WhatUserIsThis(String username, String Password)
     {
@@ -63,7 +64,7 @@ public class UserIdentifier {
     
     /**
      * vai buscar os Investigadores, caso nao consiga retorna uma string vazia
-     * @return
+     * @return uma string com os investigadores que estiverem na tabela investigador
      */
     private String getInvestigador()
     {
