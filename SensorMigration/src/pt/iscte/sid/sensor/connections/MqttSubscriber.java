@@ -13,7 +13,7 @@ public class MqttSubscriber {
     private Boolean isMqttAlive = false; // flag para determinar se a conexão existe
     MemoryPersistence persistence = new MemoryPersistence();
     MqttClient Client;
-    private String teste="";
+   
     /**
      * Implementação de uma singleton pattern para garantir que só existe 1 instância a correr
      */
@@ -35,7 +35,9 @@ public class MqttSubscriber {
         try {
             Client = new MqttClient(broker, clientId, persistence);
             MqttConnectOptions connOpts = new MqttConnectOptions();
-            connOpts.setCleanSession(true);
+            connOpts.setCleanSession(false);
+            connOpts.setAutomaticReconnect(true);
+            
             Client.connect(connOpts);
             Client.subscribe(topic);
 
@@ -56,13 +58,6 @@ public class MqttSubscriber {
     public MqttClient getClient() {
         return Client;
     }
-
-    public String getTeste() {
-        return teste;
-    }
-
-
-
 
 
 }
