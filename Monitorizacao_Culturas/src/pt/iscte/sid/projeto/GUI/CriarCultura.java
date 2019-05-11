@@ -19,6 +19,12 @@ import javax.swing.JOptionPane;
 //import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
+/**
+ * 
+ * @author Grupo 21
+ * Esta classe e referente a interface grafico para o investigador poder criar uma cultura
+ *
+ */
 public class CriarCultura extends JFrame {
     
     private DatabaseMiddleManForInvestigador databaseConnection;
@@ -27,9 +33,6 @@ public class CriarCultura extends JFrame {
     
     
     
-    /**
-     * Launch the application.
-     */
    /* public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -44,19 +47,26 @@ public class CriarCultura extends JFrame {
     }
     */    
     
+    /**
+     * Lanca a interface da criacao da cultura
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
     public CriarCultura(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartCriarCultura();
     }
     
-    
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
     
     /**
-     * Create the frame.
+     * Cria a janela para o Investigador poder criar as suas culturas.
      */
     public void StartCriarCultura() {
         frame= new JFrame();

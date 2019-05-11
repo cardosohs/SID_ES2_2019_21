@@ -154,8 +154,8 @@ public class ConsultarLuzTemp extends JFrame {
     
     /**
      * Este metodo devolve uma matriz de strings com as tabelas das medicoes da luz e temperatura
-     * @param arg 
-     * @return
+     * @param arg recebe uma string 
+     * @return devolve uma matriz de strings
      */
         
     private String[][] GetList(String arg)
