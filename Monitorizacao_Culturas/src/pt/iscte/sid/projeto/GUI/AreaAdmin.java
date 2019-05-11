@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 /**
- * Esta classe constroi o interface gráfico para o Administrador  
+ * Esta classe constroi o interface grafico para o Administrador  
  * @author Grupo 21
  *
  */
@@ -65,7 +65,7 @@ public class AreaAdmin extends JFrame {
 
     
     /**
-     * Cria a janela do administrador
+     * Metodo para criar a janela do administrador
      */
     public void StartAreaAdmin() {
         frame= new JFrame();
