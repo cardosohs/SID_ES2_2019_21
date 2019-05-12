@@ -1,0 +1,145 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_processaTemp`(in momento timestamp, in ordem int, in sensor varchar(9),
+ in medicao double, in datetime_sensor datetime)
+BEGIN
+-- verifica se é outlier 
+	-- só se tiver mais de 5 medicoes e a última medição tiver sido feita à menos de 10 minutos;
+   Set @contador = (select count(idmedicao) from medicoestemp);
+   set @ultimaHora = ( select datahoramed
+			from medicoestemp
+        order by datahoramed desc 
+        limit 1);
+   if @contador > 5  and (momento < date_add(@ultimaHora, interval 10 minute) ) then -- verifica à quanto tempo foi a última medicao
+  -- obtem desvio padrao das últimas 10 medicoes
+  set @despad = (select std(Valores) 
+	from ( select valormedicaotemp as valores
+		from medicoestemp
+        order by datahoramed desc 
+        limit 10)
+        as dp);
+   -- obtem  último valor registado;
+   set @lastMed = ( select valorMedicaoTemp
+			from medicoestemp
+        order by datahoramed desc 
+        limit 1);
+    -- verifica se a diferença entre o valor atual e o ultimo é inferior a 4x desvioPadrao;
+    if ((ABS(@lastmed-medicao)<(4*@despad)) or @devpad=0) then -- !se o desvio padrao for zero aceita
+    -- insere na tabela medicoesluz
+		insert into	medicoestemp (datahoraMed,valorMedicaotemp)
+		values (datetime_sensor,medicao);
+     -- e apaga tabela de outliers
+		-- truncate outlierluz;
+     else -- se for considerado outlier vai para a tabela de outliers
+		insert into	outliertemp (datahoraMed,valorMedicaotemp)
+		values (datetime_sensor,medicao);
+	end if;
+    
+   else --  Se o número de medições ainda for pequeno ou muito antigas
+   -- insere na tabela medicoesluz
+   insert into	medicoestemp (datahoraMed,valorMedicaotemp)
+		values (datetime_sensor,medicao);
+   end if;
+
+
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_processaLuz`(in momento timestamp, in ordem int, in sensor varchar(9),
+ in medicao double, in datetime_sensor datetime)
+BEGIN
+-- verifica se é outlier 
+	-- só se tiver mais de 5 medicoes e a última medição tiver sido feita à menos de 10 minutos;
+   Set @contador = (select count(idmedicao) from medicoesluz);
+   set @ultimaHora = ( select datahoramed
+			from medicoesluz
+        order by datahoramed desc 
+        limit 1);
+   if (@contador > 5 and (momento < date_add(@ultimaHora, interval 10 minute) ) ) then -- !!!!!verifica à quanto tempo foi a última medicao
+  -- obtem desvio padrao das últimas 10 medicoes
+  set @despad = (select std(Valores) 
+	from ( select valormedicaoluz as valores
+		from medicoesluz
+        order by datahoramed desc 
+        limit 10)
+        as dp);
+   -- obtem  último valor registado;
+   set @lastMed = ( select valorMedicaoLuz
+			from medicoesluz
+        order by datahoramed desc 
+        limit 1);
+    -- verifica se a diferença entre o valor atual e o ultimo é inferior a 4x desvioPadrao;
+    if ((ABS(@lastmed-medicao)<(4*@despad)) or @devpad=0) then -- !se o desvio padrao for zero aceita
+    -- insere na tabela medicoesluz
+		insert into	medicoesluz (datahoraMed,valorMedicaoLuz)
+		values (datetime_sensor,medicao);
+         -- e apaga tabela de outliers
+		truncate outlierluz;
+     else -- se for considerado outlier vai para a tabela de outliers
+		insert into	outliertemp (datahoraMed,valorMedicaotemp)
+		values (datetime_sensor,medicao);
+	end if;
+    
+   else --  Se o número de medições ainda for pequeno ou muito antigas
+   -- insere na tabela medicoesluz
+   insert into	medicoesluz (datahoraMed,valorMedicaoLuz)
+		values (datetime_sensor,medicao);
+   end if;
+
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_trataOutliers`()
+BEGIN
+
+ -- obtem a hora do registo mais recente dos outliers
+ set @horaUltimoOutlier = ( select datahoramed
+			from outliertemp
+        order by datahoramed asc 
+        limit 1);
+-- obtem a hora do registo mais recente dos valores aceites
+set @horaUltimoNormal = ( select datahoramed
+			from medicoesluz
+        order by datahoramed desc 
+        limit 1);
+ -- verifica se está la a mais de 45s
+if ( timediff(@horaUltimoOutlier,NOW())>second(45) AND (timediff(@horaUltimoNormal,NOW())>second(45)) )then
+ -- se sim, passa os dados da tabela de outliers para a das medicoes
+ 	insert into	medicoestemp (datahoraMed,valorMedicaoTemp)
+		select datahoraMed,ValorMedicaoTemp from outliertemp;
+ -- esvazia outliers
+ 
+end if;
+
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_verificaAtividade`()
+BEGIN   
+-- obtem a ultima medicao de Luz
+    set @ultimaLuz= ( select datahoramed
+			from medicoesluz
+        order by datahoramed desc 
+        limit 1);
+-- obtem a ultima medicao de temperatura
+     set @ultimaTemp = ( select datahoramed
+			from medicoestemp
+        order by datahoramed desc 
+        limit 1);
+        
+-- verifica se no último minuto chegou alguma medeciao de Luz        
+        if ( timediff(@ultimaluz,NOW())>minute(1) )then  
+        insert into alertas (DataHora,NomeVariavel, Descricao)
+		values (curtime(),"Luminusidade","ausencia de dados");
+        end if;
+        
+-- verifica se no último minuto chegou alguma medeciao de temperatura
+        if ( timediff(@ultimatemp,now())>minute(1)) then 
+        insert into alertas (DataHora,NomeVariavel, Descricao)
+		values (curtime(),"Temperatura","ausencia de dados");
+        end if;
+        
+END$$
+DELIMITER ;

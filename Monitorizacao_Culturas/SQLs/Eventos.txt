@@ -1,0 +1,3 @@
+CREATE DEFINER=`root`@`localhost` EVENT `verifica_alarmes` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-05-10 00:58:46' ON COMPLETION NOT PRESERVE DISABLE DO call sp_verificaAtividade()
+
+CREATE DEFINER=`root`@`localhost` EVENT `verifica_outliers` ON SCHEDULE EVERY 30 SECOND STARTS '2019-05-12 00:35:22' ON COMPLETION NOT PRESERVE ENABLE DO select * from outliertemp
