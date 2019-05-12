@@ -1,5 +1,6 @@
 package pt.iscte.sid.projeto.migrador;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,33 +39,14 @@ public class MongoDb {
 
 	}
 
-	//pede todos os dados de um tipo 
-//	public static List<Document> le(String tipo) {
+	
+	
+	//obtem todas as colecções após um BsonTimeStamp
+//	public static List<Document> le(BsonTimestamp ultimoLog) {
 //		List<Document> leituras = new ArrayList<Document>();
-//		// Imprime os elementos do tipo <tipo> de uma coleção
-//		Bson query = new BasicDBObject(tipo, new BasicDBObject("$exists", true));
-//		MongoCursor<Document> cursor = collection.find(query).iterator();
-//		
-//		try {
-//			while (cursor.hasNext()) {
-//				leituras.add(cursor.next());
-////				System.out.println( leituras.get(leituras.size()-1).toJson());
-//			}
-//		} finally {
-//			cursor.close();
-//		}
-//		return leituras;
-//	}
-
-	//pede os dados de um tipo após uma data
-//	public static List<Document> le(String tipo, BsonTimestamp bts) {
-//		List<Document> leituras = new ArrayList<Document>();
-//		// Imprime os elementos do tipo <tipo> de uma coleção
-////		DBObject query = new BasicDBObject(tipo, new BasicDBObject("$exists", true));
-//		Bson queryTime = new BasicDBObject("time_med", new BasicDBObject("$gt", bts)).append(tipo, new BasicDBObject("$exists", true));
-//		//query.put("$and",queryTime);
+//		// Imprime todos os elementos de uma coleção após data de último Log
+//		Bson queryTime = new BasicDBObject("time_med", new BasicDBObject("$gt", ultimoLog));
 //		MongoCursor<Document> cursor = collection.find(queryTime).iterator();
-//		
 //		try {
 //			while (cursor.hasNext()) {
 //				leituras.add(cursor.next());
@@ -76,31 +58,14 @@ public class MongoDb {
 //		return leituras;
 //	}
 	
-	//obtem todas as colecções após um BsonTimeStamp
-	public static List<Document> le(BsonTimestamp ultimoLog) {
-		List<Document> leituras = new ArrayList<Document>();
-		// Imprime todos os elementos de uma coleção após data de último Log
-		Bson queryTime = new BasicDBObject("time_med", new BasicDBObject("$gt", ultimoLog));
-		MongoCursor<Document> cursor = collection.find(queryTime).iterator();
-		try {
-			while (cursor.hasNext()) {
-				leituras.add(cursor.next());
-				System.out.println( leituras.get(leituras.size()-1).toJson());
-			}
-		} finally {
-			cursor.close();
-		}
-		return leituras;
-	}
-	
-	//obtem todas as colecções após um BsonTimeStamp
+	//obtem todas as colecções 
 	public static List<Document> le() {
 		List<Document> leituras = new ArrayList<Document>();
 		MongoCursor<Document> cursor = collection.find().iterator();
 		try {
 			while (cursor.hasNext()) {
 				leituras.add(cursor.next());
-				System.out.println( leituras.get(leituras.size()-1).toJson());
+				//System.out.println( leituras.get(leituras.size()-1).toJson());
 			}
 		} finally {
 			cursor.close();
@@ -112,10 +77,11 @@ public class MongoDb {
 	
 	
 	//apaga dados
-	public static boolean apaga(List<Document> leituras) {
-		boolean resultado = false;
-		// apaga as leituras em <leituras>
-		return resultado;
+	public static void apaga(Document doc) {
+	
+		collection.deleteOne(doc);
+		
+		
 	}
 
 }
