@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>DatabaseMiddleManForAdministrador.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.Machine</a> &gt; <span class="el_source">DatabaseMiddleManForAdministrador.java</span></div><h1>DatabaseMiddleManForAdministrador.java</h1><pre class="source lang-java linenums">/*
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
+package pt.iscte.sid.projeto.Machine;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * Classe de interface entre a Gui para o administrador e a base de dados Mysql
+ * @author Grupo 21
+ *
+ */
+public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
+    
+	
+	
+	/**
+	 * Construtor da classe
+	 * @param username string com o utilizador
+	 * @param Password string de password
+	 */
+    public DatabaseMiddleManForAdministrador(String username, String Password) {
+<span class="fc" id="L34">        super(username, Password);</span>
+<span class="fc" id="L35">    }</span>
+    
+    
+    
+    /**
+     * Metodo de suporte que vai buscar o email de um investigador dado um id especifico
+     * @param id do utilizador da tabela de investigador
+     * @return email do investigador
+     */
+    private String getinvestigadorEmail(int id)
+    {
+<span class="nc" id="L46">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L48">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L49">            String query = &quot;select * from investigador where IdInvestigador=&quot; + id;</span>
+<span class="nc" id="L50">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L52">                TableResult += rs.getString(2);</span>
+            }
+<span class="nc" id="L54">        }catch(Exception e){</span>
+<span class="nc" id="L55">            System.out.println(e);</span>
+<span class="nc" id="L56">            return null;</span>
+        }
+        
+<span class="nc" id="L59">        return TableResult;</span>
+    }
+    
+    
+    /**
+     * Metodo de suporte que vai buscar o email de um administrador dado um id especifico
+     * @param id do utilizador da tabela de administrador
+     * @return email do administrador
+     */
+    private String getAdministradorEmail(int id)
+    {
+<span class="nc" id="L70">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L72">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L73">            String query = &quot;select * from administrador where IdAdmin=&quot; + id;</span>
+<span class="nc" id="L74">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L76">                TableResult += rs.getString(2);</span>
+            }
+<span class="nc" id="L78">        }catch(Exception e){</span>
+<span class="nc" id="L79">            System.out.println(e);</span>
+<span class="nc" id="L80">            return null;</span>
+        }
+        
+<span class="nc" id="L83">        return TableResult;</span>
+    }
+    
+    
+    /**
+     * Metodo para apagar um utilizador da base de dados dado um email especifico
+     * @param Email do utilizador a apagar
+     * @return boolean true se funcionar false se não
+     * 
+     */
+    private boolean deleteUserNaBD(String Email){
+<span class="nc" id="L94">        String DatabaseDriver = &quot;com.mysql.cj.jdbc.Driver&quot;;</span>
+<span class="nc" id="L95">        String DatabaseURL = &quot;jdbc:mysql://localhost/&quot; + DatabaseName + &quot;?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&quot;;</span>
+
+        try {
+<span class="nc" id="L98">            Class.forName(DatabaseDriver);</span>
+<span class="nc" id="L99">            Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, &quot;root&quot;, &quot;&quot;);</span>
+<span class="nc" id="L100">            Statement stmt=DatabaseTMPConnection.createStatement();</span>
+<span class="nc" id="L101">            String query= &quot;DROP USER '&quot;+Email+&quot;'@'localhost'&quot;;</span>
+<span class="nc" id="L102">            int rs=stmt.executeUpdate(query);          </span>
+           // System.out.println(query);
+<span class="nc" id="L104">            DatabaseTMPConnection.close();</span>
+<span class="nc" id="L105">            return true;</span>
+            
+<span class="nc" id="L107">        } catch (ClassNotFoundException | SQLException ex) {</span>
+            //System.out.println(&quot;Failed ao buscar o id do investigador&quot;);
+<span class="nc" id="L109">            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L110">            return false;</span>
+        }
+    
+    }
+    
+    
+    /**
+     * Metodo para obter uma string concatenada dos valores da tabela investigador
+     * @return string concatenada
+     */
+
+    public String getInvestigador()
+    {
+<span class="nc" id="L123">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L125">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L126">            String query = &quot;select * from investigador&quot;;</span>
+<span class="nc" id="L127">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L129">                TableResult += rs.getString(1)+&quot;BREAKCOLUMN&quot;+rs.getString(2)</span>
+<span class="nc" id="L130">                        +&quot;BREAKCOLUMN&quot;+rs.getString(3) +&quot;BREAKCOLUMN&quot; + rs.getString(4) + &quot;BREAKLINE&quot;;</span>
+            }
+<span class="nc" id="L132">        }catch(Exception e){</span>
+<span class="nc" id="L133">            System.out.println(e);</span>
+<span class="nc" id="L134">            return null;</span>
+        }
+        
+<span class="nc" id="L137">        return TableResult;</span>
+    }
+    
+    /**
+     * Metodo para atualizar a informação de um investigador
+     * @param IdInvestigador int para pesquisa de utilizador a alterar
+     * @param Nome string com nome novo
+     * @param CategoriaProfe string com nova categoria profissional
+     * @return boolean se funcionou true ou false se falhou
+     */
+    public boolean updateInvestigador(int IdInvestigador, String Nome, String CategoriaProfe)
+    {
+        try {
+<span class="nc" id="L150">            String query =</span>
+<span class="nc" id="L151">                    &quot; update investigador set NomeInvestigador='&quot; + Nome+ &quot;', CategoriaProfe='&quot;+ CategoriaProfe</span>
+<span class="nc" id="L152">                    +&quot;' where idInvestigador=&quot; + IdInvestigador;</span>
+<span class="nc" id="L153">            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L154">            preparedStmt.execute();</span>
+<span class="nc" id="L155">            return true;</span>
+<span class="nc" id="L156">        } catch (SQLException ex) {</span>
+<span class="nc" id="L157">            System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L158">            return false;</span>
+        }
+    }
+    
+    /**
+     * Metodo para atualizar apenas a password de um investigador
+     * @param IdInvestigador int para pesquisa de utilizador a alterar
+     * @param Password string com password nova
+     * @return boolean se funcionou true ou false se falhou
+     */
+    public boolean updateInvestigadorPassword(int IdInvestigador, String Password)
+    {
+        try {
+<span class="nc" id="L171">            String query=&quot;&quot;;</span>
+<span class="nc" id="L172">            String Email=getinvestigadorEmail(IdInvestigador);</span>
+<span class="nc" id="L173">            query=&quot;SET PASSWORD FOR '&quot;+Email+&quot;'@'localhost' = PASSWORD('&quot;+Password+&quot;');&quot;;</span>
+<span class="nc" id="L174">            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L175">            preparedStmt.execute();</span>
+<span class="nc" id="L176">            return true;</span>
+<span class="nc" id="L177">        } catch (SQLException ex) {</span>
+<span class="nc" id="L178">            Logger.getLogger(DatabaseMiddleManForAdministrador.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L179">            return false;</span>
+        }
+    }
+    
+    
+    
+    /**
+     * Metodo para apagar um investigador
+     * @param IdInvestigador int para pesquisa de utilizador a apagar
+     * @return boolean se funcionou true ou false se falhou
+     */
+    public boolean deleteInvestigador(int IdInvestigador)
+    {
+<span class="nc" id="L192">        boolean success=false;</span>
+        try {
+<span class="nc" id="L194">            success= deleteUserNaBD(getinvestigadorEmail(IdInvestigador));</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">            if(success){</span>
+<span class="nc" id="L196">                String query = &quot; delete from investigador where idinvestigador=&quot; + IdInvestigador;</span>
+<span class="nc" id="L197">                PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L198">                preparedStmt.execute();</span>
+<span class="nc" id="L199">                return true;</span>
+            }
+<span class="nc" id="L201">            return false;</span>
+<span class="nc" id="L202">        } catch (SQLException ex) {</span>
+<span class="nc" id="L203">            System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L204">            return false;</span>
+        }
+    }
+    
+    
+    /**
+     * Metodo para ir buscar uma string concatatenada da tabela Administradores
+     * @return string com os valores concatenados
+     */
+    public String getAdministradores()
+    {
+<span class="nc" id="L215">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L217">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L218">            String query = &quot;select * from administrador&quot;;</span>
+<span class="nc" id="L219">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L221">                TableResult += rs.getString(1)+&quot;BREAKCOLUMN&quot;+rs.getString(2)</span>
+<span class="nc" id="L222">                        +&quot;BREAKCOLUMN&quot;+rs.getString(3)+ &quot;BREAKLINE&quot;;</span>
+            }
+<span class="nc" id="L224">        }catch(Exception e){</span>
+<span class="nc" id="L225">            System.out.println(e);</span>
+<span class="nc" id="L226">            return null;</span>
+        }
+        
+<span class="nc" id="L229">        return TableResult;</span>
+    }
+    
+    /**
+     * Metodo para atualizar o nome do administrador
+     * @param IdAdmin int com o id do administrador a alterar
+     * @param Nome string do novo nome
+     * @return boolean que indica se foi feito update ao administrador
+     */
+    public boolean updateAdministrador(int IdAdmin, String Nome)
+    {
+        try {
+<span class="nc" id="L241">            String query =</span>
+<span class="nc" id="L242">                    &quot; update administrador set NomeAdmin='&quot; + Nome</span>
+<span class="nc" id="L243">                    +&quot;' where idAdmin=&quot; + IdAdmin;</span>
+<span class="nc" id="L244">            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L245">            preparedStmt.execute();</span>
+<span class="nc" id="L246">            return true;</span>
+<span class="nc" id="L247">        } catch (SQLException ex) {</span>
+<span class="nc" id="L248">            System.err.println(&quot;Erro ao executar a acao&quot;);</span>
+<span class="nc" id="L249">            return false;</span>
+        }
+    }
+    
+    
+    /**
+     * Metodo para atualizar a password do administrador
+     * @param IdAdministrador int com o id do administrador a alterar
+     * @param Password string da nova password
+     * @return boolean se funcionou true ou false se falhou
+     */
+    public boolean updateAdministradorPassword(int IdAdministrador, String Password)
+    {
+        try {
+<span class="nc" id="L263">            String query=&quot;&quot;;</span>
+<span class="nc" id="L264">            String Email=getAdministradorEmail(IdAdministrador);</span>
+<span class="nc" id="L265">            query=query=&quot;SET PASSWORD FOR '&quot;+Email+&quot;'@'localhost' = PASSWORD('&quot;+Password+&quot;');&quot;;</span>
+<span class="nc" id="L266">            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L267">            preparedStmt.execute();</span>
+<span class="nc" id="L268">            return true;</span>
+<span class="nc" id="L269">        } catch (SQLException ex) {</span>
+<span class="nc" id="L270">            Logger.getLogger(DatabaseMiddleManForAdministrador.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L271">            return false;</span>
+        }
+    }
+    
+    
+    
+    
+    /**
+     * Metodo para apagar administrador
+     * @param IdAdmin int com o id do administrador a alterar
+     * @return booleano se funcionou true ou false se falhou
+     */
+    public boolean deleteAdmin(int IdAdmin)
+    {
+        try {
+<span class="nc" id="L286">            boolean  success= deleteUserNaBD(getAdministradorEmail(IdAdmin));</span>
+<span class="nc bnc" id="L287" title="All 2 branches missed.">            if(success){</span>
+<span class="nc" id="L288">                String query = &quot; delete from administrador where idadmin=&quot; + IdAdmin;</span>
+<span class="nc" id="L289">                PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L290">                preparedStmt.execute();</span>
+<span class="nc" id="L291">                return success;</span>
+            }
+            else
+<span class="nc" id="L294">                return false;</span>
+<span class="nc" id="L295">        } catch (SQLException ex) {</span>
+<span class="nc" id="L296">            System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L297">            return false;</span>
+        }
+        
+        
+    }
+    
+    
+    
+    /**
+     * Metodo para criar uma variavel
+     * @param NomeVariavel string com o nome da variavel a criar
+     * @return booleano se funcionou true ou false se falhou
+     */
+    public boolean createVariavel(String NomeVariavel)
+    {
+        try {
+<span class="nc" id="L313">            String query1 = &quot; insert into variaveis(NomeVariavel) values (?)&quot;;</span>
+<span class="nc" id="L314">            PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);</span>
+<span class="nc" id="L315">            preparedStmt1.setString(1, NomeVariavel);</span>
+<span class="nc" id="L316">            preparedStmt1.execute();</span>
+<span class="nc" id="L317">        } catch (SQLException ex) {</span>
+<span class="nc" id="L318">            return false;</span>
+        }
+<span class="nc" id="L320">        return true;</span>
+        
+    }
+    
+    
+    /**
+     * Metodo para apagar uma variavel
+     * @param IdVariavel int com o id do variavel a apagar
+     * @return booleano se funcionou true ou false se falhou
+     */
+    public boolean deleteVariavel(int IdVariavel)
+    {
+        
+        try {
+<span class="nc" id="L334">            String query = &quot; delete from variaveis where idvariavel=&quot; + IdVariavel;</span>
+<span class="nc" id="L335">            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L336">            preparedStmt.execute();</span>
+<span class="nc" id="L337">            return true;</span>
+<span class="nc" id="L338">        } catch (SQLException ex) {</span>
+<span class="nc" id="L339">            System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L340">            return false;</span>
+        }
+        
+    }
+    
+    /**
+     * Metodo para criar uma nova entrada na tabela sistema com os limites para o sensor
+     * @param LimiteInferiorTemp int com limite inferior de temperatura
+     * @param LimiteSuperiorTemp int com limite superior de temperatura
+     * @param LimiteInferiorLuz int com limite inferior de luminosidade
+     * @param LimiteSuperiorLuz int com limite superior de luminosidade
+     * @return booleano se funcionou true ou false se falhou
+     */
+    public boolean createSistema(int LimiteInferiorTemp,int LimiteSuperiorTemp,
+            int LimiteInferiorLuz,int LimiteSuperiorLuz)
+    {
+        try {
+<span class="nc" id="L357">            String query1 = &quot; insert into sistema(LimiteInferiorTemp,LimiteSuperiorTemp,&quot;</span>
+                    + &quot;LimiteInferiorLuz,LimiteSuperiorLuz) values (?,?,?,?)&quot;;
+<span class="nc" id="L359">            PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);</span>
+<span class="nc" id="L360">            preparedStmt1.setInt(1, LimiteInferiorTemp);</span>
+<span class="nc" id="L361">            preparedStmt1.setInt(2, LimiteSuperiorTemp);</span>
+<span class="nc" id="L362">            preparedStmt1.setInt(3, LimiteInferiorLuz);</span>
+<span class="nc" id="L363">            preparedStmt1.setInt(4, LimiteSuperiorLuz);</span>
+<span class="nc" id="L364">            preparedStmt1.execute();</span>
+<span class="nc" id="L365">            return true;</span>
+<span class="nc" id="L366">        } catch (SQLException ex) {</span>
+<span class="nc" id="L367">            return false;</span>
+        }
+        
+    }
+    
+    /**
+     * Metodo para atualizar uma entrada na tabela sistema
+     * @param IdSistema int id do sistema a atualizar
+     * @param LimiteInferiorTemp int com limite inferior de temperatura
+     * @param LimiteSuperiorTemp int com limite superior de temperatura
+     * @param LimiteInferiorLuz int com limite inferior de luminosidade
+     * @param LimiteSuperiorLuz int com limite superior de luminosidade
+     * @return booleano se funcionou true ou false se falhou
+     */
+    public boolean updateSistema(int IdSistema,int LimiteInferiorTemp,int LimiteSuperiorTemp,
+            int LimiteInferiorLuz,int LimiteSuperiorLuz)
+    {
+        try {
+<span class="nc" id="L385">            String query =</span>
+<span class="nc" id="L386">                    &quot; update Sistema set LimiteinferiorTemp= '&quot; + LimiteInferiorTemp</span>
+<span class="nc" id="L387">                    + &quot;', limiteSuperiorTemp='&quot; + LimiteSuperiorTemp +</span>
+<span class="nc" id="L388">                    &quot;', limiteinferiorluz='&quot; + LimiteInferiorLuz +</span>
+<span class="nc" id="L389">                    &quot;', limiteSuperiorluz='&quot; + LimiteSuperiorLuz</span>
+<span class="nc" id="L390">                    + &quot;' where idsistema=&quot; + IdSistema;</span>
+<span class="nc" id="L391">            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L392">            preparedStmt.execute();</span>
+            
+<span class="nc" id="L394">            return true;</span>
+<span class="nc" id="L395">        } catch (SQLException ex) {</span>
+<span class="nc" id="L396">            System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L397">            return false;</span>
+        }
+    }
+    
+    
+    /**
+     * Metodo para apagar uma entrada na tabela sistema
+     * @param IdSistema int id do sistema a atualizar
+     * @return booleano se funcionou true ou false se falhou
+     */
+    public boolean deleteSistema(int IdSistema)
+    {
+        
+        try {
+<span class="nc" id="L411">            String query = &quot; delete from sistema where idsistema=&quot; + IdSistema;</span>
+<span class="nc" id="L412">            PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L413">            preparedStmt.execute();</span>
+<span class="nc" id="L414">            return true;</span>
+<span class="nc" id="L415">        } catch (SQLException ex) {</span>
+<span class="nc" id="L416">            System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L417">            return false;</span>
+        }
+        
+    }
+    
+    /**
+     * Metodo para executar o storede procedure para criar utilizador SP_CriaUtilizador
+     * @param InNome string com o nome do utilizador
+     * @param InPassword string com a password do utilizador
+     * @param InEmail string com o Email do utilizador
+     * @param InCategoriaProfe string com a categoria profissional do utiizador
+     * @param InTipo string com o tipo de utilizador admin ou investigador
+     * @return booleano se funcionou true ou false se falhou
+     */
+    public boolean executeSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
+    {
+        // PreparedStatement cs = null;
+        try {
+<span class="nc" id="L435">            PreparedStatement cs = DatabaseConnection.prepareCall(&quot;{call SP_CriaUtilizador(?,?,?,?,?)}&quot;);</span>
+<span class="nc" id="L436">            cs.setString(1, InNome);</span>
+<span class="nc" id="L437">            cs.setString(2, InPassword);</span>
+<span class="nc" id="L438">            cs.setString(3, InEmail);</span>
+<span class="nc" id="L439">            cs.setString(4, InCategoriaProfe);</span>
+<span class="nc" id="L440">            cs.setString(5, InTipo);</span>
+<span class="nc" id="L441">            cs.execute();</span>
+<span class="nc" id="L442">            return true;</span>
+<span class="nc" id="L443">        } catch (SQLException e) {</span>
+<span class="nc" id="L444">            System.err.println(&quot;SQLException: &quot; + e.getMessage());</span>
+<span class="nc" id="L445">            return false;</span>
+        }
+    }
+    
+    
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

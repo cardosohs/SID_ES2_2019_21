@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ManutencaoUtilizadores.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">ManutencaoUtilizadores.java</span></div><h1>ManutencaoUtilizadores.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+
+
+/**
+ * Esta classe constroi o interface grafico para a Manutencao de Utilizadores
+ * @author Grupo 21
+ *
+ */
+public class ManutencaoUtilizadores extends JFrame {
+    
+    private DatabaseMiddleManForAdministrador databaseConnection;
+    private JPanel contentPanel;
+    private JFrame frame;
+<span class="fc" id="L39">    private String[] AdminSelected= new String[3];</span>
+<span class="fc" id="L40">    private String[] InvesSelected= new String[4];</span>
+    private JTextField txtFaltaAdaptarPara;
+    private JTextField txtFaltaAdaptarPara_1;
+    
+    
+    /**
+     * Construtor da classe. Lança a interface manutencao de utilizadores com ligacao a base de dados
+     * @param databaseConnection conexao a base de dados mysql
+     */
+    
+<span class="fc" id="L50">    public ManutencaoUtilizadores(DatabaseMiddleManForAdministrador databaseConnection) {</span>
+<span class="fc" id="L51">        this.databaseConnection = databaseConnection;</span>
+<span class="nc" id="L52">        startManutencaoUtilizadores();</span>
+<span class="nc" id="L53">    }</span>
+    
+
+    /**
+     * Metodo para ocultar a janela
+     */
+    private void closeWindow() {
+<span class="nc" id="L60">        frame.setVisible(false);</span>
+<span class="nc" id="L61">    }</span>
+    
+    /**
+     * Metodo para criar a janela de Manutencao de Utilizadores
+     * 
+     */
+    private void startManutencaoUtilizadores() {
+<span class="fc" id="L68">        frame= new JFrame();</span>
+<span class="fc" id="L69">        frame.setTitle(&quot;Medi\u00E7\u00F5es de Sistema&quot;);</span>
+<span class="fc" id="L70">        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="fc" id="L71">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L72">        frame.setVisible(true);</span>
+<span class="fc" id="L73">        LoginWindow.centerWindow(frame);</span>
+<span class="fc" id="L74">        frame.setResizable(false);</span>
+<span class="fc" id="L75">        setTitle(&quot;Manuten\u00E7\u00E3o de Utilizadores&quot;);</span>
+<span class="fc" id="L76">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L77">        setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L78">        contentPanel = new JPanel();</span>
+<span class="fc" id="L79">        contentPanel.setBackground(new Color(255, 255, 255));</span>
+<span class="fc" id="L80">        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L81">        contentPanel.setLayout(null);</span>
+        
+<span class="fc" id="L83">        ImageIcon image = new ImageIcon (ManutencaoUtilizadores.class.getResource(&quot;/images/manutencaoUtilizadores.png&quot;));</span>
+        
+        
+<span class="fc" id="L86">        JButton btnAdicionarUtilizador = new JButton(&quot;Adicionar Novo Utilizador&quot;);</span>
+<span class="fc" id="L87">        btnAdicionarUtilizador.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L89">                new SubscreverUtilizador(databaseConnection,true);</span>
+<span class="nc" id="L90">                closeWindow();</span>
+<span class="nc" id="L91">            }</span>
+        });
+<span class="fc" id="L93">        btnAdicionarUtilizador.setBounds(547, 497, 179, 30);</span>
+<span class="fc" id="L94">        contentPanel.add(btnAdicionarUtilizador);</span>
+        
+        
+        
+<span class="fc" id="L98">        JButton btnVoltar = new JButton(&quot;Voltar&quot;);</span>
+<span class="fc" id="L99">        btnVoltar.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L101">                new AreaAdmin(databaseConnection);</span>
+<span class="nc" id="L102">                closeWindow();</span>
+<span class="nc" id="L103">            }</span>
+        });
+<span class="fc" id="L105">        btnVoltar.setBounds(725, 497, 85, 30);</span>
+<span class="fc" id="L106">        contentPanel.add(btnVoltar);</span>
+        
+<span class="fc" id="L108">        String[] Adminheader={&quot;Id&quot;,&quot;Email&quot;,&quot;Nome&quot;};</span>
+<span class="nc" id="L109">        String[][] Admindata=getList(databaseConnection.getAdministradores());</span>
+        
+<span class="nc" id="L111">        DefaultTableModel Adminmodel = new DefaultTableModel(Admindata,Adminheader);</span>
+<span class="nc" id="L112">        JTable Admintable = new JTable(Adminmodel);</span>
+<span class="nc" id="L113">        Admintable.setCellSelectionEnabled(false);</span>
+<span class="nc" id="L114">        ListSelectionModel selectAdmin= Admintable.getSelectionModel();</span>
+<span class="nc" id="L115">        selectAdmin.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L116">        selectAdmin.addListSelectionListener(new ListSelectionListener() {</span>
+            public void valueChanged(ListSelectionEvent e) {
+<span class="nc" id="L118">                int row = Admintable.getSelectedRow();</span>
+<span class="nc" id="L119">                AdminSelected[0] = Admintable.getModel().getValueAt(row, 0).toString();</span>
+<span class="nc" id="L120">                AdminSelected[1] = Admintable.getModel().getValueAt(row, 1).toString();</span>
+<span class="nc" id="L121">                AdminSelected[2] = Admintable.getModel().getValueAt(row, 2).toString();</span>
+<span class="nc" id="L122">            }</span>
+        });
+<span class="nc" id="L124">        JScrollPane Adminjs=new JScrollPane(Admintable);</span>
+<span class="nc" id="L125">        Adminjs.setVisible(true);</span>
+<span class="nc" id="L126">        Adminjs.setBounds(10, 210, 402, 231);</span>
+        
+<span class="nc" id="L128">        contentPanel.add(Adminjs);</span>
+        
+<span class="nc" id="L130">        String[] Invesheader={&quot;Id&quot;,&quot;Email&quot;,&quot;Nome&quot;,&quot;Categoria&quot;};</span>
+<span class="nc" id="L131">        String[][] Invesdata=getList(databaseConnection.getInvestigador());</span>
+<span class="nc" id="L132">        DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);</span>
+<span class="nc" id="L133">        JTable Investable = new JTable(Invesmodel);</span>
+<span class="nc" id="L134">        Investable.setCellSelectionEnabled(false); </span>
+<span class="nc" id="L135">        ListSelectionModel selectInves= Investable.getSelectionModel();</span>
+<span class="nc" id="L136">        selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L137">        selectInves.addListSelectionListener(new ListSelectionListener() {</span>
+            public void valueChanged(ListSelectionEvent e) {
+<span class="nc" id="L139">                int row = Investable.getSelectedRow();</span>
+<span class="nc" id="L140">                InvesSelected[0] = Investable.getModel().getValueAt(row, 0).toString();</span>
+<span class="nc" id="L141">                InvesSelected[1] = Investable.getModel().getValueAt(row, 1).toString();</span>
+<span class="nc" id="L142">                InvesSelected[2] = Investable.getModel().getValueAt(row, 2).toString();</span>
+<span class="nc" id="L143">                InvesSelected[3] = Investable.getModel().getValueAt(row, 2).toString();</span>
+<span class="nc" id="L144">                System.out.println(Investable.getModel().getValueAt(row, 2).toString());</span>
+<span class="nc" id="L145">            }</span>
+        });
+<span class="nc" id="L147">        JScrollPane Invesjs=new JScrollPane(Investable);</span>
+<span class="nc" id="L148">        Invesjs.setVisible(true);</span>
+<span class="nc" id="L149">        Invesjs.setBounds(422, 210, 402, 231);</span>
+<span class="nc" id="L150">        contentPanel.add(Invesjs);</span>
+        
+<span class="nc" id="L152">        JTextField IdAdmin = new JTextField();</span>
+<span class="nc" id="L153">        IdAdmin.setColumns(10);</span>
+<span class="nc" id="L154">        IdAdmin.setBounds(143, 487, 31, 20);</span>
+<span class="nc" id="L155">        contentPanel.add(IdAdmin);</span>
+        
+<span class="nc" id="L157">        JLabel imagemFundo = new JLabel(&quot;&quot;);</span>
+<span class="nc" id="L158">        imagemFundo.setBounds(0, 0, 834, 458);</span>
+<span class="nc" id="L159">        Image img = image.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+<span class="nc" id="L161">        imagemFundo.setIcon(new ImageIcon (img));</span>
+        
+<span class="nc" id="L163">        contentPanel.add(imagemFundo);</span>
+        
+<span class="nc" id="L165">        JTextField IdInves = new JTextField();</span>
+<span class="nc" id="L166">        IdInves.setColumns(10);</span>
+<span class="nc" id="L167">        IdInves.setBounds(143, 518, 31, 20);</span>
+<span class="nc" id="L168">        contentPanel.add(IdInves);</span>
+        
+<span class="nc" id="L170">        JLabel lblIdAdministrador = new JLabel(&quot;ID Administrador&quot;);</span>
+<span class="nc" id="L171">        lblIdAdministrador.setBounds(48, 487, 97, 16);</span>
+<span class="nc" id="L172">        contentPanel.add(lblIdAdministrador);</span>
+        
+<span class="nc" id="L174">        JLabel lblIdInvestigador = new JLabel(&quot;ID Investigador&quot;);</span>
+<span class="nc" id="L175">        lblIdInvestigador.setBounds(48, 518, 97, 16);</span>
+<span class="nc" id="L176">        contentPanel.add(lblIdInvestigador);</span>
+        
+        
+<span class="nc" id="L179">        JButton btnEliminarUtilizador = new JButton(&quot;Eliminar Utilizador com este ID&quot;);</span>
+<span class="nc" id="L180">        btnEliminarUtilizador.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc bnc" id="L182" title="All 2 branches missed.">                if(!IdAdmin.getText().equals(&quot;&quot;))</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">                    if(databaseConnection.deleteAdmin(Integer.parseInt(IdAdmin.getText())))</span>
+<span class="nc" id="L184">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L185">                                &quot;Successo&quot;,</span>
+<span class="nc" id="L186">                                &quot;Information&quot;,</span>
+<span class="nc" id="L187">                                JOptionPane.INFORMATION_MESSAGE);</span>
+                    else
+<span class="nc" id="L189">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L190">                                &quot;Aconteceu um erro&quot;,</span>
+<span class="nc" id="L191">                                &quot;ERROR&quot;,</span>
+<span class="nc" id="L192">                                JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">                else if(!IdInves.getText().equals(&quot;&quot;))</span>
+<span class="nc bnc" id="L194" title="All 2 branches missed.">                    if(databaseConnection.deleteInvestigador(Integer.parseInt(IdInves.getText())))</span>
+<span class="nc" id="L195">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L196">                                &quot;Successo&quot;,</span>
+<span class="nc" id="L197">                                &quot;Information&quot;,</span>
+<span class="nc" id="L198">                                JOptionPane.INFORMATION_MESSAGE);</span>
+                    else
+<span class="nc" id="L200">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L201">                                &quot;Aconteceu um erro&quot;,</span>
+<span class="nc" id="L202">                                &quot;ERROR&quot;,</span>
+<span class="nc" id="L203">                                JOptionPane.ERROR_MESSAGE);</span>
+                else
+<span class="nc" id="L205">                    JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L206">                            &quot;O campo nao pode estar vazio&quot;,</span>
+<span class="nc" id="L207">                            &quot;ERROR&quot;,</span>
+<span class="nc" id="L208">                            JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L209">            }</span>
+        });
+<span class="nc" id="L211">        btnEliminarUtilizador.setBounds(185, 497, 206, 30);</span>
+<span class="nc" id="L212">        contentPanel.add(btnEliminarUtilizador);</span>
+        
+<span class="nc" id="L214">        JButton btnSubmeterAlteraes = new JButton(&quot;Alterar Utilizador&quot;);</span>
+<span class="nc" id="L215">        btnSubmeterAlteraes.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L217">                new SubscreverUtilizador(databaseConnection,false);</span>
+<span class="nc" id="L218">                closeWindow();</span>
+<span class="nc" id="L219">        }});</span>
+<span class="nc" id="L220">        btnSubmeterAlteraes.setBounds(390, 497, 158, 30);</span>
+<span class="nc" id="L221">        contentPanel.add(btnSubmeterAlteraes);</span>
+        
+        
+<span class="nc" id="L224">        frame.getContentPane().add(contentPanel);</span>
+<span class="nc" id="L225">    }</span>
+    
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores da tabela de utilizadores 
+     * @param arg string com os valores do sistema concatenados
+     * @return matriz de string
+     */
+    private String[][] getList(String arg)
+    {
+<span class="nc" id="L235">        String[] lines = arg.split(&quot;BREAKLINE&quot;);</span>
+<span class="nc" id="L236">        String[][] linesCsv = new String[lines.length][];</span>
+        
+<span class="nc bnc" id="L238" title="All 2 branches missed.">        for (int i=0; i&lt;lines.length; i++) {</span>
+<span class="nc" id="L239">            linesCsv[i] = lines[i].split(&quot;BREAKCOLUMN&quot;);</span>
+        }
+<span class="nc" id="L241">        return linesCsv;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

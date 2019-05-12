@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>DatabaseMiddleManForAdministradorTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.Machine.test</a> &gt; <span class="el_source">DatabaseMiddleManForAdministradorTest.java</span></div><h1>DatabaseMiddleManForAdministradorTest.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.Machine.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+
+<span class="fc" id="L7">class DatabaseMiddleManForAdministradorTest {</span>
+	
+	
+<span class="fc" id="L10">	private String username = &quot;fffff&quot;;</span>
+<span class="fc" id="L11">	private String password = &quot;password&quot;;</span>
+<span class="fc" id="L12">	private String catProf= &quot;student&quot;;</span>
+<span class="fc" id="L13">	private String variavel = &quot;pH&quot;;</span>
+<span class="fc" id="L14">	private int id = 1;</span>
+	
+	DatabaseMiddleManForAdministrador admin;
+	private DatabaseMiddleManForAdministrador databaseConnection;			
+
+	@Test
+	final void testDatabaseMiddleManForAdministrador() {
+<span class="fc" id="L21">		admin = new DatabaseMiddleManForAdministrador(username, password);</span>
+<span class="fc" id="L22">		assertNotNull(admin);</span>
+<span class="fc" id="L23">	}</span>
+
+	@Test
+	final void testGetInvestigador() {
+		
+<span class="fc" id="L28">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L29">	            ()-&gt;{</span>
+<span class="nc" id="L30">	            	databaseConnection.getInvestigador();</span>
+<span class="nc" id="L31">	            	});</span>
+<span class="fc" id="L32">	}</span>
+
+	@Test
+	final void testUpdateInvestigador() {		
+<span class="fc" id="L36">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L37">	            ()-&gt;{</span>
+<span class="nc" id="L38">	            	Boolean b = admin.updateInvestigador(id, username,catProf);</span>
+<span class="nc" id="L39">	            	b.equals(false);</span>
+<span class="nc" id="L40">	            	});		</span>
+<span class="fc" id="L41">	}</span>
+
+	@Test
+	final void testUpdateInvestigadorPassword() {
+<span class="fc" id="L45">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L46">	            ()-&gt;{</span>
+<span class="nc" id="L47">	            	Boolean b = admin.updateInvestigadorPassword(id, password);</span>
+<span class="nc" id="L48">	            	b.equals(false);</span>
+<span class="nc" id="L49">	            	});	</span>
+<span class="fc" id="L50">	}</span>
+
+	@Test
+	final void testDeleteInvestigador() {
+<span class="fc" id="L54">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L55">	            ()-&gt;{</span>
+<span class="nc" id="L56">	            	Boolean b = admin.deleteInvestigador(id);</span>
+<span class="nc" id="L57">	            	b.equals(false);</span>
+<span class="nc" id="L58">	            	});</span>
+<span class="fc" id="L59">	}</span>
+
+	@Test
+	final void testGetAdministradores() {
+<span class="fc" id="L63">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L64">	            ()-&gt;{</span>
+<span class="nc" id="L65">	            	databaseConnection.getAdministradores();</span>
+<span class="nc" id="L66">	            	});</span>
+<span class="fc" id="L67">	}</span>
+
+	@Test
+	final void testUpdateAdministrador() {
+<span class="fc" id="L71">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L72">	            ()-&gt;{</span>
+<span class="nc" id="L73">	            	Boolean b = admin.updateAdministrador(id, username);</span>
+<span class="nc" id="L74">	            	b.equals(false);</span>
+<span class="nc" id="L75">	            	});	</span>
+<span class="fc" id="L76">	}</span>
+
+	@Test
+	final void testUpdateAdministradorPassword() {
+<span class="fc" id="L80">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L81">	            ()-&gt;{</span>
+<span class="nc" id="L82">	            	Boolean b = admin.updateAdministradorPassword(id, password);</span>
+<span class="nc" id="L83">	            	b.equals(false);</span>
+<span class="nc" id="L84">	            	});	</span>
+<span class="fc" id="L85">	}</span>
+
+	@Test
+	final void testDeleteAdmin() {
+<span class="fc" id="L89">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L90">	            ()-&gt;{</span>
+<span class="nc" id="L91">	            	Boolean b = admin.deleteAdmin(id);</span>
+<span class="nc" id="L92">	            	b.equals(false);</span>
+<span class="nc" id="L93">	            	});</span>
+<span class="fc" id="L94">	}</span>
+
+	@Test
+	final void testCreateVariavel() {
+<span class="fc" id="L98">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L99">	            ()-&gt;{</span>
+<span class="nc" id="L100">	            	Boolean b = admin.createVariavel(variavel);</span>
+<span class="nc" id="L101">	            	b.equals(false);</span>
+<span class="nc" id="L102">	            	});</span>
+<span class="fc" id="L103">	}</span>
+
+	@Test
+	final void testDeleteVariavel() {
+<span class="fc" id="L107">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L108">	            ()-&gt;{</span>
+<span class="nc" id="L109">	            	Boolean b = admin.deleteVariavel(id);</span>
+<span class="nc" id="L110">	            	b.equals(false);</span>
+<span class="nc" id="L111">	            	});</span>
+<span class="fc" id="L112">	}</span>
+
+	@Test
+	final void testCreateSistema() {
+<span class="fc" id="L116">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L117">	            ()-&gt;{</span>
+<span class="nc" id="L118">	            	Boolean b = admin.createSistema(id,id+1,id,id+1);</span>
+<span class="nc" id="L119">	            	b.equals(false);</span>
+<span class="nc" id="L120">	            	});</span>
+<span class="fc" id="L121">	}</span>
+
+	@Test
+	final void testUpdateSistema() {
+<span class="fc" id="L125">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L126">	            ()-&gt;{</span>
+<span class="nc" id="L127">	            	Boolean b = admin.updateSistema(id, id, id+2, id, id+2);</span>
+<span class="nc" id="L128">	            	b.equals(false);</span>
+<span class="nc" id="L129">	            	});</span>
+<span class="fc" id="L130">	}</span>
+
+	@Test
+	final void testDeleteSistema() {
+<span class="fc" id="L134">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L135">	            ()-&gt;{</span>
+<span class="nc" id="L136">	            	Boolean b = admin.deleteSistema(id);</span>
+<span class="nc" id="L137">	            	b.equals(false);</span>
+<span class="nc" id="L138">	            	});</span>
+<span class="fc" id="L139">	}</span>
+
+	@Test
+	final void testExecuteSP() {
+<span class="fc" id="L143">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L144">	            ()-&gt;{</span>
+<span class="nc" id="L145">	            	Boolean b = admin.executeSP(&quot;eu&quot;,&quot;eu&quot;,&quot;eu&quot;,&quot;eu&quot;,&quot;I&quot;);</span>
+<span class="nc" id="L146">	            	b.equals(false);</span>
+<span class="nc" id="L147">	            	});</span>
+<span class="fc" id="L148">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

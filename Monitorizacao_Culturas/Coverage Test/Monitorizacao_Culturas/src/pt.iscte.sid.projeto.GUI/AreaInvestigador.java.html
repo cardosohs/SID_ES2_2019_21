@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AreaInvestigador.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">AreaInvestigador.java</span></div><h1>AreaInvestigador.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
+/**
+ * 
+ * Esta classe e referente a interface grafico para o Investigador
+ * 
+ * @author Grupo 21
+ *
+ */
+
+public class AreaInvestigador extends JFrame {
+    
+    private JPanel contentPanel;
+    private JFrame frame;
+    private JTextField textField;
+    private JTextField txtId;
+    private DatabaseMiddleManForInvestigador databaseConnection;
+    
+    
+    /**
+     * Lanca a interface do Investigador
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
+<span class="fc" id="L46">    public AreaInvestigador(DatabaseMiddleManForInvestigador databaseConnection) {</span>
+<span class="fc" id="L47">        this.databaseConnection = databaseConnection;</span>
+<span class="nc" id="L48">        startAreaInvestigador();</span>
+<span class="nc" id="L49">    }</span>
+    
+    
+    /**
+     * Metodo para fechar a janela
+     */
+    private void closeWindow() {
+<span class="nc" id="L56">        frame.setVisible(false);</span>
+<span class="nc" id="L57">    }</span>
+   
+    
+    /**
+     * Cria a janela do Investigador.
+     */
+    private void startAreaInvestigador() {
+<span class="fc" id="L64">        frame= new JFrame();</span>
+<span class="fc" id="L65">        frame.setTitle(&quot;\u00C1rea do Investigador&quot;);</span>
+<span class="fc" id="L66">        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="fc" id="L67">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L68">        frame.setVisible(true);</span>
+<span class="fc" id="L69">        LoginWindow.centerWindow(frame);</span>
+<span class="fc" id="L70">        frame.setResizable(false);</span>
+<span class="fc" id="L71">        setTitle(&quot;\u00C1rea do Investigador&quot;);</span>
+<span class="fc" id="L72">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L73">        setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L74">        contentPanel = new JPanel();</span>
+<span class="fc" id="L75">        contentPanel.setBackground(Color.WHITE);</span>
+<span class="fc" id="L76">        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L77">        contentPanel.setLayout(null);</span>
+        
+<span class="fc" id="L79">        ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource(&quot;/images/areaInvestigador.png&quot;));</span>
+<span class="fc" id="L80">        ImageIcon menu = new ImageIcon(SubscreverUtilizador.class.getResource(&quot;/images/MenuAreaInvest.png&quot;));</span>
+        
+<span class="fc" id="L82">        JButton btnNewButton = new JButton(&quot;As Minhas Culturas&quot;);</span>
+<span class="fc" id="L83">        btnNewButton.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L85">                new CulturasLista(databaseConnection);</span>
+<span class="nc" id="L86">                closeWindow();</span>
+                
+<span class="nc" id="L88">            }</span>
+        });
+        
+<span class="fc" id="L91">        JButton btnLuzETemperatura = new JButton(&quot;Ver Luz/Temperatura&quot;);</span>
+<span class="fc" id="L92">        btnLuzETemperatura.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L93">        btnLuzETemperatura.addActionListener(new ActionListener() {</span>
+        	public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L95">                    new ConsultarLuzTemp(databaseConnection);</span>
+<span class="nc" id="L96">                    closeWindow();</span>
+                    
+                
+<span class="nc" id="L99">        	}</span>
+        });
+<span class="fc" id="L101">        btnLuzETemperatura.setBounds(410, 299, 189, 69);</span>
+<span class="fc" id="L102">        contentPanel.add(btnLuzETemperatura);</span>
+<span class="fc" id="L103">        btnNewButton.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L104">        btnNewButton.setBounds(81, 299, 162, 69);</span>
+<span class="fc" id="L105">        contentPanel.add(btnNewButton);</span>
+        
+<span class="fc" id="L107">        JButton btnAppAndroid = new JButton(&quot;App Android&quot;);</span>
+<span class="fc" id="L108">        btnAppAndroid.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L109">        btnAppAndroid.setBounds(598, 299, 169, 69);</span>
+<span class="fc" id="L110">        contentPanel.add(btnAppAndroid);</span>
+        
+<span class="fc" id="L112">        JButton btnVerificarRegistoPessoal = new JButton(&quot;Consultar Vari\u00E1veis&quot;);</span>
+<span class="fc" id="L113">        btnVerificarRegistoPessoal.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L115">                new InserirDados(databaseConnection);</span>
+<span class="nc" id="L116">                closeWindow();</span>
+<span class="nc" id="L117">            }</span>
+        });
+<span class="fc" id="L119">        btnVerificarRegistoPessoal.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L120">        btnVerificarRegistoPessoal.setBounds(242, 299, 169, 69);</span>
+<span class="fc" id="L121">        contentPanel.add(btnVerificarRegistoPessoal);</span>
+        
+<span class="fc" id="L123">        JButton btnLogout = new JButton(&quot;LogOut&quot;);</span>
+<span class="fc" id="L124">        btnLogout.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L126">                new LoginWindow();</span>
+<span class="nc" id="L127">                closeWindow();</span>
+<span class="nc" id="L128">                databaseConnection.closeConnection();</span>
+                
+<span class="nc" id="L130">            }</span>
+        });
+<span class="fc" id="L132">        btnLogout.setBounds(657, 498, 89, 23);</span>
+<span class="fc" id="L133">        contentPanel.add(btnLogout);</span>
+        
+<span class="fc" id="L135">        textField = new JTextField();</span>
+<span class="fc" id="L136">        textField.setText(&quot;Investigador&quot;);</span>
+<span class="fc" id="L137">        textField.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="fc" id="L138">        textField.setForeground(Color.WHITE);</span>
+<span class="fc" id="L139">        textField.setFont(textField.getFont().deriveFont(11f));</span>
+<span class="fc" id="L140">        textField.setColumns(10);</span>
+<span class="fc" id="L141">        textField.setBackground(new Color(0, 51, 102));</span>
+<span class="fc" id="L142">        textField.setBounds(508, 71, 68, 21);</span>
+<span class="fc" id="L143">        contentPanel.add(textField);</span>
+        
+<span class="fc" id="L145">        JTextPane InvestigadorTextField = new JTextPane();</span>
+<span class="fc" id="L146">        InvestigadorTextField.setBackground(SystemColor.menu);</span>
+<span class="fc" id="L147">        InvestigadorTextField.setBounds(586, 72, 145, 20);</span>
+<span class="nc" id="L148">        InvestigadorTextField.setText(String.valueOf(databaseConnection.getMyName()));</span>
+<span class="nc" id="L149">        InvestigadorTextField.setEditable(false);</span>
+<span class="nc" id="L150">        contentPanel.add(InvestigadorTextField);</span>
+        
+<span class="nc" id="L152">        txtId = new JTextField();</span>
+<span class="nc" id="L153">        txtId.setText(&quot;ID&quot;);</span>
+<span class="nc" id="L154">        txtId.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L155">        txtId.setForeground(Color.WHITE);</span>
+<span class="nc" id="L156">        txtId.setFont(txtId.getFont().deriveFont(11f));</span>
+<span class="nc" id="L157">        txtId.setColumns(10);</span>
+<span class="nc" id="L158">        txtId.setBackground(new Color(0, 51, 102));</span>
+<span class="nc" id="L159">        txtId.setBounds(741, 71, 24, 21);</span>
+<span class="nc" id="L160">        contentPanel.add(txtId);</span>
+        
+<span class="nc" id="L162">        JTextPane IdTextField = new JTextPane();</span>
+<span class="nc" id="L163">        IdTextField.setBackground(SystemColor.menu);</span>
+<span class="nc" id="L164">        IdTextField.setBounds(775, 71, 36, 20);</span>
+<span class="nc" id="L165">        IdTextField.setText(String.valueOf(databaseConnection.getMyId()));</span>
+<span class="nc" id="L166">        IdTextField.setEditable(false);</span>
+<span class="nc" id="L167">        contentPanel.add(IdTextField);</span>
+        
+<span class="nc" id="L169">        JLabel fotoTopo = new JLabel(&quot;&quot;);</span>
+<span class="nc" id="L170">        fotoTopo.setBackground(Color.WHITE);</span>
+<span class="nc" id="L171">        fotoTopo.setBounds(0, 0, 834, 460);</span>
+        
+<span class="nc" id="L173">        Image imgOne =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+<span class="nc" id="L175">        fotoTopo.setIcon(new ImageIcon(imgOne));</span>
+        
+        
+        
+<span class="nc" id="L179">        contentPanel.add(fotoTopo);</span>
+<span class="nc" id="L180">        frame.getContentPane().add(contentPanel);</span>
+        
+<span class="nc" id="L182">        Image imgTwo =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+<span class="nc" id="L184">        fotoTopo.setIcon(new ImageIcon(imgTwo));</span>
+        
+<span class="nc" id="L186">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

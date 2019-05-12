@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>UserIdentifierTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.Machine.test</a> &gt; <span class="el_source">UserIdentifierTest.java</span></div><h1>UserIdentifierTest.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.Machine.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+
+import pt.iscte.sid.projeto.GUI.ConfigurarLimites;
+import pt.iscte.sid.projeto.Machine.UserIdentifier;
+
+<span class="fc" id="L13">class UserIdentifierTest {</span>
+
+<span class="fc" id="L15"> final String DatabaseName=&quot;g21origem&quot;;</span>
+ UserIdentifier user;
+<span class="fc" id="L17">     String goodUsername=&quot;vasco&quot;;</span>
+<span class="fc" id="L18">     String goodPassword=&quot;vasco&quot;;</span>
+<span class="fc" id="L19">     String badUsername=&quot;carlos&quot;;</span>
+<span class="fc" id="L20">     String badPassword=&quot;312&quot;;</span>
+     
+    
+    
+	
+	
+	
+	@Test
+	final void testWhatUserIsThis() {
+<span class="fc" id="L29">		String ok = &quot;A&quot;;</span>
+<span class="fc" id="L30">		String notOK = &quot;F&quot;;</span>
+		
+<span class="fc" id="L32">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L33">	            ()-&gt;{</span>
+<span class="nc" id="L34">	            	assertSame(ok, user.whatUserIsThis(goodUsername, goodPassword));</span>
+<span class="nc" id="L35">	            	});</span>
+		
+<span class="fc" id="L37">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L38">	            ()-&gt;{</span>
+<span class="nc" id="L39">	            	assertSame(notOK, user.whatUserIsThis(goodUsername, badPassword));</span>
+<span class="nc" id="L40">	            	});</span>
+		
+<span class="fc" id="L42">		assertThrows(NullPointerException.class,</span>
+<span class="fc" id="L43">	            ()-&gt;{</span>
+<span class="nc" id="L44">	            	assertNotNull( user.whatUserIsThis(badUsername, badPassword));</span>
+<span class="nc" id="L45">	            	});</span>
+		
+		
+		
+<span class="fc" id="L49">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

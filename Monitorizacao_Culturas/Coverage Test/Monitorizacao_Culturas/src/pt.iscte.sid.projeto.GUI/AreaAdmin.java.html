@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AreaAdmin.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">AreaAdmin.java</span></div><h1>AreaAdmin.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+
+
+/**
+ * Esta classe constroi o interface grafico para o Administrador  
+ * @author Grupo 21
+ *
+ */
+public class AreaAdmin extends JFrame {
+    
+    private JPanel contentPanel;
+    private JFrame frame;
+    private DatabaseMiddleManForAdministrador databaseConnection;
+    
+    /**
+     * Construtor da classe. Lanca a interface com ligacao a base de dados.
+     * 
+     * @param databaseConnection conexao a base de dados mysql
+     */
+<span class="fc" id="L38">    public AreaAdmin(DatabaseMiddleManForAdministrador databaseConnection) {</span>
+<span class="fc" id="L39">        this.databaseConnection = databaseConnection;</span>
+<span class="fc" id="L40">        startAreaAdmin() ;</span>
+<span class="fc" id="L41">    }</span>
+    
+    
+    /**
+     *  Metodo para ocultar a janela administrador
+     */
+    private void closeWindow() {
+<span class="nc" id="L48">        frame.setVisible(false);</span>
+<span class="nc" id="L49">    }</span>
+    
+
+    /**
+     * Metodo para criar a janela do administrador
+     */
+    private void startAreaAdmin() {
+<span class="fc" id="L56">        frame= new JFrame();</span>
+<span class="fc" id="L57">        frame.setTitle(&quot;\u00C1rea do Administrador&quot;);</span>
+<span class="fc" id="L58">        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="fc" id="L59">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L60">        frame.setVisible(true);</span>
+<span class="fc" id="L61">        LoginWindow.centerWindow(frame);</span>
+<span class="fc" id="L62">        frame.setResizable(false);</span>
+<span class="fc" id="L63">        setTitle(&quot;\u00C1rea do Administrador&quot;);</span>
+<span class="fc" id="L64">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L65">        setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L66">        contentPanel = new JPanel();</span>
+<span class="fc" id="L67">        contentPanel.setBackground(Color.WHITE);</span>
+<span class="fc" id="L68">        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L69">        setContentPane(contentPanel);</span>
+<span class="fc" id="L70">        contentPanel.setLayout(null);</span>
+        
+<span class="fc" id="L72">        ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource(&quot;/images/areaAdmin.png&quot;));</span>
+        
+<span class="fc" id="L74">        JButton btnCriaoDeUtilizadores = new JButton(&quot;Cria\u00E7\u00E3o de Utilizadores&quot;);</span>
+<span class="fc" id="L75">        btnCriaoDeUtilizadores.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L77">                new SubscreverUtilizador(databaseConnection,true);</span>
+<span class="nc" id="L78">                closeWindow();</span>
+<span class="nc" id="L79">            }</span>
+        });
+<span class="fc" id="L81">        btnCriaoDeUtilizadores.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L82">        btnCriaoDeUtilizadores.setBounds(34, 368, 175, 35);</span>
+<span class="fc" id="L83">        contentPanel.add(btnCriaoDeUtilizadores);</span>
+        
+<span class="fc" id="L85">        JButton btnManutenoDeUtilizadores = new JButton(&quot;Manuten\u00E7\u00E3o de Utilizadores&quot;);</span>
+<span class="fc" id="L86">        btnManutenoDeUtilizadores.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L88">                new ManutencaoUtilizadores(databaseConnection);</span>
+<span class="nc" id="L89">                closeWindow();</span>
+<span class="nc" id="L90">            }</span>
+        });
+<span class="fc" id="L92">        btnManutenoDeUtilizadores.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L93">        btnManutenoDeUtilizadores.setBounds(222, 368, 195, 35);</span>
+<span class="fc" id="L94">        contentPanel.add(btnManutenoDeUtilizadores);</span>
+        
+<span class="fc" id="L96">        JButton btnManutenoDeVariveis = new JButton(&quot;Manuten\u00E7\u00E3o de Vari\u00E1veis&quot;);</span>
+<span class="fc" id="L97">        btnManutenoDeVariveis.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L99">                new ManutencaoVariaveis(databaseConnection);</span>
+<span class="nc" id="L100">                closeWindow();</span>
+<span class="nc" id="L101">            }</span>
+        });
+<span class="fc" id="L103">        btnManutenoDeVariveis.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L104">        btnManutenoDeVariveis.setBounds(427, 368, 185, 35);</span>
+<span class="fc" id="L105">        contentPanel.add(btnManutenoDeVariveis);</span>
+        
+<span class="fc" id="L107">        JButton button = new JButton(&quot;LogOut&quot;);</span>
+<span class="fc" id="L108">        button.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L110">                new LoginWindow();</span>
+<span class="nc" id="L111">                closeWindow();</span>
+<span class="nc" id="L112">                databaseConnection.closeConnection();</span>
+                
+<span class="nc" id="L114">            }</span>
+        });
+<span class="fc" id="L116">        button.setBounds(675, 499, 89, 23);</span>
+<span class="fc" id="L117">        contentPanel.add(button);</span>
+        
+<span class="fc" id="L119">        JButton btnConfigurarLimites = new JButton(&quot;Configurar LimitesSistema&quot;);</span>
+<span class="fc" id="L120">        btnConfigurarLimites.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L122">                new ConfigurarLimites(databaseConnection);</span>
+<span class="nc" id="L123">                closeWindow();</span>
+<span class="nc" id="L124">            }</span>
+        });
+<span class="fc" id="L126">        btnConfigurarLimites.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L127">        btnConfigurarLimites.setBounds(628, 368, 185, 35);</span>
+<span class="fc" id="L128">        contentPanel.add(btnConfigurarLimites);</span>
+        
+<span class="fc" id="L130">        JLabel fotoTopo = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L131">        fotoTopo.setBounds(0, 0, 834, 476);</span>
+<span class="fc" id="L132">        Image imgOne =imgTopo.getImage().getScaledInstance(fotoTopo.getWidth(), fotoTopo.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+<span class="fc" id="L134">        fotoTopo.setIcon(new ImageIcon(imgOne));</span>
+        
+<span class="fc" id="L136">        contentPanel.add(fotoTopo);</span>
+<span class="fc" id="L137">        frame.add(contentPanel);</span>
+<span class="fc" id="L138">    }</span>
+}
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ConfigurarLimites.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">ConfigurarLimites.java</span></div><h1>ConfigurarLimites.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+
+
+
+/**
+ * Esta classe constroi o interface gráfico para a configuração de limites 
+ * 
+ * @author grupo 21
+ *
+ */
+public class ConfigurarLimites extends JFrame {
+    
+    private DatabaseMiddleManForAdministrador databaseConnection;
+    private JFrame frame;
+    private JPanel contentPanel;    
+ 
+    
+    /**
+     * Metodo para lancar a interface com ligacao a base de dados
+     * 
+     * @param databaseConnection conexao a base de dados mysql
+     */
+    
+<span class="fc" id="L45">    public ConfigurarLimites(DatabaseMiddleManForAdministrador databaseConnection) {</span>
+<span class="fc" id="L46">        this.databaseConnection = databaseConnection;</span>
+<span class="nc" id="L47">        startConfigurarLimites();</span>
+<span class="nc" id="L48">    }</span>
+    
+ 
+    /**
+     * Metodo para ocultar a janela de configuração de limites
+     */
+    
+    private void closeWindow() {
+<span class="nc" id="L56">        frame.setVisible(false);</span>
+<span class="nc" id="L57">    }</span>
+
+    
+    /**
+     * Cria a janela do administrador
+     */
+    private void startConfigurarLimites() {
+<span class="fc" id="L64">        frame= new JFrame();</span>
+<span class="fc" id="L65">        frame.setTitle(&quot;Configurar Limites de Vari\u00E1veis de Sistema&quot;);</span>
+<span class="fc" id="L66">        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="fc" id="L67">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L68">        frame.setVisible(true);</span>
+<span class="fc" id="L69">        LoginWindow.centerWindow(frame);</span>
+<span class="fc" id="L70">        frame.setResizable(false);</span>
+<span class="fc" id="L71">        setTitle(&quot;Configurar Limites de Vari\u00E1veis de Sistema&quot;);</span>
+<span class="fc" id="L72">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L73">        setBounds(100, 100,  850, 600);</span>
+<span class="fc" id="L74">        contentPanel = new JPanel();</span>
+<span class="fc" id="L75">        contentPanel.setBackground(new Color(255, 255, 255));</span>
+<span class="fc" id="L76">        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+       // setContentPane(contentPanel);
+<span class="fc" id="L78">        contentPanel.setLayout(null);</span>
+        
+<span class="fc" id="L80">        ImageIcon img = new ImageIcon (ConfigurarLimites.class.getResource(&quot;/images/configurarLimites.png&quot;));</span>
+        
+<span class="fc" id="L82">        JTextField TmpMax = new JTextField();</span>
+<span class="fc" id="L83">        TmpMax.setBounds(648, 195, 86, 29);</span>
+<span class="fc" id="L84">        contentPanel.add(TmpMax);</span>
+<span class="fc" id="L85">        TmpMax.setColumns(10);</span>
+        
+<span class="fc" id="L87">        JTextField TmpMin = new JTextField();</span>
+<span class="fc" id="L88">        TmpMin.setColumns(10);</span>
+<span class="fc" id="L89">        TmpMin.setBounds(648, 237, 86, 29);</span>
+<span class="fc" id="L90">        contentPanel.add(TmpMin);</span>
+        
+<span class="fc" id="L92">        JTextField LumMax = new JTextField();</span>
+<span class="fc" id="L93">        LumMax.setColumns(10);</span>
+<span class="fc" id="L94">        LumMax.setBounds(648, 295, 86, 29);</span>
+<span class="fc" id="L95">        contentPanel.add(LumMax);</span>
+        
+<span class="fc" id="L97">        JTextField  LumMin = new JTextField();</span>
+<span class="fc" id="L98">        LumMin.setColumns(10);</span>
+<span class="fc" id="L99">        LumMin.setBounds(648, 340, 86, 29);</span>
+<span class="fc" id="L100">        contentPanel.add(LumMin);</span>
+        
+<span class="fc" id="L102">        JButton BotaoVoltar = new JButton(&quot;Voltar&quot;);</span>
+<span class="fc" id="L103">        BotaoVoltar.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L105">                new AreaAdmin(databaseConnection);</span>
+<span class="nc" id="L106">                closeWindow();</span>
+<span class="nc" id="L107">            }</span>
+        });
+<span class="fc" id="L109">        BotaoVoltar.setBounds(721, 509, 85, 30);</span>
+<span class="fc" id="L110">        contentPanel.add(BotaoVoltar);</span>
+
+        
+<span class="fc" id="L113">        String[] Invesheader={&quot;Id&quot;,&quot;LimiteInfTemp&quot;,&quot;LimiteSupTemp&quot;,&quot;LimiteInfLuz&quot;,&quot;LimiteSupLuz&quot;};</span>
+<span class="nc" id="L114">        String[][] Invesdata=getList(databaseConnection.getSistema());</span>
+<span class="nc" id="L115">        DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);</span>
+<span class="nc" id="L116">        JTable table = new JTable(Invesmodel);</span>
+<span class="nc" id="L117">        table.setCellSelectionEnabled(true); </span>
+       // Investable.setCellSelectionEnabled(true);
+<span class="nc" id="L119">        ListSelectionModel selectInves= table.getSelectionModel();</span>
+<span class="nc" id="L120">        selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L121">        JScrollPane Invesjs=new JScrollPane(table);</span>
+<span class="nc" id="L122">        Invesjs.setVisible(true);</span>
+<span class="nc" id="L123">        Invesjs.setBounds(46, 191, 475, 229);</span>
+<span class="nc" id="L124">        contentPanel.add(Invesjs);</span>
+        
+<span class="nc" id="L126">        JButton btnAdicionarNovosLimites = new JButton(&quot;Adicionar Novos Limites&quot;);</span>
+<span class="nc" id="L127">        btnAdicionarNovosLimites.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc bnc" id="L129" title="All 4 branches missed.">                if(!TmpMax.getText().equals(&quot;&quot;) &amp;&amp; !TmpMin.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L130" title="All 4 branches missed.">                        &amp;&amp; !LumMax.getText().equals(&quot;&quot;) &amp;&amp; !LumMin.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">                        &amp;&amp; Integer.parseInt(TmpMax.getText()) &gt;= Integer.parseInt(TmpMin.getText())</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">                        &amp;&amp; Integer.parseInt(LumMax.getText()) &gt;= Integer.parseInt(LumMin.getText())){</span>
+                    
+<span class="nc" id="L134">                    if(databaseConnection.createSistema(Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">                            , Integer.parseInt(LumMin.getText()), Integer.parseInt(LumMax.getText())))</span>
+<span class="nc" id="L136">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L137">                                &quot;Succeso&quot;,</span>
+<span class="nc" id="L138">                                &quot;Information&quot;,</span>
+<span class="nc" id="L139">                                JOptionPane.INFORMATION_MESSAGE);</span>
+                    else
+<span class="nc" id="L141">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L142">                                &quot;Ocorreu um erro&quot;,</span>
+<span class="nc" id="L143">                                &quot;Error&quot;,</span>
+<span class="nc" id="L144">                                JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L145">                }</span>
+                else
+<span class="nc" id="L147">                    JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L148">                            &quot;Os limites inferiores nao podem ser maiores que os inferiores&quot;,</span>
+<span class="nc" id="L149">                            &quot;Error&quot;,</span>
+<span class="nc" id="L150">                            JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L151">            }</span>
+        });
+        
+        
+<span class="nc" id="L155">        JTextField IdtextField = new JTextField();</span>
+<span class="nc" id="L156">        IdtextField.setColumns(10);</span>
+<span class="nc" id="L157">        IdtextField.setBounds(202, 447, 70, 29);</span>
+<span class="nc" id="L158">        contentPanel.add(IdtextField);</span>
+        
+<span class="nc" id="L160">        JLabel  lblIdDosLimites = new JLabel(&quot;ID dos Limites&quot;);</span>
+<span class="nc" id="L161">        lblIdDosLimites.setBounds(120, 453, 86, 16);</span>
+<span class="nc" id="L162">        contentPanel.add(lblIdDosLimites);</span>
+        
+<span class="nc" id="L164">        btnAdicionarNovosLimites.setBounds(602, 390, 177, 30);</span>
+<span class="nc" id="L165">        contentPanel.add(btnAdicionarNovosLimites);</span>
+        
+<span class="nc" id="L167">        JButton btnAlteracao = new JButton(&quot;Submeter Altera\u00E7\u00F5es&quot;);</span>
+<span class="nc" id="L168">        btnAlteracao.setBounds(281, 472, 162, 30);</span>
+<span class="nc" id="L169">        btnAlteracao.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc bnc" id="L171" title="All 4 branches missed.">            if(!TmpMax.getText().equals(&quot;&quot;) &amp;&amp; !TmpMin.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L172" title="All 4 branches missed.">                        &amp;&amp; !LumMax.getText().equals(&quot;&quot;) &amp;&amp; !LumMin.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">                        &amp;&amp; !IdtextField.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">                        &amp;&amp; Integer.parseInt(TmpMax.getText()) &gt;= Integer.parseInt(TmpMin.getText())</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">                        &amp;&amp; Integer.parseInt(LumMax.getText()) &gt;= Integer.parseInt(LumMin.getText())){</span>
+                    
+<span class="nc" id="L177">                    if(databaseConnection.updateSistema(Integer.parseInt(IdtextField.getText()),Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">                            , Integer.parseInt(LumMin.getText()), Integer.parseInt(LumMax.getText())))</span>
+<span class="nc" id="L179">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L180">                                &quot;Succeso&quot;,</span>
+<span class="nc" id="L181">                                &quot;Information&quot;,</span>
+<span class="nc" id="L182">                                JOptionPane.INFORMATION_MESSAGE);</span>
+                    else
+<span class="nc" id="L184">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L185">                                &quot;Ocorreu um erro&quot;,</span>
+<span class="nc" id="L186">                                &quot;Error&quot;,</span>
+<span class="nc" id="L187">                                JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L188">                }</span>
+                else
+<span class="nc" id="L190">                    JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L191">                            &quot;Os limites inferiores nao podem ser maiores que os inferiores&quot;,</span>
+<span class="nc" id="L192">                            &quot;Error&quot;,</span>
+<span class="nc" id="L193">                            JOptionPane.ERROR_MESSAGE);</span>
+            
+                
+<span class="nc" id="L196">            }</span>
+        });
+<span class="nc" id="L198">        contentPanel.add(btnAlteracao);</span>
+        
+<span class="nc" id="L200">        JButton btnEliminar = new JButton(&quot;Eliminar&quot;);</span>
+<span class="nc" id="L201">        btnEliminar.setBounds(281, 431, 162, 30);</span>
+<span class="nc" id="L202">        btnEliminar.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc bnc" id="L204" title="All 2 branches missed.">                if(IdtextField.getText().equals(&quot;&quot;))</span>
+<span class="nc" id="L205">                    JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L206">                            &quot;O campo ID esta vazio&quot;,</span>
+<span class="nc" id="L207">                            &quot;Error&quot;,</span>
+<span class="nc" id="L208">                            JOptionPane.ERROR_MESSAGE);</span>
+                else{
+<span class="nc bnc" id="L210" title="All 2 branches missed.">                    if(databaseConnection.deleteSistema(Integer.parseInt(IdtextField.getText())))</span>
+<span class="nc" id="L211">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L212">                                &quot;Successo&quot;,</span>
+<span class="nc" id="L213">                                &quot;Information&quot;,</span>
+<span class="nc" id="L214">                                JOptionPane.INFORMATION_MESSAGE);</span>
+                    else
+<span class="nc" id="L216">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L217">                                &quot;Ocurreu um erro&quot;,</span>
+<span class="nc" id="L218">                                &quot;Error&quot;,</span>
+<span class="nc" id="L219">                                JOptionPane.ERROR_MESSAGE);</span>
+                }
+                
+<span class="nc" id="L222">            }</span>
+        });
+<span class="nc" id="L224">        contentPanel.add(btnEliminar);</span>
+<span class="nc" id="L225">        frame.getContentPane().add(contentPanel);</span>
+        
+<span class="nc" id="L227">        JButton ButtonLoadTable = new JButton(&quot;Atualizar tabela&quot;);</span>
+<span class="nc" id="L228">        ButtonLoadTable.setBounds(612, 431, 162, 30);</span>
+<span class="nc" id="L229">        ButtonLoadTable.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L231">                contentPanel.remove(Invesjs);</span>
+<span class="nc" id="L232">                String[] Invesheader={&quot;Id&quot;,&quot;LimiteInfTemp&quot;,&quot;LimiteSupTemp&quot;,&quot;LimiteInfLuz&quot;,&quot;LimiteSupLuz&quot;};</span>
+<span class="nc" id="L233">                String[][] Invesdata=getList(databaseConnection.getSistema());</span>
+<span class="nc" id="L234">                DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);</span>
+<span class="nc" id="L235">                JTable table = new JTable(Invesmodel);</span>
+                //table.setCellSelectionEnabled(true);
+                // Investable.setCellSelectionEnabled(true);
+<span class="nc" id="L238">                ListSelectionModel selectInves= table.getSelectionModel();</span>
+<span class="nc" id="L239">                selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L240">                JScrollPane Invesjs=new JScrollPane(table);</span>
+<span class="nc" id="L241">                Invesjs.setVisible(true);</span>
+<span class="nc" id="L242">                Invesjs.setBounds(55, 195, 466, 225);</span>
+<span class="nc" id="L243">                contentPanel.add(Invesjs);</span>
+                
+<span class="nc" id="L245">            }</span>
+        });
+<span class="nc" id="L247">        contentPanel.add(ButtonLoadTable);</span>
+        
+<span class="nc" id="L249">        JLabel imagemFundo = new JLabel(&quot;&quot;);</span>
+<span class="nc" id="L250">        imagemFundo.setBounds(0, 0, 834, 420);</span>
+<span class="nc" id="L251">        Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+        
+        
+<span class="nc" id="L255">        imagemFundo.setIcon(new ImageIcon (imgm));</span>
+        
+<span class="nc" id="L257">        contentPanel.add(imagemFundo);</span>
+<span class="nc" id="L258">    }</span>
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores dos limites definidos no sistema
+     * @param arg string com os valores do sistema concatenados
+     * @return matriz de string
+     */
+      private String[][] getList(String arg)
+    {
+<span class="nc" id="L267">        String[] lines = arg.split(&quot;BREAKLINE&quot;);</span>
+<span class="nc" id="L268">        String[][] linesCsv = new String[lines.length][];</span>
+        
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        for (int i=0; i&lt;lines.length; i++) {</span>
+<span class="nc" id="L271">            linesCsv[i] = lines[i].split(&quot;BREAKCOLUMN&quot;);</span>
+        }
+<span class="nc" id="L273">        return linesCsv;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

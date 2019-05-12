@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>LoginWindow.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">LoginWindow.java</span></div><h1>LoginWindow.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral;
+import pt.iscte.sid.projeto.Machine.UserIdentifier;
+
+/**
+ * Esta classe e referente a interface grafico para o utilizador poder fazer login
+ * @author Grupo 21
+ *
+ */
+public class LoginWindow extends JFrame {
+    
+    private JPanel contentPanel;
+    private JTextField EmailInputField;
+    private JButton LoginButton;
+    private JFrame frame;
+    private JPasswordField PasswordInputField;
+<span class="fc" id="L40">    private UserIdentifier userIdentifier= new UserIdentifier();</span>
+    private JLabel PasswordLabel;
+    private JLabel Emaillabel;
+    
+    /**
+     * Construtor da classe
+     */
+<span class="fc" id="L47">    public LoginWindow(){</span>
+<span class="fc" id="L48">        startLoginWindow();</span>
+<span class="fc" id="L49">    }</span>
+    
+    /**
+     * Metodo para fechar a janela
+     */
+    private void closeWindow() {
+<span class="nc" id="L55">        frame.setVisible(false);</span>
+<span class="nc" id="L56">    }</span>
+    
+    /**
+     * Cria a janela para o utilizador fazer login
+     */
+    private void startLoginWindow() {
+<span class="fc" id="L62">        frame= new JFrame();</span>
+<span class="fc" id="L63">        frame.setTitle(&quot;Login&quot;);</span>
+<span class="fc" id="L64">        frame.setResizable(false);</span>
+<span class="fc" id="L65">        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="fc" id="L66">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L67">        frame.setVisible(true);</span>
+<span class="fc" id="L68">        centerWindow(frame);</span>
+<span class="fc" id="L69">        contentPanel = new JPanel();</span>
+<span class="fc" id="L70">        contentPanel.setBounds(0, 0, 834, 561);</span>
+<span class="fc" id="L71">        contentPanel.setBackground(Color.WHITE);</span>
+<span class="fc" id="L72">        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L73">        contentPanel.setLayout(null);</span>
+        
+<span class="fc" id="L75">        PasswordLabel = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L76">        PasswordLabel.setForeground(new Color(255, 255, 255));</span>
+<span class="fc" id="L77">        PasswordLabel.setBounds(508, 227, 59, 25);</span>
+<span class="fc" id="L78">        contentPanel.add(PasswordLabel);</span>
+        
+<span class="fc" id="L80">        Emaillabel = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L81">        Emaillabel.setForeground(new Color(255, 255, 255));</span>
+<span class="fc" id="L82">        Emaillabel.setBounds(508, 179, 59, 25);</span>
+<span class="fc" id="L83">        contentPanel.add(Emaillabel);</span>
+        
+        
+        
+<span class="fc" id="L87">        EmailInputField = new JTextField();</span>
+<span class="fc" id="L88">        EmailInputField.setBounds(592, 154, 242, 37);</span>
+<span class="fc" id="L89">        contentPanel.add(EmailInputField);</span>
+<span class="fc" id="L90">        EmailInputField.setColumns(10);</span>
+        
+<span class="fc" id="L92">        LoginButton = new JButton(&quot;Entrar&quot;);</span>
+<span class="fc" id="L93">        LoginButton.setForeground(Color.WHITE);</span>
+<span class="fc" id="L94">        LoginButton.setBackground(Color.DARK_GRAY);</span>
+<span class="fc" id="L95">        LoginButton.setBounds(648, 270, 95, 34);</span>
+<span class="fc" id="L96">        contentPanel.add(LoginButton);</span>
+<span class="fc" id="L97">        PasswordInputField = new JPasswordField();</span>
+<span class="fc" id="L98">        PasswordInputField.setBounds(592, 202, 242, 37);</span>
+<span class="fc" id="L99">        contentPanel.add(PasswordInputField);</span>
+        
+<span class="fc" id="L101">        JLabel fundoPagina = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L102">        fundoPagina.setBounds(-31, 0, 875, 521);</span>
+        
+<span class="fc" id="L104">        ImageIcon imgOne = new ImageIcon(LoginWindow.class.getResource(&quot;/images/LoginWindow.png&quot;));</span>
+<span class="fc" id="L105">        Image img = imgOne.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+<span class="fc" id="L107">        fundoPagina.setIcon(new ImageIcon(img));</span>
+       
+<span class="fc" id="L109">        contentPanel.add(fundoPagina);</span>
+        
+<span class="fc" id="L111">        frame.getContentPane().add(contentPanel);</span>
+        
+        
+<span class="fc" id="L114">        LoginButton.addActionListener(new ActionListener() {</span>
+            @Override
+            public void actionPerformed(ActionEvent e) {
+<span class="nc bnc" id="L117" title="All 2 branches missed.">                if(EmailInputField.getText().equals(&quot;&quot;))</span>
+<span class="nc" id="L118">                    JOptionPane.showMessageDialog(contentPanel,</span>
+<span class="nc" id="L119">                            &quot;Email não pode estar vazio&quot;,</span>
+<span class="nc" id="L120">                            &quot;ERROR&quot;,</span>
+<span class="nc" id="L121">                            JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">                else if(PasswordInputField.getPassword().length==0)</span>
+<span class="nc" id="L123">                    JOptionPane.showMessageDialog(contentPanel,</span>
+<span class="nc" id="L124">                            &quot;Password não pode estar vazia&quot;,</span>
+<span class="nc" id="L125">                            &quot;ERROR&quot;,</span>
+<span class="nc" id="L126">                            JOptionPane.ERROR_MESSAGE);</span>
+                else
+                {
+<span class="nc" id="L129">                    String PasswordHasString=&quot;&quot;;</span>
+<span class="nc" id="L130">                    char[] PasswordHasCharArray = PasswordInputField.getPassword();</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">                    for(int index=0;index&lt;PasswordHasCharArray.length;index++)</span>
+<span class="nc" id="L132">                        PasswordHasString+=PasswordHasCharArray[index];</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">                    if(userIdentifier.whatUserIsThis(EmailInputField.getText(), PasswordHasString).equals(&quot;I&quot;)){</span>
+<span class="nc" id="L134">                        new AreaInvestigador(new DatabaseMiddleManForInvestigador(EmailInputField.getText(),PasswordHasString));</span>
+<span class="nc" id="L135">                        closeWindow();</span>
+                        
+<span class="nc bnc" id="L137" title="All 2 branches missed.">                    }else if(userIdentifier.whatUserIsThis(EmailInputField.getText(), PasswordHasString).equals(&quot;A&quot;)){</span>
+<span class="nc" id="L138">                        new AreaAdmin(new DatabaseMiddleManForAdministrador(EmailInputField.getText(),PasswordHasString));</span>
+<span class="nc" id="L139">                        closeWindow();</span>
+<span class="nc" id="L140">                    }else</span>
+<span class="nc" id="L141">                        JOptionPane.showMessageDialog(contentPanel,</span>
+<span class="nc" id="L142">                                &quot;Erro ao fazer login&quot;,</span>
+<span class="nc" id="L143">                                &quot;ERROR&quot;,</span>
+<span class="nc" id="L144">                                JOptionPane.ERROR_MESSAGE);</span>
+                }
+                
+                
+                
+<span class="nc" id="L149">            }</span>
+            
+            
+        } );
+        
+
+<span class="fc" id="L155">    	}</span>
+    
+    /**
+     * Centra o frame no ecrâ
+     * 
+     * @param frame a ser centrado
+     */
+	public static void centerWindow (JFrame frame) {
+<span class="fc" id="L163">		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();</span>
+<span class="fc" id="L164">	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);</span>
+<span class="fc" id="L165">	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);</span>
+<span class="fc" id="L166">	    frame.setLocation(x, y);</span>
+<span class="fc" id="L167">	}</span>
+}
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

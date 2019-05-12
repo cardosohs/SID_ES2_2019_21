@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>UserIdentifier.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.Machine</a> &gt; <span class="el_source">UserIdentifier.java</span></div><h1>UserIdentifier.java</h1><pre class="source lang-java linenums">/*
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
+package pt.iscte.sid.projeto.Machine;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+/**
+ *	Classe para identificar o utilizador
+ *
+ * @author Grupo 21
+ */
+<span class="fc" id="L20">public class UserIdentifier {</span>
+    
+<span class="fc" id="L22">    private final String databaseName=&quot;g21origem&quot;;</span>
+    private String Username;
+    private String Password;
+    private boolean failed;
+    private int id;
+    private Connection DatabaseConnection;
+<span class="fc" id="L28">    private ArrayList&lt;Integer&gt; variaveisDaDatabase = new ArrayList&lt;&gt;();</span>
+    
+    /**
+     * Vai ver se o utilizador e admin ou investigador
+     * 
+     * @param username recebe uma string com um username
+     * @param password recebe uma string com uma password
+     * @return retorna &quot;I&quot; se for investigador, &quot;A&quot; se for admim ou &quot;F&quot; caso falhe o login, por exemplo, credenciais erradas
+     */
+    public String whatUserIsThis(String username, String password){
+        
+<span class="nc" id="L39">        this.Password=password;</span>
+<span class="nc" id="L40">        this.Username=username;</span>
+        
+        
+<span class="nc" id="L43">        String DatabaseDriver = &quot;com.mysql.cj.jdbc.Driver&quot;;</span>
+<span class="nc" id="L44">        String DatabaseURL = &quot;jdbc:mysql://localhost/&quot;+databaseName+&quot;?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&quot;;</span>
+        
+        try {
+<span class="nc" id="L47">            Class.forName(DatabaseDriver);</span>
+<span class="nc" id="L48">            DatabaseConnection = DriverManager.getConnection(DatabaseURL, Username, this.Password);</span>
+<span class="nc" id="L49">            String tmp = getInvestigador();</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if(tmp.equals(&quot;&quot;))</span>
+<span class="nc" id="L51">                return &quot;I&quot;;</span>
+            else
+<span class="nc" id="L53">                return &quot;A&quot;;</span>
+            
+<span class="nc" id="L55">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L56">            return &quot;F&quot;;</span>
+<span class="nc" id="L57">        } catch (SQLException ex) {</span>
+<span class="nc" id="L58">            return &quot;F&quot;;</span>
+        }
+    }
+    
+    
+    /**
+     * vai buscar os Investigadores, caso nao consiga retorna uma string vazia
+     * @return uma string com os investigadores que estiverem na tabela investigador
+     */
+    private String getInvestigador()
+    {
+<span class="nc" id="L69">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L71">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L72">            String query = &quot;select * from investigador&quot;;</span>
+<span class="nc" id="L73">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L75">                TableResult += rs.getString(1);</span>
+            }
+<span class="nc" id="L77">        }catch(Exception e){</span>
+<span class="nc" id="L78">            return &quot;&quot;;</span>
+        }
+        
+<span class="nc" id="L81">        return TableResult;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

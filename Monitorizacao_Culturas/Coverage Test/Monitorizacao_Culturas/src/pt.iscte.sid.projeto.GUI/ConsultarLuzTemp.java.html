@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ConsultarLuzTemp.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">ConsultarLuzTemp.java</span></div><h1>ConsultarLuzTemp.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
+/**
+ * Esta classe e referente a interface grafico para a consulta da luz e temperatura
+ * @author Grupo 21
+ * 
+ *
+ */
+public class ConsultarLuzTemp extends JFrame {
+    
+    private DatabaseMiddleManForInvestigador databaseConnection;
+    private JPanel contentPanel;
+    private JFrame frame;
+
+    /**
+     * Lanca a interface referente a consulta de luz e temperatura
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
+<span class="fc" id="L42">    public ConsultarLuzTemp(DatabaseMiddleManForInvestigador databaseConnection) {</span>
+<span class="fc" id="L43">        this.databaseConnection = databaseConnection;</span>
+<span class="nc" id="L44">        startConsultarLuzTemp();</span>
+<span class="nc" id="L45">    }</span>
+    
+    /**
+     * Metodo para fechar a janela
+     */
+    private void closeWindow() {
+<span class="nc" id="L51">        frame.setVisible(false);</span>
+<span class="nc" id="L52">    }</span>
+    
+    /**
+     * Cria a janela sobre a informacao da luz e temperatura
+     */
+    private void startConsultarLuzTemp() {
+<span class="fc" id="L58">        frame= new JFrame();</span>
+<span class="fc" id="L59">        frame.setTitle(&quot;Medi\u00E7\u00F5es de Sistema&quot;);</span>
+<span class="fc" id="L60">        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="fc" id="L61">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L62">        frame.setVisible(true);</span>
+<span class="fc" id="L63">        LoginWindow.centerWindow(frame);</span>
+<span class="fc" id="L64">        frame.setResizable(false);</span>
+<span class="fc" id="L65">        setTitle(&quot;Medi\u00E7\u00F5es de Sistema&quot;);</span>
+<span class="fc" id="L66">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L67">        setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L68">        contentPanel = new JPanel();</span>
+<span class="fc" id="L69">        contentPanel.setBackground(Color.WHITE);</span>
+<span class="fc" id="L70">        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L71">        contentPanel.setLayout(null);</span>
+        
+<span class="fc" id="L73">        ImageIcon background = new ImageIcon(ConsultarLuzTemp.class.getResource(&quot;/images/consultarLuzTemp.png&quot;));</span>
+        
+<span class="fc" id="L75">        JButton button = new JButton(&quot;Voltar&quot;);</span>
+<span class="fc" id="L76">        button.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L78">                new AreaInvestigador(databaseConnection);</span>
+<span class="nc" id="L79">                closeWindow();</span>
+<span class="nc" id="L80">            }</span>
+        });
+<span class="fc" id="L82">        button.setBounds(728, 469, 85, 30);</span>
+<span class="fc" id="L83">        contentPanel.add(button);</span>
+        
+<span class="fc" id="L85">        JLabel backPhoto = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L86">        backPhoto.setBounds(0, 0, 834, 523);</span>
+        
+<span class="fc" id="L88">        Image img = background.getImage().getScaledInstance(backPhoto.getWidth(), backPhoto.getHeight(), Image.SCALE_SMOOTH);</span>
+<span class="fc" id="L89">        backPhoto.setIcon(new ImageIcon(img));</span>
+        
+<span class="fc" id="L91">        String[] headerLuz={&quot;Id&quot;,&quot;Valor&quot;,&quot;Data/Hora&quot;};</span>
+<span class="nc" id="L92">        String[][] dataLuz=getList(databaseConnection.getMedicoesLuz());</span>
+<span class="nc" id="L93">        DefaultTableModel modelLuz = new DefaultTableModel(dataLuz,headerLuz);</span>
+<span class="nc" id="L94">        JTable tableLuz = new JTable(modelLuz);</span>
+<span class="nc" id="L95">        ListSelectionModel selectLuz= tableLuz.getSelectionModel();</span>
+<span class="nc" id="L96">        selectLuz.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+        
+<span class="nc" id="L98">        JScrollPane jsLuz=new JScrollPane(tableLuz);</span>
+<span class="nc" id="L99">        jsLuz.setVisible(true);</span>
+<span class="nc" id="L100">        jsLuz.setBounds(48, 218, 359, 204);</span>
+        
+<span class="nc" id="L102">        contentPanel.add(jsLuz);</span>
+        
+<span class="nc" id="L104">        String[] headerTemp={&quot;Id&quot;,&quot;Valor&quot;,&quot;Data/Hora&quot;};</span>
+<span class="nc" id="L105">        String[][] dataTemp=getList(databaseConnection.getMedicoesTemperatura());</span>
+<span class="nc" id="L106">        DefaultTableModel modelTemp = new DefaultTableModel(dataTemp,headerTemp);</span>
+<span class="nc" id="L107">        JTable tableTemp = new JTable(modelTemp);</span>
+<span class="nc" id="L108">        ListSelectionModel selectTemp = tableTemp.getSelectionModel();</span>
+<span class="nc" id="L109">        selectTemp.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+        
+<span class="nc" id="L111">        JScrollPane jsTemp=new JScrollPane(tableTemp);</span>
+<span class="nc" id="L112">        jsTemp.setVisible(true);</span>
+<span class="nc" id="L113">        jsTemp.setBounds(417, 218, 366, 204);</span>
+        
+<span class="nc" id="L115">        contentPanel.add(jsTemp);</span>
+        
+<span class="nc" id="L117">        String[] headerSistema={&quot;TempInf&quot;,&quot;TempSup&quot;,&quot;LuzInf&quot;,&quot;LuzSup&quot;};</span>
+<span class="nc" id="L118">        String[][] dataSistema=getList(databaseConnection.getSistema());</span>
+<span class="nc" id="L119">        DefaultTableModel modelSistema = new DefaultTableModel(dataSistema,headerSistema);</span>
+<span class="nc" id="L120">        JTable tableSistema = new JTable(modelSistema);</span>
+<span class="nc" id="L121">        ListSelectionModel selectSistema = tableSistema.getSelectionModel();</span>
+<span class="nc" id="L122">        selectSistema.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+        
+<span class="nc" id="L124">        JScrollPane jsSistema=new JScrollPane(tableSistema);</span>
+<span class="nc" id="L125">        jsSistema.setVisible(true);</span>
+<span class="nc" id="L126">        jsSistema.setBounds(342, 433, 359, 77);</span>
+        
+<span class="nc" id="L128">        contentPanel.add(jsSistema);</span>
+        
+<span class="nc" id="L130">        contentPanel.add(backPhoto);</span>
+<span class="nc" id="L131">        frame.getContentPane().add(contentPanel);</span>
+<span class="nc" id="L132">    }</span>
+    
+    /**
+     * Este metodo devolve uma matriz de strings com as tabelas das medicoes da luz e temperatura
+     * @param arg recebe uma string 
+     * @return devolve uma matriz de strings
+     */
+        
+    private String[][] getList(String arg)
+    {
+<span class="nc" id="L142">        String[] lines = arg.split(&quot;BREAKLINE&quot;);</span>
+<span class="nc" id="L143">        String[][] linesCsv = new String[lines.length][];</span>
+        
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        for (int i=0; i&lt;lines.length; i++) {</span>
+<span class="nc" id="L146">            linesCsv[i] = lines[i].split(&quot;BREAKCOLUMN&quot;);</span>
+        }
+<span class="nc" id="L148">        return linesCsv;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

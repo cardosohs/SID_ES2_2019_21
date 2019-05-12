@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>SubscreverUtilizador.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">SubscreverUtilizador.java</span></div><h1>SubscreverUtilizador.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Button;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.TextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JToggleButton;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+
+/**
+ * Esta classe e referente a interface grafico para subscrever um utilizador
+ * 
+ * @author Grupo 21
+ *
+ */
+public class SubscreverUtilizador {
+    
+    private DatabaseMiddleManForAdministrador databaseConnection;
+    private JFrame frame;
+    private JPasswordField passwordField;
+<span class="fc" id="L39">    private boolean create=true;</span>
+    private JPasswordField ConfirmPassword;
+    
+    
+    /**
+     * Construtor da classe
+     */
+<span class="fc" id="L46">    public SubscreverUtilizador() {</span>
+<span class="fc" id="L47">        initialize();</span>
+<span class="fc" id="L48">    }</span>
+    
+    /**
+     * Lanca a interface para o administrador poder subscrever um utilizador
+     * @param databaseConnection esta parametro é a ligacao da base de dados
+     * @param create boolean que indica se o utilizador foi criado
+     */
+<span class="fc" id="L55">    public SubscreverUtilizador(DatabaseMiddleManForAdministrador databaseConnection, boolean create) {</span>
+<span class="fc" id="L56">        this.databaseConnection = databaseConnection;</span>
+<span class="fc" id="L57">        this.create=create;</span>
+<span class="fc" id="L58">        initialize();</span>
+<span class="fc" id="L59">    }</span>
+    
+    /**
+     * Metodo para fechar a janela
+     */
+    private void closeWindow() {
+<span class="nc" id="L65">        frame.setVisible(false);</span>
+<span class="nc" id="L66">    }</span>
+    
+    
+    /**
+     * Cria a janela para o Administrador poder criar utilizadores
+     */
+    private void initialize() {
+<span class="fc" id="L73">        frame = new JFrame();</span>
+<span class="fc" id="L74">        frame.getContentPane().setForeground(new Color(30, 144, 255));</span>
+<span class="fc" id="L75">        frame.getContentPane().setBackground(Color.WHITE);</span>
+<span class="fc" id="L76">        frame.setTitle(&quot;Subscrever Investigador&quot;);</span>
+<span class="fc" id="L77">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L78">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L79">        frame.getContentPane().setLayout(null);</span>
+<span class="fc" id="L80">        frame.setVisible(true);</span>
+<span class="fc" id="L81">        LoginWindow.centerWindow(frame);</span>
+<span class="fc" id="L82">        frame.setResizable(false);</span>
+<span class="fc" id="L83">        JLabel imagTopo = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L84">        imagTopo.setBounds(0, 0, 834, 151);</span>
+        
+<span class="fc" id="L86">        ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource(&quot;/images/SubscricaoInvestigador.png&quot;));</span>
+<span class="fc" id="L87">        Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+        
+<span class="fc" id="L90">        String[] categoriasProfissionais = {&quot; &quot;,&quot;Phd Student&quot;, &quot;PostDoc Student&quot;, &quot;Investigador auxiliar&quot;, &quot;Investigador principal&quot;, &quot;Investigador Coordenador&quot;};</span>
+<span class="fc" id="L91">        JComboBox CategoriaProfcomboBox = new JComboBox(categoriasProfissionais);</span>
+<span class="fc" id="L92">        CategoriaProfcomboBox.setToolTipText(&quot;Se Investigador&quot;);</span>
+<span class="fc" id="L93">        CategoriaProfcomboBox.setAutoscrolls(true);</span>
+<span class="fc" id="L94">        CategoriaProfcomboBox.setFocusTraversalPolicyProvider(true);</span>
+<span class="fc" id="L95">        CategoriaProfcomboBox.setFocusCycleRoot(true);</span>
+<span class="fc" id="L96">        CategoriaProfcomboBox.setDoubleBuffered(true);</span>
+<span class="fc" id="L97">        CategoriaProfcomboBox.setEditable(true);</span>
+<span class="fc" id="L98">        CategoriaProfcomboBox.setBounds(373, 290, 272, 22);</span>
+<span class="fc" id="L99">        frame.getContentPane().add(CategoriaProfcomboBox);</span>
+        
+        
+<span class="fc" id="L102">        imagTopo.setIcon(new ImageIcon(imgOne));</span>
+        
+<span class="fc" id="L104">        frame.getContentPane().add(imagTopo);</span>
+        
+<span class="fc" id="L106">        JLabel lblNewLabel = new JLabel(&quot;Nome&quot;);</span>
+<span class="fc" id="L107">        lblNewLabel.setForeground(new Color(100, 149, 237));</span>
+<span class="fc" id="L108">        lblNewLabel.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L109">        lblNewLabel.setBounds(217, 249, 49, 27);</span>
+<span class="fc" id="L110">        frame.getContentPane().add(lblNewLabel);</span>
+        
+<span class="fc" id="L112">        JLabel lblCategoriaProfissional = new JLabel(&quot;Categoria Profissional&quot;);</span>
+<span class="fc" id="L113">        lblCategoriaProfissional.setForeground(new Color(100, 149, 237));</span>
+<span class="fc" id="L114">        lblCategoriaProfissional.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L115">        lblCategoriaProfissional.setBounds(217, 287, 156, 27);</span>
+<span class="fc" id="L116">        frame.getContentPane().add(lblCategoriaProfissional);</span>
+        
+<span class="fc" id="L118">        JLabel lblEmail = new JLabel(&quot;E-mail&quot;);</span>
+<span class="fc" id="L119">        lblEmail.setForeground(new Color(100, 149, 237));</span>
+<span class="fc" id="L120">        lblEmail.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L121">        lblEmail.setBounds(217, 322, 49, 27);</span>
+<span class="fc" id="L122">        frame.getContentPane().add(lblEmail);</span>
+        
+<span class="fc" id="L124">        JLabel lblPassword = new JLabel(&quot;Password&quot;);</span>
+<span class="fc" id="L125">        lblPassword.setForeground(new Color(100, 149, 237));</span>
+<span class="fc" id="L126">        lblPassword.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L127">        lblPassword.setBounds(217, 360, 74, 27);</span>
+<span class="fc" id="L128">        frame.getContentPane().add(lblPassword);</span>
+        
+<span class="fc" id="L130">        JLabel lblConfirmarPassword = new JLabel(&quot;Confirmar Password&quot;);</span>
+<span class="fc" id="L131">        lblConfirmarPassword.setForeground(new Color(100, 149, 237));</span>
+<span class="fc" id="L132">        lblConfirmarPassword.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L133">        lblConfirmarPassword.setBounds(217, 398, 143, 27);</span>
+<span class="fc" id="L134">        frame.getContentPane().add(lblConfirmarPassword);</span>
+        
+        
+<span class="fc" id="L137">        TextField NameTextField = new TextField();</span>
+<span class="fc" id="L138">        NameTextField.setBounds(272, 252, 373, 22);</span>
+<span class="fc" id="L139">        frame.getContentPane().add(NameTextField);</span>
+        
+<span class="fc" id="L141">        TextField Email = new TextField();</span>
+<span class="fc" id="L142">        Email.setBounds(270, 332, 375, 22);</span>
+<span class="fc" id="L143">        Email.setEditable(create);</span>
+<span class="fc" id="L144">        frame.getContentPane().add(Email);</span>
+        
+        
+        
+<span class="fc" id="L148">        TextField IdTextField = new TextField();</span>
+<span class="fc" id="L149">        IdTextField.setBounds(272, 211, 373, 22);</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">        IdTextField.setEditable(!create);</span>
+<span class="fc" id="L151">        frame.getContentPane().add(IdTextField);</span>
+
+<span class="fc" id="L153">        JList list = new JList();</span>
+<span class="fc" id="L154">        list.setBounds(484, 293, 1, 1);</span>
+<span class="fc" id="L155">        frame.getContentPane().add(list);</span>
+        
+<span class="fc" id="L157">        passwordField = new JPasswordField();</span>
+<span class="fc" id="L158">        passwordField.setBounds(295, 365, 350, 22);</span>
+<span class="fc" id="L159">        passwordField.setEditable(create);</span>
+<span class="fc" id="L160">        frame.getContentPane().add(passwordField);</span>
+        
+        
+        
+<span class="fc" id="L164">        ConfirmPassword = new JPasswordField();</span>
+<span class="fc" id="L165">        ConfirmPassword.setBounds(361, 401, 284, 22);</span>
+<span class="fc" id="L166">        ConfirmPassword.setEditable(create);</span>
+<span class="fc" id="L167">        frame.getContentPane().add(ConfirmPassword);</span>
+        
+<span class="fc" id="L169">        JRadioButton rdbtnNewRadioButton = new JRadioButton(&quot;Investigador&quot;);</span>
+<span class="fc" id="L170">        rdbtnNewRadioButton.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L171">        rdbtnNewRadioButton.setForeground(new Color(25, 25, 112));</span>
+<span class="fc" id="L172">        rdbtnNewRadioButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L173">        rdbtnNewRadioButton.setBounds(299, 174, 109, 23);</span>
+<span class="fc" id="L174">        frame.getContentPane().add(rdbtnNewRadioButton);</span>
+        
+<span class="fc" id="L176">        JRadioButton rdbtnAdministrador = new JRadioButton(&quot;Administrador&quot;);</span>
+<span class="fc" id="L177">        rdbtnAdministrador.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L178">        rdbtnAdministrador.setForeground(new Color(25, 25, 112));</span>
+<span class="fc" id="L179">        rdbtnAdministrador.setBackground(Color.WHITE);</span>
+<span class="fc" id="L180">        rdbtnAdministrador.setBounds(471, 174, 124, 23);</span>
+        
+        
+<span class="fc" id="L183">        ButtonGroup group = new ButtonGroup();</span>
+<span class="fc" id="L184">        group.add(rdbtnAdministrador);</span>
+<span class="fc" id="L185">        group.add(rdbtnNewRadioButton);</span>
+<span class="fc" id="L186">        frame.getContentPane().add(rdbtnAdministrador);</span>
+        
+        
+<span class="fc" id="L189">        JButton ButtonConfirmar = new JButton(&quot;Confirmar&quot;);</span>
+<span class="fc" id="L190">        ButtonConfirmar.setForeground(new Color(25, 25, 112));</span>
+<span class="fc" id="L191">        ButtonConfirmar.setBackground(Color.WHITE);</span>
+<span class="fc" id="L192">        ButtonConfirmar.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc bnc" id="L194" title="All 2 branches missed.">                if(create) {</span>
+<span class="nc" id="L195">                    DatabaseMiddleManForAdministrador tmp = new DatabaseMiddleManForAdministrador(&quot;root&quot;, &quot;&quot;);</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">                    if(!tmp.failed){</span>
+<span class="nc" id="L197">                        String PasswordHasString=&quot;&quot;;</span>
+<span class="nc" id="L198">                        char[] PasswordHasCharArray = passwordField.getPassword();</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">                        for(int index=0;index&lt;PasswordHasCharArray.length;index++)</span>
+<span class="nc" id="L200">                            PasswordHasString+=PasswordHasCharArray[index];</span>
+                        
+<span class="nc" id="L202">                        String PasswordConfirmHasString=&quot;&quot;;</span>
+<span class="nc" id="L203">                        char[] PasswordConfirmHasCharArray = passwordField.getPassword();</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">                        for(int index=0;index&lt;PasswordConfirmHasCharArray.length;index++)</span>
+<span class="nc" id="L205">                            PasswordConfirmHasString+=PasswordConfirmHasCharArray[index];</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">                        if(!(PasswordHasString.equals(PasswordConfirmHasString))) {</span>
+<span class="nc" id="L207">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L208">                                    &quot;Passwords nao sao iguais&quot;,</span>
+<span class="nc" id="L209">                                    &quot;ERROR&quot;,</span>
+<span class="nc" id="L210">                                    JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L211">                        }</span>
+<span class="nc bnc" id="L212" title="All 4 branches missed.">                        else if(!rdbtnAdministrador.isSelected() &amp;&amp; !rdbtnNewRadioButton.isSelected())</span>
+<span class="nc" id="L213">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L214">                                    &quot;Escolha admin ou invesstigador&quot;,</span>
+<span class="nc" id="L215">                                    &quot;ERROR&quot;,</span>
+<span class="nc" id="L216">                                    JOptionPane.ERROR_MESSAGE);</span>
+                        
+<span class="nc bnc" id="L218" title="All 6 branches missed.">                        else if(rdbtnAdministrador.isSelected() &amp;&amp; !NameTextField.getText().equals(&quot;&quot;) &amp;&amp;!Email.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">                                &amp;&amp; !passwordField.getPassword().equals(null)) {</span>
+                            
+<span class="nc bnc" id="L221" title="All 2 branches missed.">                            if(tmp.executeSP(NameTextField.getText(), PasswordHasString, Email.getText(), &quot;&quot;, &quot;A&quot;)){</span>
+<span class="nc" id="L222">                                JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L223">                                        &quot;Succeso&quot;,</span>
+<span class="nc" id="L224">                                        &quot;Information&quot;,</span>
+<span class="nc" id="L225">                                        JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L226">                                new ManutencaoUtilizadores(databaseConnection);</span>
+<span class="nc" id="L227">                                closeWindow();</span>
+<span class="nc" id="L228">                            }</span>
+                            else
+<span class="nc" id="L230">                                JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L231">                                        &quot;Ocorreu um erro&quot;,</span>
+<span class="nc" id="L232">                                        &quot;Error&quot;,</span>
+<span class="nc" id="L233">                                        JOptionPane.ERROR_MESSAGE);</span>
+                            
+<span class="nc" id="L235">                        }</span>
+<span class="nc bnc" id="L236" title="All 6 branches missed.">                        else if(rdbtnNewRadioButton.isSelected() &amp;&amp; !NameTextField.getText().equals(&quot;&quot;) &amp;&amp;!Email.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">                                &amp;&amp; !passwordField.getPassword().equals(null)) {</span>
+                            
+<span class="nc bnc" id="L239" title="All 2 branches missed.">                            if(tmp.executeSP(NameTextField.getText(), PasswordHasString, Email.getText(), CategoriaProfcomboBox.getSelectedItem().toString(), &quot;I&quot;)){</span>
+<span class="nc" id="L240">                                JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L241">                                        &quot;Succeso&quot;,</span>
+<span class="nc" id="L242">                                        &quot;Information&quot;,</span>
+<span class="nc" id="L243">                                        JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L244">                                new ManutencaoUtilizadores(databaseConnection);</span>
+<span class="nc" id="L245">                                closeWindow();</span>
+<span class="nc" id="L246">                            }</span>
+                            else
+<span class="nc" id="L248">                                JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L249">                                        &quot;Ocorreu um erro&quot;,</span>
+<span class="nc" id="L250">                                        &quot;Error&quot;,</span>
+<span class="nc" id="L251">                                        JOptionPane.ERROR_MESSAGE);</span>
+                            
+<span class="nc" id="L253">                        }</span>
+                        else
+<span class="nc" id="L255">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L256">                                    &quot;Generic Error&quot;,</span>
+<span class="nc" id="L257">                                    &quot;ERROR&quot;,</span>
+<span class="nc" id="L258">                                    JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L259">                    }</span>
+                    
+                    else
+<span class="nc" id="L262">                        System.out.println(&quot;Connection Down&quot;);</span>
+<span class="nc" id="L263">                }</span>
+                
+                else
+                {
+                    
+<span class="nc bnc" id="L268" title="All 4 branches missed.">                    if(!rdbtnAdministrador.isSelected() &amp;&amp; !rdbtnNewRadioButton.isSelected())</span>
+<span class="nc" id="L269">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L270">                                &quot;Escolha admin ou investigador&quot;,</span>
+<span class="nc" id="L271">                                &quot;ERROR&quot;,</span>
+<span class="nc" id="L272">                                JOptionPane.ERROR_MESSAGE);</span>
+                    
+<span class="nc bnc" id="L274" title="All 4 branches missed.">                    else if(rdbtnAdministrador.isSelected() &amp;&amp; !NameTextField.getText().equals(&quot;&quot;)) {</span>
+                        
+<span class="nc bnc" id="L276" title="All 2 branches missed.">                        if(databaseConnection.updateAdministrador(Integer.parseInt(IdTextField.getText()),NameTextField.getText())){</span>
+<span class="nc" id="L277">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L278">                                    &quot;Succeso&quot;,</span>
+<span class="nc" id="L279">                                    &quot;Information&quot;,</span>
+<span class="nc" id="L280">                                    JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L281">                            new ManutencaoUtilizadores(databaseConnection);</span>
+<span class="nc" id="L282">                            closeWindow();</span>
+<span class="nc" id="L283">                        }</span>
+                        else
+<span class="nc" id="L285">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L286">                                    &quot;Ocorreu um erro&quot;,</span>
+<span class="nc" id="L287">                                    &quot;Error&quot;,</span>
+<span class="nc" id="L288">                                    JOptionPane.ERROR_MESSAGE);</span>
+                        
+<span class="nc" id="L290">                    }</span>
+<span class="nc bnc" id="L291" title="All 4 branches missed.">                    else if(rdbtnNewRadioButton.isSelected() &amp;&amp; !NameTextField.getText().equals(&quot;&quot;)) {</span>
+                        
+<span class="nc bnc" id="L293" title="All 2 branches missed.">                        if(databaseConnection.updateInvestigador(Integer.parseInt(IdTextField.getText()),NameTextField.getText(),CategoriaProfcomboBox.getSelectedItem().toString())){</span>
+<span class="nc" id="L294">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L295">                                    &quot;Succeso&quot;,</span>
+<span class="nc" id="L296">                                    &quot;Information&quot;,</span>
+<span class="nc" id="L297">                                    JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L298">                            new ManutencaoUtilizadores(databaseConnection);</span>
+<span class="nc" id="L299">                            closeWindow();</span>
+<span class="nc" id="L300">                        }</span>
+                        else
+<span class="nc" id="L302">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L303">                                    &quot;Ocorreu um erro&quot;,</span>
+<span class="nc" id="L304">                                    &quot;Error&quot;,</span>
+<span class="nc" id="L305">                                    JOptionPane.ERROR_MESSAGE);</span>
+                        
+<span class="nc" id="L307">                    }</span>
+                    else
+<span class="nc" id="L309">                        JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L310">                                &quot;Generic Error&quot;,</span>
+<span class="nc" id="L311">                                &quot;ERROR&quot;,</span>
+<span class="nc" id="L312">                                JOptionPane.ERROR_MESSAGE);</span>
+                    
+                }
+<span class="nc" id="L315">            }</span>
+            
+        });
+<span class="fc" id="L318">        ButtonConfirmar.setBounds(612, 499, 156, 27);</span>
+<span class="fc" id="L319">        frame.getContentPane().add(ButtonConfirmar);</span>
+        
+        
+        
+<span class="fc" id="L323">        JButton logout = new JButton(&quot;Voltar&quot;);</span>
+<span class="fc" id="L324">        logout.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L326">                new AreaAdmin(databaseConnection);</span>
+<span class="nc" id="L327">                closeWindow();</span>
+<span class="nc" id="L328">            }</span>
+        });
+<span class="fc" id="L330">        logout.setBackground(Color.WHITE);</span>
+<span class="fc" id="L331">        logout.setBounds(100, 499, 156, 27);</span>
+<span class="fc" id="L332">        frame.getContentPane().add(logout);</span>
+        
+<span class="fc" id="L334">        JLabel lblId = new JLabel(&quot;Id&quot;);</span>
+<span class="fc" id="L335">        lblId.setForeground(new Color(100, 149, 237));</span>
+<span class="fc" id="L336">        lblId.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 13));</span>
+<span class="fc" id="L337">        lblId.setBounds(217, 206, 49, 27);</span>
+<span class="fc" id="L338">        frame.getContentPane().add(lblId);</span>
+
+<span class="fc" id="L340">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

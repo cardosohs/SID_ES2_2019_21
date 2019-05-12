@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>VariaveisMedidas.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">VariaveisMedidas.java</span></div><h1>VariaveisMedidas.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+/**
+ * Esta classe e referente a interface grafico para consultar as variaveis medidas
+ * 
+ * @author Grupo 21
+ *
+ */
+
+public class VariaveisMedidas extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField txtCultura_1;
+	private JTextField txtCultura;
+	private JTextField txtNome;
+	private JTextField textField_5;
+
+	/**
+	 * Launch the application.
+	 */
+/*	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VariaveisMedidas frame = new VariaveisMedidas();
+					frame.setVisible(true);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+*/
+	
+	
+    /**
+     * Construtor da classe
+     */
+<span class="fc" id="L60">    public VariaveisMedidas() {</span>
+<span class="fc" id="L61">        initialize();</span>
+<span class="fc" id="L62">    }</span>
+    
+    /**
+     * Inicializa a interface
+     */
+	private void initialize() {
+<span class="fc" id="L68">		setTitle(&quot;Consultar Vari\u00E1veis Medidas&quot;);</span>
+<span class="fc" id="L69">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L70">		setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L71">		contentPane = new JPanel();</span>
+<span class="fc" id="L72">		contentPane.setBackground(Color.WHITE);</span>
+<span class="fc" id="L73">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L74">		setContentPane(contentPane);</span>
+<span class="fc" id="L75">		contentPane.setLayout(null);</span>
+<span class="fc" id="L76">		ImageIcon imagem = new ImageIcon(VariaveisMedidas.class.getResource(&quot;/images/variaveisMedidas.png&quot;));</span>
+		
+<span class="fc" id="L78">		JButton btnNewButton = new JButton(&quot;Submeter Alterações&quot;);</span>
+<span class="fc" id="L79">		btnNewButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L81">			}</span>
+		});
+<span class="fc" id="L83">		btnNewButton.setBounds(645, 376, 167, 31);</span>
+<span class="fc" id="L84">		contentPane.add(btnNewButton);</span>
+		
+<span class="fc" id="L86">		JButton btnNewButton_1 = new JButton(&quot;Adicionar Nova Variável à Cultura&quot;);</span>
+<span class="fc" id="L87">		btnNewButton_1.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+//				 new InserirDados(databaseConnection);
+//				 frame.setVisible(false);
+<span class="nc" id="L91">			}</span>
+		});
+<span class="fc" id="L93">		btnNewButton_1.setBounds(190, 472, 231, 23);</span>
+<span class="fc" id="L94">		contentPane.add(btnNewButton_1);</span>
+		
+<span class="fc" id="L96">		JButton btnNewButton_2 = new JButton(&quot;Eliminar Variável&quot;);</span>
+<span class="fc" id="L97">		btnNewButton_2.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L99">			}</span>
+		});
+<span class="fc" id="L101">		btnNewButton_2.setBounds(657, 415, 144, 31);</span>
+<span class="fc" id="L102">		contentPane.add(btnNewButton_2);</span>
+		
+<span class="fc" id="L104">		JButton btnNewButton_3 = new JButton(&quot;Voltar&quot;);</span>
+<span class="fc" id="L105">		btnNewButton_3.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+//				 new CulturasLista(databaseConnection);
+//				 frame.setVisible(false);
+<span class="nc" id="L109">			}</span>
+		});
+<span class="fc" id="L111">		btnNewButton_3.setBounds(735, 507, 89, 31);</span>
+<span class="fc" id="L112">		contentPane.add(btnNewButton_3);</span>
+		
+<span class="fc" id="L114">		textField = new JTextField();</span>
+<span class="fc" id="L115">		textField.setBounds(686, 199, 86, 31);</span>
+<span class="fc" id="L116">		contentPane.add(textField);</span>
+<span class="fc" id="L117">		textField.setColumns(10);</span>
+		
+<span class="fc" id="L119">		textField_1 = new JTextField();</span>
+<span class="fc" id="L120">		textField_1.setColumns(10);</span>
+<span class="fc" id="L121">		textField_1.setBounds(686, 249, 86, 31);</span>
+<span class="fc" id="L122">		contentPane.add(textField_1);</span>
+		
+<span class="fc" id="L124">		textField_2 = new JTextField();</span>
+<span class="fc" id="L125">		textField_2.setColumns(10);</span>
+<span class="fc" id="L126">		textField_2.setBounds(686, 285, 86, 31);</span>
+<span class="fc" id="L127">		contentPane.add(textField_2);</span>
+		
+<span class="fc" id="L129">		textField_3 = new JTextField();</span>
+<span class="fc" id="L130">		textField_3.setColumns(10);</span>
+<span class="fc" id="L131">		textField_3.setBounds(686, 327, 86, 31);</span>
+<span class="fc" id="L132">		contentPane.add(textField_3);</span>
+		
+<span class="fc" id="L134">		txtCultura_1 = new JTextField();</span>
+<span class="fc" id="L135">		txtCultura_1.setText(&quot;Cultura&quot;);</span>
+<span class="fc" id="L136">		txtCultura_1.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="fc" id="L137">		txtCultura_1.setForeground(Color.WHITE);</span>
+<span class="fc" id="L138">		txtCultura_1.setFont(txtCultura_1.getFont().deriveFont(11f));</span>
+<span class="fc" id="L139">		txtCultura_1.setColumns(10);</span>
+<span class="fc" id="L140">		txtCultura_1.setBackground(new Color(0, 51, 102));</span>
+<span class="fc" id="L141">		txtCultura_1.setBounds(512, 80, 68, 21);</span>
+<span class="fc" id="L142">		contentPane.add(txtCultura_1);</span>
+		
+<span class="fc" id="L144">		txtCultura = new JTextField();</span>
+<span class="fc" id="L145">		txtCultura.setText(&quot;ID&quot;);</span>
+<span class="fc" id="L146">		txtCultura.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="fc" id="L147">		txtCultura.setForeground(Color.WHITE);</span>
+<span class="fc" id="L148">		txtCultura.setFont(txtCultura.getFont().deriveFont(11f));</span>
+<span class="fc" id="L149">		txtCultura.setColumns(10);</span>
+<span class="fc" id="L150">		txtCultura.setBackground(new Color(0, 51, 102));</span>
+<span class="fc" id="L151">		txtCultura.setBounds(733, 80, 39, 21);</span>
+<span class="fc" id="L152">		contentPane.add(txtCultura);</span>
+		
+<span class="fc" id="L154">		txtNome = new JTextField();</span>
+<span class="fc" id="L155">		txtNome.setText(&quot;nome?&quot;);</span>
+<span class="fc" id="L156">		txtNome.setBounds(582, 80, 141, 20);</span>
+<span class="fc" id="L157">		contentPane.add(txtNome);</span>
+<span class="fc" id="L158">		txtNome.setColumns(10);</span>
+		
+<span class="fc" id="L160">		textField_5 = new JTextField();</span>
+<span class="fc" id="L161">		textField_5.setBounds(772, 80, 52, 20);</span>
+<span class="fc" id="L162">		contentPane.add(textField_5);</span>
+<span class="fc" id="L163">		textField_5.setColumns(10);</span>
+		
+		
+<span class="fc" id="L166">		JLabel fotoDeFundo = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L167">		fotoDeFundo.setBounds(0, 0, 834, 525);</span>
+<span class="fc" id="L168">		Image img = imagem.getImage().getScaledInstance(fotoDeFundo.getWidth(),fotoDeFundo.getHeight(), Image.SCALE_SMOOTH);</span>
+		
+<span class="fc" id="L170">		fotoDeFundo.setIcon(new ImageIcon(img));</span>
+<span class="fc" id="L171">		contentPane.add(fotoDeFundo);</span>
+<span class="fc" id="L172">		LoginWindow.centerWindow(this);</span>
+		
+<span class="fc" id="L174">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

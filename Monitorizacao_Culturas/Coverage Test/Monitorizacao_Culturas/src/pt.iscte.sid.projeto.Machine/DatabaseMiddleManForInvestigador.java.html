@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>DatabaseMiddleManForInvestigador.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.Machine</a> &gt; <span class="el_source">DatabaseMiddleManForInvestigador.java</span></div><h1>DatabaseMiddleManForInvestigador.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.Machine;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * Faz todas as operaçoes que o investigador pode fazer na BD, isto é, login, logout e operacoes CRUD(quando aplicavel)
+ * @author Grupo 21
+ * 
+ */
+public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
+ 
+<span class="fc" id="L20">    private ArrayList&lt;Integer&gt; CulturasDoInvestigador = new ArrayList&lt;&gt;();</span>
+
+
+    /**
+     * Construtor desta classe
+     * @param username do utilizador
+     * @param password do utilizador
+     */
+    public DatabaseMiddleManForInvestigador(String username, String password) {
+<span class="fc" id="L29">        super(username, password);</span>
+<span class="fc" id="L30">    }</span>
+ 
+    
+    /**
+     * Cria uma nova cultura associada ao investigador
+     * @param NomeDaCultura recebe como argumento uma cultura
+     * @param DescricaoDaCultura recebe como argumento uma descricao
+     * @return boolean para verificar se foi criado uma cultura ou nao
+     */
+    public boolean createCultura(String NomeDaCultura, String DescricaoDaCultura)
+    {
+        try {
+<span class="nc" id="L42">            String query1 = &quot; insert into cultura(IdInvestigador,NomeCultura,DescricaoCultura) values (?, ?, ?)&quot;;</span>
+<span class="nc" id="L43">            PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);</span>
+            
+<span class="nc" id="L45">            preparedStmt1.setInt(1, Id);</span>
+<span class="nc" id="L46">            preparedStmt1.setString (2, NomeDaCultura);</span>
+<span class="nc" id="L47">            preparedStmt1.setString (3, DescricaoDaCultura);</span>
+            
+<span class="nc" id="L49">            preparedStmt1.execute();</span>
+<span class="nc" id="L50">        } catch (SQLException ex) {</span>
+<span class="nc" id="L51">            return false;</span>
+        }
+<span class="nc" id="L53">        return true;</span>
+        
+    }
+    
+    /**
+     * vai buscar as culturas do investigador
+     * @return string com as culturas do investigador
+     */
+    public String getCulturas()
+    {
+<span class="nc" id="L63">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L65">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L66">            String query = &quot;select * from cultura where idinvestigador=&quot; + Id;</span>
+<span class="nc" id="L67">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L69">                TableResult +=rs.getString(1)+&quot;BREAKCOLUMN&quot;+rs.getString(2)+&quot;BREAKCOLUMN&quot;+rs.getString(3)+&quot;BREAKCOLUMN&quot;+rs.getString(4)+ &quot;BREAKLINE&quot;;</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">                if(!CulturasDoInvestigador.contains(Integer.parseInt(rs.getString(1))))</span>
+<span class="nc" id="L71">                    CulturasDoInvestigador.add(Integer.parseInt(rs.getString(1)));</span>
+            }
+<span class="nc" id="L73">        }catch(Exception e){</span>
+<span class="nc" id="L74">            System.out.println(e);</span>
+<span class="nc" id="L75">            return null;</span>
+        }
+        
+<span class="nc" id="L78">        return TableResult;</span>
+    }
+    
+    /**
+     * Actualiza uma cultura do investigador
+     * @param IdCultura recebe um id de uma cultura
+     * @param NomeCultura recebe o nome de uma cultura
+     * @param DescricaoCultura recebe uma descricao de uma cultura
+     * @return boolean que indica se foi feito update da cultura em questão
+     */
+    
+    public boolean updateCultura(int IdCultura, String NomeCultura, String DescricaoCultura)
+    {
+<span class="nc" id="L91">        getCulturas();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura)){</span>
+            try {
+<span class="nc" id="L94">                String query =</span>
+<span class="nc" id="L95">                        &quot; update cultura set NomeCultura= '&quot; + NomeCultura</span>
+<span class="nc" id="L96">                        + &quot;', DescricaoCultura='&quot; + DescricaoCultura+ &quot;' where idcultura=&quot; + IdCultura;</span>
+<span class="nc" id="L97">                PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L98">                preparedStmt.execute();</span>
+                
+<span class="nc" id="L100">                return true;</span>
+<span class="nc" id="L101">            } catch (SQLException ex) {</span>
+<span class="nc" id="L102">                System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L103">                return false;</span>
+            }
+        }
+        else{
+<span class="nc" id="L107">            System.err.println(&quot;Erro, esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L108">            return false;</span>
+        }
+    }
+    
+    
+    /**
+     * Apaga uma cultura do investigador
+     * @param IdCultura recebe um id de uma cultura
+     * @return boolean para saber se foi bem sucedido um delete de uma cultura
+     */
+    public boolean deleteCultura(int IdCultura)
+    {
+<span class="nc" id="L120">        getCulturas();</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura)){</span>
+            try {
+<span class="nc" id="L123">                String query = &quot; delete from cultura where idcultura=&quot; + IdCultura;</span>
+<span class="nc" id="L124">                PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L125">                preparedStmt.execute();</span>
+<span class="nc" id="L126">                removeFromList(CulturasDoInvestigador,IdCultura);</span>
+<span class="nc" id="L127">                return true;</span>
+<span class="nc" id="L128">            } catch (SQLException ex) {</span>
+<span class="nc" id="L129">                System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L130">                return false;</span>
+            }
+        }
+        else{
+<span class="nc" id="L134">            System.err.println(&quot;Erro, esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L135">            return false;</span>
+        }
+    }
+    
+    
+    
+    
+    
+    
+    /**
+     * Cria uma Variavel Medida associada à cultura do Investigador
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param LimiteInferior recebe um limite inferior para uma variavel medida
+     * @param LimiteSuperior recebe um limite superior para uma variavel medida
+     * @return boolean para saber se foi criado uma variavel medida
+     */
+    public boolean createVariavelMedida(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
+    {
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if(LimiteSuperior&gt;LimiteInferior){</span>
+            try {
+<span class="nc" id="L156">                getCulturas();</span>
+<span class="nc" id="L157">                getVariaveis();</span>
+<span class="nc bnc" id="L158" title="All 4 branches missed.">                if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+<span class="nc" id="L159">                    String query1 = &quot; insert into variaveismedidas(IdCultura,IdVariavel,LimiteInferior,LimiteSuperior) values (?, ?, ?,?)&quot;;</span>
+<span class="nc" id="L160">                    PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);</span>
+<span class="nc" id="L161">                    preparedStmt1.setInt(1, IdCultura);</span>
+<span class="nc" id="L162">                    preparedStmt1.setInt(2, IdVariavel);</span>
+<span class="nc" id="L163">                    preparedStmt1.setInt(3, LimiteInferior);</span>
+<span class="nc" id="L164">                    preparedStmt1.setInt(4, LimiteSuperior);</span>
+                    
+<span class="nc" id="L166">                    preparedStmt1.execute();</span>
+<span class="nc" id="L167">                }</span>
+                else{
+<span class="nc bnc" id="L169" title="All 2 branches missed.">                    if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L170">                        System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+                    else
+<span class="nc" id="L172">                        System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L173">                    return false;</span>
+                }
+                
+<span class="nc" id="L176">            } catch (SQLException ex) {</span>
+<span class="nc" id="L177">                return false;</span>
+            }
+<span class="nc" id="L179">            return true;</span>
+        }
+        else
+<span class="nc" id="L182">            return false;</span>
+    }
+    
+    
+    /**
+     * Vai buscar as Variaveis Medidas associadas a uma cultura
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @return string com as variveis medidas
+     */
+    public String getVariaveisMedidas(int IdCultura, int IdVariavel)
+    {
+<span class="nc" id="L194">        getCulturas();</span>
+<span class="nc" id="L195">        getVariaveis();</span>
+<span class="nc bnc" id="L196" title="All 4 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+<span class="nc" id="L197">            String TableResult=&quot;&quot;;</span>
+            try{
+<span class="nc" id="L199">                Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L200">                String query = &quot;select * from variaveismedidas&quot;;</span>
+<span class="nc" id="L201">                ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">                while(rs.next()){</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">                    if(CulturasDoInvestigador.contains(Integer.parseInt(rs.getString(1))))</span>
+<span class="nc" id="L204">                        TableResult +=  rs.getString(1)+&quot;BREAKCOLUMN&quot;+rs.getString(2)</span>
+<span class="nc" id="L205">                                +&quot;BREAKCOLUMN&quot;+rs.getString(3)+&quot;BREAKCOLUMN&quot;+rs.getString(4)+ &quot;BREAKLINE&quot;;</span>
+                }
+<span class="nc" id="L207">            }catch(Exception e){</span>
+<span class="nc" id="L208">                System.out.println(e);</span>
+<span class="nc" id="L209">                return null;</span>
+            }
+            
+<span class="nc" id="L212">            return TableResult;</span>
+        }
+        else{
+<span class="nc bnc" id="L215" title="All 2 branches missed.">            if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L216">                System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+            else
+<span class="nc" id="L218">                System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L219">            return &quot;&quot;;</span>
+        }
+    }
+    
+    
+    /**
+     * Atualiza uma variavel medida
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param LimiteInferior recebe um limite inferior para uma variavel medida
+     * @param LimiteSuperior recebe um limite superior para uma variavel medida
+     * @return boolean para saber se foi feito um update a uma variavel medida
+     */
+    public boolean updateVariaveisMedidas(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
+    {
+<span class="nc bnc" id="L234" title="All 2 branches missed.">        if(LimiteSuperior&gt;LimiteInferior){</span>
+            try {
+<span class="nc" id="L236">                getCulturas();</span>
+<span class="nc" id="L237">                getVariaveis();</span>
+<span class="nc bnc" id="L238" title="All 4 branches missed.">                if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+<span class="nc" id="L239">                    String query1 =</span>
+<span class="nc" id="L240">                            &quot;update variaveismedidas set Limiteinferior= &quot; + LimiteInferior +</span>
+<span class="nc" id="L241">                            &quot; , LimiteSuperior=&quot; + LimiteSuperior</span>
+<span class="nc" id="L242">                            + &quot; where idcultura=&quot; + IdCultura + &quot; and idvariavel=&quot; + IdVariavel;</span>
+<span class="nc" id="L243">                    PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);</span>
+<span class="nc" id="L244">                    preparedStmt1.execute();</span>
+<span class="nc" id="L245">                }</span>
+                else{
+<span class="nc bnc" id="L247" title="All 2 branches missed.">                    if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L248">                        System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+                    else
+<span class="nc" id="L250">                        System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L251">                    return false;</span>
+                }
+                
+<span class="nc" id="L254">            } catch (SQLException ex) {</span>
+<span class="nc" id="L255">                return false;</span>
+            }
+<span class="nc" id="L257">            return true;</span>
+        }
+        else
+<span class="nc" id="L260">            return false;</span>
+    }
+    
+    
+    /**
+     * Apaga uma variavel medida
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um ide de uma variavel
+     * @return boolean para saber se foi bem sucedido um delete de uma variavel medida
+     */
+    public boolean deleteVariaveisMedidas(int IdCultura, int IdVariavel)
+    {
+<span class="nc" id="L272">        getCulturas();</span>
+<span class="nc" id="L273">        getVariaveis();</span>
+<span class="nc bnc" id="L274" title="All 4 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+            try {
+<span class="nc" id="L276">                String query = &quot; delete from variaveismedidas where idcultura=&quot; + IdCultura + &quot; and IdVariavel=&quot; + IdVariavel;</span>
+<span class="nc" id="L277">                PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L278">                preparedStmt.execute();</span>
+                
+<span class="nc" id="L280">                return true;</span>
+<span class="nc" id="L281">            } catch (SQLException ex) {</span>
+<span class="nc" id="L282">                System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L283">                return false;</span>
+            }
+        }
+        else{
+<span class="nc bnc" id="L287" title="All 2 branches missed.">            if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L288">                System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+            else
+<span class="nc" id="L290">                System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L291">            return false;</span>
+        }
+    }
+   
+ 
+    /**
+     * Vai buscar os dados da tabela MedicoesTemperatura
+     * @return uma string com as medicoes de temperatura
+     */
+    public String getMedicoesTemperatura()
+    {
+<span class="nc" id="L302">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L304">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L305">            String query = &quot;select * from medicoestemp&quot;;</span>
+<span class="nc" id="L306">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L308">                VariaviesDaDatabase.add(Integer.parseInt(rs.getString(1)));</span>
+<span class="nc" id="L309">                TableResult +=</span>
+<span class="nc" id="L310">                        rs.getString(1)</span>
+<span class="nc" id="L311">                        +&quot;BREAKCOLUMN&quot;+rs.getString(2)</span>
+<span class="nc" id="L312">                        +&quot;BREAKCOLUMN&quot;+rs.getString(3)</span>
+<span class="nc" id="L313">                        + &quot;BREAKLINE&quot;;</span>
+            }
+<span class="nc" id="L315">        }catch(Exception e){</span>
+<span class="nc" id="L316">            System.out.println(e);</span>
+<span class="nc" id="L317">            return null;</span>
+        }
+        
+<span class="nc" id="L320">        return TableResult;</span>
+    }
+    
+    
+    /**
+     * Vai buscar os dados da tabela MedicoesLuz 
+     * @return uma string com os dados da luminosidade
+     */
+    public String getMedicoesLuz()
+    {
+<span class="nc" id="L330">        String TableResult=&quot;&quot;;</span>
+        try{
+<span class="nc" id="L332">            Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L333">            String query = &quot;select * from medicoesluz&quot;;</span>
+<span class="nc" id="L334">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L335" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L336">                VariaviesDaDatabase.add(Integer.parseInt(rs.getString(1)));</span>
+<span class="nc" id="L337">                TableResult +=</span>
+<span class="nc" id="L338">                         rs.getString(1)</span>
+<span class="nc" id="L339">                        +&quot;BREAKCOLUMN&quot;+rs.getString(2)</span>
+<span class="nc" id="L340">                        +&quot;BREAKCOLUMN&quot;+rs.getString(3)</span>
+<span class="nc" id="L341">                        + &quot;BREAKLINE&quot;;</span>
+            }
+<span class="nc" id="L343">        }catch(Exception e){</span>
+<span class="nc" id="L344">            System.out.println(e);</span>
+<span class="nc" id="L345">            return null;</span>
+        }
+        
+<span class="nc" id="L348">        return TableResult;</span>
+    }
+    
+    
+    /**
+     * Permite ao Investigador inserir dados na tabela Medicoes
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param ValorMed recebe um valor medicao
+     * @return um boolean para saber se foi conseguido a criacao de uma medicao
+     */
+    public boolean createMedicoes(int IdCultura, int IdVariavel,double ValorMed)
+    {
+<span class="nc" id="L361">        getCulturas();</span>
+<span class="nc" id="L362">        getVariaveis();</span>
+<span class="nc bnc" id="L363" title="All 4 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+<span class="nc" id="L364">            String TableResult=&quot;&quot;;</span>
+            try{
+<span class="nc" id="L366">                Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L367">                String query1 = &quot;insert into medicoes(IdCultura,IdVariavel,ValorMed) values(?,?,?)&quot;;</span>
+<span class="nc" id="L368">                PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);</span>
+<span class="nc" id="L369">                preparedStmt1.setInt(1, IdCultura);</span>
+<span class="nc" id="L370">                preparedStmt1.setInt(2, IdVariavel);</span>
+<span class="nc" id="L371">                preparedStmt1.setDouble(3, ValorMed);</span>
+                
+<span class="nc" id="L373">                preparedStmt1.execute();</span>
+                
+<span class="nc" id="L375">                return true;</span>
+<span class="nc" id="L376">            }catch(Exception e){</span>
+<span class="nc" id="L377">                System.out.println(e);</span>
+<span class="nc" id="L378">                return false;</span>
+            }
+        }
+        else{
+<span class="nc bnc" id="L382" title="All 2 branches missed.">            if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L383">                System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+            else
+<span class="nc" id="L385">                System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L386">            return false;</span>
+        }
+    }
+    
+    
+    
+    /**
+     * Vai buscar os dados da tabela Medicoes
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @return uma string com as medicoes de uma variavel medida
+     */
+    public String getMedicoes(int IdCultura, int IdVariavel)
+    {
+<span class="nc" id="L400">        getCulturas();</span>
+<span class="nc" id="L401">        getVariaveis();</span>
+<span class="nc bnc" id="L402" title="All 4 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+<span class="nc" id="L403">            String TableResult=&quot;&quot;;</span>
+            try{
+<span class="nc" id="L405">                Statement stmt=DatabaseConnection.createStatement();</span>
+<span class="nc" id="L406">                String query = &quot;select * from medicoes where IdCultura=&quot; + IdCultura + &quot; and IdVariavel=&quot; + IdVariavel;</span>
+<span class="nc" id="L407">                ResultSet rs=stmt.executeQuery(query);</span>
+<span class="nc bnc" id="L408" title="All 2 branches missed.">                while(rs.next()){</span>
+<span class="nc" id="L409">                    TableResult += rs.getString(1) +&quot;BREAKCOLUMN&quot; </span>
+<span class="nc" id="L410">                            + rs.getString(4)+&quot;BREAKCOLUMN&quot;+rs.getString(5)+&quot;BREAKLINE&quot;;</span>
+                }
+<span class="nc" id="L412">            }catch(Exception e){</span>
+<span class="nc" id="L413">                System.out.println(e);</span>
+<span class="nc" id="L414">                return null;</span>
+            }
+            
+<span class="nc" id="L417">            return TableResult;</span>
+        }
+        else{
+<span class="nc bnc" id="L420" title="All 2 branches missed.">            if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L421">                System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+            else
+<span class="nc" id="L423">                System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L424">            return &quot;&quot;;</span>
+        }
+    }
+    
+    
+    /**
+     * Permite atualizar dados da tabela medicoes
+     * @param IdMed recebe um id de uma medicao
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param ValorMed recebe um valor medicao
+     * @return um boolean para saber se foi bem sucedido um update a medicao
+     */
+    public boolean updateMedicao(int IdMed ,int IdCultura, int IdVariavel,double ValorMed)
+    {
+<span class="nc" id="L439">        getCulturas();</span>
+<span class="nc" id="L440">        getVariaveis();</span>
+<span class="nc bnc" id="L441" title="All 4 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+            try {
+<span class="nc" id="L443">                String query =</span>
+<span class="nc" id="L444">                        &quot; update medicoes set ValorMed= '&quot; + ValorMed</span>
+<span class="nc" id="L445">                        + &quot;' where IdMed=&quot; + IdMed;</span>
+<span class="nc" id="L446">                PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L447">                preparedStmt.execute();</span>
+                
+<span class="nc" id="L449">                return true;</span>
+<span class="nc" id="L450">            } catch (SQLException ex) {</span>
+<span class="nc" id="L451">                System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L452">                return false;</span>
+            }
+        }
+        else{
+<span class="nc bnc" id="L456" title="All 2 branches missed.">            if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L457">                System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+            else
+<span class="nc" id="L459">                System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L460">            return false;</span>
+        }
+    }
+    
+    
+    /**
+     * Permite ao Investigador apagar medicoes
+     * @param IdMed recebe um id de uma medicao
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @return um boolean para saber se foi bem sucedido um delete a uma medicao
+     */
+    public boolean deleteMedicao(int IdMed,int IdCultura, int IdVariavel)
+    {
+        
+<span class="nc" id="L475">        getCulturas();</span>
+<span class="nc" id="L476">        getVariaveis();</span>
+<span class="nc bnc" id="L477" title="All 4 branches missed.">        if(CulturasDoInvestigador.contains(IdCultura) &amp;&amp; VariaviesDaDatabase.contains(IdVariavel) ){</span>
+            try {
+<span class="nc" id="L479">                String query =</span>
+<span class="nc" id="L480">                        &quot; delete from medicoes where IdMed=&quot; + IdMed;</span>
+<span class="nc" id="L481">                PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);</span>
+<span class="nc" id="L482">                preparedStmt.execute();</span>
+                
+<span class="nc" id="L484">                return true;</span>
+<span class="nc" id="L485">            } catch (SQLException ex) {</span>
+<span class="nc" id="L486">                System.err.println(&quot;Erro ao executar a accao&quot;);</span>
+<span class="nc" id="L487">                return false;</span>
+            }
+        }
+        else{
+<span class="nc bnc" id="L491" title="All 2 branches missed.">            if(!VariaviesDaDatabase.contains(IdVariavel))</span>
+<span class="nc" id="L492">                System.err.println(&quot;Esta variavel nao existe&quot;);</span>
+            else
+<span class="nc" id="L494">                System.err.println(&quot;Esta a mexer numa cultura que nao lhe pertence&quot;);</span>
+<span class="nc" id="L495">            return false;</span>
+        }
+    }
+    
+    /**
+     * metodo para remover valores de um arraylis
+     * @param array recebe um arraylist 
+     * @param valor recebe um valor do arraylist
+     */
+    private void removeFromList(ArrayList array,int valor )
+    {
+<span class="nc bnc" id="L506" title="All 2 branches missed.">        for(int i=0;i&lt;array.size();i++)</span>
+<span class="nc bnc" id="L507" title="All 2 branches missed.">            if(array.get(i).equals(valor))</span>
+<span class="nc" id="L508">                array.remove(i);</span>
+<span class="nc" id="L509">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

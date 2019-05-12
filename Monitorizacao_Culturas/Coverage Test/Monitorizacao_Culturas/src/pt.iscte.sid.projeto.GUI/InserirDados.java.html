@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>InserirDados.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">InserirDados.java</span></div><h1>InserirDados.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JCheckBox;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
+/**
+ * Esta classe e referente a interface grafico para o investigador poder inserir dados
+ * @author Grupo 21
+ *
+ */
+public class InserirDados {
+    
+    private DatabaseMiddleManForInvestigador databaseConnection;
+    private JFrame frmConsultarListaVariveis;    
+    private JTextField textField;
+    private JTextField textField_1;
+    
+    /**
+     * Lanca a interface para o investigador inserir dados
+     * 
+     * @param databaseConnection  esta parametro Ã© a ligacao da base de dados
+     */
+<span class="fc" id="L41">    public InserirDados(DatabaseMiddleManForInvestigador databaseConnection) {</span>
+<span class="fc" id="L42">        this.databaseConnection = databaseConnection;</span>
+<span class="nc" id="L43">        initialize();</span>
+<span class="nc" id="L44">    }</span>
+    
+    
+    /**
+     * Metodo para fechar a janela
+     */
+    private void closeWindow() {
+<span class="nc" id="L51">        frmConsultarListaVariveis.setVisible(false);</span>
+<span class="nc" id="L52">    }</span>
+    
+    /**
+     * Cria a janela para o Investigador poder inserir dados referentes as variaveis.
+     */
+    private void initialize() {
+
+<span class="fc" id="L59">        frmConsultarListaVariveis = new JFrame();</span>
+<span class="fc" id="L60">        frmConsultarListaVariveis.getContentPane().setBackground(Color.WHITE);</span>
+<span class="fc" id="L61">        frmConsultarListaVariveis.setTitle(&quot;Consultar Lista Vari\u00E1veis&quot;);</span>
+<span class="fc" id="L62">        frmConsultarListaVariveis.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L63">        frmConsultarListaVariveis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L64">        frmConsultarListaVariveis.getContentPane().setLayout(null);        </span>
+<span class="fc" id="L65">        frmConsultarListaVariveis.setVisible(true);</span>
+<span class="fc" id="L66">        LoginWindow.centerWindow(frmConsultarListaVariveis);</span>
+        
+        
+        
+<span class="fc" id="L70">        ImageIcon imagem = new ImageIcon (InserirDados.class.getResource(&quot;/images/listaVariaveis.png&quot;));</span>
+       
+        
+<span class="fc" id="L73">        String[] Variaveisheader={&quot;Id&quot;,&quot;IdNome&quot;};</span>
+<span class="nc" id="L74">        String[][] Variaveisdata=getList(databaseConnection.getVariaveis());</span>
+<span class="nc" id="L75">        DefaultTableModel Variaveismodel = new DefaultTableModel(Variaveisdata,Variaveisheader);</span>
+<span class="nc" id="L76">        JTable table = new JTable(Variaveismodel);</span>
+<span class="nc" id="L77">        ListSelectionModel selectVariaveis= table.getSelectionModel();</span>
+<span class="nc" id="L78">        selectVariaveis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L79">        JScrollPane scrollPane = new JScrollPane(table);</span>
+<span class="nc" id="L80">        scrollPane.setBounds(112, 191, 620, 204);</span>
+<span class="nc" id="L81">        scrollPane.setViewportView(table);</span>
+<span class="nc" id="L82">        scrollPane.setVisible(true);</span>
+<span class="nc" id="L83">        scrollPane.setBounds(112, 191, 620, 165);</span>
+<span class="nc" id="L84">        frmConsultarListaVariveis.getContentPane().add(scrollPane);</span>
+        
+        
+<span class="nc" id="L87">        JLabel lblSeleccionarIdDa = new JLabel(&quot;ID da Variavel&quot;);</span>
+<span class="nc" id="L88">        lblSeleccionarIdDa.setBounds(39, 496, 149, 16);</span>
+        
+<span class="nc" id="L90">        JTextField IdVariavel = new JTextField();</span>
+<span class="nc" id="L91">        IdVariavel.setColumns(10);</span>
+<span class="nc" id="L92">        IdVariavel.setBounds(181, 490, 47, 29);</span>
+        
+<span class="nc" id="L94">        JButton btnApagarVariavel = new JButton(&quot;Apagar variavel&quot;);</span>
+<span class="nc" id="L95">        btnApagarVariavel.setBounds(540, 511, 149, 23);</span>
+        
+<span class="nc" id="L97">        JLabel lblNewLabel_1 = new JLabel(&quot;Aqui fica a tabela Variaveis ver https://www.youtube.com/watch?v=hg1S3QHFNrE&quot;);</span>
+<span class="nc" id="L98">        lblNewLabel_1.setBounds(209, 166, 496, 14);</span>
+        
+<span class="nc" id="L100">        JButton btnVoltar = new JButton(&quot;Voltar&quot;);</span>
+<span class="nc" id="L101">        btnVoltar.setBounds(725, 509, 84, 23);</span>
+<span class="nc" id="L102">        btnVoltar.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L104">                new AreaInvestigador(databaseConnection);</span>
+<span class="nc" id="L105">                closeWindow();</span>
+<span class="nc" id="L106">            }</span>
+        });
+        
+<span class="nc" id="L109">        frmConsultarListaVariveis.getContentPane().add(btnVoltar);</span>
+        
+<span class="nc" id="L111">        textField = new JTextField();</span>
+<span class="nc" id="L112">        textField.setBounds(251, 406, 95, 29);</span>
+<span class="nc" id="L113">        frmConsultarListaVariveis.getContentPane().add(textField);</span>
+<span class="nc" id="L114">        textField.setColumns(10);</span>
+        
+<span class="nc" id="L116">        JLabel lblSeleccionaridDaVarivel = new JLabel(&quot;Seleccionar ID da Vari\u00E1vel&quot;);</span>
+<span class="nc" id="L117">        lblSeleccionaridDaVarivel.setBounds(112, 412, 149, 16);</span>
+<span class="nc" id="L118">        frmConsultarListaVariveis.getContentPane().add(lblSeleccionaridDaVarivel);</span>
+        
+<span class="nc" id="L120">        JLabel lblSeleccionarIdDa_1 = new JLabel(&quot;Seleccionar ID da Cultura&quot;);</span>
+<span class="nc" id="L121">        lblSeleccionarIdDa_1.setBounds(112, 459, 149, 16);</span>
+<span class="nc" id="L122">        frmConsultarListaVariveis.getContentPane().add(lblSeleccionarIdDa_1);</span>
+        
+<span class="nc" id="L124">        textField_1 = new JTextField();</span>
+<span class="nc" id="L125">        textField_1.setColumns(10);</span>
+<span class="nc" id="L126">        textField_1.setBounds(251, 446, 95, 29);</span>
+<span class="nc" id="L127">        frmConsultarListaVariveis.getContentPane().add(textField_1);</span>
+        
+<span class="nc" id="L129">        JButton btnNewButton = new JButton(&quot;Associar Nova Vari\u00E1vel \u00E0 Cultura\r\n&quot;);</span>
+<span class="nc" id="L130">        btnNewButton.setBounds(369, 431, 189, 23);</span>
+<span class="nc" id="L131">        frmConsultarListaVariveis.getContentPane().add(btnNewButton);</span>
+        
+<span class="nc" id="L133">        JLabel lblNewLabel = new JLabel(/*&quot;VER https://www.youtube.com/watch?v=hg1S3QHFNrE&quot;*/);</span>
+<span class="nc" id="L134">        lblNewLabel.setBounds(0, 0, 834, 485);</span>
+        
+<span class="nc" id="L136">        Image img = imagem.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);</span>
+<span class="nc" id="L137">        lblNewLabel.setIcon(new ImageIcon(img));</span>
+        
+        
+        
+<span class="nc" id="L141">        frmConsultarListaVariveis.getContentPane().add(lblNewLabel);</span>
+        
+<span class="nc" id="L143">        JLabel lblSeleccionaridDaCultura = new JLabel(&quot;ID da Cultura&quot;);</span>
+<span class="nc" id="L144">        lblSeleccionaridDaCultura.setBounds(39, 529, 149, 16);</span>
+        
+<span class="nc" id="L146">        JTextField IdCultura = new JTextField();</span>
+<span class="nc" id="L147">        IdCultura.setColumns(10);</span>
+<span class="nc" id="L148">        IdCultura.setBounds(181, 523, 47, 29); </span>
+        
+<span class="nc" id="L150">    }</span>
+    
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores das variaveis do investigador
+     * @param arg recebe uma string
+     * @return matriz de string
+     */
+    private String[][] getList(String arg)
+    {
+<span class="nc" id="L160">        String[] lines = arg.split(&quot;BREAKLINE&quot;);</span>
+<span class="nc" id="L161">        String[][] linesCsv = new String[lines.length][];</span>
+        
+<span class="nc bnc" id="L163" title="All 2 branches missed.">        for (int i=0; i&lt;lines.length; i++) {</span>
+<span class="nc" id="L164">            linesCsv[i] = lines[i].split(&quot;BREAKCOLUMN&quot;);</span>
+        }
+<span class="nc" id="L166">        return linesCsv;</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>

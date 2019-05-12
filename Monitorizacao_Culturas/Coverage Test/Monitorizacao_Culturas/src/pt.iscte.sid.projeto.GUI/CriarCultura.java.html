@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CriarCultura.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (12/mai/2019 17:30:45)</a> &gt; <a href="../../index.html" class="el_group">Monitorizacao_Culturas</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pt.iscte.sid.projeto.GUI</a> &gt; <span class="el_source">CriarCultura.java</span></div><h1>CriarCultura.java</h1><pre class="source lang-java linenums">package pt.iscte.sid.projeto.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+//import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
+/**
+ * Esta classe e referente a interface grafico para o investigador poder criar uma cultura
+ * @author Grupo 21
+ * 
+ *
+ */
+public class CriarCultura extends JFrame {
+    
+    private DatabaseMiddleManForInvestigador databaseConnection;
+    private JFrame frame;
+    private JPanel contentPanel;
+      
+    
+    /**
+     * Lanca a interface da criacao da cultura
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
+<span class="fc" id="L40">    public CriarCultura(DatabaseMiddleManForInvestigador databaseConnection) {</span>
+<span class="fc" id="L41">        this.databaseConnection = databaseConnection;</span>
+<span class="nc" id="L42">        startCriarCultura();</span>
+<span class="nc" id="L43">    }</span>
+    
+    /**
+     * Metodo para fechar a janela
+     */
+    private void closeWindow() {
+<span class="nc" id="L49">        frame.setVisible(false);</span>
+<span class="nc" id="L50">    }</span>
+    
+    
+    /**
+     * Cria a janela para o Investigador poder criar as suas culturas.
+     */
+    private void startCriarCultura() {
+<span class="fc" id="L57">        frame= new JFrame();</span>
+<span class="fc" id="L58">        frame.setTitle(&quot;Medi\u00E7\u00F5es de Sistema&quot;);</span>
+<span class="fc" id="L59">        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="fc" id="L60">        frame.setBounds(100, 100, 850, 600);</span>
+<span class="fc" id="L61">        frame.setVisible(true);</span>
+<span class="fc" id="L62">        LoginWindow.centerWindow(frame);</span>
+<span class="fc" id="L63">        frame.setResizable(false);</span>
+<span class="fc" id="L64">        setTitle(&quot;Criar Nova Cultura&quot;);</span>
+<span class="fc" id="L65">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L66">        setBounds(100, 100,  850, 600);</span>
+<span class="fc" id="L67">        contentPanel = new JPanel();</span>
+<span class="fc" id="L68">        contentPanel.setBackground(new Color(255, 255, 255));</span>
+<span class="fc" id="L69">        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+        
+<span class="fc" id="L71">        contentPanel.setLayout(null);</span>
+        
+<span class="fc" id="L73">        ImageIcon img = new ImageIcon(ManutencaoVariaveis.class.getResource(&quot;/images/criarCultura.png&quot;));</span>
+        
+<span class="fc" id="L75">        JTextField NomeCultura = new JTextField();</span>
+<span class="fc" id="L76">        NomeCultura.setColumns(10);</span>
+<span class="fc" id="L77">        NomeCultura.setBounds(206, 299, 294, 27);</span>
+<span class="fc" id="L78">        contentPanel.add(NomeCultura);</span>
+        
+<span class="fc" id="L80">        JTextField IdCultura = new JTextField();</span>
+<span class="fc" id="L81">        IdCultura.setToolTipText(&quot;Apenas se deseja alterar uma cultura existente&quot;);</span>
+<span class="fc" id="L82">        IdCultura.setColumns(10);</span>
+<span class="fc" id="L83">        IdCultura.setBounds(167, 175, 126, 27);</span>
+<span class="fc" id="L84">        contentPanel.add(IdCultura);</span>
+        
+        
+<span class="fc" id="L87">        JTextField Descricao = new JTextField();</span>
+<span class="fc" id="L88">        Descricao.setColumns(10);</span>
+<span class="fc" id="L89">        Descricao.setBounds(167, 364, 618, 27);</span>
+<span class="fc" id="L90">        contentPanel.add(Descricao);</span>
+        
+<span class="fc" id="L92">        JButton Return = new JButton(&quot;Voltar&quot;);</span>
+<span class="fc" id="L93">        Return.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L95">                new CulturasLista(databaseConnection);</span>
+<span class="nc" id="L96">                closeWindow();</span>
+<span class="nc" id="L97">            }</span>
+        });
+<span class="fc" id="L99">        Return.setBounds(717, 500, 89, 23);</span>
+<span class="fc" id="L100">        contentPanel.add(Return);</span>
+        
+<span class="fc" id="L102">        JTextField IdInvestigador = new JTextField();</span>
+<span class="fc" id="L103">        IdInvestigador.setColumns(10);</span>
+<span class="fc" id="L104">        IdInvestigador.setBounds(205, 238, 126, 27);</span>
+<span class="nc" id="L105">        IdInvestigador.setText(String.valueOf(databaseConnection.getMyId()));</span>
+<span class="nc" id="L106">        IdInvestigador.setEditable(false);</span>
+<span class="nc" id="L107">        contentPanel.add(IdInvestigador);</span>
+        
+<span class="nc" id="L109">        JButton btnAdicionarVariavel = new JButton(&quot;Adicionar Variavel&quot;);</span>
+<span class="nc" id="L110">        btnAdicionarVariavel.setBounds(228, 435, 140, 29);</span>
+        
+<span class="nc" id="L112">        JLabel imagemFundo = new JLabel(&quot;&quot;);</span>
+<span class="nc" id="L113">        imagemFundo.setBounds(0, 0, 834, 462);</span>
+<span class="nc" id="L114">        Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);</span>
+        
+        
+<span class="nc" id="L117">        imagemFundo.setIcon(new ImageIcon (imgm));</span>
+<span class="nc" id="L118">        JButton ACultura = new JButton(&quot;Adicionar/Alterar Cultura&quot;);</span>
+<span class="nc" id="L119">        ACultura.setBounds(378, 435, 177, 29);</span>
+<span class="nc" id="L120">        ACultura.addActionListener(new ActionListener() {</span>
+            public void actionPerformed(ActionEvent e) {
+<span class="nc bnc" id="L122" title="All 2 branches missed.">                if(!IdInvestigador.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L123" title="All 4 branches missed.">                        &amp;&amp; !NomeCultura.getText().equals(&quot;&quot;) &amp;&amp; !Descricao.getText().equals(&quot;&quot;))</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">                    if(IdCultura.getText().equals(&quot;&quot;))</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">                        if(databaseConnection.createCultura(NomeCultura.getText(), Descricao.getText()))</span>
+<span class="nc" id="L126">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L127">                                    &quot;Succeso&quot;,</span>
+<span class="nc" id="L128">                                    &quot;Information&quot;,</span>
+<span class="nc" id="L129">                                    JOptionPane.INFORMATION_MESSAGE);</span>
+                        else
+<span class="nc" id="L131">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L132">                                    &quot;Erro ao criar uma cultura&quot;,</span>
+<span class="nc" id="L133">                                    &quot;Error&quot;,</span>
+<span class="nc" id="L134">                                    JOptionPane.ERROR_MESSAGE);</span>
+                    else
+<span class="nc bnc" id="L136" title="All 2 branches missed.">                        if(databaseConnection.updateCultura(Integer.parseInt(IdCultura.getText()),NomeCultura.getText(), Descricao.getText()))</span>
+<span class="nc" id="L137">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L138">                                    &quot;Succeso&quot;,</span>
+<span class="nc" id="L139">                                    &quot;Information&quot;,</span>
+<span class="nc" id="L140">                                    JOptionPane.INFORMATION_MESSAGE);</span>
+                        else
+<span class="nc" id="L142">                            JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L143">                                    &quot;Erro ao criar uma cultura&quot;,</span>
+<span class="nc" id="L144">                                    &quot;Error&quot;,</span>
+<span class="nc" id="L145">                                    JOptionPane.ERROR_MESSAGE);</span>
+                else
+<span class="nc" id="L147">                    JOptionPane.showMessageDialog(frame.getContentPane(),</span>
+<span class="nc" id="L148">                            &quot;Os campos estao vazios&quot;,</span>
+<span class="nc" id="L149">                            &quot;Error&quot;,</span>
+<span class="nc" id="L150">                            JOptionPane.ERROR_MESSAGE);</span>
+                
+<span class="nc" id="L152">            }</span>
+        });
+<span class="nc" id="L154">        contentPanel.add(ACultura);</span>
+        
+        
+<span class="nc" id="L157">        contentPanel.add(imagemFundo);</span>
+<span class="nc" id="L158">        frame.add(contentPanel);</span>
+<span class="nc" id="L159">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>test (12/mai/2019 17:30:45)</div></body></html>
