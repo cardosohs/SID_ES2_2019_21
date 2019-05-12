@@ -54,7 +54,7 @@ public class ConsultarLuzTemp extends JFrame {
     /**
      * Cria a janela sobre a informacao da luz e temperatura
      */
-    public void startConsultarLuzTemp() {
+    private void startConsultarLuzTemp() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);

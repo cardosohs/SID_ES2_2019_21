@@ -4,16 +4,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import pt.iscte.sid.projeto.GUI.ConsultarLuzTemp;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
 class ConsultarLuzTempTest {
+	
+	
+	ConsultarLuzTemp clt;
+	DatabaseMiddleManForInvestigador databaseConnection;
+	
 
 	@Test
-	final void testConsultarLuzTemp() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	final void testStartConsultarLuzTemp() {
-		fail("Not yet implemented"); // TODO
-	}
+	final void testConsultarLuzTemp() {		
+		 assertThrows(NullPointerException.class,
+		            ()->{
+		            	clt = new ConsultarLuzTemp(databaseConnection);
+		            	});
+	}	
 
 }
