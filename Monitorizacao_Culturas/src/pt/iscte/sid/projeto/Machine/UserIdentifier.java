@@ -35,7 +35,7 @@ public class UserIdentifier {
      * @param username recebe uma string com um username
      * @param Password recebe uma string com uma password
      */
-    public String WhatUserIsThis(String username, String Password)
+    public String whatUserIsThis(String username, String Password)
     {
         
         this.Password=Password;

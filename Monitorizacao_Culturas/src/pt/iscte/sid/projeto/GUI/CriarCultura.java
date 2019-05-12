@@ -30,22 +30,7 @@ public class CriarCultura extends JFrame {
     private DatabaseMiddleManForInvestigador databaseConnection;
     private JFrame frame;
     private JPanel contentPanel;
-    
-    
-    
-   /* public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    CriarCultura frame = new CriarCultura(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
-                    // frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */    
+      
     
     /**
      * Lanca a interface da criacao da cultura
@@ -54,13 +39,13 @@ public class CriarCultura extends JFrame {
      */
     public CriarCultura(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartCriarCultura();
+        startCriarCultura();
     }
     
     /*
      * Metodo para fechar a janela
      */
-    private void CloseWindow() {
+    private void closeWindow() {
         frame.setVisible(false);
     }
     
@@ -68,7 +53,7 @@ public class CriarCultura extends JFrame {
     /**
      * Cria a janela para o Investigador poder criar as suas culturas.
      */
-    public void StartCriarCultura() {
+    public void startCriarCultura() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -108,7 +93,7 @@ public class CriarCultura extends JFrame {
         Return.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new CulturasLista(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         Return.setBounds(717, 500, 89, 23);
@@ -123,7 +108,6 @@ public class CriarCultura extends JFrame {
         
         JButton btnAdicionarVariavel = new JButton("Adicionar Variavel");
         btnAdicionarVariavel.setBounds(228, 435, 140, 29);
-        //contentPanel.add(btnAdicionarVariavel);
         
         JLabel imagemFundo = new JLabel("");
         imagemFundo.setBounds(0, 0, 834, 462);
@@ -138,7 +122,7 @@ public class CriarCultura extends JFrame {
                 if(!IdInvestigador.getText().equals("")
                         && !NomeCultura.getText().equals("") && !Descricao.getText().equals(""))
                     if(IdCultura.getText().equals(""))
-                        if(databaseConnection.CreateCultura(NomeCultura.getText(), Descricao.getText()))
+                        if(databaseConnection.createCultura(NomeCultura.getText(), Descricao.getText()))
                             JOptionPane.showMessageDialog(frame.getContentPane(),
                                     "Succeso",
                                     "Information",
@@ -149,7 +133,7 @@ public class CriarCultura extends JFrame {
                                     "Error",
                                     JOptionPane.ERROR_MESSAGE);
                     else
-                        if(databaseConnection.UpdateCultura(Integer.parseInt(IdCultura.getText()),NomeCultura.getText(), Descricao.getText()))
+                        if(databaseConnection.updateCultura(Integer.parseInt(IdCultura.getText()),NomeCultura.getText(), Descricao.getText()))
                             JOptionPane.showMessageDialog(frame.getContentPane(),
                                     "Succeso",
                                     "Information",

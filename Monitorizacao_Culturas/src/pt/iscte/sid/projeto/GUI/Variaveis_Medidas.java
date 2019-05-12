@@ -46,7 +46,7 @@ public class Variaveis_Medidas extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Construtor da classe
 	 */
 	public Variaveis_Medidas() {
 		setTitle("Consultar Vari\u00E1veis Medidas");

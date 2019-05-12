@@ -33,20 +33,6 @@ public class ConsultarLuzTemp extends JFrame {
     private DatabaseMiddleManForInvestigador databaseConnection;
     private JPanel contentPanel;
     private JFrame frame;
-    
-  /*  public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ConsultarLuzTemp frame = new ConsultarLuzTemp(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
-                    // frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */
 
     /**
      * Lanca a interface referente a consulta de luz e temperatura
@@ -55,20 +41,20 @@ public class ConsultarLuzTemp extends JFrame {
      */
     public ConsultarLuzTemp(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartConsultarLuzTemp();
+        startConsultarLuzTemp();
     }
     
     /*
      * Metodo para fechar a janela
      */
-    private void CloseWindow() {
+    private void closeWindow() {
         frame.setVisible(false);
     }
     
     /**
      * Cria a janela sobre a informacao da luz e temperatura
      */
-    public void StartConsultarLuzTemp() {
+    public void startConsultarLuzTemp() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -82,7 +68,6 @@ public class ConsultarLuzTemp extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        //setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
         ImageIcon background = new ImageIcon(ConsultarLuzTemp.class.getResource("/images/consultarLuzTemp.png"));
@@ -91,7 +76,7 @@ public class ConsultarLuzTemp extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AreaInvestigador(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         button.setBounds(728, 469, 85, 30);
@@ -104,10 +89,9 @@ public class ConsultarLuzTemp extends JFrame {
         backPhoto.setIcon(new ImageIcon(img));
         
         String[] headerLuz={"Id","Valor","Data/Hora"};
-        String[][] dataLuz=GetList(databaseConnection.getMedicoesLuz());
+        String[][] dataLuz=getList(databaseConnection.getMedicoesLuz());
         DefaultTableModel modelLuz = new DefaultTableModel(dataLuz,headerLuz);
         JTable tableLuz = new JTable(modelLuz);
-        //Admintable.setCellSelectionEnabled(true);
         ListSelectionModel selectLuz= tableLuz.getSelectionModel();
         selectLuz.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
@@ -118,10 +102,9 @@ public class ConsultarLuzTemp extends JFrame {
         contentPanel.add(jsLuz);
         
         String[] headerTemp={"Id","Valor","Data/Hora"};
-        String[][] dataTemp=GetList(databaseConnection.getMedicoesTemperatura());
+        String[][] dataTemp=getList(databaseConnection.getMedicoesTemperatura());
         DefaultTableModel modelTemp = new DefaultTableModel(dataTemp,headerTemp);
         JTable tableTemp = new JTable(modelTemp);
-        //Admintable.setCellSelectionEnabled(true);
         ListSelectionModel selectTemp = tableTemp.getSelectionModel();
         selectTemp.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
@@ -132,10 +115,9 @@ public class ConsultarLuzTemp extends JFrame {
         contentPanel.add(jsTemp);
         
         String[] headerSistema={"TempInf","TempSup","LuzInf","LuzSup"};
-        String[][] dataSistema=GetList(databaseConnection.getSistema());
+        String[][] dataSistema=getList(databaseConnection.getSistema());
         DefaultTableModel modelSistema = new DefaultTableModel(dataSistema,headerSistema);
         JTable tableSistema = new JTable(modelSistema);
-        //Admintable.setCellSelectionEnabled(true);
         ListSelectionModel selectSistema = tableSistema.getSelectionModel();
         selectSistema.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
@@ -144,10 +126,6 @@ public class ConsultarLuzTemp extends JFrame {
         jsSistema.setBounds(342, 433, 359, 77);
         
         contentPanel.add(jsSistema);
-        
-        
-        
-        
         
         contentPanel.add(backPhoto);
         frame.getContentPane().add(contentPanel);
@@ -159,7 +137,7 @@ public class ConsultarLuzTemp extends JFrame {
      * @return devolve uma matriz de strings
      */
         
-    private String[][] GetList(String arg)
+    private String[][] getList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
         String[][] linesCsv = new String[lines.length][];

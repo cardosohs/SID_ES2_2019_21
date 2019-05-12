@@ -45,21 +45,7 @@ public class CulturasLista extends JFrame {
     
     private JFrame frame;
     private DatabaseMiddleManForInvestigador databaseConnection;
-    
-  
-    /*public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new CulturasLista(new DatabaseMiddleManForInvestigador("NovoInvestigador", "12345"));
-                    // frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */
+   
     
     /**
      * Metodo para lancar a interface com ligacao a base de dados
@@ -67,14 +53,14 @@ public class CulturasLista extends JFrame {
      */
     public CulturasLista(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartCulturasLista();
+        startCulturasLista();
     }
     
     /**
      * Metodo para ocultar a janela
      */
 
-    private void CloseWindow() {
+    private void closeWindow() {
         frame.setVisible(false);
     }
     
@@ -82,7 +68,7 @@ public class CulturasLista extends JFrame {
     /**
      * Metodo para criar a janela da lista de culturas
      */
-    public void StartCulturasLista() {
+    public void startCulturasLista() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -102,24 +88,10 @@ public class CulturasLista extends JFrame {
         ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/CulturasListagem.png"));
         
         
-        
-        
-        /*JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(110, 184, 620, 305);
-        CulturasSobResponsabilidade.add(scrollPane);
-        
-        JTextField txtParaApagarPara = new JTextField();
-        scrollPane.setViewportView(txtParaApagarPara);
-        txtParaApagarPara.setFont(new Font("Tahoma", Font.PLAIN, 9));
-        txtParaApagarPara.setText("PARA APAGAR: Para aqui ser\u00E1 transposta a tabela Cultura + VariaveisMedidas + Medicoes (JOIN) (apenas Info deste invest), a partir do SQL. Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
-        txtParaApagarPara.setColumns(10);
-        */
         String[] Invesheader={"IdCultura","IdInvestigador","NomeCultura","Descricao"};
-        String[][] Invesdata=GetList(databaseConnection.getCulturas());
+        String[][] Invesdata=getList(databaseConnection.getCulturas());
         DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
         JTable table = new JTable(Invesmodel);
-        //table.setCellSelectionEnabled(true);
-        // Investable.setCellSelectionEnabled(true);
         ListSelectionModel selectInves= table.getSelectionModel();
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
@@ -132,7 +104,7 @@ public class CulturasLista extends JFrame {
         Voltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AreaInvestigador(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         Voltar.setBounds(731, 527, 77, 23);
@@ -143,7 +115,7 @@ public class CulturasLista extends JFrame {
         ButtonAlterarrCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new CriarCultura(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         ButtonAlterarrCultura.setBounds(402, 150, 149, 23);
@@ -153,7 +125,7 @@ public class CulturasLista extends JFrame {
         ButtonAddCultura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new CriarCultura(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         ButtonAddCultura.setBounds(227, 150, 165, 23);
@@ -166,11 +138,9 @@ public class CulturasLista extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CulturasSobResponsabilidade.remove(Invesjs);
                 String[] Invesheader={"IdCultura","IdInvestigador","NomeCultura","Descricao"};
-                String[][] Invesdata=GetList(databaseConnection.getCulturas());
+                String[][] Invesdata=getList(databaseConnection.getCulturas());
                 DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
                 JTable table = new JTable(Invesmodel);
-                //table.setCellSelectionEnabled(true);
-                // Investable.setCellSelectionEnabled(true);
                 ListSelectionModel selectInves= table.getSelectionModel();
                 selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 JScrollPane Invesjs=new JScrollPane(table);
@@ -239,7 +209,7 @@ public class CulturasLista extends JFrame {
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
                 else
-                    if(!databaseConnection.DeleteCultura(Integer.parseInt(CulturaId.getText())))
+                    if(!databaseConnection.deleteCultura(Integer.parseInt(CulturaId.getText())))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Está a mexer numa cultura que não lhe pertence",
                                 "Error",
@@ -284,7 +254,7 @@ public class CulturasLista extends JFrame {
      * @param arg string com os valores concatenados
      * @return matriz de strings
      */
-    private String[][] GetList(String arg)
+    private String[][] getList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
         String[][] linesCsv = new String[lines.length][];
@@ -295,19 +265,3 @@ public class CulturasLista extends JFrame {
         return linesCsv;
     }
 }
-
-
-//JLabel lblNewLabel = new JLabel("Nome");
-//lblNewLabel.setBounds(76, 198, 46, 14);
-//frmSubscreverInvestigador.getContentPane().add(lblNewLabel);
-//
-//JLabel imagTopo = new JLabel("");
-//imagTopo.setBounds(0, 0, 834, 144);
-//
-//ImageIcon imgTopo = new ImageIcon(SubscreverInvestig.class.getResource("/images/SubscricaoInvestigador.png"));
-//Image imgOne =imgTopo.getImage().getScaledInstance(imagTopo.getWidth(), imagTopo.getHeight(), Image.SCALE_SMOOTH);
-//
-//imagTopo.setIcon(new ImageIcon(imgOne));
-//
-//frmSubscreverInvestigador.getContentPane().add(imagTopo);
-//}}

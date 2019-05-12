@@ -33,24 +33,6 @@ public class InserirDados {
     private JTextField textField;
     private JTextField textField_1;
     
-    
-    
-  
-    /*	public static void main(String[] args) {
-    EventQueue.invokeLater(new Runnable() {
-    public void run() {
-    try {
-    InserirDados window = new InserirDados(new DatabaseMiddleManForInvestigador("Investigador1", "123"));
-    //window.frame.setVisible(true);
-    } catch (Exception e) {
-    e.printStackTrace();
-    }
-    }
-    });
-    }
-    */
-    
-    
     /**
      * Lanca a interface para o investigador inserir dados
      * 
@@ -65,7 +47,7 @@ public class InserirDados {
     /*
      * Metodo para fechar a janela
      */
-    private void CloseWindow() {
+    private void closeWindow() {
         frmConsultarListaVariveis.setVisible(false);
     }
     
@@ -86,11 +68,10 @@ public class InserirDados {
         
         
         ImageIcon imagem = new ImageIcon (InserirDados.class.getResource("/images/listaVariaveis.png"));
-        
-        
+       
         
         String[] Variaveisheader={"Id","IdNome"};
-        String[][] Variaveisdata=GetList(databaseConnection.getVariaveis());
+        String[][] Variaveisdata=getList(databaseConnection.getVariaveis());
         DefaultTableModel Variaveismodel = new DefaultTableModel(Variaveisdata,Variaveisheader);
         JTable table = new JTable(Variaveismodel);
         ListSelectionModel selectVariaveis= table.getSelectionModel();
@@ -103,20 +84,15 @@ public class InserirDados {
         frmConsultarListaVariveis.getContentPane().add(scrollPane);
         
         
-        
-        
         JLabel lblSeleccionarIdDa = new JLabel("ID da Variavel");
         lblSeleccionarIdDa.setBounds(39, 496, 149, 16);
-        //frame.getContentPane().add(lblSeleccionarIdDa);
         
         JTextField IdVariavel = new JTextField();
         IdVariavel.setColumns(10);
         IdVariavel.setBounds(181, 490, 47, 29);
-        //frame.getContentPane().add(IdVariavel);
         
         JButton btnApagarVariavel = new JButton("Apagar variavel");
         btnApagarVariavel.setBounds(540, 511, 149, 23);
-        //frame.getContentPane().add(btnApagarVariavel);
         
         JLabel lblNewLabel_1 = new JLabel("Aqui fica a tabela Variaveis ver https://www.youtube.com/watch?v=hg1S3QHFNrE");
         lblNewLabel_1.setBounds(209, 166, 496, 14);
@@ -126,7 +102,7 @@ public class InserirDados {
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AreaInvestigador(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         
@@ -153,7 +129,6 @@ public class InserirDados {
         JButton btnNewButton = new JButton("Associar Nova Vari\u00E1vel \u00E0 Cultura\r\n");
         btnNewButton.setBounds(369, 431, 189, 23);
         frmConsultarListaVariveis.getContentPane().add(btnNewButton);
-        //frame.getContentPane().add(lblNewLabel_1);
         
         JLabel lblNewLabel = new JLabel(/*"VER https://www.youtube.com/watch?v=hg1S3QHFNrE"*/);
         lblNewLabel.setBounds(0, 0, 834, 485);
@@ -167,28 +142,10 @@ public class InserirDados {
         
         JLabel lblSeleccionaridDaCultura = new JLabel("ID da Cultura");
         lblSeleccionaridDaCultura.setBounds(39, 529, 149, 16);
-        //frame.getContentPane().add(lblSeleccionaridDaCultura);
         
         JTextField IdCultura = new JTextField();
         IdCultura.setColumns(10);
-        IdCultura.setBounds(181, 523, 47, 29);
-        //frame.getContentPane().add(IdCultura);
-        /*JButton btnAdicionarVariavel = new JButton("Adicionar variavel");
-        btnAdicionarVariavel.setBounds(406, 511, 124, 23);
-        btnAdicionarVariavel.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        if(!IdVariavel.getText().equals("") && !IdCultura.getText().equals(""))
-        // if()
-        else
-        JOptionPane.showMessageDialog(frame.getContentPane(),
-        "Os campos estao vazios",
-        "Error",
-        JOptionPane.ERROR_MESSAGE);
-        
-        }
-        });
-        frame.getContentPane().add(btnAdicionarVariavel);*/
-        
+        IdCultura.setBounds(181, 523, 47, 29); 
         
     }
     
@@ -198,7 +155,7 @@ public class InserirDados {
      * @param arg recebe uma string
      * @return matriz de string
      */
-    private String[][] GetList(String arg)
+    private String[][] getList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
         String[][] linesCsv = new String[lines.length][];

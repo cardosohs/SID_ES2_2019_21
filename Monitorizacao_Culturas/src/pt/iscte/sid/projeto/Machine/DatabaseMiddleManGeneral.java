@@ -27,8 +27,8 @@ public class DatabaseMiddleManGeneral {
     public ArrayList<Integer> VariaviesDaDatabase = new ArrayList<>();
 
     public DatabaseMiddleManGeneral(String username, String Password) {
-        StartConnection(username, Password);
-        GetId();
+        startConnection(username, Password);
+        getId();
     }
 
     /**
@@ -37,7 +37,7 @@ public class DatabaseMiddleManGeneral {
      * @param username recebe uma string com um username
      * @param Password recebe uma string com uma password
      */
-    private void StartConnection(String username, String Password) {
+    private void startConnection(String username, String Password) {
         this.failed = true;
         this.Password = Password;
         this.Username = username;
@@ -63,7 +63,7 @@ public class DatabaseMiddleManGeneral {
      *
      * @return um boolean para saber se a ligacao foi terminada ou nao
      */
-    public boolean CloseConnection() {
+    public boolean closeConnection() {
         try {
             DatabaseConnection.close();
             return true;
@@ -76,7 +76,7 @@ public class DatabaseMiddleManGeneral {
     /**
      * Vai buscar o Id do Utilizador
      */
-    private void GetId() {
+    private void getId() {
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
         String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
@@ -111,7 +111,7 @@ public class DatabaseMiddleManGeneral {
      *
      * @return um boolean quando falaha a ligacao
      */
-    public boolean Failed() {
+    public boolean failed() {
         return failed;
     }
 

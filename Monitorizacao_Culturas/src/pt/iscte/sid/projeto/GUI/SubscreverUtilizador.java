@@ -40,25 +40,8 @@ public class SubscreverUtilizador {
     private JPasswordField ConfirmPassword;
     
     
- /*   public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    
-                    DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
-                    
-                    SubscreverUtilizador window = new SubscreverUtilizador(d,false);
-                    //  window.frame.setVisible(true);
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */
     /**
-     * Create the application.
+     * Construtor da classe
      */
     public SubscreverUtilizador() {
         initialize();
@@ -78,7 +61,7 @@ public class SubscreverUtilizador {
     /*
      * Metodo para fechar a janela
      */
-    private void CloseWindow() {
+    private void closeWindow() {
         frame.setVisible(false);
     }
     
@@ -105,8 +88,6 @@ public class SubscreverUtilizador {
         
         
         String[] categoriasProfissionais = {" ","Phd Student", "PostDoc Student", "Investigador auxiliar", "Investigador principal", "Investigador Coordenador"};
-        
-        
         JComboBox CategoriaProfcomboBox = new JComboBox(categoriasProfissionais);
         CategoriaProfcomboBox.setToolTipText("Se Investigador");
         CategoriaProfcomboBox.setAutoscrolls(true);
@@ -168,18 +149,7 @@ public class SubscreverUtilizador {
         IdTextField.setBounds(272, 211, 373, 22);
         IdTextField.setEditable(!create);
         frame.getContentPane().add(IdTextField);
-        
-        /*    JButton btnOk = new JButton("Adicionar Utilizador");
-        btnOk.setForeground(new Color(25, 25, 112));
-        btnOk.setBackground(Color.WHITE);
-        btnOk.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-        ManutencaoUtilizadores n= new ManutencaoUtilizadores();
-        n.setVisible(true);
-        }
-        });
-        btnOk.setBounds(612, 499, 156, 27);
-        frame.getContentPane().add(btnOk);*/
+
         JList list = new JList();
         list.setBounds(484, 293, 1, 1);
         frame.getContentPane().add(list);
@@ -224,7 +194,6 @@ public class SubscreverUtilizador {
                 if(create) {
                     DatabaseMiddleManForAdministrador tmp = new DatabaseMiddleManForAdministrador("root", "");
                     if(!tmp.failed){
-                        //ManutencaoUtilizadores n= new ManutencaoUtilizadores();
                         String PasswordHasString="";
                         char[] PasswordHasCharArray = passwordField.getPassword();
                         for(int index=0;index<PasswordHasCharArray.length;index++)
@@ -249,13 +218,13 @@ public class SubscreverUtilizador {
                         else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("")
                                 && !passwordField.getPassword().equals(null)) {
                             
-                            if(tmp.ExecuteSP(NameTextField.getText(), PasswordHasString, Email.getText(), "", "A")){
+                            if(tmp.executeSP(NameTextField.getText(), PasswordHasString, Email.getText(), "", "A")){
                                 JOptionPane.showMessageDialog(frame.getContentPane(),
                                         "Succeso",
                                         "Information",
                                         JOptionPane.INFORMATION_MESSAGE);
                                 new ManutencaoUtilizadores(databaseConnection);
-                                CloseWindow();
+                                closeWindow();
                             }
                             else
                                 JOptionPane.showMessageDialog(frame.getContentPane(),
@@ -267,13 +236,13 @@ public class SubscreverUtilizador {
                         else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("")
                                 && !passwordField.getPassword().equals(null)) {
                             
-                            if(tmp.ExecuteSP(NameTextField.getText(), PasswordHasString, Email.getText(), CategoriaProfcomboBox.getSelectedItem().toString(), "I")){
+                            if(tmp.executeSP(NameTextField.getText(), PasswordHasString, Email.getText(), CategoriaProfcomboBox.getSelectedItem().toString(), "I")){
                                 JOptionPane.showMessageDialog(frame.getContentPane(),
                                         "Succeso",
                                         "Information",
                                         JOptionPane.INFORMATION_MESSAGE);
                                 new ManutencaoUtilizadores(databaseConnection);
-                                CloseWindow();
+                                closeWindow();
                             }
                             else
                                 JOptionPane.showMessageDialog(frame.getContentPane(),
@@ -304,13 +273,13 @@ public class SubscreverUtilizador {
                     
                     else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("")) {
                         
-                        if(databaseConnection.UpdateAdministrador(Integer.parseInt(IdTextField.getText()),NameTextField.getText())){
+                        if(databaseConnection.updateAdministrador(Integer.parseInt(IdTextField.getText()),NameTextField.getText())){
                             JOptionPane.showMessageDialog(frame.getContentPane(),
                                     "Succeso",
                                     "Information",
                                     JOptionPane.INFORMATION_MESSAGE);
                             new ManutencaoUtilizadores(databaseConnection);
-                            CloseWindow();
+                            closeWindow();
                         }
                         else
                             JOptionPane.showMessageDialog(frame.getContentPane(),
@@ -321,13 +290,13 @@ public class SubscreverUtilizador {
                     }
                     else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("")) {
                         
-                        if(databaseConnection.UpdateInvestigador(Integer.parseInt(IdTextField.getText()),NameTextField.getText(),CategoriaProfcomboBox.getSelectedItem().toString())){
+                        if(databaseConnection.updateInvestigador(Integer.parseInt(IdTextField.getText()),NameTextField.getText(),CategoriaProfcomboBox.getSelectedItem().toString())){
                             JOptionPane.showMessageDialog(frame.getContentPane(),
                                     "Succeso",
                                     "Information",
                                     JOptionPane.INFORMATION_MESSAGE);
                             new ManutencaoUtilizadores(databaseConnection);
-                            CloseWindow();
+                            closeWindow();
                         }
                         else
                             JOptionPane.showMessageDialog(frame.getContentPane(),
@@ -355,7 +324,7 @@ public class SubscreverUtilizador {
         logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AreaAdmin(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         logout.setBackground(Color.WHITE);
@@ -367,10 +336,6 @@ public class SubscreverUtilizador {
         lblId.setFont(new Font("Tahoma", Font.BOLD, 13));
         lblId.setBounds(217, 206, 49, 27);
         frame.getContentPane().add(lblId);
-        
-        
-        
-        
-        String[] departamentos = {"Biologia", "Química"};
+
     }
 }
