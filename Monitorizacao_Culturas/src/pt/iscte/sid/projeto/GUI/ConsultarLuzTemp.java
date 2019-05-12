@@ -74,6 +74,7 @@ public class ConsultarLuzTemp extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         setTitle("Medi\u00E7\u00F5es de Sistema");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

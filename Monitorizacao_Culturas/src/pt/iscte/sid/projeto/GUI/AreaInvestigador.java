@@ -80,6 +80,7 @@ public class AreaInvestigador extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         setTitle("\u00C1rea do Investigador");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

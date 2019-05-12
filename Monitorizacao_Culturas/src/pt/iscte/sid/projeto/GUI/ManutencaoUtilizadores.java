@@ -83,6 +83,7 @@ public class ManutencaoUtilizadores extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         setTitle("Manuten\u00E7\u00E3o de Utilizadores");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

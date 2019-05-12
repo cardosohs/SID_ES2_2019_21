@@ -80,7 +80,8 @@ public class InserirDados {
         frmConsultarListaVariveis.setBounds(100, 100, 850, 600);
         frmConsultarListaVariveis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmConsultarListaVariveis.getContentPane().setLayout(null);        
-        frmConsultarListaVariveis.setVisible(true);     
+        frmConsultarListaVariveis.setVisible(true);
+        LoginWindow.centerWindow(frmConsultarListaVariveis);
         
         
         

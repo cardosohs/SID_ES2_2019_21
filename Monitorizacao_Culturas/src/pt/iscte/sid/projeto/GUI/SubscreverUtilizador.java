@@ -95,6 +95,7 @@ public class SubscreverUtilizador {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         JLabel imagTopo = new JLabel("");
         imagTopo.setBounds(0, 0, 834, 151);

@@ -79,6 +79,7 @@ public class ConfigurarLimites extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         setTitle("Configurar Limites de Vari\u00E1veis de Sistema");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

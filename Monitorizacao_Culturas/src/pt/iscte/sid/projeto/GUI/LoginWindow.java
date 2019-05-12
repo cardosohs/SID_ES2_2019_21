@@ -3,6 +3,7 @@ package pt.iscte.sid.projeto.GUI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -83,6 +85,7 @@ public class LoginWindow extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        centerWindow(frame);
         contentPanel = new JPanel();
         contentPanel.setBounds(0, 0, 834, 561);
         contentPanel.setBackground(Color.WHITE);
@@ -182,7 +185,15 @@ public class LoginWindow extends JFrame {
             
             
         } );
-    }
+        
+
+    	}
+	public static void centerWindow (JFrame frame) {
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+	    frame.setLocation(x, y);
+	}
 }
 
 

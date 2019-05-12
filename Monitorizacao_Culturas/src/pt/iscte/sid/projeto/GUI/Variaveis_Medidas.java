@@ -37,6 +37,7 @@ public class Variaveis_Medidas extends JFrame {
 				try {
 					Variaveis_Medidas frame = new Variaveis_Medidas();
 					frame.setVisible(true);
+					LoginWindow.centerWindow(frame);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
