@@ -29,7 +29,7 @@ import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 public class InserirDados {
     
     private DatabaseMiddleManForInvestigador databaseConnection;
-    private JFrame frmConsultarListaVariveis;
+    private JFrame frmConsultarListaVariveis;    
     private JTextField textField;
     private JTextField textField_1;
     
@@ -73,25 +73,14 @@ public class InserirDados {
      * Cria a janela para o Investigador poder inserir dados referentes as variaveis.
      */
     private void initialize() {
-/*<<<<<<< ept
+
         frmConsultarListaVariveis = new JFrame();
         frmConsultarListaVariveis.getContentPane().setBackground(Color.WHITE);
         frmConsultarListaVariveis.setTitle("Consultar Lista Vari\u00E1veis");
         frmConsultarListaVariveis.setBounds(100, 100, 850, 600);
         frmConsultarListaVariveis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frmConsultarListaVariveis.getContentPane().setLayout(null);
-        
-        frmConsultarListaVariveis.setVisible(true);*/
-
-        frame = new JFrame();
-        frame.getContentPane().setBackground(Color.WHITE);
-        frame.setTitle("Consultar Vari\u00E1veis");
-        frame.setBounds(100, 100, 850, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
-        frame.setResizable(false);
-        frame.setVisible(true);
-/*>>>>>>> master*/
+        frmConsultarListaVariveis.getContentPane().setLayout(null);        
+        frmConsultarListaVariveis.setVisible(true);     
         
         
         
