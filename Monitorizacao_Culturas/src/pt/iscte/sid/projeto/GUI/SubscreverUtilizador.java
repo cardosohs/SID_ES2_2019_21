@@ -48,9 +48,9 @@ public class SubscreverUtilizador {
     }
     
     /**
-     * Lanca a interface para o administrados poder subscrever um utilizador
-     * 
-     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     * Lanca a interface para o administrador poder subscrever um utilizador
+     * @param databaseConnection esta parametro é a ligacao da base de dados
+     * @param create boolean que indica se o utilizador foi criado
      */
     public SubscreverUtilizador(DatabaseMiddleManForAdministrador databaseConnection, boolean create) {
         this.databaseConnection = databaseConnection;
@@ -58,7 +58,7 @@ public class SubscreverUtilizador {
         initialize();
     }
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {

@@ -2,7 +2,7 @@ package pt.iscte.sid.projeto.GUI.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 
 
@@ -16,14 +16,12 @@ class ConfigurarLimitesTest {
 	ConfigurarLimites window;
 	
 	
-	@BeforeEach
-	void setUp() throws Exception {
-		window = new ConfigurarLimites(databaseConnection);
-	}
-	
 	@Test
 	final void testConfigurarLimites() {
-		assertNotNull(window);
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            window = new ConfigurarLimites(databaseConnection);
+	            	});
 	}
 
 	

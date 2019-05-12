@@ -20,9 +20,9 @@ import javax.swing.JOptionPane;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
 /**
- * 
- * @author Grupo 21
  * Esta classe e referente a interface grafico para o investigador poder criar uma cultura
+ * @author Grupo 21
+ * 
  *
  */
 public class CriarCultura extends JFrame {
@@ -42,7 +42,7 @@ public class CriarCultura extends JFrame {
         startCriarCultura();
     }
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {
@@ -53,7 +53,7 @@ public class CriarCultura extends JFrame {
     /**
      * Cria a janela para o Investigador poder criar as suas culturas.
      */
-    public void startCriarCultura() {
+    private void startCriarCultura() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
