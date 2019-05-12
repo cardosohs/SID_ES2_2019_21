@@ -43,7 +43,7 @@ public class ManutencaoUtilizadores extends JFrame {
     
     
     /**
-     * Metodo para lancar a interface manutencao de utilizadores com ligacao a base de dados
+     * Construtor da classe. Lança a interface manutencao de utilizadores com ligacao a base de dados
      * @param databaseConnection conexao a base de dados mysql
      */
     

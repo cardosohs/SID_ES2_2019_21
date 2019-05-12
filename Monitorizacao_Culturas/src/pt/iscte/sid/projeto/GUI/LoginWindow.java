@@ -41,14 +41,14 @@ public class LoginWindow extends JFrame {
     private JLabel PasswordLabel;
     private JLabel Emaillabel;
     
-    /*
-     * Metodo para correr a janela
+    /**
+     * Construtor da classe
      */
     public LoginWindow(){
         startLoginWindow();
     }
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {

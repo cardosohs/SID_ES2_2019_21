@@ -49,7 +49,7 @@ public class AreaInvestigador extends JFrame {
     }
     
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {

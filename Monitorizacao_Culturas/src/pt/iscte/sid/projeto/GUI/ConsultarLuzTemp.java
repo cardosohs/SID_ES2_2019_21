@@ -23,9 +23,9 @@ import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
 /**
- * 
- * @author Grupo 21
  * Esta classe e referente a interface grafico para a consulta da luz e temperatura
+ * @author Grupo 21
+ * 
  *
  */
 public class ConsultarLuzTemp extends JFrame {
@@ -44,7 +44,7 @@ public class ConsultarLuzTemp extends JFrame {
         startConsultarLuzTemp();
     }
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {

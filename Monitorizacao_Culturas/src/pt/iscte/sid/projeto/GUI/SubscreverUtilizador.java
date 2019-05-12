@@ -48,7 +48,7 @@ public class SubscreverUtilizador {
     }
     
     /**
-     * Lanca a interface para o administrados poder subscrever um utilizador
+     * Lanca a interface para o administrador poder subscrever um utilizador
      * 
      * @param databaseConnection  esta parametro é a ligacao da base de dados
      */
@@ -58,7 +58,7 @@ public class SubscreverUtilizador {
         initialize();
     }
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {

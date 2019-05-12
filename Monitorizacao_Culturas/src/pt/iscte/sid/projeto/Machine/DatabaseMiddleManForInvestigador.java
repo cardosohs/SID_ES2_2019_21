@@ -11,9 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * @author Grupo 21
  * Faz todas as operaçoes que o investigador pode fazer na BD, isto é, login, logout e operacoes CRUD(quando aplicavel)
+ * @author Grupo 21
+ * 
  */
 public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
  
