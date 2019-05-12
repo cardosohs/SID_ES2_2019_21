@@ -18,17 +18,15 @@ class SubscreverUtilizadorTest {
 	
 	@Test
 	final void testSubscreverUtilizador() {
-		assertNull(sub);
-	}
-	
-	@Test
-	final void testBoolean() {
-		assertFalse(b);
-	}
+		sub = new SubscreverUtilizador();		
+		assertNotNull(sub);
+	}	
 
 	@Test
 	final void testSubscreverUtilizadorDatabaseMiddleManForAdministradorBoolean() {
-		
+		boolean create = false;
+		sub = new SubscreverUtilizador(databaseConnection, create);
+		assertNotNull(sub);
 	}
 
 }

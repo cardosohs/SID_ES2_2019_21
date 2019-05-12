@@ -4,14 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class VariaveisMedidasTest {
+import pt.iscte.sid.projeto.GUI.VariaveisMedidas;
 
-	VariaveisMedidasTest varmed;
+class VariaveisMedidasTest {
 	
+	VariaveisMedidas vm;	
 	
 	@Test
 	final void testVariaveisMedidas() {
-		assertNull(varmed);
+		vm = new VariaveisMedidas();
+		assertNotNull(vm);
 	}
 
 }
