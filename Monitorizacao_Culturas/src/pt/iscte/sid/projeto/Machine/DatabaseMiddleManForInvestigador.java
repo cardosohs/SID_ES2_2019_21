@@ -25,16 +25,13 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     }
  
     
-   
-    
-    
     /**
      * Cria uma nova cultura associada ao investigador
      * @param NomeDaCultura recebe como argumento uma cultura
      * @param DescricaoDaCultura recebe como argumento uma descricao
      * @return boolean para verificar se foi criado uma cultura ou nao
      */
-    public boolean CreateCultura(String NomeDaCultura, String DescricaoDaCultura)
+    public boolean createCultura(String NomeDaCultura, String DescricaoDaCultura)
     {
         try {
             String query1 = " insert into cultura(IdInvestigador,NomeCultura,DescricaoCultura) values (?, ?, ?)";
@@ -84,7 +81,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @return
      */
     
-    public boolean UpdateCultura(int IdCultura, String NomeCultura, String DescricaoCultura)
+    public boolean updateCultura(int IdCultura, String NomeCultura, String DescricaoCultura)
     {
         getCulturas();
         if(CulturasDoInvestigador.contains(IdCultura)){
@@ -113,7 +110,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param IdCultura recebe um id de uma cultura
      * @return um boolean para saber se foi bem sucedido um delete de uma cultura
      */
-    public boolean DeleteCultura(int IdCultura)
+    public boolean deleteCultura(int IdCultura)
     {
         getCulturas();
         if(CulturasDoInvestigador.contains(IdCultura)){
@@ -121,7 +118,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 String query = " delete from cultura where idcultura=" + IdCultura;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
                 preparedStmt.execute();
-                RemoveFromList(CulturasDoInvestigador,IdCultura);
+                removeFromList(CulturasDoInvestigador,IdCultura);
                 return true;
             } catch (SQLException ex) {
                 System.err.println("Erro ao executar a accao");
@@ -147,7 +144,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param LimiteSuperior recebe um limite superior para uma variavel medida
      * @return um boolean para saber se foi criado uma variavel medida
      */
-    public boolean CreateVariavelMedida(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
+    public boolean createVariavelMedida(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
     {
         if(LimiteSuperior>LimiteInferior){
             try {
@@ -227,7 +224,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param LimiteSuperior recebe um limite superior para uma variavel medida
      * @return um boolean para saber se foi feito um update a uma variavel medida
      */
-    public boolean UpdateVariaveisMedidas(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
+    public boolean updateVariaveisMedidas(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
     {
         if(LimiteSuperior>LimiteInferior){
             try {
@@ -265,7 +262,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param IdVariavel recebe um ide de uma variavel
      * @return um boolean para saber se foi bem sucedido um delete de uma variavel medida
      */
-    public boolean DeleteVariaveisMedidas(int IdCultura, int IdVariavel)
+    public boolean deleteVariaveisMedidas(int IdCultura, int IdVariavel)
     {
         getCulturas();
         getVariaveis();
@@ -354,7 +351,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param ValorMed recebe um valor medicao
      * @return um boolean para saber se foi conseguido a criacao de uma medicao
      */
-    public boolean CreateMedicoes(int IdCultura, int IdVariavel,double ValorMed)
+    public boolean createMedicoes(int IdCultura, int IdVariavel,double ValorMed)
     {
         getCulturas();
         getVariaveis();
@@ -432,7 +429,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param ValorMed recebe um valor medicao
      * @return um boolean para saber se foi bem sucedido um update a medicao
      */
-    public boolean UpdateMedicao(int IdMed ,int IdCultura, int IdVariavel,double ValorMed)
+    public boolean updateMedicao(int IdMed ,int IdCultura, int IdVariavel,double ValorMed)
     {
         getCulturas();
         getVariaveis();
@@ -467,7 +464,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param IdVariavel recebe um id de uma variavel
      * @return um boolean para saber se foi bem sucedido um delete a uma medicao
      */
-    public boolean DeleteMedicao(int IdMed,int IdCultura, int IdVariavel)
+    public boolean deleteMedicao(int IdMed,int IdCultura, int IdVariavel)
     {
         
         getCulturas();
@@ -499,7 +496,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param array recebe um arraylist 
      * @param valor recebe um valor do arraylist
      */
-    private void RemoveFromList(ArrayList array,int valor )
+    private void removeFromList(ArrayList array,int valor )
     {
         for(int i=0;i<array.size();i++)
             if(array.get(i).equals(valor))

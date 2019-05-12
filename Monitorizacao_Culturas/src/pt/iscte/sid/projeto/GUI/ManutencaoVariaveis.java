@@ -35,25 +35,8 @@ public class ManutencaoVariaveis extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JPanel contentPanel;
-    //  private JTextField textField;
-    // private JTextField txtFaltaAdaptarPara;
     private JFrame frame;    
-   
-   /* public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
-                    
-                    ManutencaoVariaveis frame = new ManutencaoVariaveis(d);
-                    //  frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */
+
     
     /**
      * Metodo para lancar a interface manutencao de utilizadores com ligacao a base de dados
@@ -61,20 +44,20 @@ public class ManutencaoVariaveis extends JFrame {
      */
     public ManutencaoVariaveis(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartManutencaoVariaveis();
+        startManutencaoVariaveis();
     }
     
     /**
      * Metodo para ocultar a janela    
      */
-    private void CloseWindow() {
+    private void closeWindow() {
         frame.setVisible(false);
     }
     
     /**
      * Metodo para criar a janela de Manutencao de Variaveis
      */
-    public void StartManutencaoVariaveis() {
+    public void startManutencaoVariaveis() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -88,7 +71,6 @@ public class ManutencaoVariaveis extends JFrame {
         contentPanel = new JPanel();
         contentPanel.setBackground(new Color(255, 255, 255));
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-       //ZZ setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
         ImageIcon img = new ImageIcon(ManutencaoVariaveis.class.getResource("/images/manutencaoVariaveis.png"));
@@ -104,7 +86,7 @@ public class ManutencaoVariaveis extends JFrame {
         btnAdicionarVarivel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!textField.getText().equals(""))
-                    if(databaseConnection.CreateVariavel(textField.getText()))
+                    if(databaseConnection.createVariavel(textField.getText()))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Sucesso",
                                 "Information",
@@ -129,7 +111,7 @@ public class ManutencaoVariaveis extends JFrame {
         btnEliminarVarivel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!textField.getText().equals(""))
-                    if(databaseConnection.DeleteVariavel(Integer.parseInt(textField.getText())))
+                    if(databaseConnection.deleteVariavel(Integer.parseInt(textField.getText())))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Sucesso",
                                 "Information",
@@ -152,33 +134,24 @@ public class ManutencaoVariaveis extends JFrame {
         button_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AreaAdmin(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         button_1.setBounds(708, 450, 85, 30);
         contentPanel.add(button_1);
         
-        /*JTextField txtFaltaAdaptarPara = new JTextField();
-        txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Variaveis; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
-        txtFaltaAdaptarPara.setColumns(10);
-        txtFaltaAdaptarPara.setBounds(220, 243, 429, 30);
-        contentPanel.add(txtFaltaAdaptarPara);*/
-        
         String[] Invesheader={"IdVariavel","Nome"};
-        String[][] Invesdata=GetList(databaseConnection.getVariaveis());
+        String[][] Invesdata=getList(databaseConnection.getVariaveis());
         DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
         JTable table = new JTable(Invesmodel);
         table.setCellSelectionEnabled(true); 
-       // Investable.setCellSelectionEnabled(true);
         ListSelectionModel selectInves= table.getSelectionModel();
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
-/*<<<<<<< ept
-        Invesjs.setBounds(176, 194, 517, 189);
-=======*/
+
         Invesjs.setBounds(176, 194, 495, 182);
-/*>>>>>>> master*/
+
         contentPanel.add(Invesjs);
         
         JLabel imagemFundo = new JLabel("");
@@ -197,7 +170,7 @@ public class ManutencaoVariaveis extends JFrame {
      * @param arg string com os valores do sistema concatenados
      * @return matriz de string
      */
-     private String[][] GetList(String arg)
+     private String[][] getList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
         String[][] linesCsv = new String[lines.length][];

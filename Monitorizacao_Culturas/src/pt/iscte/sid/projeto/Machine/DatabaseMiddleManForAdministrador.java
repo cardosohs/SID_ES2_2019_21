@@ -85,44 +85,6 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
         return TableResult;
     }
     
-   
-   /* 
-    * 
-     * classe de suporte que atualiza o nome de um utilizador na base de dados
-     * @param OldEmail
-     * @param NewEmail
-     * @return
-     * 
-    * private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
-        String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
-        String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        
-        try {
-            
-            Class.forName(DatabaseDriver);
-            Connection DatabaseTMPConnection = DriverManager.getConnection(DatabaseURL, "root", "");
-            Statement stmt = DatabaseTMPConnection.createStatement();
-            
-            String query="RENAME USER '"+OldEmail+"'@'localhost' to '"+NewEmail+"'@'localhost'";
-            int rs = stmt.executeUpdate(query);
-          
-            
-            DatabaseTMPConnection.close();
-            return true;
-            
-        } catch (ClassNotFoundException ex) {
-            //System.out.println("Failed ao buscar o id do investigador");
-            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
-            //System.out.println("Failed ao buscar o id do investigador");
-            return false;
-        }
-        
-        
-    }*/
     
     /**
      * Metodo para apagar um utilizador da base de dados dado um email especifico
@@ -132,8 +94,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @exception SQLException falha na execucao do SQL devolve false
      * 
      */
-    private boolean DeleteUserNaBD(String Email)
-    {
+    private boolean deleteUserNaBD(String Email){
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
         String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
@@ -153,14 +114,6 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
             return false;
         }
     
-        /*    
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
-            //System.out.println("Failed ao buscar o id do investigador");
-            return false;
-            
-        }
-        */
     }
     
     
@@ -198,7 +151,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return boolean se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean UpdateInvestigador(int IdInvestigador, String Nome, String CategoriaProfe)
+    public boolean updateInvestigador(int IdInvestigador, String Nome, String CategoriaProfe)
     {
         try {
             String query =
@@ -220,7 +173,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return boolean se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean UpdateInvestigadorPassword(int IdInvestigador, String Password)
+    public boolean updateInvestigadorPassword(int IdInvestigador, String Password)
     {
         try {
             String query="";
@@ -243,11 +196,11 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return boolean se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean DeleteInvestigador(int IdInvestigador)
+    public boolean deleteInvestigador(int IdInvestigador)
     {
         boolean success=false;
         try {
-            success= DeleteUserNaBD(getinvestigadorEmail(IdInvestigador));
+            success= deleteUserNaBD(getinvestigadorEmail(IdInvestigador));
             if(success){
                 String query = " delete from investigador where idinvestigador=" + IdInvestigador;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
@@ -293,7 +246,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return c
      * @exception c
      */
-    public boolean UpdateAdministrador(int IdAdmin, String Nome)
+    public boolean updateAdministrador(int IdAdmin, String Nome)
     {
         try {
             String query =
@@ -316,7 +269,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return boolean se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean UpdateAdministradorPassword(int IdAdministrador, String Password)
+    public boolean updateAdministradorPassword(int IdAdministrador, String Password)
     {
         try {
             String query="";
@@ -340,10 +293,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return booleano se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean DeleteAdmin(int IdAdmin)
+    public boolean deleteAdmin(int IdAdmin)
     {
         try {
-            boolean  success= DeleteUserNaBD(getAdministradorEmail(IdAdmin));
+            boolean  success= deleteUserNaBD(getAdministradorEmail(IdAdmin));
             if(success){
                 String query = " delete from administrador where idadmin=" + IdAdmin;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
@@ -368,7 +321,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return booleano se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean CreateVariavel(String NomeVariavel)
+    public boolean createVariavel(String NomeVariavel)
     {
         try {
             String query1 = " insert into variaveis(NomeVariavel) values (?)";
@@ -389,7 +342,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return booleano se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean DeleteVariavel(int IdVariavel)
+    public boolean deleteVariavel(int IdVariavel)
     {
         
         try {
@@ -413,7 +366,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return booleano se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean CreateSistema(int LimiteInferiorTemp,int LimiteSuperiorTemp,
+    public boolean createSistema(int LimiteInferiorTemp,int LimiteSuperiorTemp,
             int LimiteInferiorLuz,int LimiteSuperiorLuz)
     {
         try {
@@ -442,7 +395,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return booleano se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean UpdateSistema(int IdSistema,int LimiteInferiorTemp,int LimiteSuperiorTemp,
+    public boolean updateSistema(int IdSistema,int LimiteInferiorTemp,int LimiteSuperiorTemp,
             int LimiteInferiorLuz,int LimiteSuperiorLuz)
     {
         try {
@@ -469,7 +422,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return booleano se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean DeleteSistema(int IdSistema)
+    public boolean deleteSistema(int IdSistema)
     {
         
         try {
@@ -494,7 +447,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @return booleano se funcionou true ou false se falhou
      * @exception SQLException caso não seja possivel atualizar a bd
      */
-    public boolean ExecuteSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
+    public boolean executeSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
     {
         // PreparedStatement cs = null;
         try {

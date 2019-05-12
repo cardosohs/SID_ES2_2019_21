@@ -18,13 +18,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
+
 /**
  * Esta classe constroi o interface grafico para o Administrador  
  * @author Grupo 21
  *
  */
-
-
 public class AreaAdmin extends JFrame {
     
     private JPanel contentPanel;
@@ -32,42 +31,28 @@ public class AreaAdmin extends JFrame {
     private DatabaseMiddleManForAdministrador databaseConnection;
     
     /**
-     *  Metodo para ocultar a janela administrador
-     */
-    private void CloseWindow() {
-        frame.setVisible(false);
-    }
-      
-    /*public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    AreaAdmin frame = new AreaAdmin(new DatabaseMiddleManForAdministrador("EmailAdmin", "12345"));
-                    //frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */
-    
-    /**
-     * Metodo para lancar a interface com ligacao a base de dados
+     * Construtor da classe. Lanca a interface com ligacao a base de dados.
      * 
      * @param databaseConnection conexao a base de dados mysql
      */
     public AreaAdmin(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartAreaAdmin() ;
+        startAreaAdmin() ;
+    }
+    
+    
+    /**
+     *  Metodo para ocultar a janela administrador
+     */
+    private void closeWindow() {
+        frame.setVisible(false);
     }
     
 
-    
     /**
      * Metodo para criar a janela do administrador
      */
-    public void StartAreaAdmin() {
+    public void startAreaAdmin() {
         frame= new JFrame();
         frame.setTitle("\u00C1rea do Administrador");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -90,7 +75,7 @@ public class AreaAdmin extends JFrame {
         btnCriaoDeUtilizadores.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new SubscreverUtilizador(databaseConnection,true);
-                CloseWindow();
+                closeWindow();
             }
         });
         btnCriaoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -101,7 +86,7 @@ public class AreaAdmin extends JFrame {
         btnManutenoDeUtilizadores.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new ManutencaoUtilizadores(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         btnManutenoDeUtilizadores.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -112,7 +97,7 @@ public class AreaAdmin extends JFrame {
         btnManutenoDeVariveis.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new ManutencaoVariaveis(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         btnManutenoDeVariveis.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -123,8 +108,8 @@ public class AreaAdmin extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new LoginWindow();
-                CloseWindow();
-                databaseConnection.CloseConnection();
+                closeWindow();
+                databaseConnection.closeConnection();
                 
             }
         });
@@ -135,7 +120,7 @@ public class AreaAdmin extends JFrame {
         btnConfigurarLimites.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new ConfigurarLimites(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         btnConfigurarLimites.setFont(new Font("Tahoma", Font.BOLD, 11));

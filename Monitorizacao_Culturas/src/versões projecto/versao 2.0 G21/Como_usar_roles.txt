@@ -1,0 +1,22 @@
+
+A primeira coisa a fazer é criar os roles com as permissões que quisermos.
+(isto deverá ser à parte... em principio com o código de criação da BD):
+
+Criar role:
+1 - CREATE ROLE investigador;
+
+Definir permissões dos roles:
+2 - GRANT SELECT, INSERT ON practice.name TO 'main_read_write';
+
+
+Criar o utilizador (com o root/administrador):
+
+1 - CREATE USER 'teste'@'localhost' IDENTIFIED BY '123'; 
+2 - GRANT 'investigador' TO 'teste'@'localhost';
+3 - SET DEFAULT ROLE investigador FOR 'teste'@'localhost'; 
+
+
+
+
+
+

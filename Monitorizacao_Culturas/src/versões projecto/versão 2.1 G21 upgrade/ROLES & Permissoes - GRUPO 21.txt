@@ -1,0 +1,63 @@
+//---------------------------------ORIGEM-G21-----------------------
+
+CREATE ROLE 'Administrador', 'Investigador', 'SensorLuz', 'SensorTemp', 'Migrador';
+
+GRANT SELECT, INSERT, DELETE ON g21origem.variaveis TO 'Administrador';
+GRANT SELECT, UPDATE, DELETE ON g21origem.investigador TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.sistema TO 'Administrador';
+GRANT SELECT, UPDATE, DELETE ON g21origem.administrador TO 'Administrador';
+
+GRANT SELECT ON g21origem.variaveis TO 'Investigador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.cultura TO 'Investigador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.variaveismedidas TO 'Investigador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.medicoes TO 'Investigador';
+GRANT SELECT ON g21origem.medicoesTemp TO 'Investigador';
+GRANT SELECT ON g21origem.medicoesLuz TO 'Investigador';
+GRANT SELECT ON g21origem.sistema TO 'Investigador';
+
+GRANT INSERT ON g21origem.medicoesLuz TO 'SensorLuz';
+GRANT INSERT ON g21origem.medicoesTemp TO 'SensorTemp';
+
+GRANT SELECT ON g21origem.log_variaveis TO 'Migrador';
+GRANT SELECT ON g21origem.log_cultura TO 'Migrador';
+GRANT SELECT ON g21origem.log_investigador TO 'Migrador';
+GRANT SELECT ON g21origem.log_administrador TO 'Migrador';
+GRANT SELECT ON g21origem.log_variaveismedidas TO 'Migrador';
+GRANT SELECT ON g21origem.log_medicoes TO 'Migrador';
+GRANT SELECT ON g21origem.log_medicoesluz TO 'Migrador';
+GRANT SELECT ON g21origem.log_medicoestemp TO 'Migrador';
+GRANT SELECT ON g21origem.log_sistema TO 'Migrador';
+GRANT SELECT ON g21origem.log_medicoesselect TO 'Migrador';
+
+//---------------------------------DESTINO-G1--------------------------
+
+CREATE ROLE 'Auditor', 'MigradorLog';
+
+GRANT SELECT ON g21destino.log_variaveis TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_cultura TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_investigador TO 'MigradorLog'';
+GRANT SELECT ON g21destino.log_administrador TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_variaveismedidas TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_medicoes TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_medicoesluz TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_medicoestemp TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_sistema TO 'MigradorLog';
+GRANT SELECT ON g21destino.log_migracao TO 'MigradorLog';
+
+GRANT INSERT ON g21destino.log_variaveis TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_cultura TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_investigador TO 'MigradorLog'';
+GRANT INSERT ON g21destino.log_administrador TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_variaveismedidas TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_medicoes TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_medicoesluz TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_medicoestemp TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_sistema TO 'MigradorLog';
+GRANT INSERT ON g21destino.log_migracao TO 'MigradorLog';
+
+//----------------------------create user-------------------
+
+CREATE USER 'alexandre'@'localhost' IDENTIFIED BY 'alex';
+GRANT 'Investigador' TO 'alexandre'@'localhost';
+SET DEFAULT ROLE Investigador FOR 'alexandre'@'localhost'; 
+

@@ -36,51 +36,29 @@ public class LoginWindow extends JFrame {
     private JTextField EmailInputField;
     private JButton LoginButton;
     private JFrame frame;
-    //private JRadioButton UserSelectionRadioButton;
     private JPasswordField PasswordInputField;
     private UserIdentifier userIdentifier= new UserIdentifier();
     private JLabel PasswordLabel;
     private JLabel Emaillabel;
     
-    /**
-     * metodo main para correr a janela loginwindow
-     * 
-     * @param args
-     */
-    /*
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    LoginWindow frame = new LoginWindow();
-                    // frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */
-    
     /*
      * Metodo para correr a janela
      */
-    public LoginWindow()
-    {
-        StartLoginWindow();
+    public LoginWindow(){
+        startLoginWindow();
     }
     
     /*
      * Metodo para fechar a janela
      */
-    private void CloseWindow() {
+    private void closeWindow() {
         frame.setVisible(false);
     }
     
     /**
      * Cria a janela para o utilizador fazer login
      */
-    public void StartLoginWindow() {
+    public void startLoginWindow() {
         frame= new JFrame();
         frame.setTitle("Login");
         frame.setResizable(false);
@@ -92,7 +70,6 @@ public class LoginWindow extends JFrame {
         contentPanel.setBounds(0, 0, 834, 561);
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        //setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
         PasswordLabel = new JLabel("");
@@ -117,19 +94,6 @@ public class LoginWindow extends JFrame {
         LoginButton.setBackground(Color.DARK_GRAY);
         LoginButton.setBounds(648, 270, 95, 34);
         contentPanel.add(LoginButton);
-        
-        /*  JRadioButton radioButton = new JRadioButton("");
-        radioButton.setForeground(new Color(64, 64, 64));
-        radioButton.setBackground(Color.DARK_GRAY);
-        radioButton.setBounds(640, 132, 28, 23);
-        contentPane.add(radioButton);
-        
-        UserSelectionRadioButton = new JRadioButton("");
-        UserSelectionRadioButton.setForeground(Color.DARK_GRAY);
-        UserSelectionRadioButton.setBackground(Color.DARK_GRAY);
-        UserSelectionRadioButton.setBounds(745, 132, 28, 23);
-        contentPane.add(UserSelectionRadioButton);
-        */
         PasswordInputField = new JPasswordField();
         PasswordInputField.setBounds(592, 202, 242, 37);
         contentPanel.add(PasswordInputField);
@@ -137,7 +101,6 @@ public class LoginWindow extends JFrame {
         JLabel fundoPagina = new JLabel("");
         fundoPagina.setBounds(-31, 0, 875, 521);
         
-        //ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("images/LoginWindow.png"));
         ImageIcon imgOne = new ImageIcon(LoginWindow.class.getResource("/images/LoginWindow.png"));
         Image img = imgOne.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
         
@@ -167,13 +130,13 @@ public class LoginWindow extends JFrame {
                     char[] PasswordHasCharArray = PasswordInputField.getPassword();
                     for(int index=0;index<PasswordHasCharArray.length;index++)
                         PasswordHasString+=PasswordHasCharArray[index];
-                    if(userIdentifier.WhatUserIsThis(EmailInputField.getText(), PasswordHasString).equals("I")){
+                    if(userIdentifier.whatUserIsThis(EmailInputField.getText(), PasswordHasString).equals("I")){
                         new AreaInvestigador(new DatabaseMiddleManForInvestigador(EmailInputField.getText(),PasswordHasString));
-                        CloseWindow();
+                        closeWindow();
                         
-                    }else if(userIdentifier.WhatUserIsThis(EmailInputField.getText(), PasswordHasString).equals("A")){
+                    }else if(userIdentifier.whatUserIsThis(EmailInputField.getText(), PasswordHasString).equals("A")){
                         new AreaAdmin(new DatabaseMiddleManForAdministrador(EmailInputField.getText(),PasswordHasString));
-                        CloseWindow();
+                        closeWindow();
                     }else
                         JOptionPane.showMessageDialog(contentPanel,
                                 "Erro ao fazer login",
@@ -190,6 +153,12 @@ public class LoginWindow extends JFrame {
         
 
     	}
+    
+    /**
+     * Centra o frame no ecrâ
+     * 
+     * @param o frame a ser centrado
+     */
 	public static void centerWindow (JFrame frame) {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);

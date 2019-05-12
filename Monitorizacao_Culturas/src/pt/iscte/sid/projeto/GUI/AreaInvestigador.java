@@ -23,8 +23,9 @@ import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
 /**
  * 
- * @author Grupo 21
  * Esta classe e referente a interface grafico para o Investigador
+ * 
+ * @author Grupo 21
  *
  */
 
@@ -37,29 +38,6 @@ public class AreaInvestigador extends JFrame {
     private DatabaseMiddleManForInvestigador databaseConnection;
     
     
-    
-    
-  /*  public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    AreaInvestigador frame = new AreaInvestigador(new DatabaseMiddleManForInvestigador("svbro@iscte-iul.com", "123"));
-                    // frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }*/
-    
-    /*
-     * Metodo para fechar a janela
-     */
-    private void CloseWindow() {
-        frame.setVisible(false);
-    }
-    
-    
     /**
      * Lanca a interface do Investigador
      * 
@@ -67,14 +45,22 @@ public class AreaInvestigador extends JFrame {
      */
     public AreaInvestigador(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartAreaInvestigador();
+        startAreaInvestigador();
     }
-
+    
+    
+    /*
+     * Metodo para fechar a janela
+     */
+    private void closeWindow() {
+        frame.setVisible(false);
+    }
+   
     
     /**
      * Cria a janela do Investigador.
      */
-    public void StartAreaInvestigador() {
+    public void startAreaInvestigador() {
         frame= new JFrame();
         frame.setTitle("\u00C1rea do Investigador");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -97,7 +83,7 @@ public class AreaInvestigador extends JFrame {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new CulturasLista(databaseConnection);
-                CloseWindow();
+                closeWindow();
                 
             }
         });
@@ -107,7 +93,7 @@ public class AreaInvestigador extends JFrame {
         btnLuzETemperatura.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
                     new ConsultarLuzTemp(databaseConnection);
-                    CloseWindow();
+                    closeWindow();
                     
                 
         	}
@@ -127,7 +113,7 @@ public class AreaInvestigador extends JFrame {
         btnVerificarRegistoPessoal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new InserirDados(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         btnVerificarRegistoPessoal.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -138,8 +124,8 @@ public class AreaInvestigador extends JFrame {
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new LoginWindow();
-                CloseWindow();
-                databaseConnection.CloseConnection();
+                closeWindow();
+                databaseConnection.closeConnection();
                 
             }
         });

@@ -1,0 +1,153 @@
+---------------------Entrar no xampp-------
+
+
+C:\xampp\mysql\bin\mysql.exe -uroot --password
+
+--Não existe password, basta carregar enter
+
+--------------------Sair do xampp-------------
+quit;
+
+
+
+---------------------Mostrar bases de dados existentes--------------
+show databases;
+
+
+---------------------Criar base de dados---------------
+drop database if exists db1;
+
+create database db1;
+
+
+---------------------Usar base de dados existentes--------
+
+use db1;
+
+---------------------Apagar database-------------------
+
+drop database if exists db1;
+
+
+--------------------Criar tabela-----------------------
+create table Investigador(
+
+IDInvestigador int not null AUTO_INCREMENT, 
+
+email varchar(50) not null,
+
+Nomeinvestigador varchar(100),
+
+CategoriaProfe varchar(100), 
+
+PRIMARY KEY(IDInvestigador) 
+
+);
+
+-------------------------Alterar uma tabela existente--------------
+
+ALTER TABLE Investigador modify email varchar(100);
+
+---------------------Mostrar tabelas----------------
+
+
+show tables;
+
+
+----------------------Apagar tabelas------------------------
+
+
+drop table Investigador;
+
+--------------------Mostrar colunas de uma tabela---------
+
+SHOW COLUMNS FROM medicoes;
+
+ou 
+
+show fields in medicoes;
+
+----------------------Inserir coluna apos criacao da tabela---
+
+ALTER TABLE Investigador ADD COLUMN salario int AFTER email;
+
+
+-----------------Apagar coluna da tabela----------------
+
+ALTER TABLE Investigador DROP salario;
+
+
+-----------------Exemplo de comandos insert-----------------
+
+tabela Investigador tem os campos  IDInvestigador , Email, NomeInvestigador, CategoriaProfe
+
+
+insert into Investigador values
+
+(1,'email@gmail.com','InvestigadorA', 'Biologia'),
+
+(2,'email@sapo.pt','InvestigadorB', 'Biologia'),
+
+(3,'email@hotmail.com','InvestigadorC', 'Biologia Marinha');
+
+
+--------------------Exemplo de comandos selects-------------
+
+select * from cultura;
+
+select * from medicoes where idCultura > 10;
+
+select nomevariavel from variaveis where
+
+select investigador.NomeInvestigador, cultura.NomeCultura from investigador, cultura
+where investigador.IDInvestigador=cultura.IDInvestigador;
+
+
+----------------Alterar um registo----------------------------
+update Investigador set Nomeinvestigador='InvestigadorD'
+where IDInvestigador=3;
+
+---------------Apagar um registo-----------------------------
+
+delete from Investigador where IdInvestigador=3;
+
+
+
+
+---------------Criação de um Storage Proceder------------
+
+
+mysql> delimiter +
+create procedure Listar_Investigador()
+begin
+select NomeInvestigador as nome, Email,CategoriaProfe as Categoria
+from Investigador;
+end+
+delimiter ;
+
+-----------------Usar Storage Procedure----------------------
+
+call Listar_Investigador();
+
+----------------Mostrar Storage Procedure------------------
+show procedure status;
+
+----------------Apagar Storage Proceder---------------------
+
+DROP PROCEDURE Listar_Investigador;
+
+
+
+-----------------Criar Trigger-----------------------------
+
+DELIMITER +
+CREATE TRIGGER update_salario
+    After Update ON Investigador
+    FOR EACH ROW 
+BEGIN
+   //o que o trigger fizer
+END+
+DELIMITER ;
+
+-------Apagar trigger------------------------
+drop trigger update_salario

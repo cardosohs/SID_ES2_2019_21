@@ -42,19 +42,6 @@ public class ManutencaoUtilizadores extends JFrame {
     private JTextField txtFaltaAdaptarPara_1;
     
     
- /*   public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new ManutencaoUtilizadores(new DatabaseMiddleManForAdministrador("root", ""));
-                    // frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }*/
-    
     /**
      * Metodo para lancar a interface manutencao de utilizadores com ligacao a base de dados
      * @param databaseConnection conexao a base de dados mysql
@@ -62,14 +49,14 @@ public class ManutencaoUtilizadores extends JFrame {
     
     public ManutencaoUtilizadores(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartManutencaoUtilizadores();
+        startManutencaoUtilizadores();
     }
     
 
     /**
      * Metodo para ocultar a janela
      */
-    private void CloseWindow() {
+    private void closeWindow() {
         frame.setVisible(false);
     }
     
@@ -77,7 +64,7 @@ public class ManutencaoUtilizadores extends JFrame {
      * Metodo para criar a janela de Manutencao de Utilizadores
      * 
      */
-    public void StartManutencaoUtilizadores() {
+    public void startManutencaoUtilizadores() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -100,7 +87,7 @@ public class ManutencaoUtilizadores extends JFrame {
         btnAdicionarUtilizador.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new SubscreverUtilizador(databaseConnection,true);
-                CloseWindow();
+                closeWindow();
             }
         });
         btnAdicionarUtilizador.setBounds(547, 497, 179, 30);
@@ -112,21 +99,14 @@ public class ManutencaoUtilizadores extends JFrame {
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AreaAdmin(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         btnVoltar.setBounds(725, 497, 85, 30);
         contentPanel.add(btnVoltar);
         
-        /*txtFaltaAdaptarPara = new JTextField();
-        txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Administradores; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
-        txtFaltaAdaptarPara.setBounds(80, 235, 292, 30);
-        contentPanel.add(txtFaltaAdaptarPara);
-        txtFaltaAdaptarPara.setColumns(10);
-        txtFaltaAdaptarPara.setEditable(false);*/
-        
         String[] Adminheader={"Id","Email","Nome"};
-        String[][] Admindata=GetList(databaseConnection.getAdministradores());
+        String[][] Admindata=getList(databaseConnection.getAdministradores());
         
         DefaultTableModel Adminmodel = new DefaultTableModel(Admindata,Adminheader);
         JTable Admintable = new JTable(Adminmodel);
@@ -147,13 +127,8 @@ public class ManutencaoUtilizadores extends JFrame {
         
         contentPanel.add(Adminjs);
         
-        /*txtFaltaAdaptarPara_1 = new JTextField();
-        txtFaltaAdaptarPara_1.setText("Falta adaptar para receber a tabela Investigadores");
-        txtFaltaAdaptarPara_1.setColumns(10);
-        txtFaltaAdaptarPara_1.setBounds(456, 244, 269, 39);
-        contentPanel.add(txtFaltaAdaptarPara_1);*/
         String[] Invesheader={"Id","Email","Nome","Categoria"};
-        String[][] Invesdata=GetList(databaseConnection.getInvestigador());
+        String[][] Invesdata=getList(databaseConnection.getInvestigador());
         DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
         JTable Investable = new JTable(Invesmodel);
         Investable.setCellSelectionEnabled(false); 
@@ -205,7 +180,7 @@ public class ManutencaoUtilizadores extends JFrame {
         btnEliminarUtilizador.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!IdAdmin.getText().equals(""))
-                    if(databaseConnection.DeleteAdmin(Integer.parseInt(IdAdmin.getText())))
+                    if(databaseConnection.deleteAdmin(Integer.parseInt(IdAdmin.getText())))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Successo",
                                 "Information",
@@ -216,7 +191,7 @@ public class ManutencaoUtilizadores extends JFrame {
                                 "ERROR",
                                 JOptionPane.ERROR_MESSAGE);
                 else if(!IdInves.getText().equals(""))
-                    if(databaseConnection.DeleteInvestigador(Integer.parseInt(IdInves.getText())))
+                    if(databaseConnection.deleteInvestigador(Integer.parseInt(IdInves.getText())))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Successo",
                                 "Information",
@@ -240,7 +215,7 @@ public class ManutencaoUtilizadores extends JFrame {
         btnSubmeterAlteraes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new SubscreverUtilizador(databaseConnection,false);
-                CloseWindow();
+                closeWindow();
         }});
         btnSubmeterAlteraes.setBounds(390, 497, 158, 30);
         contentPanel.add(btnSubmeterAlteraes);
@@ -255,7 +230,7 @@ public class ManutencaoUtilizadores extends JFrame {
      * @param arg string com os valores do sistema concatenados
      * @return matriz de string
      */
-    private String[][] GetList(String arg)
+    private String[][] getList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
         String[][] linesCsv = new String[lines.length][];

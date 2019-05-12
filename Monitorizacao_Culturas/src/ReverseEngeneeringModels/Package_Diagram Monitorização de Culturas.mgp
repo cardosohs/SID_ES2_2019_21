@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackageAnalysis>
+    <Package name="pt.iscte.sid.projeto.GUI" x="178" y="217">
+        <DependencyLink destination="pt.iscte.sid.projeto.Machine"/>
+    </Package>
+    <Package name="pt.iscte.sid.projeto.Machine" x="184" y="100"/>
+</PackageAnalysis>

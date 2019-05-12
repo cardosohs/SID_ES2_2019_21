@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="pt.iscte.sid.projeto.GUI.CriarCultura" x="-372" y="403">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.CulturasLista" x="-290" y="32">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.SubscreverUtilizador" x="675" y="205">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.AreaInvestigador" x="-114" y="320">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.Main" x="-134" y="541">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral"
+        x="986" y="474">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.Variaveis_Medidas" x="16" y="571">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador"
+        x="-666" y="103">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.InserirDados" x="-414" y="593">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.Machine.UserIdentifier" x="315" y="576">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador"
+        x="969" y="89">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral">
+            <Point x="609" y="190"/>
+        </Extension>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.AreaAdmin" x="1341" y="263">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.LoginWindow" x="320" y="311">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.UserIdentifier"
+            endpointName="userIdentifier" kind="Simple"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.ManutencaoUtilizadores"
+        x="1261" y="391">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.ManutencaoVariaveis" x="765" y="407">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.ConfigurarLimites" x="663" y="93">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+    <Class name="pt.iscte.sid.projeto.GUI.ConsultarLuzTemp" x="-661" y="558">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador"
+            endpointName="databaseConnection" kind="Simple"/>
+        <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
+    </Class>
+</ClassDiagram>

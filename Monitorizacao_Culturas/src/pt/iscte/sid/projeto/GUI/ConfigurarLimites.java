@@ -34,29 +34,7 @@ public class ConfigurarLimites extends JFrame {
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JFrame frame;
     private JPanel contentPanel;    
-  
-    /*public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("EmailAdmin", "12345");
-                    
-                    ConfigurarLimites frame = new ConfigurarLimites(d);
-                    //frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    */
-    /**
-     * Metodo para ocultar a janela de configuração de limites
-     */
-    
-    private void CloseWindow() {
-        frame.setVisible(false);
-    }
+ 
     
     /**
      * Metodo para lancar a interface com ligacao a base de dados
@@ -66,14 +44,23 @@ public class ConfigurarLimites extends JFrame {
     
     public ConfigurarLimites(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
-        StartConfigurarLimites();
+        startConfigurarLimites();
+    }
+    
+ 
+    /**
+     * Metodo para ocultar a janela de configuração de limites
+     */
+    
+    private void closeWindow() {
+        frame.setVisible(false);
     }
 
     
     /**
      * Cria a janela do administrador
      */
-    public void StartConfigurarLimites() {
+    public void startConfigurarLimites() {
         frame= new JFrame();
         frame.setTitle("Configurar Limites de Vari\u00E1veis de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -116,21 +103,15 @@ public class ConfigurarLimites extends JFrame {
         BotaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new AreaAdmin(databaseConnection);
-                CloseWindow();
+                closeWindow();
             }
         });
         BotaoVoltar.setBounds(721, 509, 85, 30);
         contentPanel.add(BotaoVoltar);
-        
-       /* JTextField  txtFaltaAdaptarPara = new JTextField();
-        txtFaltaAdaptarPara.setText("Falta adaptar para receber a tabela Sistema; Ver como em: https://www.youtube.com/watch?v=6cNYUc2PIag");
-        txtFaltaAdaptarPara.setColumns(10);
-        txtFaltaAdaptarPara.setBounds(157, 260, 292, 30);
-        contentPanel.add(txtFaltaAdaptarPara);*/
-        
+
         
         String[] Invesheader={"Id","LimiteInfTemp","LimiteSupTemp","LimiteInfLuz","LimiteSupLuz"};
-        String[][] Invesdata=GetList(databaseConnection.getSistema());
+        String[][] Invesdata=getList(databaseConnection.getSistema());
         DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
         JTable table = new JTable(Invesmodel);
         table.setCellSelectionEnabled(true); 
@@ -150,7 +131,7 @@ public class ConfigurarLimites extends JFrame {
                         && Integer.parseInt(TmpMax.getText()) >= Integer.parseInt(TmpMin.getText())
                         && Integer.parseInt(LumMax.getText()) >= Integer.parseInt(LumMin.getText())){
                     
-                    if(databaseConnection.CreateSistema(Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())
+                    if(databaseConnection.createSistema(Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())
                             , Integer.parseInt(LumMin.getText()), Integer.parseInt(LumMax.getText())))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Succeso",
@@ -193,7 +174,7 @@ public class ConfigurarLimites extends JFrame {
                         && Integer.parseInt(TmpMax.getText()) >= Integer.parseInt(TmpMin.getText())
                         && Integer.parseInt(LumMax.getText()) >= Integer.parseInt(LumMin.getText())){
                     
-                    if(databaseConnection.UpdateSistema(Integer.parseInt(IdtextField.getText()),Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())
+                    if(databaseConnection.updateSistema(Integer.parseInt(IdtextField.getText()),Integer.parseInt(TmpMin.getText()), Integer.parseInt(TmpMax.getText())
                             , Integer.parseInt(LumMin.getText()), Integer.parseInt(LumMax.getText())))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Succeso",
@@ -226,7 +207,7 @@ public class ConfigurarLimites extends JFrame {
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
                 else{
-                    if(databaseConnection.DeleteSistema(Integer.parseInt(IdtextField.getText())))
+                    if(databaseConnection.deleteSistema(Integer.parseInt(IdtextField.getText())))
                         JOptionPane.showMessageDialog(frame.getContentPane(),
                                 "Successo",
                                 "Information",
@@ -249,7 +230,7 @@ public class ConfigurarLimites extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 contentPanel.remove(Invesjs);
                 String[] Invesheader={"Id","LimiteInfTemp","LimiteSupTemp","LimiteInfLuz","LimiteSupLuz"};
-                String[][] Invesdata=GetList(databaseConnection.getSistema());
+                String[][] Invesdata=getList(databaseConnection.getSistema());
                 DefaultTableModel Invesmodel = new DefaultTableModel(Invesdata,Invesheader);
                 JTable table = new JTable(Invesmodel);
                 //table.setCellSelectionEnabled(true);
@@ -281,7 +262,7 @@ public class ConfigurarLimites extends JFrame {
      * @param arg string com os valores do sistema concatenados
      * @return matriz de string
      */
-      private String[][] GetList(String arg)
+      private String[][] getList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");
         String[][] linesCsv = new String[lines.length][];

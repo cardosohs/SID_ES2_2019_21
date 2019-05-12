@@ -1,0 +1,59 @@
+/************** Comando para adicionar coluna id na tabela mysql.user
+*
+*
+*
+*Alter table mysql.user ADD COLUMN id int not null;
+*
+*
+*
+*
+**************/
+DROP PROCEDURE IF EXiSTS SP_CriaUtilizador;
+
+DELIMITER $$
+create procedure SP_CriaUtilizador(in InNome varchar(500), InPassword varchar(500),in InEmail varchar(500),IncategoriaProfe varchar(500),InTipo varchar(1))
+begin
+	
+	Declare ExisteAdmin varchar(50);
+	Declare ExisteInvest varchar(50);
+	Declare maxid int;
+	Declare sqlquery varchar(100);
+	
+	select a.email into ExisteAdmin from administrador a where a.email= InEmail;
+	select i.email into ExisteInvest from investigador i where i.email= InEmail;
+	
+	IF InTipo = 'A' or Intipo = "I" Then
+		IF ExisteAdmin is Null and ExisteInvest is null then	
+			select max(id) +1 into maxid from mysql.user;
+			set @sqlquery= CONCAT("CREATE USER ","'",InNome,"'","@","'localhost'","IDENTIFIED BY ","'",InPassword,"'");
+			PREPARE stmt FROM @sqlquery;
+			EXECUTE stmt;
+		
+			update mysql.user u set id=maxid where u.user = InNome;
+			IF Intipo = "A" Then
+				insert into administrador(IdAdmin,Email,NomeAdmin) values (maxid,InEmail,InNome);
+				set @sqlqueryAdministrador_1= CONCAT("GRANT", "'Administrador' TO '",InNome,"'@'localhost'");
+				PREPARE stmtAdministrador_1 FROM @sqlqueryAdministrador_1;
+				EXECUTE stmtAdministrador_1;
+				set @sqlqueryAdministrador_2= CONCAT("SET DEFAULT ROLE Administrador FOR '",InNome,"@'localhost'");
+				PREPARE stmtAdministrador_2 FROM @sqlqueryAdministrador_2;
+				EXECUTE stmtAdministrador_2;
+			Else
+				insert into Investigador values (maxid,InEmail,InNome, InCategoriaProfe);
+				set @sqlqueryInvestigador_1= CONCAT("GRANT", "'Investigador' TO '",InNome,"'@'localhost'");
+				PREPARE stmtInvestigador_1 FROM @sqlqueryInvestigador_1;
+				EXECUTE stmtInvestigador_1;
+				set @sqlqueryInvestigador_2= CONCAT("SET DEFAULT ROLE Investigador FOR '",InNome,"@'localhost'");
+				PREPARE stmtInvestigador_2 FROM @sqlqueryInvestigador_2;
+				EXECUTE stmtInvestigador_2;				
+			END IF;
+		ELSE
+ 			signal sqlstate '45000' SET MESSAGE_TEXT ='ERRO, esse email ja esta registado';
+		END IF;
+	ELSE
+ 		signal sqlstate '45000' SET MESSAGE_TEXT ='ERRO, Tipo de utilizador desconhecido';
+	END IF;
+	
+end$$
+
+DELIMITER ;
