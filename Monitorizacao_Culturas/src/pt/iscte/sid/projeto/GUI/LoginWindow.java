@@ -157,7 +157,7 @@ public class LoginWindow extends JFrame {
     /**
      * Centra o frame no ecrâ
      * 
-     * @param o frame a ser centrado
+     * @param JFrame a ser centrado
      */
 	public static void centerWindow (JFrame frame) {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();

@@ -88,10 +88,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     /**
      * Metodo para apagar um utilizador da base de dados dado um email especifico
-     * @param Email do utilizador a apagar
+     * @param email do utilizador a apagar
      * @return boolean true se funcionar false se não
-     * @exception ClassNotFoundException falha na criação da ligação devolve false
-     * @exception SQLException falha na execucao do SQL devolve false
+     * @exception falha na criação da ligação devolve false
+     * @exception falha na execucao do SQL devolve false
      * 
      */
     private boolean deleteUserNaBD(String Email){
@@ -120,7 +120,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     /**
      * Metodo para obter uma string concatenada dos valores da tabela investigador
      * @return string concatenada
-     * @exception Exception caso nao consiga obter a informacao devolve null
+     * @exception caso nao consiga obter a informacao devolve null
      */
 
     public String getInvestigador()
@@ -145,11 +145,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     /**
      * Metodo para atualizar a informação de um investigador
      * @param IdInvestigador int para pesquisa de utilizador a alterar
-     * @param Email string com email novo
      * @param Nome string com nome novo
      * @param CategoriaProfe string com nova categoria profissional
      * @return boolean se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean updateInvestigador(int IdInvestigador, String Nome, String CategoriaProfe)
     {
@@ -171,7 +170,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param IdInvestigador int para pesquisa de utilizador a alterar
      * @param Password string com password nova
      * @return boolean se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean updateInvestigadorPassword(int IdInvestigador, String Password)
     {
@@ -194,7 +193,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Metodo para apagar um investigador
      * @param IdInvestigador int para pesquisa de utilizador a apagar
      * @return boolean se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean deleteInvestigador(int IdInvestigador)
     {
@@ -243,8 +242,8 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Metodo para atualizar o nome do administrador
      * @param IdAdmin int com o id do administrador a alterar
      * @param Nome string do novo nome
-     * @return c
-     * @exception c
+     * @return boolean que indica se foi feito update ao administrador
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean updateAdministrador(int IdAdmin, String Nome)
     {
@@ -267,7 +266,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param IdAdministrador int com o id do administrador a alterar
      * @param Password string da nova password
      * @return boolean se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean updateAdministradorPassword(int IdAdministrador, String Password)
     {
@@ -291,7 +290,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Metodo para apagar administrador
      * @param IdAdmin int com o id do administrador a alterar
      * @return booleano se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean deleteAdmin(int IdAdmin)
     {
@@ -319,7 +318,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Metodo para criar uma variavel
      * @param NomeVariavel string com o nome da variavel a criar
      * @return booleano se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean createVariavel(String NomeVariavel)
     {
@@ -340,7 +339,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Metodo para apagar uma variavel
      * @param IdVariavel int com o id do variavel a apagar
      * @return booleano se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean deleteVariavel(int IdVariavel)
     {
@@ -364,7 +363,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param LimiteInferiorLuz int com limite inferior de luminosidade
      * @param LimiteSuperiorLuz int com limite superior de luminosidade
      * @return booleano se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean createSistema(int LimiteInferiorTemp,int LimiteSuperiorTemp,
             int LimiteInferiorLuz,int LimiteSuperiorLuz)
@@ -393,7 +392,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param LimiteInferiorLuz int com limite inferior de luminosidade
      * @param LimiteSuperiorLuz int com limite superior de luminosidade
      * @return booleano se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean updateSistema(int IdSistema,int LimiteInferiorTemp,int LimiteSuperiorTemp,
             int LimiteInferiorLuz,int LimiteSuperiorLuz)
@@ -420,7 +419,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * Metodo para apagar uma entrada na tabela sistema
      * @param IdSistema int id do sistema a atualizar
      * @return booleano se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean deleteSistema(int IdSistema)
     {
@@ -445,7 +444,7 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
      * @param InCategoriaProfe string com a categoria profissional do utiizador
      * @param InTipo string com o tipo de utilizador admin ou investigador
      * @return booleano se funcionou true ou false se falhou
-     * @exception SQLException caso não seja possivel atualizar a bd
+     * @exception caso não seja possivel atualizar a bd
      */
     public boolean executeSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
     {
