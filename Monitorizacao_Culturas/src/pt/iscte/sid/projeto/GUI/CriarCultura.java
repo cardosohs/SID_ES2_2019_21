@@ -53,7 +53,7 @@ public class CriarCultura extends JFrame {
     /**
      * Cria a janela para o Investigador poder criar as suas culturas.
      */
-    public void startCriarCultura() {
+    private void startCriarCultura() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
