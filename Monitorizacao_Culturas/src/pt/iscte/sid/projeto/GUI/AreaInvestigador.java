@@ -21,6 +21,13 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
+/**
+ * 
+ * @author Grupo 21
+ * Esta classe e referente a interface grafico para o Investigador
+ *
+ */
+
 public class AreaInvestigador extends JFrame {
     
     private JPanel contentPanel;
@@ -31,9 +38,7 @@ public class AreaInvestigador extends JFrame {
     
     
     
-    /**
-     * Launch the application.
-     */
+    
   /*  public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -46,10 +51,20 @@ public class AreaInvestigador extends JFrame {
             }
         });
     }*/
+    
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
+    
+    /**
+     * Lanca a interface do Investigador
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
     public AreaInvestigador(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartAreaInvestigador();
@@ -57,7 +72,7 @@ public class AreaInvestigador extends JFrame {
 
     
     /**
-     * Create the frame.
+     * Cria a janela do Investigador.
      */
     public void StartAreaInvestigador() {
         frame= new JFrame();
@@ -65,6 +80,7 @@ public class AreaInvestigador extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         setTitle("\u00C1rea do Investigador");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,11 +91,7 @@ public class AreaInvestigador extends JFrame {
         contentPanel.setLayout(null);
         
         ImageIcon imgTopo = new ImageIcon(SubscreverUtilizador.class.getResource("/images/areaInvestigador.png"));
-        
-        JLabel Menu = new JLabel("");
-        Menu.setBounds(212, 219, 363, 75);
         ImageIcon menu = new ImageIcon(SubscreverUtilizador.class.getResource("/images/MenuAreaInvest.png"));
-        contentPanel.add(Menu);
         
         JButton btnNewButton = new JButton("As Minhas Culturas");
         btnNewButton.addActionListener(new ActionListener() {
@@ -89,13 +101,26 @@ public class AreaInvestigador extends JFrame {
                 
             }
         });
+        
+        JButton btnLuzETemperatura = new JButton("Ver Luz/Temperatura");
+        btnLuzETemperatura.setFont(new Font("Tahoma", Font.BOLD, 11));
+        btnLuzETemperatura.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+                    new ConsultarLuzTemp(databaseConnection);
+                    CloseWindow();
+                    
+                
+        	}
+        });
+        btnLuzETemperatura.setBounds(410, 299, 189, 69);
+        contentPanel.add(btnLuzETemperatura);
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-        btnNewButton.setBounds(157, 288, 162, 69);
+        btnNewButton.setBounds(81, 299, 162, 69);
         contentPanel.add(btnNewButton);
         
         JButton btnAppAndroid = new JButton("App Android");
         btnAppAndroid.setFont(new Font("Tahoma", Font.BOLD, 11));
-        btnAppAndroid.setBounds(336, 288, 169, 69);
+        btnAppAndroid.setBounds(598, 299, 169, 69);
         contentPanel.add(btnAppAndroid);
         
         JButton btnVerificarRegistoPessoal = new JButton("Consultar Vari\u00E1veis");
@@ -106,7 +131,7 @@ public class AreaInvestigador extends JFrame {
             }
         });
         btnVerificarRegistoPessoal.setFont(new Font("Tahoma", Font.BOLD, 11));
-        btnVerificarRegistoPessoal.setBounds(515, 288, 169, 69);
+        btnVerificarRegistoPessoal.setBounds(242, 299, 169, 69);
         contentPanel.add(btnVerificarRegistoPessoal);
         
         JButton btnLogout = new JButton("LogOut");

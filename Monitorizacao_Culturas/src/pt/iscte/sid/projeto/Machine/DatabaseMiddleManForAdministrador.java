@@ -17,12 +17,19 @@ import java.util.logging.Logger;
 
 /**
  *
- *
- * @author Sérgio
+ * Classe de interface entre a Gui para o administrador e a base de dados Mysql
+ * @author Grupo 21
  *
  */
 public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
+	
+	
+	/**
+	 * Construtor da classe
+	 * @param username string com o utilizador
+	 * @param Password string de password
+	 */
     public DatabaseMiddleManForAdministrador(String username, String Password) {
         super(username, Password);
     }
@@ -30,9 +37,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * metodo de suporte que vai buscar o email de um investigador
-     * @param id
-     * @return
+     * Metodo de suporte que vai buscar o email de um investigador dado um id especifico
+     * @param id do utilizador da tabela de investigador
+     * @return email do investigador
+     * @exception caso falhe a pesquisa devolve null
      */
     private String getinvestigadorEmail(int id)
     {
@@ -54,9 +62,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * clase de suporte que vai buscar o email de um Admin
-     * @param id
-     * @return
+     * Metodo de suporte que vai buscar o email de um administrador dado um id especifico
+     * @param id do utilizador da tabela de administrador
+     * @return email do administrador
+     * @exception caso falhe a pesquisa devolve null
      */
     private String getAdministradorEmail(int id)
     {
@@ -76,13 +85,15 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
         return TableResult;
     }
     
-    /**
+   
+   /* 
+    * 
      * classe de suporte que atualiza o nome de um utilizador na base de dados
      * @param OldEmail
      * @param NewEmail
      * @return
-     */
-   /* private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
+     * 
+    * private boolean UpdateUserNaBD(String OldEmail, String NewEmail){
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
         String DatabaseURL = "jdbc:mysql://localhost/" + DatabaseName + "?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
         
@@ -114,9 +125,12 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }*/
     
     /**
-     * Classe de suporte que apaga um utilizador da base de dados
-     * @param Email
-     * @return
+     * Metodo para apagar um utilizador da base de dados dado um email especifico
+     * @param Email do utilizador a apagar
+     * @return boolean true se funcionar false se não
+     * @exception ClassNotFoundException falha na criação da ligação devolve false
+     * @exception SQLException falha na execucao do SQL devolve false
+     * 
      */
     private boolean DeleteUserNaBD(String Email)
     {
@@ -133,24 +147,29 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
             DatabaseTMPConnection.close();
             return true;
             
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             //System.out.println("Failed ao buscar o id do investigador");
             Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
             return false;
-            
+        }
+    
+        /*    
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseMiddleManForInvestigador.class.getName()).log(Level.SEVERE, null, ex);
             //System.out.println("Failed ao buscar o id do investigador");
             return false;
             
         }
+        */
     }
     
     
     /**
-     * vai buscar os Investigadores
-     * @return
+     * Metodo para obter uma string concatenada dos valores da tabela investigador
+     * @return string concatenada
+     * @exception Exception caso nao consiga obter a informacao devolve null
      */
+
     public String getInvestigador()
     {
         String TableResult="";
@@ -171,12 +190,13 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }
     
     /**
-     * Atualiza um investigador
-     * @param IdInvestigador
-     * @param Email
-     * @param Nome
-     * @param CategoriaProfe
-     * @return
+     * Metodo para atualizar a informação de um investigador
+     * @param IdInvestigador int para pesquisa de utilizador a alterar
+     * @param Email string com email novo
+     * @param Nome string com nome novo
+     * @param CategoriaProfe string com nova categoria profissional
+     * @return boolean se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean UpdateInvestigador(int IdInvestigador, String Nome, String CategoriaProfe)
     {
@@ -194,10 +214,11 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }
     
     /**
-     * Atualiza apenas a password de um investigador
-     * @param IdInvestigador
-     * @param Password
-     * @return
+     * Metodo para atualizar apenas a password de um investigador
+     * @param IdInvestigador int para pesquisa de utilizador a alterar
+     * @param Password string com password nova
+     * @return boolean se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean UpdateInvestigadorPassword(int IdInvestigador, String Password)
     {
@@ -217,9 +238,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * Apaga um investigador
-     * @param IdInvestigador
-     * @return
+     * Metodo para apagar um investigador
+     * @param IdInvestigador int para pesquisa de utilizador a apagar
+     * @return boolean se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean DeleteInvestigador(int IdInvestigador)
     {
@@ -241,8 +263,9 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * Vai buscar os Administradores
-     * @return
+     * Metodo para ir buscar uma string concatatenada da tabela Administradores
+     * @return string com os valores concatenados
+     * @exception caso nao consiga obter a string devolve null
      */
     public String getAdministradores()
     {
@@ -264,11 +287,11 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }
     
     /**
-     * Atualiza um administrador
-     * @param IdAdmin
-     * @param Email
-     * @param Nome
-     * @return
+     * Metodo para atualizar o nome do administrador
+     * @param IdAdmin int com o id do administrador a alterar
+     * @param Nome string do novo nome
+     * @return c
+     * @exception c
      */
     public boolean UpdateAdministrador(int IdAdmin, String Nome)
     {
@@ -280,17 +303,18 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
             preparedStmt.execute();
             return true;
         } catch (SQLException ex) {
-            System.err.println("Erro ao executar a accao");
+            System.err.println("Erro ao executar a acao");
             return false;
         }
     }
     
     
     /**
-     * Atualiza a password de um admin
-     * @param IdAdministrador
-     * @param Password
-     * @return
+     * Metodo para atualizar a password do administrador
+     * @param IdAdministrador int com o id do administrador a alterar
+     * @param Password string da nova password
+     * @return boolean se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean UpdateAdministradorPassword(int IdAdministrador, String Password)
     {
@@ -311,9 +335,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * Apaga um administrador
-     * @param IdAdmin
-     * @return
+     * Metodo para apagar administrador
+     * @param IdAdmin int com o id do administrador a alterar
+     * @return booleano se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean DeleteAdmin(int IdAdmin)
     {
@@ -338,9 +363,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * Cria uma variavel
-     * @param NomeVariavel
-     * @return
+     * Metodo para criar uma variavel
+     * @param NomeVariavel string com o nome da variavel a criar
+     * @return booleano se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean CreateVariavel(String NomeVariavel)
     {
@@ -358,9 +384,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * Apaga uma variavel
-     * @param IdVariavel
-     * @return
+     * Metodo para apagar uma variavel
+     * @param IdVariavel int com o id do variavel a apagar
+     * @return booleano se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean DeleteVariavel(int IdVariavel)
     {
@@ -378,12 +405,13 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }
     
     /**
-     * Cria uma nova entrada na tabela sistema
-     * @param LimiteInferiorTemp
-     * @param LimiteSuperiorTemp
-     * @param LimiteInferiorLuz
-     * @param LimiteSuperiorLuz
-     * @return
+     * Metodo para criar uma nova entrada na tabela sistema com os limites para o sensor
+     * @param LimiteInferiorTemp int com limite inferior de temperatura
+     * @param LimiteSuperiorTemp int com limite superior de temperatura
+     * @param LimiteInferiorLuz int com limite inferior de luminosidade
+     * @param LimiteSuperiorLuz int com limite superior de luminosidade
+     * @return booleano se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean CreateSistema(int LimiteInferiorTemp,int LimiteSuperiorTemp,
             int LimiteInferiorLuz,int LimiteSuperiorLuz)
@@ -405,13 +433,14 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }
     
     /**
-     * Faz update a uma entrada na tabela sistema
-     * @param IdSistema
-     * @param LimiteInferiorTemp
-     * @param LimiteSuperiorTemp
-     * @param LimiteInferiorLuz
-     * @param LimiteSuperiorLuz
-     * @return
+     * Metodo para atualizar uma entrada na tabela sistema
+     * @param IdSistema int id do sistema a atualizar
+     * @param LimiteInferiorTemp int com limite inferior de temperatura
+     * @param LimiteSuperiorTemp int com limite superior de temperatura
+     * @param LimiteInferiorLuz int com limite inferior de luminosidade
+     * @param LimiteSuperiorLuz int com limite superior de luminosidade
+     * @return booleano se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean UpdateSistema(int IdSistema,int LimiteInferiorTemp,int LimiteSuperiorTemp,
             int LimiteInferiorLuz,int LimiteSuperiorLuz)
@@ -435,9 +464,10 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     
     
     /**
-     * Apaga uma entrada na tabela sistema
-     * @param IdSistema
-     * @return
+     * Metodo para apagar uma entrada na tabela sistema
+     * @param IdSistema int id do sistema a atualizar
+     * @return booleano se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean DeleteSistema(int IdSistema)
     {
@@ -455,13 +485,14 @@ public class DatabaseMiddleManForAdministrador extends DatabaseMiddleManGeneral{
     }
     
     /**
-     * Executa a SP_CriaUtilizador
-     * @param InNome
-     * @param InPassword
-     * @param InEmail
-     * @param InCategoriaProfe
-     * @param InTipo
-     * @return
+     * Metodo para executar o storede procedure para criar utilizador SP_CriaUtilizador
+     * @param InNome string com o nome do utilizador
+     * @param InPassword string com a password do utilizador
+     * @param InEmail string com o Email do utilizador
+     * @param InCategoriaProfe string com a categoria profissional do utiizador
+     * @param InTipo string com o tipo de utilizador admin ou investigador
+     * @return booleano se funcionou true ou false se falhou
+     * @exception SQLException caso não seja possivel atualizar a bd
      */
     public boolean ExecuteSP(String InNome, String InPassword, String InEmail, String InCategoriaProfe, String InTipo)
     {

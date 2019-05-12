@@ -21,16 +21,20 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
+
+
+/**
+ * Esta classe constroi o interface gráfico para a configuração de limites 
+ * 
+ * @author grupo 21
+ *
+ */
 public class ConfigurarLimites extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JFrame frame;
-    private JPanel contentPanel;
-    
-    
-    /**
-     * Launch the application.
-     */
+    private JPanel contentPanel;    
+  
     /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -46,9 +50,19 @@ public class ConfigurarLimites extends JFrame {
         });
     }
     */
+    /**
+     * Metodo para ocultar a janela de configuração de limites
+     */
+    
     private void CloseWindow() {
         frame.setVisible(false);
     }
+    
+    /**
+     * Metodo para lancar a interface com ligacao a base de dados
+     * 
+     * @param databaseConnection conexao a base de dados mysql
+     */
     
     public ConfigurarLimites(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
@@ -56,11 +70,8 @@ public class ConfigurarLimites extends JFrame {
     }
 
     
-    
-    
-    
     /**
-     * Create the frame.
+     * Cria a janela do administrador
      */
     public void StartConfigurarLimites() {
         frame= new JFrame();
@@ -68,6 +79,7 @@ public class ConfigurarLimites extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         setTitle("Configurar Limites de Vari\u00E1veis de Sistema");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -127,7 +139,7 @@ public class ConfigurarLimites extends JFrame {
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
-        Invesjs.setBounds(55, 195, 466, 225);
+        Invesjs.setBounds(46, 191, 475, 229);
         contentPanel.add(Invesjs);
         
         JButton btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");
@@ -163,16 +175,6 @@ public class ConfigurarLimites extends JFrame {
         IdtextField.setColumns(10);
         IdtextField.setBounds(202, 447, 70, 29);
         contentPanel.add(IdtextField);
-        
-        JLabel imagemFundo = new JLabel("");
-        imagemFundo.setBounds(0, 0, 834, 420);
-        Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
-        
-        
-        
-        imagemFundo.setIcon(new ImageIcon (imgm));
-        
-        contentPanel.add(imagemFundo);
         
         JLabel  lblIdDosLimites = new JLabel("ID dos Limites");
         lblIdDosLimites.setBounds(120, 453, 86, 16);
@@ -242,7 +244,7 @@ public class ConfigurarLimites extends JFrame {
         frame.getContentPane().add(contentPanel);
         
         JButton ButtonLoadTable = new JButton("Atualizar tabela");
-        ButtonLoadTable.setBounds(600, 431, 162, 30);
+        ButtonLoadTable.setBounds(612, 431, 162, 30);
         ButtonLoadTable.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 contentPanel.remove(Invesjs);
@@ -262,7 +264,23 @@ public class ConfigurarLimites extends JFrame {
             }
         });
         contentPanel.add(ButtonLoadTable);
+        
+        JLabel imagemFundo = new JLabel("");
+        imagemFundo.setBounds(0, 0, 834, 420);
+        Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
+        
+        
+        
+        imagemFundo.setIcon(new ImageIcon (imgm));
+        
+        contentPanel.add(imagemFundo);
     }
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores dos limites definidos no sistema
+     * @param arg string com os valores do sistema concatenados
+     * @return matriz de string
+     */
       private String[][] GetList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");

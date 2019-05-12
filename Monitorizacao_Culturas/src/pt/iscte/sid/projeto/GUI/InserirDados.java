@@ -21,16 +21,21 @@ import javax.swing.JScrollPane;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
+/**
+ * Esta classe e referente a interface grafico para o investigador poder inserir dados
+ * @author Grupo 21
+ *
+ */
 public class InserirDados {
     
     private DatabaseMiddleManForInvestigador databaseConnection;
-    private JFrame frame;
+    private JFrame frmConsultarListaVariveis;    
+    private JTextField textField;
+    private JTextField textField_1;
     
     
     
-    /**
-     * Launch the application.
-     */
+  
     /*	public static void main(String[] args) {
     EventQueue.invokeLater(new Runnable() {
     public void run() {
@@ -44,29 +49,39 @@ public class InserirDados {
     });
     }
     */
+    
+    
     /**
-     * Create the application.
+     * Lanca a interface para o investigador inserir dados
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
      */
     public InserirDados(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         initialize();
     }
     
+    
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
-        frame.setVisible(false);
+        frmConsultarListaVariveis.setVisible(false);
     }
+    
     /**
-     * Initialize the contents of the frame.
+     * Cria a janela para o Investigador poder inserir dados referentes as variaveis.
      */
     private void initialize() {
-        frame = new JFrame();
-        frame.getContentPane().setBackground(Color.WHITE);
-        frame.setTitle("Consultar Vari\u00E1veis");
-        frame.setBounds(100, 100, 850, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
-        frame.setResizable(false);
-        frame.setVisible(true);
+
+        frmConsultarListaVariveis = new JFrame();
+        frmConsultarListaVariveis.getContentPane().setBackground(Color.WHITE);
+        frmConsultarListaVariveis.setTitle("Consultar Lista Vari\u00E1veis");
+        frmConsultarListaVariveis.setBounds(100, 100, 850, 600);
+        frmConsultarListaVariveis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmConsultarListaVariveis.getContentPane().setLayout(null);        
+        frmConsultarListaVariveis.setVisible(true);
+        LoginWindow.centerWindow(frmConsultarListaVariveis);
         
         
         
@@ -81,11 +96,11 @@ public class InserirDados {
         ListSelectionModel selectVariaveis= table.getSelectionModel();
         selectVariaveis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(110, 204, 618, 262);
+        scrollPane.setBounds(112, 191, 620, 204);
         scrollPane.setViewportView(table);
         scrollPane.setVisible(true);
         scrollPane.setBounds(112, 191, 620, 165);
-        frame.getContentPane().add(scrollPane);
+        frmConsultarListaVariveis.getContentPane().add(scrollPane);
         
         
         
@@ -105,6 +120,39 @@ public class InserirDados {
         
         JLabel lblNewLabel_1 = new JLabel("Aqui fica a tabela Variaveis ver https://www.youtube.com/watch?v=hg1S3QHFNrE");
         lblNewLabel_1.setBounds(209, 166, 496, 14);
+        
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.setBounds(725, 509, 84, 23);
+        btnVoltar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new AreaInvestigador(databaseConnection);
+                CloseWindow();
+            }
+        });
+        
+        frmConsultarListaVariveis.getContentPane().add(btnVoltar);
+        
+        textField = new JTextField();
+        textField.setBounds(251, 406, 95, 29);
+        frmConsultarListaVariveis.getContentPane().add(textField);
+        textField.setColumns(10);
+        
+        JLabel lblSeleccionaridDaVarivel = new JLabel("Seleccionar ID da Vari\u00E1vel");
+        lblSeleccionaridDaVarivel.setBounds(112, 412, 149, 16);
+        frmConsultarListaVariveis.getContentPane().add(lblSeleccionaridDaVarivel);
+        
+        JLabel lblSeleccionarIdDa_1 = new JLabel("Seleccionar ID da Cultura");
+        lblSeleccionarIdDa_1.setBounds(112, 459, 149, 16);
+        frmConsultarListaVariveis.getContentPane().add(lblSeleccionarIdDa_1);
+        
+        textField_1 = new JTextField();
+        textField_1.setColumns(10);
+        textField_1.setBounds(251, 446, 95, 29);
+        frmConsultarListaVariveis.getContentPane().add(textField_1);
+        
+        JButton btnNewButton = new JButton("Associar Nova Vari\u00E1vel \u00E0 Cultura\r\n");
+        btnNewButton.setBounds(369, 431, 189, 23);
+        frmConsultarListaVariveis.getContentPane().add(btnNewButton);
         //frame.getContentPane().add(lblNewLabel_1);
         
         JLabel lblNewLabel = new JLabel(/*"VER https://www.youtube.com/watch?v=hg1S3QHFNrE"*/);
@@ -115,18 +163,7 @@ public class InserirDados {
         
         
         
-        frame.getContentPane().add(lblNewLabel);
-        
-        JButton btnVoltar = new JButton("Voltar");
-        btnVoltar.setBounds(715, 526, 84, 23);
-        btnVoltar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new AreaInvestigador(databaseConnection);
-                CloseWindow();
-            }
-        });
-        
-        frame.getContentPane().add(btnVoltar);
+        frmConsultarListaVariveis.getContentPane().add(lblNewLabel);
         
         JLabel lblSeleccionaridDaCultura = new JLabel("ID da Cultura");
         lblSeleccionaridDaCultura.setBounds(39, 529, 149, 16);
@@ -155,6 +192,12 @@ public class InserirDados {
         
     }
     
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores das variaveis do investigador
+     * @param arg recebe uma string
+     * @return matriz de string
+     */
     private String[][] GetList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");

@@ -24,17 +24,21 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
+
+
+/**
+ * Esta classe constroi o interface grafico para a Manutencao de Variáveis
+ * @author Grupo 21
+ *
+ */
 public class ManutencaoVariaveis extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JPanel contentPanel;
     //  private JTextField textField;
     // private JTextField txtFaltaAdaptarPara;
-    private JFrame frame;
-    
-    /**
-     * Launch the application.
-     */
+    private JFrame frame;    
+   
    /* public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -50,19 +54,25 @@ public class ManutencaoVariaveis extends JFrame {
         });
     }
     */
+    
+    /**
+     * Metodo para lancar a interface manutencao de utilizadores com ligacao a base de dados
+     * @param databaseConnection conexao a base de dados mysql
+     */
     public ManutencaoVariaveis(DatabaseMiddleManForAdministrador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartManutencaoVariaveis();
     }
     
-
-    
+    /**
+     * Metodo para ocultar a janela    
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
     /**
-     * Create the frame.
+     * Metodo para criar a janela de Manutencao de Variaveis
      */
     public void StartManutencaoVariaveis() {
         frame= new JFrame();
@@ -70,6 +80,7 @@ public class ManutencaoVariaveis extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        LoginWindow.centerWindow(frame);
         frame.setResizable(false);
         setTitle("Manuten\u00E7\u00E3o de Vari\u00E1veis");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,7 +174,11 @@ public class ManutencaoVariaveis extends JFrame {
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
+/*<<<<<<< ept
+        Invesjs.setBounds(176, 194, 517, 189);
+=======*/
         Invesjs.setBounds(176, 194, 495, 182);
+/*>>>>>>> master*/
         contentPanel.add(Invesjs);
         
         JLabel imagemFundo = new JLabel("");
@@ -176,6 +191,12 @@ public class ManutencaoVariaveis extends JFrame {
         contentPanel.add(imagemFundo);
         frame.getContentPane().add(contentPanel);
     }
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores da tabela de variaveis 
+     * @param arg string com os valores do sistema concatenados
+     * @return matriz de string
+     */
      private String[][] GetList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");

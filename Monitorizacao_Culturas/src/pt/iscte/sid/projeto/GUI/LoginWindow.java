@@ -3,6 +3,7 @@ package pt.iscte.sid.projeto.GUI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -23,6 +25,11 @@ import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral;
 import pt.iscte.sid.projeto.Machine.UserIdentifier;
 
+/**
+ * Esta classe e referente a interface grafico para o utilizador poder fazer login
+ * @author Grupo 21
+ *
+ */
 public class LoginWindow extends JFrame {
     
     private JPanel contentPanel;
@@ -36,7 +43,9 @@ public class LoginWindow extends JFrame {
     private JLabel Emaillabel;
     
     /**
-     * Launch the application.
+     * metodo main para correr a janela loginwindow
+     * 
+     * @param args
      */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -51,17 +60,23 @@ public class LoginWindow extends JFrame {
         });
     }
     
+    /*
+     * Metodo para correr a janela
+     */
     public LoginWindow()
     {
         StartLoginWindow();
     }
     
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
     /**
-     * Create the frame.
+     * Cria a janela para o utilizador fazer login
      */
     public void StartLoginWindow() {
         frame= new JFrame();
@@ -70,18 +85,20 @@ public class LoginWindow extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        centerWindow(frame);
         contentPanel = new JPanel();
+        contentPanel.setBounds(0, 0, 834, 561);
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
         //setContentPane(contentPanel);
         contentPanel.setLayout(null);
         
-        PasswordLabel = new JLabel("Password");
+        PasswordLabel = new JLabel("");
         PasswordLabel.setForeground(new Color(255, 255, 255));
         PasswordLabel.setBounds(508, 227, 59, 25);
         contentPanel.add(PasswordLabel);
         
-        Emaillabel = new JLabel("Email");
+        Emaillabel = new JLabel("");
         Emaillabel.setForeground(new Color(255, 255, 255));
         Emaillabel.setBounds(508, 179, 59, 25);
         contentPanel.add(Emaillabel);
@@ -89,14 +106,14 @@ public class LoginWindow extends JFrame {
         
         
         EmailInputField = new JTextField();
-        EmailInputField.setBounds(600, 179, 244, 37);
+        EmailInputField.setBounds(592, 154, 242, 37);
         contentPanel.add(EmailInputField);
         EmailInputField.setColumns(10);
         
         LoginButton = new JButton("Entrar");
         LoginButton.setForeground(Color.WHITE);
         LoginButton.setBackground(Color.DARK_GRAY);
-        LoginButton.setBounds(652, 292, 95, 34);
+        LoginButton.setBounds(648, 270, 95, 34);
         contentPanel.add(LoginButton);
         
         /*  JRadioButton radioButton = new JRadioButton("");
@@ -112,18 +129,18 @@ public class LoginWindow extends JFrame {
         contentPane.add(UserSelectionRadioButton);
         */
         PasswordInputField = new JPasswordField();
-        PasswordInputField.setBounds(600, 227, 244, 37);
+        PasswordInputField.setBounds(592, 202, 242, 37);
         contentPanel.add(PasswordInputField);
         
         JLabel fundoPagina = new JLabel("");
-        fundoPagina.setBounds(0, 33, 844, 506);
+        fundoPagina.setBounds(-31, 0, 875, 521);
         
         //ImageIcon imgFundo = new ImageIcon(SubscreverUtilizador.class.getResource("images/LoginWindow.png"));
-        ImageIcon imgOne = new ImageIcon("/Monitorizacao_Culturas/src/images/LoginWindow.png");
-        //imgFundo.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
-        fundoPagina.setIcon(new ImageIcon(LoginWindow.class.getResource("/images/LoginWindow.png")));
+        ImageIcon imgOne = new ImageIcon(LoginWindow.class.getResource("/images/LoginWindow.png"));
+        Image img = imgOne.getImage().getScaledInstance(fundoPagina.getWidth(), fundoPagina.getHeight(), Image.SCALE_SMOOTH);
         
-        
+        fundoPagina.setIcon(new ImageIcon(img));
+       
         contentPanel.add(fundoPagina);
         
         frame.getContentPane().add(contentPanel);
@@ -168,7 +185,15 @@ public class LoginWindow extends JFrame {
             
             
         } );
-    }
+        
+
+    	}
+	public static void centerWindow (JFrame frame) {
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+	    frame.setLocation(x, y);
+	}
 }
 
 
