@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ClassDiagram>
-    <Class name="pt.iscte.sid.projeto.GUI.CriarCultura" x="140" y="23">
+    <Class name="pt.iscte.sid.projeto.GUI.CriarCultura" x="-372" y="403">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -13,7 +13,7 @@
             endpointName="databaseConnection" kind="Simple"/>
         <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.GUI.CulturasLista" x="178" y="552">
+    <Class name="pt.iscte.sid.projeto.GUI.CulturasLista" x="-290" y="32">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -39,7 +39,7 @@
             endpointName="databaseConnection" kind="Simple"/>
         <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.GUI.AreaInvestigador" x="310" y="346">
+    <Class name="pt.iscte.sid.projeto.GUI.AreaInvestigador" x="-114" y="320">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -52,7 +52,7 @@
             endpointName="databaseConnection" kind="Simple"/>
         <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.GUI.Main" x="-148" y="641">
+    <Class name="pt.iscte.sid.projeto.GUI.Main" x="-134" y="541">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -71,7 +71,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.GUI.Variaveis_Medidas" x="40" y="651">
+    <Class name="pt.iscte.sid.projeto.GUI.Variaveis_Medidas" x="16" y="571">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -82,7 +82,7 @@
     </Class>
     <Class
         name="pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador"
-        x="-268" y="118">
+        x="-666" y="103">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -90,12 +90,10 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
-        <Extension destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral">
-            <Point x="78" y="227"/>
-        </Extension>
+        <Extension destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral"/>
         <Communication destinationClassName="pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.GUI.InserirDados" x="-56" y="526">
+    <Class name="pt.iscte.sid.projeto.GUI.InserirDados" x="-414" y="593">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -108,7 +106,7 @@
             endpointName="databaseConnection" kind="Simple"/>
         <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.Machine.UserIdentifier" x="525" y="862">
+    <Class name="pt.iscte.sid.projeto.Machine.UserIdentifier" x="315" y="576">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -144,7 +142,7 @@
             endpointName="databaseConnection" kind="Simple"/>
         <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.GUI.LoginWindow" x="530" y="597">
+    <Class name="pt.iscte.sid.projeto.GUI.LoginWindow" x="320" y="311">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -196,7 +194,7 @@
             endpointName="databaseConnection" kind="Simple"/>
         <Communication destinationClassName="pt.iscte.sid.projeto.GUI.LoginWindow"/>
     </Class>
-    <Class name="pt.iscte.sid.projeto.GUI.ConsultarLuzTemp" x="-243" y="420">
+    <Class name="pt.iscte.sid.projeto.GUI.ConsultarLuzTemp" x="-661" y="558">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
