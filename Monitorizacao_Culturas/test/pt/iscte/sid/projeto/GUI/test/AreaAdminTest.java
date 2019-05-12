@@ -2,18 +2,27 @@ package pt.iscte.sid.projeto.GUI.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class AreaAdminTest {
+import pt.iscte.sid.projeto.GUI.AreaAdmin;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
-	@Test
-	final void testAreaAdmin() {
-		fail("Not yet implemented"); // TODO
+class AreaAdminTest {
+	
+	DatabaseMiddleManForAdministrador databaseConnection;
+	
+	AreaAdmin window;
+	
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		window = new AreaAdmin(databaseConnection);
 	}
 
 	@Test
-	final void testStartAreaAdmin() {
-		fail("Not yet implemented"); // TODO
+	final void testAreaAdmin() {
+		assertNotNull(window);
 	}
 
 }
