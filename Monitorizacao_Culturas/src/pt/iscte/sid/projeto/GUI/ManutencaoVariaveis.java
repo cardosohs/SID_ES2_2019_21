@@ -27,7 +27,7 @@ import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 
 /**
- * Esta classe constroi o interface grafico para a Manutencao de Vari·veis
+ * Esta classe constroi o interface grafico para a Manutencao de Vari√°veis
  * @author Grupo 21
  *
  */
@@ -173,7 +173,11 @@ public class ManutencaoVariaveis extends JFrame {
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
+/*<<<<<<< ept
+        Invesjs.setBounds(176, 194, 517, 189);
+=======*/
         Invesjs.setBounds(176, 194, 495, 182);
+/*>>>>>>> master*/
         contentPanel.add(Invesjs);
         
         JLabel imagemFundo = new JLabel("");

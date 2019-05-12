@@ -70,9 +70,6 @@ public class ConfigurarLimites extends JFrame {
     }
 
     
-    
-    
-    
     /**
      * Cria a janela do administrador
      */
@@ -141,7 +138,7 @@ public class ConfigurarLimites extends JFrame {
         selectInves.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane Invesjs=new JScrollPane(table);
         Invesjs.setVisible(true);
-        Invesjs.setBounds(55, 195, 466, 225);
+        Invesjs.setBounds(46, 191, 475, 229);
         contentPanel.add(Invesjs);
         
         JButton btnAdicionarNovosLimites = new JButton("Adicionar Novos Limites");
@@ -177,16 +174,6 @@ public class ConfigurarLimites extends JFrame {
         IdtextField.setColumns(10);
         IdtextField.setBounds(202, 447, 70, 29);
         contentPanel.add(IdtextField);
-        
-        JLabel imagemFundo = new JLabel("");
-        imagemFundo.setBounds(0, 0, 834, 420);
-        Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
-        
-        
-        
-        imagemFundo.setIcon(new ImageIcon (imgm));
-        
-        contentPanel.add(imagemFundo);
         
         JLabel  lblIdDosLimites = new JLabel("ID dos Limites");
         lblIdDosLimites.setBounds(120, 453, 86, 16);
@@ -256,7 +243,7 @@ public class ConfigurarLimites extends JFrame {
         frame.getContentPane().add(contentPanel);
         
         JButton ButtonLoadTable = new JButton("Atualizar tabela");
-        ButtonLoadTable.setBounds(600, 431, 162, 30);
+        ButtonLoadTable.setBounds(612, 431, 162, 30);
         ButtonLoadTable.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 contentPanel.remove(Invesjs);
@@ -276,6 +263,16 @@ public class ConfigurarLimites extends JFrame {
             }
         });
         contentPanel.add(ButtonLoadTable);
+        
+        JLabel imagemFundo = new JLabel("");
+        imagemFundo.setBounds(0, 0, 834, 420);
+        Image imgm = img.getImage().getScaledInstance(imagemFundo.getWidth(), imagemFundo.getHeight(), Image.SCALE_SMOOTH);
+        
+        
+        
+        imagemFundo.setIcon(new ImageIcon (imgm));
+        
+        contentPanel.add(imagemFundo);
     }
     
     /**

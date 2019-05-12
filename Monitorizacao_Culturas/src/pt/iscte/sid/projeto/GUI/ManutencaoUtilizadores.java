@@ -142,7 +142,7 @@ public class ManutencaoUtilizadores extends JFrame {
         });
         JScrollPane Adminjs=new JScrollPane(Admintable);
         Adminjs.setVisible(true);
-        Adminjs.setBounds(57, 219, 344, 202);
+        Adminjs.setBounds(10, 210, 402, 231);
         
         contentPanel.add(Adminjs);
         
@@ -170,7 +170,7 @@ public class ManutencaoUtilizadores extends JFrame {
         });
         JScrollPane Invesjs=new JScrollPane(Investable);
         Invesjs.setVisible(true);
-        Invesjs.setBounds(435, 219, 344, 202);
+        Invesjs.setBounds(422, 210, 402, 231);
         contentPanel.add(Invesjs);
         
         JTextField IdAdmin = new JTextField();
