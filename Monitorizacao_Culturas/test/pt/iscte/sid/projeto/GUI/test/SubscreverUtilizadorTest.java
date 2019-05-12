@@ -28,10 +28,7 @@ class SubscreverUtilizadorTest {
 
 	@Test
 	final void testSubscreverUtilizadorDatabaseMiddleManForAdministradorBoolean() {
-		assertThrows(NullPointerException.class,
-	            ()->{
-	            sub = new SubscreverUtilizador(databaseConnection, b);
-	            	});
+		
 	}
 
 }
