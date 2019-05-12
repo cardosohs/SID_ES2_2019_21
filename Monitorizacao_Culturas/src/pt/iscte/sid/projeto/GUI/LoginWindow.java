@@ -47,6 +47,7 @@ public class LoginWindow extends JFrame {
      * 
      * @param args
      */
+    /*
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -59,6 +60,7 @@ public class LoginWindow extends JFrame {
             }
         });
     }
+    */
     
     /*
      * Metodo para correr a janela
