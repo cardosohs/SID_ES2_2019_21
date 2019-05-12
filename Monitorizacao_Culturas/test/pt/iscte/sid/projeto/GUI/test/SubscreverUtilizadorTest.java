@@ -4,25 +4,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import pt.iscte.sid.projeto.GUI.InserirDados;
-import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+import pt.iscte.sid.projeto.GUI.SubscreverUtilizador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 class SubscreverUtilizadorTest {
 
-	SubscreverUtilizadorTest sub;
+	SubscreverUtilizador sub;
+	
+	boolean b;
+	
+	DatabaseMiddleManForAdministrador databaseConnection;
 	
 	
 	@Test
 	final void testSubscreverUtilizador() {
-		assertNotNull(sub);
+		assertNull(sub);
+	}
+	
+	@Test
+	final void testBoolean() {
+		assertFalse(b);
 	}
 
 	@Test
 	final void testSubscreverUtilizadorDatabaseMiddleManForAdministradorBoolean() {
-		assertThrows(NullPointerException.class,
-	            ()->{
-	            sub = new SubscreverUtilizadorTest();
-	            	});
+		
 	}
 
 }

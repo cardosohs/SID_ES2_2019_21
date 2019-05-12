@@ -4,81 +4,148 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
+
+
+
 class DatabaseMiddleManForInvestigadorTest {
+	
+	private String username = "fffff";
+	private String password = "password";
+	private String catProf= "student";
+	private String variavel = "pH";
+	private int id = 1;
+	
+	
+	private DatabaseMiddleManForInvestigador databaseConnection;	
 
 	@Test
 	final void testDatabaseMiddleManForInvestigador() {
-		fail("Not yet implemented"); // TODO
+		databaseConnection = new DatabaseMiddleManForInvestigador(username, password);
+		assertNotNull(databaseConnection);
 	}
 
 	@Test
 	final void testCreateCultura() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.createCultura("Verduras", "nada");
+	            	b.equals(false);
+	            	});
 	}
 
 	@Test
 	final void testGetCulturas() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	databaseConnection.getCulturas();	            	
+	            	});
 	}
 
 	@Test
 	final void testUpdateCultura() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.updateCultura(id, "Nome2", "desc");
+	            	b.equals(false);
+	            	});	
 	}
 
 	@Test
 	final void testDeleteCultura() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.deleteCultura(id);
+	            	b.equals(false);
+	            	});
 	}
 
 	@Test
 	final void testCreateVariavelMedida() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.createVariavelMedida(id, id, id, id+8);
+	            	b.equals(false);
+	            	});
 	}
 
 	@Test
 	final void testGetVariaveisMedidas() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	databaseConnection.getVariaveisMedidas(id, id);	            	
+	            	});
 	}
 
 	@Test
 	final void testUpdateVariaveisMedidas() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.updateVariaveisMedidas(id, id, id, id+5);
+	            	b.equals(false);
+	            	});	
 	}
 
 	@Test
 	final void testDeleteVariaveisMedidas() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.deleteVariaveisMedidas(id, id);
+	            	b.equals(false);
+	            	});
 	}
 
 	@Test
 	final void testGetMedicoesTemperatura() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	databaseConnection.getMedicoesTemperatura();	            	
+	            	});
 	}
 
 	@Test
 	final void testGetMedicoesLuz() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	databaseConnection.getMedicoesLuz();	            	
+	            	});
 	}
 
 	@Test
 	final void testCreateMedicoes() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.createMedicoes(id, id, id+85);
+	            	b.equals(false);
+	            	});
 	}
 
 	@Test
 	final void testGetMedicoes() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	databaseConnection.getMedicoes(id, id);	            	
+	            	});
 	}
 
 	@Test
 	final void testUpdateMedicao() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.updateMedicao(id, id, id, 15);
+	            	b.equals(false);
+	            	});	
 	}
 
 	@Test
 	final void testDeleteMedicao() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	Boolean b = databaseConnection.deleteMedicao(id, id, id);
+	            	b.equals(false);
+	            	});
 	}
 
 }

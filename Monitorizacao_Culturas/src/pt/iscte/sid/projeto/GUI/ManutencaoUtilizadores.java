@@ -64,7 +64,7 @@ public class ManutencaoUtilizadores extends JFrame {
      * Metodo para criar a janela de Manutencao de Utilizadores
      * 
      */
-    public void startManutencaoUtilizadores() {
+    private void startManutencaoUtilizadores() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
