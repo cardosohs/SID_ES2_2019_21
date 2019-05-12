@@ -238,10 +238,8 @@ public class CulturasLista extends JFrame {
         BtnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
                
-//        		new Variaveis_Medidas(databaseConnection);
-//                CloseWindow();
-            
-        		
+        		new VariaveisMedidas(databaseConnection);
+                closeWindow();
         	}
         });
         BtnNewButton.setBounds(211, 517, 167, 23);

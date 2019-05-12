@@ -8,6 +8,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
 import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -34,6 +38,7 @@ public class VariaveisMedidas extends JFrame {
 	private JTextField txtCultura;
 	private JTextField txtNome;
 	private JTextField textField_5;
+	private DatabaseMiddleManForInvestigador databaseConnection;
 
 	/**
 	 * Launch the application.
@@ -57,7 +62,8 @@ public class VariaveisMedidas extends JFrame {
     /**
      * Construtor da classe
      */
-    public VariaveisMedidas() {
+    public VariaveisMedidas(DatabaseMiddleManForInvestigador databaseConnection) {
+    	this.databaseConnection = databaseConnection;
         initialize();
     }
     
@@ -86,8 +92,8 @@ public class VariaveisMedidas extends JFrame {
 		JButton btnNewButton_1 = new JButton("Adicionar Nova Variável à Cultura");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				 new InserirDados(databaseConnection);
-//				 frame.setVisible(false);
+				 new InserirDados(databaseConnection);
+				 setVisible(false);
 			}
 		});
 		btnNewButton_1.setBounds(190, 472, 231, 23);
@@ -104,8 +110,8 @@ public class VariaveisMedidas extends JFrame {
 		JButton btnNewButton_3 = new JButton("Voltar");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				 new CulturasLista(databaseConnection);
-//				 frame.setVisible(false);
+				 new CulturasLista(databaseConnection);
+				 setVisible(false);
 			}
 		});
 		btnNewButton_3.setBounds(735, 507, 89, 31);
@@ -169,6 +175,7 @@ public class VariaveisMedidas extends JFrame {
 		
 		fotoDeFundo.setIcon(new ImageIcon(img));
 		contentPane.add(fotoDeFundo);
+		this.setVisible(true);
 		LoginWindow.centerWindow(this);
 		
 	}
