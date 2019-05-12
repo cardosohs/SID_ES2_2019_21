@@ -25,8 +25,8 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param username do utilizador
      * @param password do utilizador
      */
-    public DatabaseMiddleManForInvestigador(String username, String Password) {
-        super(username, Password);
+    public DatabaseMiddleManForInvestigador(String username, String password) {
+        super(username, password);
     }
  
     
