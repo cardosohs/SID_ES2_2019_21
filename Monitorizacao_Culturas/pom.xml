@@ -13,7 +13,8 @@
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
-      </plugin>
+      </plugin>   
+            
     </plugins>    
   </build>
   
@@ -24,7 +25,23 @@
     </repository>
 </repositories>
  
-<dependencies>	
+<dependencies>
+
+
+	<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.5.0-M1</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.5.0-M1</version>
+    <scope>test</scope>
+</dependency>	
 		
 	<dependency>
 	   	<groupId>mysql</groupId>
@@ -43,7 +60,8 @@
 	<dependency>
 	    <groupId>org.mongodb</groupId>
 	    <artifactId>bson</artifactId>
-	    <version>3.10.2</version>	</dependency>
+	    <version>3.10.2</version>
+	</dependency>
 	
 	
 	<dependency>
@@ -51,7 +69,6 @@
 		<artifactId>jackson-databind</artifactId>
 		<version>2.9.8</version>
 	</dependency>	
-	
 	
 	<!-- http://mongodb.github.io/mongo-java-driver/3.4/driver-async/getting-started/installation/ -->
 	<dependency>
