@@ -10,16 +10,8 @@ class VariaveisMedidasTest {
 	
 	
 	@Test
-	final void testSubscreverUtilizador() {
-		assertNotNull(varmed);
-	}
-
-	@Test
-	final void testSubscreverUtilizadorDatabaseMiddleManForAdministradorBoolean() {
-		assertThrows(NullPointerException.class,
-	            ()->{
-	            varmed = new VariaveisMedidasTest();
-	            	});
+	final void testVariaveisMedidas() {
+		assertNull(varmed);
 	}
 
 }

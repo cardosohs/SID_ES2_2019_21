@@ -19,13 +19,13 @@ import java.util.ArrayList;
  */
 public class UserIdentifier {
     
-    private final String DatabaseName="g21origem";
+    private final String databaseName="g21origem";
     private String Username;
     private String Password;
     private boolean failed;
-    private int Id;
+    private int id;
     private Connection DatabaseConnection;
-    private ArrayList<Integer> VariaviesDaDatabase = new ArrayList<>();
+    private ArrayList<Integer> variaveisDaDatabase = new ArrayList<>();
     
     /**
      * Vai ver se o utilizador e admin ou investigador
@@ -34,15 +34,14 @@ public class UserIdentifier {
      * @param password recebe uma string com uma password
      * @return retorna "I" se for investigador, "A" se for admim ou "F" caso falhe o login, por exemplo, credenciais erradas
      */
-    public String whatUserIsThis(String username, String password)
-    {
+    public String whatUserIsThis(String username, String password){
         
         this.Password=password;
         this.Username=username;
         
         
         String DatabaseDriver = "com.mysql.cj.jdbc.Driver";
-        String DatabaseURL = "jdbc:mysql://localhost/"+DatabaseName+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        String DatabaseURL = "jdbc:mysql://localhost/"+databaseName+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
         
         try {
             Class.forName(DatabaseDriver);
