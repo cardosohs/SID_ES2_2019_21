@@ -58,7 +58,7 @@ public class LoginWindow extends JFrame {
     /**
      * Cria a janela para o utilizador fazer login
      */
-    public void startLoginWindow() {
+    private void startLoginWindow() {
         frame= new JFrame();
         frame.setTitle("Login");
         frame.setResizable(false);
