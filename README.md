@@ -21,4 +21,4 @@
 
 #### 1) Executar a MV em um hipervisor (e.g. VirtualBox);
 #### 2) Inicializar os servidores MySQL e Apache no Xampp;
-#### 4) Executar o ficheiro "Monitorizacao_Culturas.jar".
+#### 3) Executar o ficheiro "Monitorizacao_Culturas.jar".
