@@ -60,7 +60,7 @@ public class ConfigurarLimites extends JFrame {
     /**
      * Cria a janela do administrador
      */
-    public void startConfigurarLimites() {
+    private void startConfigurarLimites() {
         frame= new JFrame();
         frame.setTitle("Configurar Limites de Vari\u00E1veis de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -68,7 +68,7 @@ public class CulturasLista extends JFrame {
     /**
      * Metodo para criar a janela da lista de culturas
      */
-    public void startCulturasLista() {
+    private void startCulturasLista() {
         frame= new JFrame();
         frame.setTitle("Medi\u00E7\u00F5es de Sistema");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);

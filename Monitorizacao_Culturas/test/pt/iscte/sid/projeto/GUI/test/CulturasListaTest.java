@@ -4,16 +4,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import pt.iscte.sid.projeto.GUI.ConsultarLuzTemp;
+import pt.iscte.sid.projeto.GUI.CulturasLista;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
 class CulturasListaTest {
+	
+	CulturasLista cl;
+	private DatabaseMiddleManForInvestigador databaseConnection;
 
 	@Test
 	final void testCulturasLista() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	cl = new CulturasLista(databaseConnection);
+	            	});
 	}
 
-	@Test
-	final void testStartCulturasLista() {
-		fail("Not yet implemented"); // TODO
-	}
 
 }

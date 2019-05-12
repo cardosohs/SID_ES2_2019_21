@@ -16,6 +16,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * Esta classe e referente a interface grafico para consultar as variaveis medidas
+ * 
+ * @author Grupo 21
+ *
+ */
+
 public class Variaveis_Medidas extends JFrame {
 
 	private JPanel contentPane;

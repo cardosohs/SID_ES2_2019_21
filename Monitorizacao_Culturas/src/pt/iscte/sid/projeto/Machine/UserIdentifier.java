@@ -29,16 +29,15 @@ public class UserIdentifier {
     
     /**
      * Vai ver se o utilizador e admin ou investigador
-     * Retorna I se for investgador
-     * retorna A se for admin
-     * return F caso falhe o login, por exemplo, credenciais erradas
+     * 
      * @param username recebe uma string com um username
-     * @param Password recebe uma string com uma password
+     * @param password recebe uma string com uma password
+     * @return retorna "I" se for investigador, "A" se for admim ou "F" caso falhe o login, por exemplo, credenciais erradas
      */
-    public String whatUserIsThis(String username, String Password)
+    public String whatUserIsThis(String username, String password)
     {
         
-        this.Password=Password;
+        this.Password=password;
         this.Username=username;
         
         

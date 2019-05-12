@@ -44,7 +44,7 @@ public class InserirDados {
     }
     
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {
