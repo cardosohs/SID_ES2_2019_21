@@ -1,0 +1,47 @@
+CREATE ROLE 'Administrador', 'Investigador', 'Sensor', 'Migracao';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.variavel TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.cultura TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.investigador TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.variavelmedida TO 'Administrador';
+GRANT INSERT ON maindatabase.medicao TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.medicaoluminosidade TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.medicaotemperatura TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.sistema TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logvariavel TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logcultura TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.loginvestigador TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logvariavelmedida TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logmedicao TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logmedicaoluminosidade TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logmedicaotemperatura TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logsistema TO 'Administrador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.logselectmedicao TO 'Administrador';
+
+GRANT SELECT ON maindatabase.variavel TO 'Investigador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.cultura TO 'Investigador';
+GRANT SELECT, INSERT, UPDATE, DELETE ON maindatabase.variavelmedida TO 'Investigador';
+GRANT INSERT ON maindatabase.medicao TO 'Investigador';
+GRANT SELECT ON maindatabase.medicaoluminosidade TO 'Investigador';
+GRANT SELECT ON maindatabase.medicaotemperatura TO 'Investigador';
+GRANT SELECT ON maindatabase.sistema TO 'Investigador';
+
+GRANT INSERT ON maindatabase.medicaoluminosidade TO 'Sensor';
+GRANT INSERT ON maindatabase.medicaotemperatura TO 'Sensor';
+
+CREATE USER 'alex'@'localhost' IDENTIFIED BY 'alex';
+GRANT 'Investigador' TO 'alex'@'localhost';
+
+
+GRANT ALL PRIVILEGES ON " . " TO 'alex'@'localhost';
+
+
+
+----------------------------------------------------------------
+
+
+GRANT USAGE ON `maindatabase`.* TO 'Administador','Investigador', 'Sensor' WITH GRANT OPTION;
+
+GRANT SELECT ON `maindatabase`.`variavel` TO 'alex'@'localhost';
+
+

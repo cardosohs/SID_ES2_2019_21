@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+       <?php
+
+    $connectionO = mysqli_connect('localhost', 'root', '', 'maindatabase');
+    $connectionD = mysqli_connect('localhost', 'root', '', 'logdatabase');
+    if (!$connectionO){
+        die ("Connection Failled: ".$connectionO->connect_error)."\n";
+    }
+    if (!$connectionD){
+        die ("Connection Failled: ".$connectionD->connect_error)."\n";
+    }
+
+    $tables = array();
+    $callTabelas = "call devolverNomeDeTabelasAMigrar();";
+    $result = mysqli_query($connectionD,$callTabelas);
+
+    while ($row = mysqli_fetch_array($result)) {
+        $tables[] = $row[0];
+        //print_r($row[0]);
+        
+    }
+   // print_r(array_values($tables));
+    //$result->close();
+    $connectionD->next_result();
+     
+    foreach ($tables as $table) {
+       $colunas = array();
+        $callColunas ='call devolverNomeColunasTabela("'.$table.'");';
+        $resultado = mysqli_query($connectionD,$callColunas);
+       while ($rows = mysqli_fetch_array($resultado)) {
+        $colunas[] = $rows[0];
+        }
+       $connectionD->next_result();
+        $sql = "Select * from ".$table;
+       // print($sql);
+        $result1 = mysqli_query($connectionO, $sql);
+        $data=array();
+        if ($result1) {
+            if (mysqli_num_rows($result1)>0){
+                while($r=mysqli_fetch_assoc($result1)){
+                    array_push($data, $r);
+                }
+            }
+           }
+        $connectionO->next_result();
+        //print_r($dad)
+       // $allData = $dataSource->getAllData();
+        foreach ($data as $dados) {
+            $tests= implode('","',$dados);
+
+          $query = 'INSERT INTO '.$table.' VALUES ("'.$tests.'")';
+          print_r($query);
+        //  break;
+             $result = mysqli_query($connectionD, $query) ;
+             print_r($result);
+             //echo "batata";
+        }
+    // print_r(array_values($data));
+       // print_r("\n\n\n\n\n\n\n\n");
+        
+    }
+   // fclose($handle);
+    mysqli_close ($connectionO);
+    mysqli_close ($connectionD);
+   // echo 'SUCESSO NA IMPORTAÇÃO DAS TABELAS DE ORIGEM';
+
+?>
+    </body>
+</html>
