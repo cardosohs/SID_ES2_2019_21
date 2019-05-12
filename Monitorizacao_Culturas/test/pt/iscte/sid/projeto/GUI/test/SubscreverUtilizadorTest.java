@@ -4,16 +4,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import pt.iscte.sid.projeto.GUI.InserirDados;
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
+
 class SubscreverUtilizadorTest {
 
+	SubscreverUtilizadorTest sub;
+	
+	
 	@Test
 	final void testSubscreverUtilizador() {
-		fail("Not yet implemented"); // TODO
+		assertNotNull(sub);
 	}
 
 	@Test
 	final void testSubscreverUtilizadorDatabaseMiddleManForAdministradorBoolean() {
-		fail("Not yet implemented"); // TODO
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            sub = new SubscreverUtilizadorTest();
+	            	});
 	}
 
 }
