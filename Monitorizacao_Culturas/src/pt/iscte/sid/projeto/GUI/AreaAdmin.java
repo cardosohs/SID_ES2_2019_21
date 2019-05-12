@@ -52,7 +52,7 @@ public class AreaAdmin extends JFrame {
     /**
      * Metodo para criar a janela do administrador
      */
-    public void startAreaAdmin() {
+    private void startAreaAdmin() {
         frame= new JFrame();
         frame.setTitle("\u00C1rea do Administrador");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
