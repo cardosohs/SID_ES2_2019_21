@@ -19,6 +19,6 @@
 
 ### Instruções de utilização:
 
-#### 1) Inicialize os servidores MySQL e Apache no Xampp;
-#### 2) No PHPMyAdmin, construa a estrutura da BD com base no ficheiro \Codigo_SQL\MySQLDB\g21origem_16_4_19.sql;
-#### 3) Execute o ficheiro "Monitorizacao_Culturas.jar".
+#### 1) Executar a MV em um hipervisor (e.g. VirtualBox);
+#### 2) Inicializar os servidores MySQL e Apache no Xampp;
+#### 4) Executar o ficheiro "Monitorizacao_Culturas.jar".
