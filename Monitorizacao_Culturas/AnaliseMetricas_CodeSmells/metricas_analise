@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Metrics scope="Monitorizacao_Culturas" type="Project" date="2019-05-12" xmlns="http://metrics.sourceforge.net/2003/Metrics-First-Flat">
+   
+   <!-- Os valores anómalos detectados, relativos à complexidade ciclomatica, estão ligeiramente acima dos limites superiores -->
+   <Metric id = "VG" description ="McCabe Cyclomatic Complexity" max ="10" hint ="use Extract-method to split the method up">
+      <Values per = "method" avg = "1,799" stddev = "1,671" max = "12" maxinrange="false">
+         <Value name="SubscreverUtilizador.anonymous#~initialize[#actionPerformed" source ="SubscreverUtilizador.java" package ="pt.iscte.sid.projeto.GUI" value ="26" inrange="false"/>
+         <Value name="startConfigurarLimites" source ="ConfigurarLimites.java" package ="pt.iscte.sid.projeto.GUI" value ="12" inrange="false"/>
+         <Value name="initialize" source ="SubscreverUtilizador.java" package ="pt.iscte.sid.projeto.GUI" value ="11" inrange="false"/>
+      </Values>
+  
+   <!--Falso positivo -->
+   <Metric id = "WMC" description ="Weighted methods per Class" max ="50">
+  
+      <Values per = "type" total = "268" avg = "7,882" stddev = "12,934" max = "67" maxinrange="false">
+         <Value name="DatabaseMiddleManForInvestigador" source ="DatabaseMiddleManForInvestigador.java" package ="pt.iscte.sid.projeto.Machine" value ="67" inrange="false"/>
+      </Values>
+   </Metric>
+   
+    <!-- Os valores anómalos detectados estão ligeiramente acima dos limites superiores -->
+   <Metric id = "NOM" description ="Number of Methods" max ="15">
+  
+      <Values per = "type" total = "147" avg = "4,324" stddev = "4,606" max = "18" maxinrange="false">
+         <Value name="DatabaseMiddleManForAdministrador" source ="DatabaseMiddleManForAdministrador.java" package ="pt.iscte.sid.projeto.Machine" value ="18" inrange="false"/>
+         <Value name="DatabaseMiddleManForInvestigador" source ="DatabaseMiddleManForInvestigador.java" package ="pt.iscte.sid.projeto.Machine" value ="16" inrange="false"/>
+         <Value name="DatabaseMiddleManForAdministradorTest" source ="DatabaseMiddleManForAdministradorTest.java" package ="pt.iscte.sid.projeto.Machine.test" value ="15"/>
+         <Value name="DatabaseMiddleManForInvestigadorTest" source ="DatabaseMiddleManForInvestigadorTest.java" package ="pt.iscte.sid.projeto.Machine.test" value ="15"/>
+      </Values>
+   </Metric>
+   
+   <!-- Tratam-se de métodos relativos à construção da componente estrutural das interfaces, pelo que seria dificil diminuir o número de linhas por metodo-->
+   <Metric id = "MLOC" description ="Method Lines of Code" max ="50">
+  
+      <Values per = "method" total = "2050" avg = "13,758" stddev = "31,534" max = "218" maxinrange="false">
+         <Value name="initialize" source ="SubscreverUtilizador.java" package ="pt.iscte.sid.projeto.GUI" value ="218" inrange="false"/>
+         <Value name="startConfigurarLimites" source ="ConfigurarLimites.java" package ="pt.iscte.sid.projeto.GUI" value ="163" inrange="false"/>
+         <Value name="startCulturasLista" source ="CulturasLista.java" package ="pt.iscte.sid.projeto.GUI" value ="148" inrange="false"/>
+         <Value name="startManutencaoUtilizadores" source ="ManutencaoUtilizadores.java" package ="pt.iscte.sid.projeto.GUI" value ="135" inrange="false"/>
+         <Value name="SubscreverUtilizador.anonymous#~initialize[#actionPerformed" source ="SubscreverUtilizador.java" package ="pt.iscte.sid.projeto.GUI" value ="106" inrange="false"/>
+         <Value name="startAreaInvestigador" source ="AreaInvestigador.java" package ="pt.iscte.sid.projeto.GUI" value ="99" inrange="false"/>
+         <Value name="startManutencaoVariaveis" source ="ManutencaoVariaveis.java" package ="pt.iscte.sid.projeto.GUI" value ="91" inrange="false"/>
+         <Value name="startCriarCultura" source ="CriarCultura.java" package ="pt.iscte.sid.projeto.GUI" value ="87" inrange="false"/>
+         <Value name="Variaveis_Medidas" source ="Variaveis_Medidas.java" package ="pt.iscte.sid.projeto.GUI" value ="85" inrange="false"/>
+         <Value name="startAreaAdmin" source ="AreaAdmin.java" package ="pt.iscte.sid.projeto.GUI" value ="72" inrange="false"/>
+         <Value name="startLoginWindow" source ="LoginWindow.java" package ="pt.iscte.sid.projeto.GUI" value ="72" inrange="false"/>
+         <Value name="initialize" source ="InserirDados.java" package ="pt.iscte.sid.projeto.GUI" value ="66" inrange="false"/>
+         <Value name="startConsultarLuzTemp" source ="ConsultarLuzTemp.java" package ="pt.iscte.sid.projeto.GUI" value ="60" inrange="false"/>
+      </Values>
+   </Metric>
+   </Metrics>
+  
+  <!--Feature envy: não foram reportadas. Ver imagem anexa -->

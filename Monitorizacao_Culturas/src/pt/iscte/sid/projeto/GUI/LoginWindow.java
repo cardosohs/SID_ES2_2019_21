@@ -41,14 +41,14 @@ public class LoginWindow extends JFrame {
     private JLabel PasswordLabel;
     private JLabel Emaillabel;
     
-    /*
-     * Metodo para correr a janela
+    /**
+     * Construtor da classe
      */
     public LoginWindow(){
         startLoginWindow();
     }
     
-    /*
+    /**
      * Metodo para fechar a janela
      */
     private void closeWindow() {
@@ -157,7 +157,7 @@ public class LoginWindow extends JFrame {
     /**
      * Centra o frame no ecrâ
      * 
-     * @param o frame a ser centrado
+     * @param frame a ser centrado
      */
 	public static void centerWindow (JFrame frame) {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
