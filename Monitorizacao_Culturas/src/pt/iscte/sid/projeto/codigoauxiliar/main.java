@@ -3,10 +3,12 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
 */
-package pt.iscte.sid.projeto.Machine;
+package pt.iscte.sid.projeto.codigoauxiliar;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
+
+import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
 /**
  * Esta classe serve para testar o backend de ES por favor nao apagar
@@ -15,7 +17,7 @@ import javax.swing.JTable;
 public class main {
     public static void main(String[] args){
        DatabaseMiddleManForAdministrador d = new DatabaseMiddleManForAdministrador("root", "");
-        System.err.println(d.DeleteAdmin(1));
+        //System.err.println(d.DeleteAdmin(1));
     }
 
     

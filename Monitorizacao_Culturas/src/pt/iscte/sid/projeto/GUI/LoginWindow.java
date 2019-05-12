@@ -23,6 +23,11 @@ import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManGeneral;
 import pt.iscte.sid.projeto.Machine.UserIdentifier;
 
+/**
+ * Esta classe e referente a interface grafico para o utilizador poder fazer login
+ * @author Grupo 21
+ *
+ */
 public class LoginWindow extends JFrame {
     
     private JPanel contentPanel;
@@ -36,7 +41,9 @@ public class LoginWindow extends JFrame {
     private JLabel Emaillabel;
     
     /**
-     * Launch the application.
+     * metodo main para correr a janela loginwindow
+     * 
+     * @param args
      */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -51,21 +58,28 @@ public class LoginWindow extends JFrame {
         });
     }
     
+    /*
+     * Metodo para correr a janela
+     */
     public LoginWindow()
     {
         StartLoginWindow();
     }
     
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
     /**
-     * Create the frame.
+     * Cria a janela para o utilizador fazer login
      */
     public void StartLoginWindow() {
         frame= new JFrame();
         frame.setTitle("Login");
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);

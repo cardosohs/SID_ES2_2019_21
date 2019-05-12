@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.Machine;
+package pt.iscte.sid.projeto.codigoauxiliar;
 
 import java.sql.*;
 import java.util.Calendar;

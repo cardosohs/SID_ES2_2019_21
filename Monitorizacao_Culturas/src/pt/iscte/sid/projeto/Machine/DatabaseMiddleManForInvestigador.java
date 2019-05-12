@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  * 
- * @author Sérgio
+ * @author Grupo 21
  * Faz todas as operaçoes que o investigador pode fazer na BD, isto é, login, logout e operacoes CRUD(quando aplicavel)
  */
 public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
@@ -30,9 +30,9 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Cria uma nova cultura associada ao investigador
-     * @param NomeDaCultura
-     * @param DescricaoDaCultura
-     * @return
+     * @param NomeDaCultura recebe como argumento uma cultura
+     * @param DescricaoDaCultura recebe como argumento uma descricao
+     * @return boolean para verificar se foi criado uma cultura ou nao
      */
     public boolean CreateCultura(String NomeDaCultura, String DescricaoDaCultura)
     {
@@ -54,7 +54,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * vai buscar as culturas do investigador
-     * @return
+     * @return string com as culturas do investigador
      */
     public String getCulturas()
     {
@@ -78,9 +78,9 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Atualiza uma cultura do investigador
-     * @param IdCultura
-     * @param NomeCultura
-     * @param DescricaoCultura
+     * @param IdCultura recebe um id de uma cultura
+     * @param NomeCultura recebe o nome de uma cultura
+     * @param DescricaoCultura recebe uma descricao de uma cultura
      * @return
      */
     
@@ -110,8 +110,8 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Apaga uma cultura do investigador
-     * @param IdCultura
-     * @return
+     * @param IdCultura recebe um id de uma cultura
+     * @return um boolean para saber se foi bem sucedido um delete de uma cultura
      */
     public boolean DeleteCultura(int IdCultura)
     {
@@ -141,11 +141,11 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Cria uma Variavel Medida associada à cultura do Investigador
-     * @param IdCultura
-     * @param IdVariavel
-     * @param LimiteInferior
-     * @param LimiteSuperior
-     * @return 
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param LimiteInferior recebe um limite inferior para uma variavel medida
+     * @param LimiteSuperior recebe um limite superior para uma variavel medida
+     * @return um boolean para saber se foi criado uma variavel medida
      */
     public boolean CreateVariavelMedida(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
     {
@@ -183,9 +183,9 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Vai buscar as Variaveis Medidas associadas a uma cultura
-     * @param IdCultura
-     * @param IdVariavel
-     * @return 
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @return uma string com as variveis medidas
      */
     public String getVariaveisMedidas(int IdCultura, int IdVariavel)
     {
@@ -221,11 +221,11 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Atualiza uma variavel medida
-     * @param IdCultura
-     * @param IdVariavel
-     * @param LimiteInferior
-     * @param LimiteSuperior
-     * @return 
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param LimiteInferior recebe um limite inferior para uma variavel medida
+     * @param LimiteSuperior recebe um limite superior para uma variavel medida
+     * @return um boolean para saber se foi feito um update a uma variavel medida
      */
     public boolean UpdateVariaveisMedidas(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
     {
@@ -261,9 +261,9 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Apaga uma variavel medida
-     * @param IdCultura
-     * @param IdVariavel
-     * @return 
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um ide de uma variavel
+     * @return um boolean para saber se foi bem sucedido um delete de uma variavel medida
      */
     public boolean DeleteVariaveisMedidas(int IdCultura, int IdVariavel)
     {
@@ -293,7 +293,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
  
     /**
      * Vai buscar os dados da tabela MedicoesTemperatura
-     * @return 
+     * @return uma string com as medicoes de temperatura
      */
     public String getMedicoesTemperatura()
     {
@@ -321,7 +321,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Vai buscar os dados da tabela MedicoesLuz 
-     * @return 
+     * @return uma string com os dados da luminosidade
      */
     public String getMedicoesLuz()
     {
@@ -349,10 +349,10 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Permite ao Investigador inserir dados na tabela Medicoes
-     * @param IdCultura
-     * @param IdVariavel
-     * @param ValorMed
-     * @return 
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param ValorMed recebe um valor medicao
+     * @return um boolean para saber se foi conseguido a criacao de uma medicao
      */
     public boolean CreateMedicoes(int IdCultura, int IdVariavel,double ValorMed)
     {
@@ -389,9 +389,9 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Vai buscar os dados da tabela Medicoes
-     * @param IdCultura
-     * @param IdVariavel
-     * @return 
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @return uma string com as medicoes de uma variavel medida
      */
     public String getMedicoes(int IdCultura, int IdVariavel)
     {
@@ -426,11 +426,11 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Permite atualizar dados da tabela medicoes
-     * @param IdMed
-     * @param IdCultura
-     * @param IdVariavel
-     * @param ValorMed
-     * @return 
+     * @param IdMed recebe um id de uma medicao
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @param ValorMed recebe um valor medicao
+     * @return um boolean para saber se foi bem sucedido um update a medicao
      */
     public boolean UpdateMedicao(int IdMed ,int IdCultura, int IdVariavel,double ValorMed)
     {
@@ -462,10 +462,10 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
     
     /**
      * Permite ao Investigador apagar medicoes
-     * @param IdMed
-     * @param IdCultura
-     * @param IdVariavel
-     * @return 
+     * @param IdMed recebe um id de uma medicao
+     * @param IdCultura recebe um id de uma cultura
+     * @param IdVariavel recebe um id de uma variavel
+     * @return um boolean para saber se foi bem sucedido um delete a uma medicao
      */
     public boolean DeleteMedicao(int IdMed,int IdCultura, int IdVariavel)
     {
@@ -494,7 +494,11 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
         }
     }
     
-    
+    /**
+     * metodo para remover valores de um arraylis
+     * @param array recebe um arraylist 
+     * @param valor recebe um valor do arraylist
+     */
     private void RemoveFromList(ArrayList array,int valor )
     {
         for(int i=0;i<array.size();i++)

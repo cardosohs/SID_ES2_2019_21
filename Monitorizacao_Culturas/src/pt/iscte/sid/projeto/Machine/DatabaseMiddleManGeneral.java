@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pt.iscte.sid.projeto.Machine;
 
 import java.sql.Connection;
@@ -15,8 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ *	Classe que generaliza as janelas do investigador e administrador
  *
- * @author Sérgio
+ * @author Grupo 21
  */
 public class DatabaseMiddleManGeneral {
 
@@ -37,8 +34,8 @@ public class DatabaseMiddleManGeneral {
     /**
      * Inicia a ligacao a BD g21origem
      *
-     * @param username
-     * @param Password
+     * @param username recebe uma string com um username
+     * @param Password recebe uma string com uma password
      */
     private void StartConnection(String username, String Password) {
         this.failed = true;
@@ -64,7 +61,7 @@ public class DatabaseMiddleManGeneral {
     /**
      * Termina a ligacao a BD
      *
-     * @return
+     * @return um boolean para saber se a ligacao foi terminada ou nao
      */
     public boolean CloseConnection() {
         try {
@@ -112,7 +109,7 @@ public class DatabaseMiddleManGeneral {
     /**
      * Retorna se a ligacao a BD falhou
      *
-     * @return
+     * @return um boolean quando falaha a ligacao
      */
     public boolean Failed() {
         return failed;
@@ -121,7 +118,7 @@ public class DatabaseMiddleManGeneral {
     /**
      * Retorna o id do Utilizador
      *
-     * @return
+     * @return o id do utilizador respetivamente
      */
     public int getMyId() {
         return Id;
@@ -130,7 +127,7 @@ public class DatabaseMiddleManGeneral {
     
     /**
      * Retorna o username do utilizador
-     * @return
+     * @return o nome do utilizador 
      */
     public String getMyName() {
         return Nome;
@@ -139,7 +136,7 @@ public class DatabaseMiddleManGeneral {
     /**
      * vai buscar as variaveis
      *
-     * @return
+     * @return uma string com as variveis do utilizador
      */
     public String getVariaveis() {
         String TableResult = "";
@@ -164,7 +161,7 @@ public class DatabaseMiddleManGeneral {
     /**
      * Vai buscar os dados da tabela sistema
      *
-     * @return
+     * @return devolve uma string com os valores da tabela sistema
      */
     public String getSistema() {
         String TableResult = "";

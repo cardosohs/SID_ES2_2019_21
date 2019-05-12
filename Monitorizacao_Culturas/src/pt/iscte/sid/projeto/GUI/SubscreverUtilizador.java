@@ -25,6 +25,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 
+/**
+ * Esta classe e referente a interface grafico para subscrever um utilizador
+ * 
+ * @author Grupo 21
+ *
+ */
 public class SubscreverUtilizador {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
@@ -34,9 +40,6 @@ public class SubscreverUtilizador {
     private JPasswordField ConfirmPassword;
     
     
-    /**
-     * Launch the application.
-     */
  /*   public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -61,18 +64,27 @@ public class SubscreverUtilizador {
         initialize();
     }
     
+    /**
+     * Lanca a interface para o administrados poder subscrever um utilizador
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
     public SubscreverUtilizador(DatabaseMiddleManForAdministrador databaseConnection, boolean create) {
         this.databaseConnection = databaseConnection;
         this.create=create;
         initialize();
     }
     
-    
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
+    
+    
     /**
-     * Initialize the contents of the frame.
+     * Cria a janela para o Administrador poder criar utilizadores
      */
     private void initialize() {
         frame = new JFrame();
@@ -83,7 +95,7 @@ public class SubscreverUtilizador {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         frame.setVisible(true);
-        
+        frame.setResizable(false);
         JLabel imagTopo = new JLabel("");
         imagTopo.setBounds(0, 0, 834, 151);
         
@@ -285,13 +297,13 @@ public class SubscreverUtilizador {
                     
                     if(!rdbtnAdministrador.isSelected() && !rdbtnNewRadioButton.isSelected())
                         JOptionPane.showMessageDialog(frame.getContentPane(),
-                                "Escolha admin ou invesstigador",
+                                "Escolha admin ou investigador",
                                 "ERROR",
                                 JOptionPane.ERROR_MESSAGE);
                     
-                    else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("") &&!Email.getText().equals("")) {
+                    else if(rdbtnAdministrador.isSelected() && !NameTextField.getText().equals("")) {
                         
-                        if(databaseConnection.UpdateAdministrador(Integer.parseInt(IdTextField.getText()),Email.getText(),NameTextField.getText())){
+                        if(databaseConnection.UpdateAdministrador(Integer.parseInt(IdTextField.getText()),NameTextField.getText())){
                             JOptionPane.showMessageDialog(frame.getContentPane(),
                                     "Succeso",
                                     "Information",
@@ -306,8 +318,7 @@ public class SubscreverUtilizador {
                                     JOptionPane.ERROR_MESSAGE);
                         
                     }
-                    else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("")
-                            && !passwordField.getPassword().equals(null)) {
+                    else if(rdbtnNewRadioButton.isSelected() && !NameTextField.getText().equals("")) {
                         
                         if(databaseConnection.UpdateInvestigador(Integer.parseInt(IdTextField.getText()),NameTextField.getText(),CategoriaProfcomboBox.getSelectedItem().toString())){
                             JOptionPane.showMessageDialog(frame.getContentPane(),

@@ -21,6 +21,13 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
+/**
+ * 
+ * @author Grupo 21
+ * Esta classe e referente a interface grafico para o Investigador
+ *
+ */
+
 public class AreaInvestigador extends JFrame {
     
     private JPanel contentPanel;
@@ -31,9 +38,7 @@ public class AreaInvestigador extends JFrame {
     
     
     
-    /**
-     * Launch the application.
-     */
+    
   /*  public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -46,10 +51,20 @@ public class AreaInvestigador extends JFrame {
             }
         });
     }*/
+    
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
+    
+    /**
+     * Lanca a interface do Investigador
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
     public AreaInvestigador(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartAreaInvestigador();
@@ -57,7 +72,7 @@ public class AreaInvestigador extends JFrame {
 
     
     /**
-     * Create the frame.
+     * Cria a janela do Investigador.
      */
     public void StartAreaInvestigador() {
         frame= new JFrame();
@@ -65,6 +80,7 @@ public class AreaInvestigador extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        frame.setResizable(false);
         setTitle("\u00C1rea do Investigador");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 850, 600);

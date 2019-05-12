@@ -34,6 +34,11 @@ import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
+
+/**
+ * Esta classe constroi o interface grafico para listar as culturas
+ * @author Grupo 21
+ */
 public class CulturasLista extends JFrame {
     
     private JPanel CulturasSobResponsabilidade;
@@ -41,9 +46,7 @@ public class CulturasLista extends JFrame {
     private JFrame frame;
     private DatabaseMiddleManForInvestigador databaseConnection;
     
-    /**
-     * Launch the application.
-     */
+  
     /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -58,11 +61,18 @@ public class CulturasLista extends JFrame {
     }
     */
     
-    
+    /**
+     * Metodo para lancar a interface com ligacao a base de dados
+     * @param databaseConnection conexao a base de dados mysql
+     */
     public CulturasLista(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartCulturasLista();
     }
+    
+    /**
+     * Metodo para ocultar a janela
+     */
 
     private void CloseWindow() {
         frame.setVisible(false);
@@ -70,7 +80,7 @@ public class CulturasLista extends JFrame {
     
     
     /**
-     * Create the frame.
+     * Metodo para criar a janela da lista de culturas
      */
     public void StartCulturasLista() {
         frame= new JFrame();
@@ -78,6 +88,7 @@ public class CulturasLista extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        frame.setResizable(false);
         setTitle("Culturas Sob a Responsabilidade do Investigador");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100,  850, 600);
@@ -265,6 +276,13 @@ public class CulturasLista extends JFrame {
         BtnNewButton.setBounds(211, 517, 167, 23);
         CulturasSobResponsabilidade.add(BtnNewButton);
     }
+    
+    
+    /**
+     * Este metodo devolve uma matriz de strings com os valores da tabela culturas
+     * @param arg string com os valores concatenados
+     * @return matriz de strings
+     */
     private String[][] GetList(String arg)
     {
         String[] lines = arg.split("BREAKLINE");

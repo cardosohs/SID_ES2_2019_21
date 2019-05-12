@@ -22,14 +22,18 @@ import javax.swing.table.DefaultTableModel;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForAdministrador;
 import pt.iscte.sid.projeto.Machine.DatabaseMiddleManForInvestigador;
 
+/**
+ * 
+ * @author Grupo 21
+ * Esta classe e referente a interface grafico para a consulta da luz e temperatura
+ *
+ */
 public class ConsultarLuzTemp extends JFrame {
     
     private DatabaseMiddleManForInvestigador databaseConnection;
     private JPanel contentPanel;
     private JFrame frame;
-    /**
-     * Launch the application.
-     */
+    
   /*  public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -44,19 +48,25 @@ public class ConsultarLuzTemp extends JFrame {
     }
     */
 
-    
+    /**
+     * Lanca a interface referente a consulta de luz e temperatura
+     * 
+     * @param databaseConnection  esta parametro é a ligacao da base de dados
+     */
     public ConsultarLuzTemp(DatabaseMiddleManForInvestigador databaseConnection) {
         this.databaseConnection = databaseConnection;
         StartConsultarLuzTemp();
     }
     
-    
+    /*
+     * Metodo para fechar a janela
+     */
     private void CloseWindow() {
         frame.setVisible(false);
     }
     
     /**
-     * Create the frame.
+     * Cria a janela sobre a informacao da luz e temperatura
      */
     public void StartConsultarLuzTemp() {
         frame= new JFrame();
@@ -64,6 +74,7 @@ public class ConsultarLuzTemp extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 850, 600);
         frame.setVisible(true);
+        frame.setResizable(false);
         setTitle("Medi\u00E7\u00F5es de Sistema");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 850, 600);
@@ -141,7 +152,11 @@ public class ConsultarLuzTemp extends JFrame {
         frame.getContentPane().add(contentPanel);
     }
     
-    
+    /**
+     * Este metodo devolve uma matriz de strings com as tabelas das medicoes da luz e temperatura
+     * @param arg recebe uma string 
+     * @return devolve uma matriz de strings
+     */
         
     private String[][] GetList(String arg)
     {
