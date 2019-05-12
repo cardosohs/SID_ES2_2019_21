@@ -23,7 +23,7 @@ import javax.swing.SwingConstants;
  *
  */
 
-public class Variaveis_Medidas extends JFrame {
+public class VariaveisMedidas extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -42,21 +42,29 @@ public class Variaveis_Medidas extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Variaveis_Medidas frame = new Variaveis_Medidas();
+					VariaveisMedidas frame = new VariaveisMedidas();
 					frame.setVisible(true);
-					LoginWindow.centerWindow(frame);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-	*/
-
-	/**
-	 * Construtor da classe
-	 */
-	public Variaveis_Medidas() {
+*/
+	
+	
+    /**
+     * Construtor da classe
+     */
+    public VariaveisMedidas() {
+        initialize();
+    }
+    
+    /**
+     * Inicializa a interface
+     */
+	private void initialize() {
 		setTitle("Consultar Vari\u00E1veis Medidas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 600);
@@ -65,7 +73,7 @@ public class Variaveis_Medidas extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		ImageIcon imagem = new ImageIcon(Variaveis_Medidas.class.getResource("/images/variaveisMedidas.png"));
+		ImageIcon imagem = new ImageIcon(VariaveisMedidas.class.getResource("/images/variaveisMedidas.png"));
 		
 		JButton btnNewButton = new JButton("Submeter Alterações");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -161,6 +169,7 @@ public class Variaveis_Medidas extends JFrame {
 		
 		fotoDeFundo.setIcon(new ImageIcon(img));
 		contentPane.add(fotoDeFundo);
+		LoginWindow.centerWindow(this);
 		
 	}
 }
