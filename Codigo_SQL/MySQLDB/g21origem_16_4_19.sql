@@ -69,12 +69,10 @@ CREATE TABLE IF NOT EXISTS `g21origem`.`Variaveis` (
 -- Table `g21origem`.`VariaveisMedidas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `g21origem`.`VariaveisMedidas` (
-  `IdVarMed` INT NOT NULL AUTO_INCREMENT,
   `IdCultura` INT NOT NULL,
   `IdVariavel` INT NOT NULL,
   `LimiteInferior` DECIMAL(8,2) NOT NULL,
   `LimiteSuperior` DECIMAL(8,2) NOT NULL,
-  PRIMARY KEY (`IdVarMed`),
   INDEX `FK_VARIAVEI_ASSOCIATI_CULTURA` (`IdCultura` ASC),
   INDEX `FK_VARIAVEI_ASSOCIATI_VARIAVEI` (`IdVariavel` ASC),
   CONSTRAINT `FK_VARIAVEI_ASSOCIATI_CULTURA`
@@ -94,16 +92,23 @@ CREATE TABLE IF NOT EXISTS `g21origem`.`VariaveisMedidas` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `g21origem`.`Medicoes` (
   `IdMed` INT NOT NULL AUTO_INCREMENT,
-  `IdVarMed` INT NOT NULL,
+  `IdCultura` INT NOT NULL,
+  `IdVariavel` INT NOT NULL,
   `DataHoraMed` TIMESTAMP NOT NULL,
   `ValorMed` DECIMAL(8,2) NOT NULL,
   PRIMARY KEY (`IdMed`),
-  INDEX `FK_MEDICOES_ASSOCIATI_VARIAVEI` (`IdVarMed` ASC),
-  CONSTRAINT `FK_MEDICOES_ASSOCIATI_VARIAVEI`
-    FOREIGN KEY (`IdVarMed`)
-    REFERENCES `g21origem`.`VariaveisMedidas` (`IdVarMed`)
+  INDEX `FK_IdCultura_idx` (`IdCultura` ASC),
+  INDEX `FK_IdVariavel_idx` (`IdVariavel` ASC),
+  CONSTRAINT `FK_IdCultura`
+    FOREIGN KEY (`IdCultura`)
+    REFERENCES `g21origem`.`VariaveisMedidas` (`IdCultura`)
     ON DELETE CASCADE
-    ON UPDATE RESTRICT);
+    ON UPDATE CASCADE,
+  CONSTRAINT `FK_IdVariavel`
+    FOREIGN KEY (`IdVariavel`)
+    REFERENCES `g21origem`.`VariaveisMedidas` (`IdVariavel`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -137,6 +142,19 @@ CREATE TABLE IF NOT EXISTS `g21origem`.`Sistema` (
   `LimiteSuperiorLuz` DECIMAL(8,2) NOT NULL,
   PRIMARY KEY (`IdSistema`));
 
+-- -----------------------------------------------------
+-- Table `g21origem`.`Alertas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `g21origem`.`Alertas` (
+  `IdAlerta` INT NOT NULL AUTO_INCREMENT,
+  `DataHora` TIMESTAMP NOT NULL,
+  `NomeVariavel` VARCHAR(30) NOT NULL,
+  `LimiteInferior` DECIMAL(8,2) NOT NULL,
+  `LimiteSuperior` DECIMAL(8,2) NOT NULL,
+  `ValorMedicao` DECIMAL(8,2) NOT NULL,
+  `Descricao` VARCHAR(300) NOT NULL,
+  PRIMARY KEY (`IdAlerta`))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `g21origem`.`log_medicoesselect`
@@ -186,7 +204,8 @@ CREATE TABLE IF NOT EXISTS `g21origem`.`log_sistema` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `g21origem`.`log_medicoes` (
   `IdMed` INT NOT NULL,
-  `IdVarMed` INT NOT NULL,
+  `IdCultura` INT NOT NULL,
+  `IdVariavel` INT NOT NULL,
   `DataHoraMed` TIMESTAMP NOT NULL,
   `ValorMed` DECIMAL(8,2) NOT NULL,
   `IdLog` INT NOT NULL AUTO_INCREMENT,
@@ -243,7 +262,6 @@ CREATE TABLE IF NOT EXISTS `g21origem`.`log_administrador` (
 -- Table `g21origem`.`log_variaveismedidas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `g21origem`.`log_variaveismedidas` (
-  `IdVarMed` INT NOT NULL,
   `IdCultura` INT NOT NULL,
   `IdVariavel` INT NOT NULL,
   `LimiteInferior` DECIMAL(8,2) NOT NULL,
@@ -369,48 +387,58 @@ BEGIN
 	values (old.idvariavel,old.nomevariavel,CURRENT_TIMESTAMP,'D',user());
 END$$
 
+
+-- variaveismedidas start
+
+
 USE `g21origem`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `g21origem`.`VariaveisMedidas_AFTER_INSERT` AFTER INSERT ON `VariaveisMedidas` FOR EACH ROW
 BEGIN
-	insert into log_variaveismedidas(IdVarMed,IdCultura,IdVariavel,LimiteInferior,LimiteSuperior,DataHoraLog,Operacao,Autor) 
-	values (new.idvarmed,new.idcultura,new.idvariavel,new.limiteinferior,new.limitesuperior,CURRENT_TIMESTAMP,'I',user());
+	insert into log_variaveismedidas(IdCultura,IdVariavel,LimiteInferior,LimiteSuperior,DataHoraLog,Operacao,Autor) 
+	values (new.idcultura,new.idvariavel,new.limiteinferior,new.limitesuperior,CURRENT_TIMESTAMP,'I',user());
 
 END$$
 
 USE `g21origem`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `g21origem`.`VariaveisMedidas_AFTER_UPDATE` AFTER UPDATE ON `VariaveisMedidas` FOR EACH ROW
 BEGIN
-	insert into log_variaveismedidas(IdVarMed,IdCultura,IdVariavel,LimiteInferior,LimiteSuperior,DataHoraLog,Operacao,Autor) 
-	values (new.idvarmed,new.idcultura,new.idvariavel,new.limiteinferior,new.limitesuperior,CURRENT_TIMESTAMP,'U',user());
+	insert into log_variaveismedidas(IdCultura,IdVariavel,LimiteInferior,LimiteSuperior,DataHoraLog,Operacao,Autor) 
+	values (new.idcultura,new.idvariavel,new.limiteinferior,new.limitesuperior,CURRENT_TIMESTAMP,'U',user());
 END$$
 
 USE `g21origem`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `g21origem`.`VariaveisMedidas_AFTER_DELETE` AFTER DELETE ON `VariaveisMedidas` FOR EACH ROW
 BEGIN
-	insert into log_variaveismedidas(IdVarMed,IdCultura,IdVariavel,LimiteInferior,LimiteSuperior,DataHoraLog,Operacao,Autor) 
-	values (old.idvarmed,old.idcultura,old.idvariavel,old.limiteinferior,old.limitesuperior,CURRENT_TIMESTAMP,'D',user());
+	insert into log_variaveismedidas(IdCultura,IdVariavel,LimiteInferior,LimiteSuperior,DataHoraLog,Operacao,Autor) 
+	values (old.idcultura,old.idvariavel,old.limiteinferior,old.limitesuperior,CURRENT_TIMESTAMP,'D',user());
 END$$
+
+-- variaveismedidas end
+
+-- medicoes start
 
 USE `g21origem`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `g21origem`.`Medicoes_AFTER_INSERT` AFTER INSERT ON `Medicoes` FOR EACH ROW
 BEGIN
-	insert into log_medicoes(IdMed,IdVarMed,DatahoraMed,ValorMed,DataHoraLog,Operacao,Autor) 
-	values (new.idmed,new.idvarmed,new.datahoramed,new.valormed,CURRENT_TIMESTAMP,'I',user());
+	insert into log_medicoes(IdMed,IdCultura,IdVariavel,DatahoraMed,ValorMed,DataHoraLog,Operacao,Autor) 
+	values (new.idmed,new.idcultura, new.idvariavel, new.datahoramed,new.valormed,CURRENT_TIMESTAMP,'I',user());
 END$$
 
 USE `g21origem`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `g21origem`.`Medicoes_AFTER_UPDATE` AFTER UPDATE ON `Medicoes` FOR EACH ROW
 BEGIN
-	insert into log_medicoes(IdMed,IdVarMed,DatahoraMed,ValorMed,DataHoraLog,Operacao,Autor) 
-	values (new.idmed,new.idvarmed,new.datahoramed,new.valormed,CURRENT_TIMESTAMP,'U',user());
+	insert into log_medicoes(IdMed,IdCultura,IdVariavel,DatahoraMed,ValorMed,DataHoraLog,Operacao,Autor) 
+	values (new.idmed,new.idcultura, new.idvariavel, new.datahoramed,new.valormed,CURRENT_TIMESTAMP,'U',user());
 END$$
 
 USE `g21origem`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `g21origem`.`Medicoes_AFTER_DELETE` AFTER DELETE ON `Medicoes` FOR EACH ROW
 BEGIN
-	insert into log_medicoes(IdMed,IdVarMed,DatahoraMed,ValorMed,DataHoraLog,Operacao,Autor) 
-	values (old.idmed,old.idvarmed,old.datahoramed,old.valormed,CURRENT_TIMESTAMP,'D',user());
+	insert into log_medicoes(IdMed,IdCultura,IdVariavel,DatahoraMed,ValorMed,DataHoraLog,Operacao,Autor) 
+	values (old.idmed, old.idcultura, old.idvariavel,old.datahoramed,old.valormed,CURRENT_TIMESTAMP,'D',user());
 END$$
+
+-- medicoes end
 
 USE `g21origem`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `g21origem`.`MedicoesLuz_AFTER_INSERT` AFTER INSERT ON `MedicoesLuz` FOR EACH ROW
@@ -548,15 +576,14 @@ end+
 DELIMITER ;
 
 -- Roles 
-DROP ROLE IF EXISTS 'Administrador', 'Investigador', 'SensorLuz', 'SensorTemp', 'Migrador';
-CREATE ROLE IF NOT EXISTS 'Administrador', 'Investigador', 'SensorLuz', 'SensorTemp', 'Migrador';
+DROP ROLE IF EXISTS 'Administrador', 'Investigador', 'Sensor', 'Migrador';
+CREATE ROLE IF NOT EXISTS 'Administrador', 'Investigador', 'Sensor', 'Migrador';
 
 GRANT SELECT, INSERT, DELETE ON g21origem.variaveis TO 'Administrador';
 GRANT SELECT, UPDATE, DELETE ON g21origem.investigador TO 'Administrador';
 GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.sistema TO 'Administrador';
 GRANT SELECT, UPDATE, DELETE ON g21origem.administrador TO 'Administrador';
 GRANT EXECUTE ON PROCEDURE g21origem.SP_CriaUtilizador TO 'Administrador';
-GRANT EXECUTE ON PROCEDURE g21origem.SP_ConsultaMedicao TO 'Investigador';
 
 GRANT SELECT ON g21origem.variaveis TO 'Investigador';
 GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.cultura TO 'Investigador';
@@ -565,9 +592,10 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON g21origem.medicoes TO 'Investigador';
 GRANT SELECT ON g21origem.medicoesTemp TO 'Investigador';
 GRANT SELECT ON g21origem.medicoesLuz TO 'Investigador';
 GRANT SELECT ON g21origem.sistema TO 'Investigador';
+GRANT EXECUTE ON PROCEDURE g21origem.SP_ConsultaMedicao to 'Investigador';
 
-GRANT INSERT ON g21origem.medicoesLuz TO 'SensorLuz';
-GRANT INSERT ON g21origem.medicoesTemp TO 'SensorTemp';
+GRANT INSERT ON g21origem.medicoesLuz TO 'Sensor';
+GRANT INSERT ON g21origem.medicoesTemp TO 'Sensor';
 
 GRANT SELECT ON g21origem.log_variaveis TO 'Migrador';
 GRANT SELECT ON g21origem.log_cultura TO 'Migrador';
