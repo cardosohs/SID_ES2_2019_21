@@ -224,8 +224,7 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 ResultSet rs=stmt.executeQuery(query);
                 while(rs.next()){
                     if(CulturasDoInvestigador.contains(Integer.parseInt(rs.getString(1))))
-                        TableResult +=  rs.getString(1)+"BREAKCOLUMN"+rs.getString(2)
-                                +"BREAKCOLUMN"+rs.getString(3)+"BREAKCOLUMN"+rs.getString(4)+ "BREAKLINE";
+                        TableResult +=  rs.getString(1) +"BREAKCOLUMN"+rs.getString(4)+"BREAKCOLUMN"+rs.getString(5)+ "BREAKLINE";
                 }
             }catch(Exception e){
                 System.out.println(e);
@@ -252,27 +251,19 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param LimiteSuperior recebe um limite superior para uma variavel medida
      * @return boolean para saber se foi feito um update a uma variavel medida
      */
-    public boolean updateVariaveisMedidas(int IdCultura, int IdVariavel, int LimiteInferior, int LimiteSuperior)
+    public boolean updateVariaveisMedidas(int IdVarMed, int LimiteInferior, int LimiteSuperior)
     {
         if(LimiteSuperior>LimiteInferior){
             try {
                 getCulturas();
                 getVariaveis();
-                if(CulturasDoInvestigador.contains(IdCultura) && VariaviesDaDatabase.contains(IdVariavel) ){
                     String query1 =
                             "update variaveismedidas set Limiteinferior= " + LimiteInferior +
                             " , LimiteSuperior=" + LimiteSuperior
-                            + " where idcultura=" + IdCultura + " and idvariavel=" + IdVariavel;
+                            + " where IdVarMed=" + IdVarMed;
                     PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);
                     preparedStmt1.execute();
-                }
-                else{
-                    if(!VariaviesDaDatabase.contains(IdVariavel))
-                        System.err.println("Esta variavel nao existe");
-                    else
-                        System.err.println("Esta a mexer numa cultura que nao lhe pertence");
-                    return false;
-                }
+                
                 
             } catch (SQLException ex) {
                 return false;
@@ -290,13 +281,12 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param IdVariavel recebe um ide de uma variavel
      * @return boolean para saber se foi bem sucedido um delete de uma variavel medida
      */
-    public boolean deleteVariaveisMedidas(int IdCultura, int IdVariavel)
+    public boolean deleteVariaveisMedidas(int IdVarMed)
     {
         getCulturas();
         getVariaveis();
-        if(CulturasDoInvestigador.contains(IdCultura) && VariaviesDaDatabase.contains(IdVariavel) ){
             try {
-                String query = " delete from variaveismedidas where idcultura=" + IdCultura + " and IdVariavel=" + IdVariavel;
+                String query = " delete from variaveismedidas where idvarmed=" + IdVarMed;
                 PreparedStatement preparedStmt = DatabaseConnection.prepareStatement(query);
                 preparedStmt.execute();
                 
@@ -305,14 +295,6 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 System.err.println("Erro ao executar a accao");
                 return false;
             }
-        }
-        else{
-            if(!VariaviesDaDatabase.contains(IdVariavel))
-                System.err.println("Esta variavel nao existe");
-            else
-                System.err.println("Esta a mexer numa cultura que nao lhe pertence");
-            return false;
-        }
     }
    
  
@@ -379,19 +361,17 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param ValorMed recebe um valor medicao
      * @return um boolean para saber se foi conseguido a criacao de uma medicao
      */
-    public boolean createMedicoes(int IdCultura, int IdVariavel,double ValorMed)
+    public boolean createMedicoes(int IdVarMed,double ValorMed)
     {
         getCulturas();
         getVariaveis();
-        if(CulturasDoInvestigador.contains(IdCultura) && VariaviesDaDatabase.contains(IdVariavel) ){
             String TableResult="";
             try{
                 Statement stmt=DatabaseConnection.createStatement();
-                String query1 = "insert into medicoes(IdCultura,IdVariavel,ValorMed) values(?,?,?)";
+                String query1 = "insert into medicoes(IdVarMed,ValorMed) values(?,?)";
                 PreparedStatement preparedStmt1 = DatabaseConnection.prepareStatement(query1);
-                preparedStmt1.setInt(1, IdCultura);
-                preparedStmt1.setInt(2, IdVariavel);
-                preparedStmt1.setDouble(3, ValorMed);
+                preparedStmt1.setInt(1, IdVarMed);
+                preparedStmt1.setDouble(2, ValorMed);
                 
                 preparedStmt1.execute();
                 
@@ -400,37 +380,27 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 System.out.println(e);
                 return false;
             }
-        }
-        else{
-            if(!VariaviesDaDatabase.contains(IdVariavel))
-                System.err.println("Esta variavel nao existe");
-            else
-                System.err.println("Esta a mexer numa cultura que nao lhe pertence");
-            return false;
-        }
+   
     }
     
     
     
     /**
      * Vai buscar os dados da tabela Medicoes
-     * @param IdCultura recebe um id de uma cultura
-     * @param IdVariavel recebe um id de uma variavel
      * @return uma string com as medicoes de uma variavel medida
      */
-    public String getMedicoes(int IdCultura, int IdVariavel)
+    public String getMedicoes()
     {
         getCulturas();
         getVariaveis();
-        if(CulturasDoInvestigador.contains(IdCultura) && VariaviesDaDatabase.contains(IdVariavel) ){
             String TableResult="";
             try{
                 Statement stmt=DatabaseConnection.createStatement();
-                String query = "select * from medicoes where IdCultura=" + IdCultura + " and IdVariavel=" + IdVariavel;
+                String query = "select * from medicoes order by DataHoraMed desc";
                 ResultSet rs=stmt.executeQuery(query);
                 while(rs.next()){
                     TableResult += rs.getString(1) +"BREAKCOLUMN" 
-                            + rs.getString(4)+"BREAKCOLUMN"+rs.getString(5)+"BREAKLINE";
+                            + rs.getString(3)+"BREAKCOLUMN"+rs.getString(4)+"BREAKLINE";
                 }
             }catch(Exception e){
                 System.out.println(e);
@@ -438,14 +408,6 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
             }
             
             return TableResult;
-        }
-        else{
-            if(!VariaviesDaDatabase.contains(IdVariavel))
-                System.err.println("Esta variavel nao existe");
-            else
-                System.err.println("Esta a mexer numa cultura que nao lhe pertence");
-            return "";
-        }
     }
     
     
@@ -457,11 +419,10 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param ValorMed recebe um valor medicao
      * @return um boolean para saber se foi bem sucedido um update a medicao
      */
-    public boolean updateMedicao(int IdMed ,int IdCultura, int IdVariavel,double ValorMed)
+    public boolean updateMedicao(int IdMed,double ValorMed)
     {
         getCulturas();
         getVariaveis();
-        if(CulturasDoInvestigador.contains(IdCultura) && VariaviesDaDatabase.contains(IdVariavel) ){
             try {
                 String query =
                         " update medicoes set ValorMed= '" + ValorMed
@@ -474,14 +435,6 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 System.err.println("Erro ao executar a accao");
                 return false;
             }
-        }
-        else{
-            if(!VariaviesDaDatabase.contains(IdVariavel))
-                System.err.println("Esta variavel nao existe");
-            else
-                System.err.println("Esta a mexer numa cultura que nao lhe pertence");
-            return false;
-        }
     }
     
     
@@ -492,12 +445,11 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
      * @param IdVariavel recebe um id de uma variavel
      * @return um boolean para saber se foi bem sucedido um delete a uma medicao
      */
-    public boolean deleteMedicao(int IdMed,int IdCultura, int IdVariavel)
+    public boolean deleteMedicao(int IdMed)
     {
         
         getCulturas();
         getVariaveis();
-        if(CulturasDoInvestigador.contains(IdCultura) && VariaviesDaDatabase.contains(IdVariavel) ){
             try {
                 String query =
                         " delete from medicoes where IdMed=" + IdMed;
@@ -509,14 +461,6 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
                 System.err.println("Erro ao executar a accao");
                 return false;
             }
-        }
-        else{
-            if(!VariaviesDaDatabase.contains(IdVariavel))
-                System.err.println("Esta variavel nao existe");
-            else
-                System.err.println("Esta a mexer numa cultura que nao lhe pertence");
-            return false;
-        }
     }
     
     /**

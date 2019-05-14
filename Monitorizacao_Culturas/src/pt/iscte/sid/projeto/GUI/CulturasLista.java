@@ -45,6 +45,7 @@ public class CulturasLista extends JFrame {
     
     private JFrame frame;
     private DatabaseMiddleManForInvestigador databaseConnection;
+    private JTextField VariavelId;
     
    
     
@@ -191,11 +192,11 @@ public class CulturasLista extends JFrame {
         
         JTextField culturaId = new JTextField();
         culturaId.setColumns(10);
-        culturaId.setBounds(154, 514, 47, 29);
+        culturaId.setBounds(164, 500, 49, 21);
         culturasSobResponsabilidade.add(culturaId);
         
-        JLabel lblIdDaCultura = new JLabel("SeleccionarID da Cultura");
-        lblIdDaCultura.setBounds(10, 520, 149, 16);
+        JLabel lblIdDaCultura = new JLabel("Seleccionar ID da Cultura");
+        lblIdDaCultura.setBounds(10, 500, 149, 16);
         culturasSobResponsabilidade.add(lblIdDaCultura);
         
         JButton btnEliminarCulturaSeleccionada = new JButton("Eliminar Cultura");
@@ -219,7 +220,7 @@ public class CulturasLista extends JFrame {
                                 JOptionPane.INFORMATION_MESSAGE);
             }
         });
-        btnEliminarCulturaSeleccionada.setBounds(388, 517, 149, 23);
+        btnEliminarCulturaSeleccionada.setBounds(402, 517, 149, 23);
         culturasSobResponsabilidade.add(btnEliminarCulturaSeleccionada);
         
         JLabel imagemTopo = new JLabel("Investigador:");
@@ -232,23 +233,34 @@ public class CulturasLista extends JFrame {
         culturasSobResponsabilidade.add(imagemTopo);
         frame.getContentPane().add(culturasSobResponsabilidade);
         
+        VariavelId = new JTextField();
+        VariavelId.setColumns(10);
+        VariavelId.setBounds(164, 528, 49, 21);
+        culturasSobResponsabilidade.add(VariavelId);
+        
+        
         JButton btnNewButton = new JButton("Ver Variáveis Medidas");
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-              if(culturaId.getText().equals(""))
+              if(culturaId.getText().equals("") || VariavelId.getText().equals(""))
               JOptionPane.showMessageDialog(frame.getContentPane(),
                       "O campo esta vazio",
                       "Error",
                       JOptionPane.ERROR_MESSAGE);
               else {
-            	  int id = Integer.parseInt(culturaId.getText());
-            	  new VariaveisMedidas(databaseConnection, id);
+            	  new VariaveisMedidas(databaseConnection, Integer.parseInt(culturaId.getText()),Integer.parseInt(VariavelId.getText()));
             	  closeWindow();
               }
         	}
         });
-        btnNewButton.setBounds(211, 517, 167, 23);
+        btnNewButton.setBounds(227, 517, 167, 23);
         culturasSobResponsabilidade.add(btnNewButton);
+        
+        JLabel lblSeleccionarIdDe = new JLabel("Seleccionar ID de uma Variavel");
+        lblSeleccionarIdDe.setBounds(10, 531, 149, 16);
+        culturasSobResponsabilidade.add(lblSeleccionarIdDe);
+        
+       
     }
     
     

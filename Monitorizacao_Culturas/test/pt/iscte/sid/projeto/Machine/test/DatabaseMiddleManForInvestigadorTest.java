@@ -83,7 +83,7 @@ class DatabaseMiddleManForInvestigadorTest {
 	final void testUpdateVariaveisMedidas() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	Boolean b = databaseConnection.updateVariaveisMedidas(id, id, id, id+5);
+	            	Boolean b = databaseConnection.updateVariaveisMedidas(id, id, id+5);
 	            	b.equals(false);
 	            	});	
 	}
@@ -92,7 +92,7 @@ class DatabaseMiddleManForInvestigadorTest {
 	final void testDeleteVariaveisMedidas() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	Boolean b = databaseConnection.deleteVariaveisMedidas(id, id);
+	            	Boolean b = databaseConnection.deleteVariaveisMedidas(id);
 	            	b.equals(false);
 	            	});
 	}
@@ -117,7 +117,7 @@ class DatabaseMiddleManForInvestigadorTest {
 	final void testCreateMedicoes() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	Boolean b = databaseConnection.createMedicoes(id, id, id+85);
+	            	Boolean b = databaseConnection.createMedicoes(id, id+85);
 	            	b.equals(false);
 	            	});
 	}
@@ -126,7 +126,7 @@ class DatabaseMiddleManForInvestigadorTest {
 	final void testGetMedicoes() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	databaseConnection.getMedicoes(id, id);	            	
+	            	databaseConnection.getMedicoes();	            	
 	            	});
 	}
 
@@ -134,7 +134,7 @@ class DatabaseMiddleManForInvestigadorTest {
 	final void testUpdateMedicao() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	Boolean b = databaseConnection.updateMedicao(id, id, id, 15);
+	            	Boolean b = databaseConnection.updateMedicao(id, 15);
 	            	b.equals(false);
 	            	});	
 	}
@@ -143,7 +143,7 @@ class DatabaseMiddleManForInvestigadorTest {
 	final void testDeleteMedicao() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	Boolean b = databaseConnection.deleteMedicao(id, id, id);
+	            	Boolean b = databaseConnection.deleteMedicao(id);
 	            	b.equals(false);
 	            	});
 	}
