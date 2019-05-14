@@ -78,6 +78,29 @@ public class DatabaseMiddleManForInvestigador extends DatabaseMiddleManGeneral{
         return TableResult;
     }
     
+    
+    /**
+     * Devolve o nome da cultura associado ao id dado como parametro
+     * @param culturaId
+     * @return result
+     */
+    public String getNomeCultura(int culturaId)
+    {
+        String result="";
+        try{
+            Statement stmt=DatabaseConnection.createStatement();
+            String query = "select nomecultura from cultura where idinvestigador=" + Id + 
+            				" and idCultura=" + culturaId;
+            ResultSet rs=stmt.executeQuery(query);
+            while(rs.next())
+            	result += rs.getString(1);
+        }catch(Exception e){
+            System.out.println(e);
+            return null;
+        }
+        return result;
+    }
+    
     /**
      * Actualiza uma cultura do investigador
      * @param IdCultura recebe um id de uma cultura

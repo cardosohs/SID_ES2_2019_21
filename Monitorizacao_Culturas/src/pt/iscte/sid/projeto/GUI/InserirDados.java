@@ -33,6 +33,7 @@ public class InserirDados {
     private JTextField textField;
     private JTextField textField_1;
     
+    
     /**
      * Lanca a interface para o investigador inserir dados
      * 
@@ -105,16 +106,15 @@ public class InserirDados {
                 closeWindow();
             }
         });
-        
         frmConsultarListaVariveis.getContentPane().add(btnVoltar);
         
         textField = new JTextField();
-        textField.setBounds(251, 406, 95, 29);
+        textField.setBounds(276, 406, 95, 29);
         frmConsultarListaVariveis.getContentPane().add(textField);
         textField.setColumns(10);
         
         JLabel lblSeleccionaridDaVarivel = new JLabel("Seleccionar ID da Vari\u00E1vel");
-        lblSeleccionaridDaVarivel.setBounds(112, 412, 149, 16);
+        lblSeleccionaridDaVarivel.setBounds(111, 412, 150, 16);
         frmConsultarListaVariveis.getContentPane().add(lblSeleccionaridDaVarivel);
         
         JLabel lblSeleccionarIdDa_1 = new JLabel("Seleccionar ID da Cultura");
@@ -123,11 +123,17 @@ public class InserirDados {
         
         textField_1 = new JTextField();
         textField_1.setColumns(10);
-        textField_1.setBounds(251, 446, 95, 29);
+        textField_1.setBounds(276, 453, 95, 29);
         frmConsultarListaVariveis.getContentPane().add(textField_1);
         
         JButton btnNewButton = new JButton("Associar Nova Vari\u00E1vel \u00E0 Cultura\r\n");
-        btnNewButton.setBounds(369, 431, 189, 23);
+        btnNewButton.setBounds(402, 431, 250, 23);
+        btnVoltar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new AreaInvestigador(databaseConnection);
+                closeWindow();
+            }
+        });
         frmConsultarListaVariveis.getContentPane().add(btnNewButton);
         
         JLabel lblNewLabel = new JLabel(/*"VER https://www.youtube.com/watch?v=hg1S3QHFNrE"*/);

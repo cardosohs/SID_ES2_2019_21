@@ -41,6 +41,7 @@ public class LoginWindow extends JFrame {
     private JLabel PasswordLabel;
     private JLabel Emaillabel;
     
+    
     /**
      * Construtor da classe
      */

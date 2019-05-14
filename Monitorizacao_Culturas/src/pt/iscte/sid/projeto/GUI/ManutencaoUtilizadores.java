@@ -42,6 +42,7 @@ public class ManutencaoUtilizadores extends JFrame {
     private JTextField txtFaltaAdaptarPara_1;
     
     
+    
     /**
      * Construtor da classe. Lança a interface manutencao de utilizadores com ligacao a base de dados
      * @param databaseConnection conexao a base de dados mysql

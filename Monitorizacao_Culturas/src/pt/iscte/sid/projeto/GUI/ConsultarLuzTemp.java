@@ -33,6 +33,7 @@ public class ConsultarLuzTemp extends JFrame {
     private DatabaseMiddleManForInvestigador databaseConnection;
     private JPanel contentPanel;
     private JFrame frame;
+    
 
     /**
      * Lanca a interface referente a consulta de luz e temperatura

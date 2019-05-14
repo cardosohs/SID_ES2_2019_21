@@ -37,32 +37,17 @@ public class VariaveisMedidas extends JFrame {
 	private JTextField txtCultura_1;
 	private JTextField txtCultura;
 	private JTextField txtNome;
-	private JTextField textField_5;
+	private JTextField txtId;
 	private DatabaseMiddleManForInvestigador databaseConnection;
-
-	/**
-	 * Launch the application.
-	 */
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VariaveisMedidas frame = new VariaveisMedidas();
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
+	private int culturaId;
 	
-	
+    
     /**
      * Construtor da classe
+     * @param databaseConnection
      */
-    public VariaveisMedidas(DatabaseMiddleManForInvestigador databaseConnection) {
+    public VariaveisMedidas(DatabaseMiddleManForInvestigador databaseConnection, int culturaId) {
+    	this.culturaId = culturaId;
     	this.databaseConnection = databaseConnection;
         initialize();
     }
@@ -158,15 +143,16 @@ public class VariaveisMedidas extends JFrame {
 		contentPane.add(txtCultura);
 		
 		txtNome = new JTextField();
-		txtNome.setText("nome?");
+		txtNome.setText(databaseConnection.getNomeCultura(culturaId));
 		txtNome.setBounds(582, 80, 141, 20);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(772, 80, 52, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		txtId = new JTextField();
+		txtId.setText(culturaId+"");
+		txtId.setBounds(772, 80, 52, 20);
+		contentPane.add(txtId);
+		txtId.setColumns(10);
 		
 		
 		JLabel fotoDeFundo = new JLabel("");

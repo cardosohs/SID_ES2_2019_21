@@ -30,6 +30,7 @@ public class CriarCultura extends JFrame {
     private DatabaseMiddleManForInvestigador databaseConnection;
     private JFrame frame;
     private JPanel contentPanel;
+    
       
     
     /**

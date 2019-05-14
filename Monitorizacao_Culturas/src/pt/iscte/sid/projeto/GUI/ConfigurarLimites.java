@@ -33,8 +33,8 @@ public class ConfigurarLimites extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JFrame frame;
-    private JPanel contentPanel;    
- 
+    private JPanel contentPanel;
+    
     
     /**
      * Metodo para lancar a interface com ligacao a base de dados

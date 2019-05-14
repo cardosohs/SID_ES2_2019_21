@@ -30,6 +30,7 @@ public class AreaAdmin extends JFrame {
     private JFrame frame;
     private DatabaseMiddleManForAdministrador databaseConnection;
     
+    
     /**
      * Construtor da classe. Lanca a interface com ligacao a base de dados.
      * 

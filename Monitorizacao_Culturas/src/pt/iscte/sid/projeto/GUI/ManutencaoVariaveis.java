@@ -35,7 +35,8 @@ public class ManutencaoVariaveis extends JFrame {
     
     private DatabaseMiddleManForAdministrador databaseConnection;
     private JPanel contentPanel;
-    private JFrame frame;    
+    private JFrame frame;
+    
 
     
     /**

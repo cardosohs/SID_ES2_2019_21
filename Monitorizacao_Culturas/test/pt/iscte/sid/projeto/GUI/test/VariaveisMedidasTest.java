@@ -13,10 +13,11 @@ class VariaveisMedidasTest {
 	VariaveisMedidas vm;
 	
 	DatabaseMiddleManForInvestigador databaseConnection;
+	int culturaId;
 	
 	@Test
 	final void testVariaveisMedidas() {
-		vm = new VariaveisMedidas(databaseConnection);
+		vm = new VariaveisMedidas(databaseConnection, culturaId);
 		assertNotNull(vm);
 	}
 
