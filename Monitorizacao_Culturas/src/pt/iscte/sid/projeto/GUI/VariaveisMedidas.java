@@ -39,25 +39,7 @@ public class VariaveisMedidas extends JFrame {
 	private DatabaseMiddleManForInvestigador databaseConnection;
 	private int culturaId;
 	private int variavelId;
-	private JTextField MedicaoTextBox;
-	private JTextField IdVarMedTextBox;
-	private JTextField MedicaoTextField;
-	private JTextField ValorTextField;
 
-
-
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					new VariaveisMedidas(new DatabaseMiddleManForInvestigador("Investigador1", "123"),1,1);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Construtor da classe
@@ -280,12 +262,12 @@ public class VariaveisMedidas extends JFrame {
 		EliminarVariavel.setBounds(658, 468, 144, 31);
 		contentPane.add(EliminarVariavel);
 
-		MedicaoTextBox = new JTextField();
+		JTextField MedicaoTextBox = new JTextField();
 		MedicaoTextBox.setColumns(10);
 		MedicaoTextBox.setBounds(144, 524, 86, 14);
 		contentPane.add(MedicaoTextBox);
 
-		IdVarMedTextBox = new JTextField();
+		JTextField IdVarMedTextBox = new JTextField();
 		IdVarMedTextBox.setColumns(10);
 		IdVarMedTextBox.setBounds(144, 543, 86, 14);
 		contentPane.add(IdVarMedTextBox);
@@ -338,13 +320,13 @@ public class VariaveisMedidas extends JFrame {
 
 		
 		
-		MedicaoTextField = new JTextField();
+		JTextField MedicaoTextField = new JTextField();
 		MedicaoTextField.setText("Id a Eliminar");
 		MedicaoTextField.setColumns(10);
 		MedicaoTextField.setBounds(562, 369, 86, 20);
 		contentPane.add(MedicaoTextField);
 		
-		ValorTextField = new JTextField();
+		JTextField ValorTextField = new JTextField();
 		ValorTextField.setText("Valor");
 		ValorTextField.setColumns(10);
 		ValorTextField.setBounds(562, 390, 86, 20);
