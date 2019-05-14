@@ -17,7 +17,7 @@ class VariaveisMedidasTest {
 	
 	@Test
 	final void testVariaveisMedidas() {
-		vm = new VariaveisMedidas(databaseConnection, culturaId);
+		vm = new VariaveisMedidas(databaseConnection, culturaId,1);
 		assertNotNull(vm);
 	}
 
