@@ -1,4 +1,4 @@
-package pt.iscte.sid.projeto.Migrador;
+package pt.iscte.sid.projeto.Migrador.lixo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,6 +7,7 @@ import org.bson.BsonTimestamp;
 
 public class Inicializa {
 	
+	/*
 	 static DadosInicializacao getInitData() throws SQLException {
 	//verifica se há dados na tabela sensormigracaolog
 	//e  obtem a última inserção
@@ -23,7 +24,7 @@ public class Inicializa {
 	return null;
 	
 	}
-
+*/
 	private static BsonTimestamp transformaEmBson(ResultSet rs) {
 		Timestamp ts;
 		Integer seconds=null;

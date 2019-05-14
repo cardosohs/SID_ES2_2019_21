@@ -55,7 +55,7 @@ public class Migrador {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				System.out.println("Acordou do Slepp");
+				System.out.println("Acordou do Sleep");
 				e.printStackTrace();
 			}
 

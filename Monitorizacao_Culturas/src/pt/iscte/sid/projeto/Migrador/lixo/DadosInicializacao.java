@@ -1,8 +1,10 @@
-package pt.iscte.sid.projeto.Migrador;
+package pt.iscte.sid.projeto.Migrador.lixo;
 
 import org.bson.BsonTimestamp;
 
 public class DadosInicializacao {
+
+/*
 	// da tabela de luz
 	// desvio Padrão e das 10 entradas
 	// mais recentes o valor medido da última entrada
@@ -32,5 +34,5 @@ public class DadosInicializacao {
 		this.ultimaMedicaoTemperatura = null;
 		this.ultimoLog = ul;
 	}
-
+*/
 }

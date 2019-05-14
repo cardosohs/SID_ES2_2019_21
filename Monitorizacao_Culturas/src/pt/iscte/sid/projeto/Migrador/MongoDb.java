@@ -15,6 +15,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
+
 public class MongoDb {
 	private static String dbName = "sensorbd";
 	static String colName = "MedicoesSensor";
@@ -25,9 +26,9 @@ public class MongoDb {
 
 		try {
 			// Estabelece ligação com a MongoDB PRIMARIA
-			MongoClient mongoClient = new MongoClient("localhost", 27017);
+			MongoClient mongoClient = new MongoClient("localhost", 25017);
 			System.out.println("Connection established");
-
+			
 			// Request da DB
 			MongoDatabase database = mongoClient.getDatabase(dbName);
 

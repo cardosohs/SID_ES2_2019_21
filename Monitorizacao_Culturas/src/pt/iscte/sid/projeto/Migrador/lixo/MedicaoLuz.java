@@ -1,11 +1,13 @@
-package pt.iscte.sid.projeto.Migrador;
+package pt.iscte.sid.projeto.Migrador.lixo;
 
 import java.sql.Timestamp;
 
 import org.bson.BsonTimestamp;
 
-public class MedicaoLuz extends Medicao {
-
+public class MedicaoLuz {
+	
+	
+/*
 	
 	public MedicaoLuz(String tipo2, Double medicao2, Timestamp tsMedicao2, BsonTimestamp tsHoraGravacao2) {
 		super(tipo2, medicao2, tsMedicao2, tsHoraGravacao2);
@@ -35,5 +37,5 @@ public class MedicaoLuz extends Medicao {
 	public void setMedicao(Double medicaoLuz) {
 		this.medicao = medicaoLuz;
 	}
-
+*/
 }
