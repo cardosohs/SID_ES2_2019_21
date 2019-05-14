@@ -56,6 +56,7 @@ public class VariaveisMedidas extends JFrame {
 	 * Inicializa a interface
 	 */
 	private void initialize() {
+		
 		setTitle("Consultar Vari\u00E1veis Medidas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 600);
