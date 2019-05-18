@@ -136,10 +136,9 @@ public class MongoConn{
 			
 			//Timestamp ts = new Timestamp(((java.util.Date)sdf.parse(newDateString)).getTime());
 			
+			//Código martelado
 			Date date1= new Date();
-			 
 			long time = date1.getTime();
-			    
 			Timestamp ts = new Timestamp(time);
 		
 			return ts.toString();
