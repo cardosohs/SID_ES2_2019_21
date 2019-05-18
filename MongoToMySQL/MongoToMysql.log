@@ -1,0 +1,690 @@
+
+
+18/05/AM 11:17:23  Log Start
+18/05/AM 11:17:23  Settings File read
+18/05/AM 11:17:23  Mongo To MySql initialized
+18/05/AM 11:17:23  Program started.
+18/05/AM 11:17:23  Connected to mongoDb
+18/05/AM 11:17:23  Connected to database 'sensorbd'
+18/05/AM 11:17:23  Connected to collection 'MigracaoSensor'
+18/05/AM 11:17:23  Extraction started getting data from MongoDB
+18/05/AM 11:17:23  Data inserted to Mysql.
+18/05/AM 11:17:23  Migration Finished. Documents in collection deleted.
+18/05/AM 11:17:38  Extraction started getting data from MongoDB
+18/05/AM 11:17:38  Data inserted to Mysql.
+18/05/AM 11:17:38  Migration Finished. Documents in collection deleted.
+18/05/AM 11:17:53  Extraction started getting data from MongoDB
+18/05/AM 11:17:53  Data inserted to Mysql.
+18/05/AM 11:17:53  Migration Finished. Documents in collection deleted.
+18/05/AM 11:18:08  Extraction started getting data from MongoDB
+18/05/AM 11:18:08  Data inserted to Mysql.
+18/05/AM 11:18:08  Migration Finished. Documents in collection deleted.
+18/05/AM 11:18:23  Extraction started getting data from MongoDB
+18/05/AM 11:18:23  Data inserted to Mysql.
+18/05/AM 11:18:23  Migration Finished. Documents in collection deleted.
+18/05/AM 11:18:38  Extraction started getting data from MongoDB
+18/05/AM 11:18:38  Data inserted to Mysql.
+18/05/AM 11:18:38  Migration Finished. Documents in collection deleted.
+18/05/AM 11:18:53  Extraction started getting data from MongoDB
+18/05/AM 11:18:53  Data inserted to Mysql.
+18/05/AM 11:18:53  Migration Finished. Documents in collection deleted.
+18/05/AM 11:19:08  Extraction started getting data from MongoDB
+18/05/AM 11:19:08  Data inserted to Mysql.
+18/05/AM 11:19:08  Migration Finished. Documents in collection deleted.
+18/05/AM 11:19:23  Extraction started getting data from MongoDB
+18/05/AM 11:19:23  Data inserted to Mysql.
+18/05/AM 11:19:23  Migration Finished. Documents in collection deleted.
+18/05/AM 11:19:38  Extraction started getting data from MongoDB
+18/05/AM 11:19:38  Data inserted to Mysql.
+18/05/AM 11:19:38  Migration Finished. Documents in collection deleted.
+18/05/AM 11:19:53  Extraction started getting data from MongoDB
+18/05/AM 11:19:53  Data inserted to Mysql.
+18/05/AM 11:19:53  Migration Finished. Documents in collection deleted.
+18/05/AM 11:20:08  Extraction started getting data from MongoDB
+18/05/AM 11:20:08  Data inserted to Mysql.
+18/05/AM 11:20:08  Migration Finished. Documents in collection deleted.
+18/05/AM 11:20:23  Extraction started getting data from MongoDB
+18/05/AM 11:20:23  Data inserted to Mysql.
+18/05/AM 11:20:23  Migration Finished. Documents in collection deleted.
+18/05/AM 11:20:38  Extraction started getting data from MongoDB
+18/05/AM 11:20:38  Data inserted to Mysql.
+18/05/AM 11:20:38  Migration Finished. Documents in collection deleted.
+
+
+18/05/AM 11:21:10  Log Start
+18/05/AM 11:21:10  Settings File read
+18/05/AM 11:21:10  Mongo To MySql initialized
+18/05/AM 11:21:10  Program started.
+18/05/AM 11:21:11  Connected to mongoDb
+18/05/AM 11:21:11  Connected to database 'sensorbd'
+18/05/AM 11:21:11  Connected to collection 'MigracaoSensor'
+18/05/AM 11:21:11  Extraction started getting data from MongoDB
+18/05/AM 11:21:11  Data inserted to Mysql.
+18/05/AM 11:21:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:21:26  Extraction started getting data from MongoDB
+18/05/AM 11:21:26  Data inserted to Mysql.
+18/05/AM 11:21:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:21:41  Extraction started getting data from MongoDB
+18/05/AM 11:21:41  Data inserted to Mysql.
+18/05/AM 11:21:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:21:56  Extraction started getting data from MongoDB
+18/05/AM 11:21:56  Data inserted to Mysql.
+18/05/AM 11:21:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:22:11  Extraction started getting data from MongoDB
+18/05/AM 11:22:11  Data inserted to Mysql.
+18/05/AM 11:22:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:22:26  Extraction started getting data from MongoDB
+18/05/AM 11:22:26  Data inserted to Mysql.
+18/05/AM 11:22:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:22:41  Extraction started getting data from MongoDB
+18/05/AM 11:22:41  Data inserted to Mysql.
+18/05/AM 11:22:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:22:56  Extraction started getting data from MongoDB
+18/05/AM 11:22:56  Data inserted to Mysql.
+18/05/AM 11:22:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:23:11  Extraction started getting data from MongoDB
+18/05/AM 11:23:11  Data inserted to Mysql.
+18/05/AM 11:23:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:23:26  Extraction started getting data from MongoDB
+18/05/AM 11:23:26  Data inserted to Mysql.
+18/05/AM 11:23:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:23:41  Extraction started getting data from MongoDB
+18/05/AM 11:23:41  Data inserted to Mysql.
+18/05/AM 11:23:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:23:56  Extraction started getting data from MongoDB
+18/05/AM 11:23:56  Data inserted to Mysql.
+18/05/AM 11:23:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:24:11  Extraction started getting data from MongoDB
+18/05/AM 11:24:11  Data inserted to Mysql.
+18/05/AM 11:24:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:24:26  Extraction started getting data from MongoDB
+18/05/AM 11:24:26  Data inserted to Mysql.
+18/05/AM 11:24:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:24:41  Extraction started getting data from MongoDB
+18/05/AM 11:24:41  Data inserted to Mysql.
+18/05/AM 11:24:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:24:56  Extraction started getting data from MongoDB
+18/05/AM 11:24:56  Data inserted to Mysql.
+18/05/AM 11:24:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:25:11  Extraction started getting data from MongoDB
+18/05/AM 11:25:11  Data inserted to Mysql.
+18/05/AM 11:25:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:25:26  Extraction started getting data from MongoDB
+18/05/AM 11:25:26  Data inserted to Mysql.
+18/05/AM 11:25:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:25:41  Extraction started getting data from MongoDB
+18/05/AM 11:25:41  Data inserted to Mysql.
+18/05/AM 11:25:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:25:56  Extraction started getting data from MongoDB
+18/05/AM 11:25:56  Data inserted to Mysql.
+18/05/AM 11:25:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:26:11  Extraction started getting data from MongoDB
+18/05/AM 11:26:11  Data inserted to Mysql.
+18/05/AM 11:26:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:26:26  Extraction started getting data from MongoDB
+18/05/AM 11:26:26  Data inserted to Mysql.
+18/05/AM 11:26:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:26:41  Extraction started getting data from MongoDB
+18/05/AM 11:26:41  Data inserted to Mysql.
+18/05/AM 11:26:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:26:56  Extraction started getting data from MongoDB
+18/05/AM 11:26:56  Data inserted to Mysql.
+18/05/AM 11:26:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:27:11  Extraction started getting data from MongoDB
+18/05/AM 11:27:11  Data inserted to Mysql.
+18/05/AM 11:27:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:27:26  Extraction started getting data from MongoDB
+18/05/AM 11:27:26  Data inserted to Mysql.
+18/05/AM 11:27:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:27:41  Extraction started getting data from MongoDB
+18/05/AM 11:27:41  Data inserted to Mysql.
+18/05/AM 11:27:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:27:56  Extraction started getting data from MongoDB
+18/05/AM 11:27:56  Data inserted to Mysql.
+18/05/AM 11:27:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:28:11  Extraction started getting data from MongoDB
+18/05/AM 11:28:11  Data inserted to Mysql.
+18/05/AM 11:28:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:28:26  Extraction started getting data from MongoDB
+18/05/AM 11:28:26  Data inserted to Mysql.
+18/05/AM 11:28:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:28:41  Extraction started getting data from MongoDB
+18/05/AM 11:28:41  Data inserted to Mysql.
+18/05/AM 11:28:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:28:56  Extraction started getting data from MongoDB
+18/05/AM 11:28:56  Data inserted to Mysql.
+18/05/AM 11:28:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:29:11  Extraction started getting data from MongoDB
+18/05/AM 11:29:11  Data inserted to Mysql.
+18/05/AM 11:29:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:29:26  Extraction started getting data from MongoDB
+18/05/AM 11:29:26  Data inserted to Mysql.
+18/05/AM 11:29:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:29:41  Extraction started getting data from MongoDB
+18/05/AM 11:29:41  Data inserted to Mysql.
+18/05/AM 11:29:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:29:56  Extraction started getting data from MongoDB
+18/05/AM 11:29:56  Data inserted to Mysql.
+18/05/AM 11:29:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:30:11  Extraction started getting data from MongoDB
+18/05/AM 11:30:11  Data inserted to Mysql.
+18/05/AM 11:30:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:30:26  Extraction started getting data from MongoDB
+18/05/AM 11:30:26  Data inserted to Mysql.
+18/05/AM 11:30:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:30:41  Extraction started getting data from MongoDB
+18/05/AM 11:30:41  Data inserted to Mysql.
+18/05/AM 11:30:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:30:56  Extraction started getting data from MongoDB
+18/05/AM 11:30:56  Data inserted to Mysql.
+18/05/AM 11:30:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:31:11  Extraction started getting data from MongoDB
+18/05/AM 11:31:11  Data inserted to Mysql.
+18/05/AM 11:31:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:31:26  Extraction started getting data from MongoDB
+18/05/AM 11:31:26  Data inserted to Mysql.
+18/05/AM 11:31:26  Migration Finished. Documents in collection deleted.
+18/05/AM 11:31:41  Extraction started getting data from MongoDB
+18/05/AM 11:31:41  Data inserted to Mysql.
+18/05/AM 11:31:41  Migration Finished. Documents in collection deleted.
+18/05/AM 11:31:56  Extraction started getting data from MongoDB
+18/05/AM 11:31:56  Data inserted to Mysql.
+18/05/AM 11:31:56  Migration Finished. Documents in collection deleted.
+18/05/AM 11:32:11  Extraction started getting data from MongoDB
+18/05/AM 11:32:11  Data inserted to Mysql.
+18/05/AM 11:32:11  Migration Finished. Documents in collection deleted.
+18/05/AM 11:32:26  Extraction started getting data from MongoDB
+18/05/AM 11:32:26  Data inserted to Mysql.
+18/05/AM 11:32:26  Migration Finished. Documents in collection deleted.
+
+
+18/05/AM 11:49:03  Log Start
+18/05/AM 11:49:03  Settings File read
+18/05/AM 11:49:03  Mongo To MySql initialized
+18/05/AM 11:49:03  Program started.
+18/05/AM 11:49:03  Connected to mongoDb
+18/05/AM 11:49:03  Connected to database 'sensorbd'
+18/05/AM 11:49:03  Connected to collection 'MigracaoSensor'
+18/05/AM 11:49:03  Extraction started getting data from MongoDB
+18/05/AM 11:49:03  Data inserted to Mysql.
+18/05/AM 11:49:03  Migration Finished. Documents in collection deleted.
+18/05/AM 11:49:04  Extraction started getting data from MongoDB
+18/05/AM 11:49:05  Extraction started getting data from MongoDB
+18/05/AM 11:49:06  Extraction started getting data from MongoDB
+18/05/AM 11:49:07  Extraction started getting data from MongoDB
+18/05/AM 11:49:08  Extraction started getting data from MongoDB
+18/05/AM 11:49:09  Extraction started getting data from MongoDB
+18/05/AM 11:49:10  Extraction started getting data from MongoDB
+18/05/AM 11:49:11  Extraction started getting data from MongoDB
+18/05/AM 11:49:12  Extraction started getting data from MongoDB
+18/05/AM 11:49:13  Extraction started getting data from MongoDB
+18/05/AM 11:49:14  Extraction started getting data from MongoDB
+18/05/AM 11:49:15  Extraction started getting data from MongoDB
+18/05/AM 11:49:16  Extraction started getting data from MongoDB
+18/05/AM 11:49:17  Extraction started getting data from MongoDB
+18/05/AM 11:49:18  Extraction started getting data from MongoDB
+18/05/AM 11:49:19  Extraction started getting data from MongoDB
+18/05/AM 11:49:20  Extraction started getting data from MongoDB
+18/05/AM 11:49:21  Extraction started getting data from MongoDB
+18/05/AM 11:49:22  Extraction started getting data from MongoDB
+18/05/AM 11:49:23  Extraction started getting data from MongoDB
+18/05/AM 11:49:24  Extraction started getting data from MongoDB
+18/05/AM 11:49:25  Extraction started getting data from MongoDB
+18/05/AM 11:49:26  Extraction started getting data from MongoDB
+18/05/AM 11:49:27  Extraction started getting data from MongoDB
+18/05/AM 11:49:28  Extraction started getting data from MongoDB
+18/05/AM 11:49:29  Extraction started getting data from MongoDB
+18/05/AM 11:49:30  Extraction started getting data from MongoDB
+18/05/AM 11:49:31  Extraction started getting data from MongoDB
+18/05/AM 11:49:32  Extraction started getting data from MongoDB
+18/05/AM 11:49:33  Extraction started getting data from MongoDB
+18/05/AM 11:49:34  Extraction started getting data from MongoDB
+18/05/AM 11:49:35  Extraction started getting data from MongoDB
+18/05/AM 11:49:36  Extraction started getting data from MongoDB
+18/05/AM 11:49:37  Extraction started getting data from MongoDB
+18/05/AM 11:49:38  Extraction started getting data from MongoDB
+18/05/AM 11:49:39  Extraction started getting data from MongoDB
+18/05/AM 11:49:40  Extraction started getting data from MongoDB
+18/05/AM 11:49:41  Extraction started getting data from MongoDB
+18/05/AM 11:49:42  Extraction started getting data from MongoDB
+18/05/AM 11:49:43  Extraction started getting data from MongoDB
+18/05/AM 11:49:44  Extraction started getting data from MongoDB
+18/05/AM 11:49:45  Extraction started getting data from MongoDB
+18/05/AM 11:49:46  Extraction started getting data from MongoDB
+18/05/AM 11:49:47  Extraction started getting data from MongoDB
+18/05/AM 11:49:48  Extraction started getting data from MongoDB
+18/05/AM 11:49:49  Extraction started getting data from MongoDB
+18/05/AM 11:49:50  Extraction started getting data from MongoDB
+18/05/AM 11:49:51  Extraction started getting data from MongoDB
+18/05/AM 11:49:52  Extraction started getting data from MongoDB
+18/05/AM 11:49:53  Extraction started getting data from MongoDB
+18/05/AM 11:49:54  Extraction started getting data from MongoDB
+18/05/AM 11:49:55  Extraction started getting data from MongoDB
+18/05/AM 11:49:56  Extraction started getting data from MongoDB
+18/05/AM 11:49:57  Extraction started getting data from MongoDB
+18/05/AM 11:49:58  Extraction started getting data from MongoDB
+18/05/AM 11:49:59  Extraction started getting data from MongoDB
+18/05/AM 11:50:00  Extraction started getting data from MongoDB
+18/05/AM 11:50:01  Extraction started getting data from MongoDB
+18/05/AM 11:50:02  Extraction started getting data from MongoDB
+18/05/AM 11:50:03  Extraction started getting data from MongoDB
+18/05/AM 11:50:04  Extraction started getting data from MongoDB
+18/05/AM 11:50:05  Extraction started getting data from MongoDB
+18/05/AM 11:50:06  Extraction started getting data from MongoDB
+18/05/AM 11:50:07  Extraction started getting data from MongoDB
+18/05/AM 11:50:08  Extraction started getting data from MongoDB
+18/05/AM 11:50:09  Extraction started getting data from MongoDB
+18/05/AM 11:50:10  Extraction started getting data from MongoDB
+18/05/AM 11:50:11  Extraction started getting data from MongoDB
+18/05/AM 11:50:12  Extraction started getting data from MongoDB
+18/05/AM 11:50:13  Extraction started getting data from MongoDB
+18/05/AM 11:50:14  Extraction started getting data from MongoDB
+18/05/AM 11:50:15  Extraction started getting data from MongoDB
+18/05/AM 11:50:16  Extraction started getting data from MongoDB
+18/05/AM 11:50:17  Extraction started getting data from MongoDB
+18/05/AM 11:50:18  Extraction started getting data from MongoDB
+18/05/AM 11:50:19  Extraction started getting data from MongoDB
+18/05/AM 11:50:20  Extraction started getting data from MongoDB
+18/05/AM 11:50:21  Extraction started getting data from MongoDB
+18/05/AM 11:50:22  Extraction started getting data from MongoDB
+18/05/AM 11:50:23  Extraction started getting data from MongoDB
+18/05/AM 11:50:24  Extraction started getting data from MongoDB
+18/05/AM 11:50:25  Extraction started getting data from MongoDB
+18/05/AM 11:50:26  Extraction started getting data from MongoDB
+18/05/AM 11:50:27  Extraction started getting data from MongoDB
+18/05/AM 11:50:28  Extraction started getting data from MongoDB
+18/05/AM 11:50:29  Extraction started getting data from MongoDB
+18/05/AM 11:50:30  Extraction started getting data from MongoDB
+18/05/AM 11:50:31  Extraction started getting data from MongoDB
+18/05/AM 11:50:32  Extraction started getting data from MongoDB
+18/05/AM 11:50:33  Extraction started getting data from MongoDB
+18/05/AM 11:50:34  Extraction started getting data from MongoDB
+18/05/AM 11:50:35  Extraction started getting data from MongoDB
+18/05/AM 11:50:36  Extraction started getting data from MongoDB
+18/05/AM 11:50:37  Extraction started getting data from MongoDB
+18/05/AM 11:50:38  Extraction started getting data from MongoDB
+18/05/AM 11:50:39  Extraction started getting data from MongoDB
+18/05/AM 11:50:40  Extraction started getting data from MongoDB
+18/05/AM 11:50:41  Extraction started getting data from MongoDB
+18/05/AM 11:50:42  Extraction started getting data from MongoDB
+18/05/AM 11:50:43  Extraction started getting data from MongoDB
+18/05/AM 11:50:44  Extraction started getting data from MongoDB
+18/05/AM 11:50:45  Extraction started getting data from MongoDB
+18/05/AM 11:50:46  Extraction started getting data from MongoDB
+18/05/AM 11:50:47  Extraction started getting data from MongoDB
+18/05/AM 11:50:48  Extraction started getting data from MongoDB
+18/05/AM 11:50:49  Extraction started getting data from MongoDB
+18/05/AM 11:50:50  Extraction started getting data from MongoDB
+18/05/AM 11:50:51  Extraction started getting data from MongoDB
+18/05/AM 11:50:52  Extraction started getting data from MongoDB
+18/05/AM 11:50:53  Extraction started getting data from MongoDB
+18/05/AM 11:50:54  Extraction started getting data from MongoDB
+18/05/AM 11:50:55  Extraction started getting data from MongoDB
+18/05/AM 11:50:56  Extraction started getting data from MongoDB
+18/05/AM 11:50:57  Extraction started getting data from MongoDB
+18/05/AM 11:50:58  Extraction started getting data from MongoDB
+18/05/AM 11:50:59  Extraction started getting data from MongoDB
+
+
+18/05/AM 11:51:36  Log Start
+18/05/AM 11:51:36  Settings File read
+18/05/AM 11:51:36  Mongo To MySql initialized
+18/05/AM 11:51:36  Program started.
+18/05/AM 11:51:37  Connected to mongoDb
+18/05/AM 11:51:37  Connected to database 'sensorbd'
+18/05/AM 11:51:37  Connected to collection 'MigracaoSensor'
+18/05/AM 11:51:37  Extraction started getting data from MongoDB
+18/05/AM 11:51:39  Extraction started getting data from MongoDB
+18/05/AM 11:51:41  Extraction started getting data from MongoDB
+18/05/AM 11:51:43  Extraction started getting data from MongoDB
+18/05/AM 11:51:45  Extraction started getting data from MongoDB
+18/05/AM 11:51:47  Extraction started getting data from MongoDB
+18/05/AM 11:51:49  Extraction started getting data from MongoDB
+18/05/AM 11:51:51  Extraction started getting data from MongoDB
+18/05/AM 11:51:53  Extraction started getting data from MongoDB
+18/05/AM 11:51:55  Extraction started getting data from MongoDB
+18/05/AM 11:51:57  Extraction started getting data from MongoDB
+18/05/AM 11:51:59  Extraction started getting data from MongoDB
+18/05/AM 11:52:01  Extraction started getting data from MongoDB
+18/05/AM 11:52:03  Extraction started getting data from MongoDB
+18/05/AM 11:52:05  Extraction started getting data from MongoDB
+18/05/AM 11:52:07  Extraction started getting data from MongoDB
+18/05/AM 11:52:09  Extraction started getting data from MongoDB
+18/05/AM 11:52:11  Extraction started getting data from MongoDB
+18/05/AM 11:52:13  Extraction started getting data from MongoDB
+18/05/AM 11:52:15  Extraction started getting data from MongoDB
+18/05/AM 11:52:17  Extraction started getting data from MongoDB
+18/05/AM 11:52:19  Extraction started getting data from MongoDB
+18/05/AM 11:52:21  Extraction started getting data from MongoDB
+18/05/AM 11:52:23  Extraction started getting data from MongoDB
+18/05/AM 11:52:25  Extraction started getting data from MongoDB
+18/05/AM 11:52:27  Extraction started getting data from MongoDB
+18/05/AM 11:52:29  Extraction started getting data from MongoDB
+18/05/AM 11:52:31  Extraction started getting data from MongoDB
+18/05/AM 11:52:33  Extraction started getting data from MongoDB
+18/05/AM 11:52:35  Extraction started getting data from MongoDB
+18/05/AM 11:52:37  Extraction started getting data from MongoDB
+
+
+18/05/AM 11:53:05  Log Start
+18/05/AM 11:53:05  Settings File read
+18/05/AM 11:53:05  Mongo To MySql initialized
+18/05/AM 11:53:05  Program started.
+18/05/AM 11:53:05  Connected to mongoDb
+18/05/AM 11:53:05  Connected to database 'sensorbd'
+18/05/AM 11:53:05  Connected to collection 'MigracaoSensor'
+18/05/AM 11:53:05  Extraction started getting data from MongoDB
+18/05/AM 11:53:08  Extraction started getting data from MongoDB
+18/05/AM 11:53:11  Extraction started getting data from MongoDB
+18/05/AM 11:53:14  Extraction started getting data from MongoDB
+18/05/AM 11:53:17  Extraction started getting data from MongoDB
+18/05/AM 11:53:20  Extraction started getting data from MongoDB
+18/05/AM 11:53:23  Extraction started getting data from MongoDB
+18/05/AM 11:53:26  Extraction started getting data from MongoDB
+18/05/AM 11:53:29  Extraction started getting data from MongoDB
+18/05/AM 11:53:32  Extraction started getting data from MongoDB
+18/05/AM 11:53:35  Extraction started getting data from MongoDB
+18/05/AM 11:53:38  Extraction started getting data from MongoDB
+18/05/AM 11:53:41  Extraction started getting data from MongoDB
+18/05/AM 11:53:44  Extraction started getting data from MongoDB
+18/05/AM 11:53:47  Extraction started getting data from MongoDB
+
+
+18/05/AM 11:54:07  Log Start
+18/05/AM 11:54:07  Settings File read
+18/05/AM 11:54:07  Mongo To MySql initialized
+18/05/AM 11:54:07  Program started.
+18/05/AM 11:54:08  Connected to mongoDb
+18/05/AM 11:54:08  Connected to database 'sensorbd'
+18/05/AM 11:54:08  Connected to collection 'MigracaoSensor'
+18/05/AM 11:54:08  Extraction started getting data from MongoDB
+18/05/AM 11:54:13  Extraction started getting data from MongoDB
+18/05/AM 11:54:18  Extraction started getting data from MongoDB
+18/05/AM 11:54:23  Extraction started getting data from MongoDB
+18/05/AM 11:54:28  Extraction started getting data from MongoDB
+18/05/AM 11:54:33  Extraction started getting data from MongoDB
+18/05/AM 11:54:38  Extraction started getting data from MongoDB
+18/05/AM 11:54:43  Extraction started getting data from MongoDB
+18/05/AM 11:54:48  Extraction started getting data from MongoDB
+18/05/AM 11:54:53  Extraction started getting data from MongoDB
+18/05/AM 11:54:58  Extraction started getting data from MongoDB
+18/05/AM 11:55:03  Extraction started getting data from MongoDB
+
+
+18/05/PM 12:14:59  Log Start
+18/05/PM 12:14:59  Settings File read
+18/05/PM 12:14:59  Mongo To MySql initialized
+18/05/PM 12:14:59  Program started.
+18/05/PM 12:15:00  Connected to mongoDb
+18/05/PM 12:15:00  Connected to database 'sensorbd'
+18/05/PM 12:15:00  Connected to collection 'MigracaoSensor'
+18/05/PM 12:15:00  Extraction started getting data from MongoDB
+18/05/PM 12:15:05  Extraction started getting data from MongoDB
+18/05/PM 12:15:10  Extraction started getting data from MongoDB
+18/05/PM 12:15:15  Extraction started getting data from MongoDB
+18/05/PM 12:15:20  Extraction started getting data from MongoDB
+18/05/PM 12:15:25  Extraction started getting data from MongoDB
+18/05/PM 12:15:30  Extraction started getting data from MongoDB
+18/05/PM 12:15:35  Extraction started getting data from MongoDB
+18/05/PM 12:15:40  Extraction started getting data from MongoDB
+18/05/PM 12:15:45  Extraction started getting data from MongoDB
+18/05/PM 12:15:50  Extraction started getting data from MongoDB
+18/05/PM 12:15:55  Extraction started getting data from MongoDB
+18/05/PM 12:16:00  Extraction started getting data from MongoDB
+18/05/PM 12:16:05  Extraction started getting data from MongoDB
+18/05/PM 12:16:10  Extraction started getting data from MongoDB
+18/05/PM 12:16:15  Extraction started getting data from MongoDB
+18/05/PM 12:16:20  Extraction started getting data from MongoDB
+18/05/PM 12:16:25  Extraction started getting data from MongoDB
+18/05/PM 12:16:30  Extraction started getting data from MongoDB
+18/05/PM 12:16:35  Extraction started getting data from MongoDB
+
+
+18/05/PM 12:25:24  Log Start
+18/05/PM 12:25:24  Settings File read
+18/05/PM 12:25:24  Mongo To MySql initialized
+18/05/PM 12:25:24  Program started.
+18/05/PM 12:25:24  Connected to mongoDb
+18/05/PM 12:25:24  Connected to database 'sensorbd'
+18/05/PM 12:25:24  Connected to collection 'MigracaoSensor'
+18/05/PM 12:25:24  Extraction started getting data from MongoDB
+18/05/PM 12:25:39  Extraction started getting data from MongoDB
+18/05/PM 12:25:54  Extraction started getting data from MongoDB
+
+
+18/05/PM 12:35:12  Log Start
+18/05/PM 12:35:12  Settings File read
+18/05/PM 12:35:12  Mongo To MySql initialized
+18/05/PM 12:35:12  Program started.
+18/05/PM 12:35:12  Connected to mongoDb
+18/05/PM 12:35:13  Connected to database 'sensorbd'
+18/05/PM 12:35:13  Connected to collection 'MigracaoSensor'
+18/05/PM 12:35:13  Extraction started getting data from MongoDB
+18/05/PM 12:35:28  Extraction started getting data from MongoDB
+18/05/PM 12:35:43  Extraction started getting data from MongoDB
+18/05/PM 12:35:58  Extraction started getting data from MongoDB
+
+
+18/05/PM 12:36:21  Log Start
+18/05/PM 12:36:21  Settings File read
+18/05/PM 12:36:21  Mongo To MySql initialized
+18/05/PM 12:36:21  Program started.
+18/05/PM 12:36:22  Connected to mongoDb
+18/05/PM 12:36:22  Connected to database 'sensorbd'
+18/05/PM 12:36:22  Connected to collection 'MigracaoSensor'
+18/05/PM 12:36:22  Extraction started getting data from MongoDB
+18/05/PM 12:36:37  Extraction started getting data from MongoDB
+18/05/PM 12:36:52  Extraction started getting data from MongoDB
+18/05/PM 12:37:07  Extraction started getting data from MongoDB
+18/05/PM 12:37:22  Extraction started getting data from MongoDB
+18/05/PM 12:37:37  Extraction started getting data from MongoDB
+
+
+18/05/PM 12:37:47  Log Start
+18/05/PM 12:37:47  Settings File read
+18/05/PM 12:37:47  Mongo To MySql initialized
+18/05/PM 12:37:47  Program started.
+18/05/PM 12:37:48  Connected to mongoDb
+18/05/PM 12:37:48  Connected to database 'sensorbd'
+18/05/PM 12:37:48  Connected to collection 'MigracaoSensor'
+18/05/PM 12:37:48  Extraction started getting data from MongoDB
+18/05/PM 12:38:03  Extraction started getting data from MongoDB
+
+
+18/05/PM 12:58:52  Log Start
+18/05/PM 12:58:52  Settings File read
+18/05/PM 12:58:52  Mongo To MySql initialized
+18/05/PM 12:58:52  Program started.
+18/05/PM 12:58:52  Connected to mongoDb
+18/05/PM 12:58:52  Connected to database 'sensorbd'
+18/05/PM 12:58:52  Connected to collection 'MigracaoSensor'
+18/05/PM 12:58:52  Extraction started getting data from MongoDB
+18/05/PM 12:59:07  Extraction started getting data from MongoDB
+18/05/PM 12:59:22  Extraction started getting data from MongoDB
+18/05/PM 12:59:37  Extraction started getting data from MongoDB
+18/05/PM 12:59:52  Extraction started getting data from MongoDB
+18/05/PM 01:00:07  Extraction started getting data from MongoDB
+18/05/PM 01:00:22  Extraction started getting data from MongoDB
+18/05/PM 01:00:37  Extraction started getting data from MongoDB
+18/05/PM 01:00:52  Extraction started getting data from MongoDB
+18/05/PM 01:01:07  Extraction started getting data from MongoDB
+18/05/PM 01:01:22  Extraction started getting data from MongoDB
+18/05/PM 01:01:37  Extraction started getting data from MongoDB
+18/05/PM 01:01:52  Extraction started getting data from MongoDB
+18/05/PM 01:02:07  Extraction started getting data from MongoDB
+18/05/PM 01:02:22  Extraction started getting data from MongoDB
+18/05/PM 01:02:37  Extraction started getting data from MongoDB
+18/05/PM 01:02:52  Extraction started getting data from MongoDB
+18/05/PM 01:03:07  Extraction started getting data from MongoDB
+18/05/PM 01:03:22  Extraction started getting data from MongoDB
+18/05/PM 01:03:37  Extraction started getting data from MongoDB
+18/05/PM 01:03:52  Extraction started getting data from MongoDB
+18/05/PM 01:04:07  Extraction started getting data from MongoDB
+18/05/PM 01:04:22  Extraction started getting data from MongoDB
+18/05/PM 01:04:37  Extraction started getting data from MongoDB
+18/05/PM 01:04:52  Extraction started getting data from MongoDB
+18/05/PM 01:05:07  Extraction started getting data from MongoDB
+18/05/PM 01:05:22  Extraction started getting data from MongoDB
+18/05/PM 01:05:37  Extraction started getting data from MongoDB
+18/05/PM 01:05:52  Extraction started getting data from MongoDB
+18/05/PM 01:06:07  Extraction started getting data from MongoDB
+18/05/PM 01:06:22  Extraction started getting data from MongoDB
+18/05/PM 01:06:37  Extraction started getting data from MongoDB
+18/05/PM 01:06:52  Extraction started getting data from MongoDB
+18/05/PM 01:07:07  Extraction started getting data from MongoDB
+
+
+18/05/PM 01:13:08  Log Start
+18/05/PM 01:13:08  Settings File read
+18/05/PM 01:13:08  Mongo To MySql initialized
+18/05/PM 01:13:08  Program started.
+18/05/PM 01:13:08  Connected to mongoDb
+18/05/PM 01:13:08  Connected to database 'sensorbd'
+18/05/PM 01:13:08  Connected to collection 'MigracaoSensor'
+18/05/PM 01:13:08  Extraction started getting data from MongoDB
+18/05/PM 01:13:23  Extraction started getting data from MongoDB
+18/05/PM 01:13:38  Extraction started getting data from MongoDB
+18/05/PM 01:13:53  Extraction started getting data from MongoDB
+18/05/PM 01:14:08  Extraction started getting data from MongoDB
+18/05/PM 01:14:23  Extraction started getting data from MongoDB
+18/05/PM 01:14:38  Extraction started getting data from MongoDB
+18/05/PM 01:14:53  Extraction started getting data from MongoDB
+18/05/PM 01:15:08  Extraction started getting data from MongoDB
+18/05/PM 01:15:23  Extraction started getting data from MongoDB
+18/05/PM 01:15:38  Extraction started getting data from MongoDB
+18/05/PM 01:15:53  Extraction started getting data from MongoDB
+18/05/PM 01:16:08  Extraction started getting data from MongoDB
+18/05/PM 01:16:23  Extraction started getting data from MongoDB
+18/05/PM 01:16:38  Extraction started getting data from MongoDB
+18/05/PM 01:16:53  Extraction started getting data from MongoDB
+18/05/PM 01:17:08  Extraction started getting data from MongoDB
+18/05/PM 01:17:23  Extraction started getting data from MongoDB
+18/05/PM 01:17:38  Extraction started getting data from MongoDB
+18/05/PM 01:17:53  Extraction started getting data from MongoDB
+
+
+18/05/PM 01:18:17  Log Start
+18/05/PM 01:18:17  Settings File read
+18/05/PM 01:18:17  Mongo To MySql initialized
+18/05/PM 01:18:17  Program started.
+18/05/PM 01:18:18  Connected to mongoDb
+18/05/PM 01:18:18  Connected to database 'sensorbd'
+18/05/PM 01:18:18  Connected to collection 'MigracaoSensor'
+18/05/PM 01:18:18  Extraction started getting data from MongoDB
+18/05/PM 01:18:33  Extraction started getting data from MongoDB
+18/05/PM 01:18:48  Extraction started getting data from MongoDB
+18/05/PM 01:19:03  Extraction started getting data from MongoDB
+18/05/PM 01:19:18  Extraction started getting data from MongoDB
+18/05/PM 01:19:33  Extraction started getting data from MongoDB
+18/05/PM 01:19:48  Extraction started getting data from MongoDB
+18/05/PM 01:20:03  Extraction started getting data from MongoDB
+18/05/PM 01:20:18  Extraction started getting data from MongoDB
+18/05/PM 01:20:33  Extraction started getting data from MongoDB
+18/05/PM 01:20:48  Extraction started getting data from MongoDB
+18/05/PM 01:21:03  Extraction started getting data from MongoDB
+18/05/PM 01:21:18  Extraction started getting data from MongoDB
+18/05/PM 01:21:33  Extraction started getting data from MongoDB
+18/05/PM 01:21:48  Extraction started getting data from MongoDB
+18/05/PM 01:22:03  Extraction started getting data from MongoDB
+18/05/PM 01:22:18  Extraction started getting data from MongoDB
+18/05/PM 01:22:33  Extraction started getting data from MongoDB
+18/05/PM 01:22:48  Extraction started getting data from MongoDB
+18/05/PM 01:23:03  Extraction started getting data from MongoDB
+18/05/PM 01:23:18  Extraction started getting data from MongoDB
+18/05/PM 01:23:33  Extraction started getting data from MongoDB
+18/05/PM 01:23:48  Extraction started getting data from MongoDB
+18/05/PM 01:24:03  Extraction started getting data from MongoDB
+18/05/PM 01:24:18  Extraction started getting data from MongoDB
+18/05/PM 01:24:33  Extraction started getting data from MongoDB
+18/05/PM 01:24:48  Extraction started getting data from MongoDB
+18/05/PM 01:25:03  Extraction started getting data from MongoDB
+18/05/PM 01:25:18  Extraction started getting data from MongoDB
+18/05/PM 01:25:33  Extraction started getting data from MongoDB
+18/05/PM 01:25:48  Extraction started getting data from MongoDB
+18/05/PM 01:26:03  Extraction started getting data from MongoDB
+
+
+18/05/PM 01:26:23  Log Start
+18/05/PM 01:26:23  Settings File read
+18/05/PM 01:26:23  Mongo To MySql initialized
+18/05/PM 01:26:23  Program started.
+18/05/PM 01:26:24  Connected to mongoDb
+18/05/PM 01:26:24  Connected to database 'sensorbd'
+18/05/PM 01:26:24  Connected to collection 'MigracaoSensor'
+18/05/PM 01:26:24  Extraction started getting data from MongoDB
+18/05/PM 01:26:39  Extraction started getting data from MongoDB
+18/05/PM 01:26:54  Extraction started getting data from MongoDB
+18/05/PM 01:27:09  Extraction started getting data from MongoDB
+18/05/PM 01:27:24  Extraction started getting data from MongoDB
+18/05/PM 01:27:39  Extraction started getting data from MongoDB
+18/05/PM 01:27:54  Extraction started getting data from MongoDB
+18/05/PM 01:28:09  Extraction started getting data from MongoDB
+18/05/PM 01:28:24  Extraction started getting data from MongoDB
+18/05/PM 01:28:39  Extraction started getting data from MongoDB
+18/05/PM 01:28:54  Extraction started getting data from MongoDB
+18/05/PM 01:29:09  Extraction started getting data from MongoDB
+18/05/PM 01:29:24  Extraction started getting data from MongoDB
+18/05/PM 01:29:39  Extraction started getting data from MongoDB
+18/05/PM 01:29:54  Extraction started getting data from MongoDB
+18/05/PM 01:30:09  Extraction started getting data from MongoDB
+18/05/PM 01:30:24  Extraction started getting data from MongoDB
+18/05/PM 01:30:39  Extraction started getting data from MongoDB
+18/05/PM 01:30:54  Extraction started getting data from MongoDB
+18/05/PM 01:31:09  Extraction started getting data from MongoDB
+18/05/PM 01:31:24  Extraction started getting data from MongoDB
+18/05/PM 01:31:39  Extraction started getting data from MongoDB
+18/05/PM 01:31:54  Extraction started getting data from MongoDB
+18/05/PM 01:32:09  Extraction started getting data from MongoDB
+18/05/PM 01:32:24  Extraction started getting data from MongoDB
+18/05/PM 01:32:39  Extraction started getting data from MongoDB
+18/05/PM 01:32:54  Extraction started getting data from MongoDB
+18/05/PM 01:33:09  Extraction started getting data from MongoDB
+18/05/PM 01:33:24  Extraction started getting data from MongoDB
+18/05/PM 01:33:39  Extraction started getting data from MongoDB
+18/05/PM 01:33:54  Extraction started getting data from MongoDB
+18/05/PM 01:34:09  Extraction started getting data from MongoDB
+18/05/PM 01:34:24  Extraction started getting data from MongoDB
+18/05/PM 01:34:39  Extraction started getting data from MongoDB
+18/05/PM 01:34:54  Extraction started getting data from MongoDB
+
+
+18/05/PM 01:35:11  Log Start
+18/05/PM 01:35:11  Settings File read
+18/05/PM 01:35:11  Mongo To MySql initialized
+18/05/PM 01:35:11  Program started.
+18/05/PM 01:35:11  Connected to mongoDb
+18/05/PM 01:35:11  Connected to database 'sensorbd'
+18/05/PM 01:35:11  Connected to collection 'MigracaoSensor'
+18/05/PM 01:35:11  Extraction started getting data from MongoDB
+18/05/PM 01:35:12  Data inserted to Mysql.
+18/05/PM 01:35:12  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:16  Extraction started getting data from MongoDB
+18/05/PM 01:35:16  Data inserted to Mysql.
+18/05/PM 01:35:16  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:21  Extraction started getting data from MongoDB
+18/05/PM 01:35:21  Data inserted to Mysql.
+18/05/PM 01:35:21  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:26  Extraction started getting data from MongoDB
+18/05/PM 01:35:26  Data inserted to Mysql.
+18/05/PM 01:35:27  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:31  Extraction started getting data from MongoDB
+18/05/PM 01:35:31  Data inserted to Mysql.
+18/05/PM 01:35:31  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:36  Extraction started getting data from MongoDB
+18/05/PM 01:35:36  Data inserted to Mysql.
+18/05/PM 01:35:37  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:41  Extraction started getting data from MongoDB
+18/05/PM 01:35:41  Data inserted to Mysql.
+18/05/PM 01:35:41  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:46  Extraction started getting data from MongoDB
+18/05/PM 01:35:46  Data inserted to Mysql.
+18/05/PM 01:35:46  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:51  Extraction started getting data from MongoDB
+18/05/PM 01:35:51  Data inserted to Mysql.
+18/05/PM 01:35:51  Migration Finished. Documents in collection deleted.
+18/05/PM 01:35:56  Extraction started getting data from MongoDB
+18/05/PM 01:35:56  Data inserted to Mysql.
+18/05/PM 01:35:57  Migration Finished. Documents in collection deleted.
+18/05/PM 01:36:01  Extraction started getting data from MongoDB
+18/05/PM 01:36:01  Data inserted to Mysql.
+18/05/PM 01:36:01  Migration Finished. Documents in collection deleted.
