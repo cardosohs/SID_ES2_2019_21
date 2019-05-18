@@ -1,0 +1,20 @@
+
+
+17/05/2019 23:46:08  Log Start
+
+
+17/05/2019 23:46:08  Connecting to mongoDb
+17/05/2019 23:46:09  Connected to mongoDb
+17/05/2019 23:46:09  Connected to database 'sensorbd'
+17/05/2019 23:46:09  Connected to collection 'MedicoesSensor'
+
+
+17/05/2019 23:46:09  Connecting to Mqtt Broker
+17/05/2019 23:46:09  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+17/05/2019 23:46:11  Topic subscribed '/sid_lab_2019'
+
+
+17/05/2019 23:46:11  Starting Worker Thread Document Producer
+
+
+17/05/2019 23:46:11  Starting Worker Thread Failed Document Consumer
