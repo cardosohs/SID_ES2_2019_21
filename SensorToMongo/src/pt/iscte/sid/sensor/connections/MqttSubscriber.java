@@ -13,10 +13,10 @@ import pt.isce.sid.sensor.utils.TypeLog;
 
 public class MqttSubscriber {
 
-    //private String topic = "/sid_lab_2019_2";
-    private String topic = "/sid_lab_2019";
-    //private String broker = "tcp://broker.hivemq.com:1883";
-    private String broker = "tcp://iot.eclipse.org:1883";
+    private String topic = "/sid_lab_2019_2";
+    //private String topic = "/sid_lab_2019";
+    private String broker = "tcp://broker.hivemq.com:1883";
+    //private String broker = "tcp://iot.eclipse.org:1883";
     //private String clientId = "Grupo21SID2019";
     private String clientId = UUID.randomUUID().toString();
     private Boolean isMqttAlive = false; // flag para determinar se a conexão existe

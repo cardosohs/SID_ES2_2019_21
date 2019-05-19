@@ -46,6 +46,7 @@ public class MySqlConn {
 				+ " (sensor, medicao, datetime_sensor)" + " VALUES " + sqlString;
 
 		System.out.println(sqlQuery);
+
 		
 		/*código de teste para tempo médio de chegada*/
 		Date date1= new Date();
