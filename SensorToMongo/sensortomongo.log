@@ -357,3 +357,463 @@
 
 
 18/05/2019 13:35:04  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 13:37:16  Log Start
+
+
+18/05/2019 13:37:17  Connecting to mongoDb
+18/05/2019 13:37:17  Connected to mongoDb
+18/05/2019 13:37:17  Connected to database 'sensorbd'
+18/05/2019 13:37:17  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 13:37:17  Connecting to Mqtt Broker
+18/05/2019 13:37:17  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 13:37:18  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 13:37:18  Starting Worker Thread Document Producer
+
+
+18/05/2019 13:37:18  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 13:40:42  Log Start
+
+
+18/05/2019 13:40:42  Connecting to mongoDb
+18/05/2019 13:40:43  Connected to mongoDb
+18/05/2019 13:40:43  Connected to database 'sensorbd'
+18/05/2019 13:40:43  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 13:40:43  Connecting to Mqtt Broker
+18/05/2019 13:40:43  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 13:40:44  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 13:40:44  Starting Worker Thread Document Producer
+
+
+18/05/2019 13:40:44  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 13:42:14  Log Start
+
+
+18/05/2019 13:42:14  Connecting to mongoDb
+18/05/2019 13:42:15  Connected to mongoDb
+18/05/2019 13:42:15  Connected to database 'sensorbd'
+18/05/2019 13:42:15  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 13:42:15  Connecting to Mqtt Broker
+18/05/2019 13:42:15  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 13:42:16  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 13:42:16  Starting Worker Thread Document Producer
+
+
+18/05/2019 13:42:16  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 14:10:47  Log Start
+
+
+18/05/2019 14:10:47  Connecting to mongoDb
+18/05/2019 14:10:48  Connected to mongoDb
+18/05/2019 14:10:48  Connected to database 'sensorbd'
+18/05/2019 14:10:48  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 14:10:48  Connecting to Mqtt Broker
+18/05/2019 14:10:48  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 14:10:49  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 14:10:49  Starting Worker Thread Document Producer
+
+
+18/05/2019 14:10:49  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 14:21:12  Log Start
+
+
+18/05/2019 14:21:12  Connecting to mongoDb
+18/05/2019 14:21:12  Connected to mongoDb
+18/05/2019 14:21:12  Connected to database 'sensorbd'
+18/05/2019 14:21:12  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 14:21:12  Connecting to Mqtt Broker
+18/05/2019 14:21:13  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 14:21:13  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 14:21:13  Starting Worker Thread Document Producer
+
+
+18/05/2019 14:21:13  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 14:54:37  Log Start
+
+
+18/05/2019 14:54:37  Connecting to mongoDb
+18/05/2019 14:54:38  Connected to mongoDb
+18/05/2019 14:54:38  Connected to database 'sensorbd'
+18/05/2019 14:54:38  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 14:54:38  Connecting to Mqtt Broker
+18/05/2019 14:54:38  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 14:54:39  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 14:54:39  Starting Worker Thread Document Producer
+
+
+18/05/2019 14:54:39  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 14:57:43  Log Start
+
+
+18/05/2019 14:57:43  Connecting to mongoDb
+18/05/2019 14:57:44  Connected to mongoDb
+18/05/2019 14:57:44  Connected to database 'sensorbd'
+18/05/2019 14:57:44  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 14:57:44  Connecting to Mqtt Broker
+18/05/2019 14:57:44  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 14:57:45  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 14:57:45  Starting Worker Thread Document Producer
+
+
+18/05/2019 14:57:45  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 15:11:30  Log Start
+
+
+18/05/2019 15:11:30  Connecting to mongoDb
+18/05/2019 15:11:30  Connected to mongoDb
+18/05/2019 15:11:30  Connected to database 'sensorbd'
+18/05/2019 15:11:30  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 15:11:30  Connecting to Mqtt Broker
+18/05/2019 15:11:31  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 15:11:31  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 15:11:31  Starting Worker Thread Document Producer
+
+
+18/05/2019 15:11:31  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 15:16:55  Log Start
+
+
+18/05/2019 15:16:55  Connecting to mongoDb
+18/05/2019 15:16:56  Connected to mongoDb
+18/05/2019 15:16:56  Connected to database 'sensorbd'
+18/05/2019 15:16:56  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 15:16:56  Connecting to Mqtt Broker
+18/05/2019 15:16:56  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 15:16:57  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 15:16:57  Starting Worker Thread Document Producer
+
+
+18/05/2019 15:16:57  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 15:29:47  Log Start
+
+
+18/05/2019 15:29:47  Connecting to mongoDb
+18/05/2019 15:29:48  Connected to mongoDb
+18/05/2019 15:29:48  Connected to database 'sensorbd'
+18/05/2019 15:29:48  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 15:29:48  Connecting to Mqtt Broker
+18/05/2019 15:29:48  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 15:29:49  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 15:29:49  Starting Worker Thread Document Producer
+
+
+18/05/2019 15:29:49  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 15:47:22  Log Start
+
+
+18/05/2019 15:47:22  Connecting to mongoDb
+18/05/2019 15:47:23  Connected to mongoDb
+18/05/2019 15:47:23  Connected to database 'sensorbd'
+18/05/2019 15:47:23  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 15:47:23  Connecting to Mqtt Broker
+18/05/2019 15:47:23  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 15:47:24  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 15:47:24  Starting Worker Thread Document Producer
+
+
+18/05/2019 15:47:24  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 16:04:33  Log Start
+
+
+18/05/2019 16:04:33  Connecting to mongoDb
+18/05/2019 16:04:34  Connected to mongoDb
+18/05/2019 16:04:34  Connected to database 'sensorbd'
+18/05/2019 16:04:34  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 16:04:34  Connecting to Mqtt Broker
+18/05/2019 16:04:34  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 16:04:34  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 16:04:34  Starting Worker Thread Document Producer
+
+
+18/05/2019 16:04:34  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 16:11:47  Log Start
+
+
+18/05/2019 16:11:47  Connecting to mongoDb
+18/05/2019 16:11:48  Connected to mongoDb
+18/05/2019 16:11:48  Connected to database 'sensorbd'
+18/05/2019 16:11:48  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 16:11:48  Connecting to Mqtt Broker
+18/05/2019 16:11:48  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 16:11:49  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 16:11:49  Starting Worker Thread Document Producer
+
+
+18/05/2019 16:11:49  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 17:06:24  Log Start
+
+
+18/05/2019 17:06:24  Connecting to mongoDb
+18/05/2019 17:06:25  Connected to mongoDb
+18/05/2019 17:06:25  Connected to database 'sensorbd'
+18/05/2019 17:06:25  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 17:06:25  Connecting to Mqtt Broker
+18/05/2019 17:06:25  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 17:06:26  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 17:06:26  Starting Worker Thread Document Producer
+
+
+18/05/2019 17:06:26  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 17:08:36  Log Start
+
+
+18/05/2019 17:08:36  Connecting to mongoDb
+18/05/2019 17:08:37  Connected to mongoDb
+18/05/2019 17:08:37  Connected to database 'sensorbd'
+18/05/2019 17:08:37  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 17:08:37  Connecting to Mqtt Broker
+18/05/2019 17:08:37  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 17:08:37  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 17:08:37  Starting Worker Thread Document Producer
+
+
+18/05/2019 17:08:37  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 17:09:39  Log Start
+
+
+18/05/2019 17:09:39  Connecting to mongoDb
+18/05/2019 17:09:40  Connected to mongoDb
+18/05/2019 17:09:40  Connected to database 'sensorbd'
+18/05/2019 17:09:40  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 17:09:40  Connecting to Mqtt Broker
+18/05/2019 17:09:40  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 17:09:41  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 17:09:41  Starting Worker Thread Document Producer
+
+
+18/05/2019 17:09:41  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 17:26:51  Log Start
+
+
+18/05/2019 17:26:51  Connecting to mongoDb
+18/05/2019 17:26:52  Connected to mongoDb
+18/05/2019 17:26:52  Connected to database 'sensorbd'
+18/05/2019 17:26:52  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 17:26:52  Connecting to Mqtt Broker
+18/05/2019 17:26:52  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 17:26:53  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 17:26:53  Starting Worker Thread Document Producer
+
+
+18/05/2019 17:26:53  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 18:14:14  Log Start
+
+
+18/05/2019 18:14:14  Connecting to mongoDb
+18/05/2019 18:14:16  Connected to mongoDb
+18/05/2019 18:14:16  Connected to database 'sensorbd'
+18/05/2019 18:14:16  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 18:14:16  Connecting to Mqtt Broker
+18/05/2019 18:14:16  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 18:14:17  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 18:14:17  Starting Worker Thread Document Producer
+
+
+18/05/2019 18:14:17  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 18:38:17  Log Start
+
+
+18/05/2019 18:38:17  Connecting to mongoDb
+18/05/2019 18:38:17  Connected to mongoDb
+18/05/2019 18:38:17  Connected to database 'sensorbd'
+18/05/2019 18:38:17  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 18:38:17  Connecting to Mqtt Broker
+18/05/2019 18:38:18  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 18:38:18  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 18:38:18  Starting Worker Thread Document Producer
+
+
+18/05/2019 18:38:18  Starting Worker Thread Failed Document Consumer
+
+
+18/05/2019 19:06:07  Log Start
+
+
+18/05/2019 19:06:07  Connecting to mongoDb
+18/05/2019 19:06:07  Connected to mongoDb
+18/05/2019 19:06:07  Connected to database 'sensorbd'
+18/05/2019 19:06:07  Connected to collection 'MedicoesSensor'
+
+
+18/05/2019 19:06:07  Connecting to Mqtt Broker
+18/05/2019 19:06:08  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+18/05/2019 19:06:08  Topic subscribed '/sid_lab_2019'
+
+
+18/05/2019 19:06:08  Starting Worker Thread Document Producer
+
+
+18/05/2019 19:06:08  Starting Worker Thread Failed Document Consumer
+
+
+19/05/2019 11:34:27  Log Start
+
+
+19/05/2019 11:34:27  Connecting to mongoDb
+19/05/2019 11:34:27  Connected to mongoDb
+19/05/2019 11:34:27  Connected to database 'sensorbd'
+19/05/2019 11:34:27  Connected to collection 'MedicoesSensor'
+
+
+19/05/2019 11:34:27  Connecting to Mqtt Broker
+19/05/2019 11:34:28  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+19/05/2019 11:34:29  Topic subscribed '/sid_lab_2019'
+
+
+19/05/2019 11:34:29  Starting Worker Thread Document Producer
+
+
+19/05/2019 11:34:29  Starting Worker Thread Failed Document Consumer
+
+
+19/05/2019 11:35:47  Log Start
+
+
+19/05/2019 11:35:47  Connecting to mongoDb
+19/05/2019 11:35:48  Connected to mongoDb
+19/05/2019 11:35:48  Connected to database 'sensorbd'
+19/05/2019 11:35:48  Connected to collection 'MedicoesSensor'
+
+
+19/05/2019 11:35:48  Connecting to Mqtt Broker
+19/05/2019 11:35:48  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+19/05/2019 11:35:49  Topic subscribed '/sid_lab_2019'
+
+
+19/05/2019 11:35:49  Starting Worker Thread Document Producer
+
+
+19/05/2019 11:35:49  Starting Worker Thread Failed Document Consumer
+
+
+19/05/2019 12:00:30  Log Start
+
+
+19/05/2019 12:00:30  Connecting to mongoDb
+19/05/2019 12:00:31  Connected to mongoDb
+19/05/2019 12:00:31  Connected to database 'sensorbd'
+19/05/2019 12:00:31  Connected to collection 'MedicoesSensor'
+
+
+19/05/2019 12:00:31  Connecting to Mqtt Broker
+19/05/2019 12:00:31  Connected to Mqtt Broker 'tcp://iot.eclipse.org:1883'
+19/05/2019 12:00:32  Topic subscribed '/sid_lab_2019'
+
+
+19/05/2019 12:00:32  Starting Worker Thread Document Producer
+
+
+19/05/2019 12:00:32  Starting Worker Thread Failed Document Consumer

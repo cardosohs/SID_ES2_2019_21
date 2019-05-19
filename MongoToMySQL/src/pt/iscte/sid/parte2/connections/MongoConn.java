@@ -123,23 +123,27 @@ public class MongoConn{
 			String NEW_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 			String oldDateString = date;
-			@SuppressWarnings("unused")
+			
+			//@SuppressWarnings("unused")
 			String newDateString;
 
 			SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
 			
 			java.util.Date utilStartDate = sdf.parse(oldDateString);
-			java.sql.Date sqlStartDate = new java.sql.Date(utilStartDate.getTime());
+			
+			java.util.Date plusOneHour = new Date(utilStartDate.getTime() + 1 * (3600 * 1000));
+					
+			java.sql.Date sqlStartDate = new java.sql.Date(plusOneHour.getTime());
 			
 			sdf.applyPattern(NEW_FORMAT);
 			newDateString = sdf.format(sqlStartDate);
 			
-			//Timestamp ts = new Timestamp(((java.util.Date)sdf.parse(newDateString)).getTime());
+			Timestamp ts = new Timestamp(((java.util.Date)sdf.parse(newDateString)).getTime());
 			
 			//Código martelado
-			Date date1= new Date();
-			long time = date1.getTime();
-			Timestamp ts = new Timestamp(time);
+//			Date date1= new Date();
+//			long time = date1.getTime();
+//			Timestamp ts = new Timestamp(time);
 		
 			return ts.toString();
 		} catch (Exception e) {
