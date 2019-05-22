@@ -1,8 +1,6 @@
 package pt.iscte.sid.sensor.worker;
 
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.concurrent.BlockingQueue;
 
 
@@ -38,10 +36,10 @@ public class Producer implements Runnable  {
             }
             
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-    			Date date1= new Date();
-   			    long time = date1.getTime();
-    			Timestamp ts = new Timestamp(time);
-                System.out.println("Topic : " + topic + " Message : " + mqttMessage + " Timestamp INICIO: " + ts.toString() );
+    			//Date date1= new Date();
+   			    //long time = date1.getTime();
+    			//Timestamp ts = new Timestamp(time);
+                //System.out.println("Topic : " + topic + " Message : " + mqttMessage + " Timestamp INICIO: " + ts.toString() );
                 String js1 = mqttMessage.toString();
                 if(js1.contains("\"\"")) {
                     String treated = js1.replace("\"\"", "\",\"");

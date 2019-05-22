@@ -8607,3 +8607,1306 @@
 19/05/PM 03:17:21  Data inserted to Mysql.
 19/05/PM 03:17:21  Migration Finished. Documents in collection deleted.
 19/05/PM 03:17:26  Extraction started getting data from MongoDB
+
+
+22/05/PM 05:23:52  Log Start
+22/05/PM 05:23:52  Settings File read
+22/05/PM 05:23:52  Mongo To MySql initialized
+22/05/PM 05:23:52  Program started.
+22/05/PM 05:23:53  Connected to mongoDb
+22/05/PM 05:23:53  Connected to database 'sensorbd'
+22/05/PM 05:23:53  Connected to collection 'MigracaoSensor'
+22/05/PM 05:23:53  Extraction started getting data from MongoDB
+22/05/PM 05:23:54  ERROR SQL Exception: java.sql.SQLSyntaxErrorException: Table 'g21origem.testes' doesn't exist, sqlstate = 42S02
+
+
+22/05/PM 05:24:20  Log Start
+22/05/PM 05:24:20  Settings File read
+22/05/PM 05:24:20  Mongo To MySql initialized
+22/05/PM 05:24:20  Program started.
+22/05/PM 05:24:21  Connected to mongoDb
+22/05/PM 05:24:21  Connected to database 'sensorbd'
+22/05/PM 05:24:21  Connected to collection 'MigracaoSensor'
+22/05/PM 05:24:21  Extraction started getting data from MongoDB
+22/05/PM 05:24:22  ERROR SQL Exception: java.sql.SQLSyntaxErrorException: Table 'g21origem.testes' doesn't exist, sqlstate = 42S02
+
+
+22/05/PM 05:26:55  Log Start
+22/05/PM 05:26:55  Settings File read
+22/05/PM 05:26:55  Mongo To MySql initialized
+22/05/PM 05:26:55  Program started.
+22/05/PM 05:26:56  Connected to mongoDb
+22/05/PM 05:26:56  Connected to database 'sensorbd'
+22/05/PM 05:26:56  Connected to collection 'MigracaoSensor'
+22/05/PM 05:26:56  Extraction started getting data from MongoDB
+22/05/PM 05:26:57  Data inserted to Mysql.
+22/05/PM 05:26:57  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:01  Extraction started getting data from MongoDB
+22/05/PM 05:27:01  Data inserted to Mysql.
+22/05/PM 05:27:01  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:06  Extraction started getting data from MongoDB
+22/05/PM 05:27:06  Data inserted to Mysql.
+22/05/PM 05:27:06  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:11  Extraction started getting data from MongoDB
+22/05/PM 05:27:11  Data inserted to Mysql.
+22/05/PM 05:27:11  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:16  Extraction started getting data from MongoDB
+22/05/PM 05:27:16  Data inserted to Mysql.
+22/05/PM 05:27:16  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:21  Extraction started getting data from MongoDB
+22/05/PM 05:27:21  Data inserted to Mysql.
+22/05/PM 05:27:21  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:26  Extraction started getting data from MongoDB
+22/05/PM 05:27:26  Data inserted to Mysql.
+22/05/PM 05:27:26  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:31  Extraction started getting data from MongoDB
+22/05/PM 05:27:31  Data inserted to Mysql.
+22/05/PM 05:27:31  Migration Finished. Documents in collection deleted.
+22/05/PM 05:27:36  Extraction started getting data from MongoDB
+22/05/PM 05:27:36  Data inserted to Mysql.
+22/05/PM 05:27:36  Migration Finished. Documents in collection deleted.
+
+
+22/05/PM 05:48:32  Log Start
+22/05/PM 05:48:32  Settings File read
+22/05/PM 05:48:32  Mongo To MySql initialized
+22/05/PM 05:48:32  Program started.
+22/05/PM 05:48:33  Connected to mongoDb
+22/05/PM 05:48:33  Connected to database 'sensorbd'
+22/05/PM 05:48:33  Connected to collection 'MigracaoSensor'
+22/05/PM 05:48:33  Extraction started getting data from MongoDB
+22/05/PM 05:48:33  Data inserted to Mysql.
+22/05/PM 05:48:33  Migration Finished. Documents in collection deleted.
+22/05/PM 05:48:38  Extraction started getting data from MongoDB
+22/05/PM 05:48:43  Extraction started getting data from MongoDB
+22/05/PM 05:48:48  Extraction started getting data from MongoDB
+22/05/PM 05:48:53  Extraction started getting data from MongoDB
+22/05/PM 05:48:58  Extraction started getting data from MongoDB
+22/05/PM 05:49:03  Extraction started getting data from MongoDB
+22/05/PM 05:49:08  Extraction started getting data from MongoDB
+22/05/PM 05:49:08  Data inserted to Mysql.
+22/05/PM 05:49:08  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:13  Extraction started getting data from MongoDB
+22/05/PM 05:49:13  Data inserted to Mysql.
+22/05/PM 05:49:13  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:18  Extraction started getting data from MongoDB
+22/05/PM 05:49:18  Data inserted to Mysql.
+22/05/PM 05:49:18  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:23  Extraction started getting data from MongoDB
+22/05/PM 05:49:23  Data inserted to Mysql.
+22/05/PM 05:49:23  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:28  Extraction started getting data from MongoDB
+22/05/PM 05:49:28  Data inserted to Mysql.
+22/05/PM 05:49:28  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:33  Extraction started getting data from MongoDB
+22/05/PM 05:49:33  Data inserted to Mysql.
+22/05/PM 05:49:33  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:38  Extraction started getting data from MongoDB
+22/05/PM 05:49:38  Data inserted to Mysql.
+22/05/PM 05:49:38  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:43  Extraction started getting data from MongoDB
+22/05/PM 05:49:43  Data inserted to Mysql.
+22/05/PM 05:49:43  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:48  Extraction started getting data from MongoDB
+22/05/PM 05:49:48  Data inserted to Mysql.
+22/05/PM 05:49:48  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:53  Extraction started getting data from MongoDB
+22/05/PM 05:49:53  Data inserted to Mysql.
+22/05/PM 05:49:53  Migration Finished. Documents in collection deleted.
+22/05/PM 05:49:58  Extraction started getting data from MongoDB
+22/05/PM 05:49:58  Data inserted to Mysql.
+22/05/PM 05:49:58  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:03  Extraction started getting data from MongoDB
+22/05/PM 05:50:03  Data inserted to Mysql.
+22/05/PM 05:50:03  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:08  Extraction started getting data from MongoDB
+22/05/PM 05:50:08  Data inserted to Mysql.
+22/05/PM 05:50:08  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:13  Extraction started getting data from MongoDB
+22/05/PM 05:50:13  Data inserted to Mysql.
+22/05/PM 05:50:13  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:18  Extraction started getting data from MongoDB
+22/05/PM 05:50:18  Data inserted to Mysql.
+22/05/PM 05:50:18  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:23  Extraction started getting data from MongoDB
+22/05/PM 05:50:23  Data inserted to Mysql.
+22/05/PM 05:50:23  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:28  Extraction started getting data from MongoDB
+22/05/PM 05:50:28  Data inserted to Mysql.
+22/05/PM 05:50:28  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:33  Extraction started getting data from MongoDB
+22/05/PM 05:50:33  Data inserted to Mysql.
+22/05/PM 05:50:33  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:38  Extraction started getting data from MongoDB
+22/05/PM 05:50:38  Data inserted to Mysql.
+22/05/PM 05:50:38  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:43  Extraction started getting data from MongoDB
+22/05/PM 05:50:43  Data inserted to Mysql.
+22/05/PM 05:50:43  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:48  Extraction started getting data from MongoDB
+22/05/PM 05:50:48  Data inserted to Mysql.
+22/05/PM 05:50:48  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:53  Extraction started getting data from MongoDB
+22/05/PM 05:50:53  Data inserted to Mysql.
+22/05/PM 05:50:53  Migration Finished. Documents in collection deleted.
+22/05/PM 05:50:58  Extraction started getting data from MongoDB
+22/05/PM 05:50:58  Data inserted to Mysql.
+22/05/PM 05:50:58  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:03  Extraction started getting data from MongoDB
+22/05/PM 05:51:03  Data inserted to Mysql.
+22/05/PM 05:51:03  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:08  Extraction started getting data from MongoDB
+22/05/PM 05:51:08  Data inserted to Mysql.
+22/05/PM 05:51:08  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:13  Extraction started getting data from MongoDB
+22/05/PM 05:51:13  Data inserted to Mysql.
+22/05/PM 05:51:13  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:18  Extraction started getting data from MongoDB
+22/05/PM 05:51:18  Data inserted to Mysql.
+22/05/PM 05:51:18  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:23  Extraction started getting data from MongoDB
+22/05/PM 05:51:23  Data inserted to Mysql.
+22/05/PM 05:51:23  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:28  Extraction started getting data from MongoDB
+22/05/PM 05:51:28  Data inserted to Mysql.
+22/05/PM 05:51:28  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:33  Extraction started getting data from MongoDB
+22/05/PM 05:51:33  Data inserted to Mysql.
+22/05/PM 05:51:33  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:38  Extraction started getting data from MongoDB
+22/05/PM 05:51:38  Data inserted to Mysql.
+22/05/PM 05:51:38  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:43  Extraction started getting data from MongoDB
+22/05/PM 05:51:43  Data inserted to Mysql.
+22/05/PM 05:51:43  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:48  Extraction started getting data from MongoDB
+22/05/PM 05:51:48  Data inserted to Mysql.
+22/05/PM 05:51:48  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:53  Extraction started getting data from MongoDB
+22/05/PM 05:51:53  Data inserted to Mysql.
+22/05/PM 05:51:53  Migration Finished. Documents in collection deleted.
+22/05/PM 05:51:58  Extraction started getting data from MongoDB
+22/05/PM 05:51:58  Data inserted to Mysql.
+22/05/PM 05:51:58  Migration Finished. Documents in collection deleted.
+22/05/PM 05:52:03  Extraction started getting data from MongoDB
+22/05/PM 05:52:03  Data inserted to Mysql.
+22/05/PM 05:52:03  Migration Finished. Documents in collection deleted.
+22/05/PM 05:52:08  Extraction started getting data from MongoDB
+22/05/PM 05:52:08  Data inserted to Mysql.
+22/05/PM 05:52:08  Migration Finished. Documents in collection deleted.
+22/05/PM 05:52:13  Extraction started getting data from MongoDB
+22/05/PM 05:52:13  Data inserted to Mysql.
+22/05/PM 05:52:13  Migration Finished. Documents in collection deleted.
+22/05/PM 05:52:18  Extraction started getting data from MongoDB
+22/05/PM 05:52:18  Data inserted to Mysql.
+22/05/PM 05:52:18  Migration Finished. Documents in collection deleted.
+22/05/PM 05:52:23  Extraction started getting data from MongoDB
+22/05/PM 05:52:23  Data inserted to Mysql.
+22/05/PM 05:52:23  Migration Finished. Documents in collection deleted.
+22/05/PM 05:52:28  Extraction started getting data from MongoDB
+22/05/PM 05:52:28  Data inserted to Mysql.
+22/05/PM 05:52:28  Migration Finished. Documents in collection deleted.
+22/05/PM 05:52:33  Extraction started getting data from MongoDB
+22/05/PM 05:52:38  Extraction started getting data from MongoDB
+22/05/PM 05:52:38  Data inserted to Mysql.
+22/05/PM 05:52:38  Migration Finished. Documents in collection deleted.
+
+
+22/05/PM 05:59:35  Log Start
+22/05/PM 05:59:35  Settings File read
+22/05/PM 05:59:35  Mongo To MySql initialized
+22/05/PM 05:59:35  Program started.
+22/05/PM 05:59:36  Connected to mongoDb
+22/05/PM 05:59:36  Connected to database 'sensorbd'
+22/05/PM 05:59:36  Connected to collection 'MigracaoSensor'
+22/05/PM 05:59:36  Extraction started getting data from MongoDB
+22/05/PM 05:59:36  Data inserted to Mysql.
+22/05/PM 05:59:36  Migration Finished. Documents in collection deleted.
+22/05/PM 05:59:41  Extraction started getting data from MongoDB
+22/05/PM 05:59:41  Data inserted to Mysql.
+22/05/PM 05:59:41  Migration Finished. Documents in collection deleted.
+22/05/PM 05:59:46  Extraction started getting data from MongoDB
+22/05/PM 05:59:46  Data inserted to Mysql.
+22/05/PM 05:59:46  Migration Finished. Documents in collection deleted.
+22/05/PM 05:59:51  Extraction started getting data from MongoDB
+22/05/PM 05:59:51  Data inserted to Mysql.
+22/05/PM 05:59:51  Migration Finished. Documents in collection deleted.
+22/05/PM 05:59:56  Extraction started getting data from MongoDB
+22/05/PM 05:59:56  Data inserted to Mysql.
+22/05/PM 05:59:56  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:01  Extraction started getting data from MongoDB
+22/05/PM 06:00:01  Data inserted to Mysql.
+22/05/PM 06:00:01  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:06  Extraction started getting data from MongoDB
+22/05/PM 06:00:06  Data inserted to Mysql.
+22/05/PM 06:00:06  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:11  Extraction started getting data from MongoDB
+22/05/PM 06:00:11  Data inserted to Mysql.
+22/05/PM 06:00:11  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:16  Extraction started getting data from MongoDB
+22/05/PM 06:00:21  Extraction started getting data from MongoDB
+22/05/PM 06:00:21  Data inserted to Mysql.
+22/05/PM 06:00:21  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:26  Extraction started getting data from MongoDB
+22/05/PM 06:00:26  Data inserted to Mysql.
+22/05/PM 06:00:26  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:31  Extraction started getting data from MongoDB
+22/05/PM 06:00:31  Data inserted to Mysql.
+22/05/PM 06:00:31  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:36  Extraction started getting data from MongoDB
+22/05/PM 06:00:36  Data inserted to Mysql.
+22/05/PM 06:00:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:41  Extraction started getting data from MongoDB
+22/05/PM 06:00:41  Data inserted to Mysql.
+22/05/PM 06:00:41  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:46  Extraction started getting data from MongoDB
+22/05/PM 06:00:46  Data inserted to Mysql.
+22/05/PM 06:00:46  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:51  Extraction started getting data from MongoDB
+22/05/PM 06:00:51  Data inserted to Mysql.
+22/05/PM 06:00:51  Migration Finished. Documents in collection deleted.
+22/05/PM 06:00:56  Extraction started getting data from MongoDB
+22/05/PM 06:00:56  Data inserted to Mysql.
+22/05/PM 06:00:56  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:01  Extraction started getting data from MongoDB
+22/05/PM 06:01:01  Data inserted to Mysql.
+22/05/PM 06:01:01  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:06  Extraction started getting data from MongoDB
+22/05/PM 06:01:06  Data inserted to Mysql.
+22/05/PM 06:01:06  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:11  Extraction started getting data from MongoDB
+22/05/PM 06:01:11  Data inserted to Mysql.
+22/05/PM 06:01:11  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:16  Extraction started getting data from MongoDB
+22/05/PM 06:01:16  Data inserted to Mysql.
+22/05/PM 06:01:16  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:21  Extraction started getting data from MongoDB
+22/05/PM 06:01:21  Data inserted to Mysql.
+22/05/PM 06:01:21  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:26  Extraction started getting data from MongoDB
+22/05/PM 06:01:26  Data inserted to Mysql.
+22/05/PM 06:01:26  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:31  Extraction started getting data from MongoDB
+22/05/PM 06:01:31  Data inserted to Mysql.
+22/05/PM 06:01:31  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:36  Extraction started getting data from MongoDB
+22/05/PM 06:01:36  Data inserted to Mysql.
+22/05/PM 06:01:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:41  Extraction started getting data from MongoDB
+22/05/PM 06:01:41  Data inserted to Mysql.
+22/05/PM 06:01:41  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:46  Extraction started getting data from MongoDB
+22/05/PM 06:01:46  Data inserted to Mysql.
+22/05/PM 06:01:46  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:51  Extraction started getting data from MongoDB
+22/05/PM 06:01:51  Data inserted to Mysql.
+22/05/PM 06:01:51  Migration Finished. Documents in collection deleted.
+22/05/PM 06:01:56  Extraction started getting data from MongoDB
+22/05/PM 06:01:56  Data inserted to Mysql.
+22/05/PM 06:01:56  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:01  Extraction started getting data from MongoDB
+22/05/PM 06:02:01  Data inserted to Mysql.
+22/05/PM 06:02:01  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:06  Extraction started getting data from MongoDB
+22/05/PM 06:02:06  Data inserted to Mysql.
+22/05/PM 06:02:06  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:11  Extraction started getting data from MongoDB
+22/05/PM 06:02:16  Extraction started getting data from MongoDB
+22/05/PM 06:02:21  Extraction started getting data from MongoDB
+22/05/PM 06:02:21  Data inserted to Mysql.
+22/05/PM 06:02:21  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:26  Extraction started getting data from MongoDB
+22/05/PM 06:02:26  Data inserted to Mysql.
+22/05/PM 06:02:26  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:31  Extraction started getting data from MongoDB
+22/05/PM 06:02:31  Data inserted to Mysql.
+22/05/PM 06:02:31  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:36  Extraction started getting data from MongoDB
+22/05/PM 06:02:36  Data inserted to Mysql.
+22/05/PM 06:02:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:41  Extraction started getting data from MongoDB
+22/05/PM 06:02:41  Data inserted to Mysql.
+22/05/PM 06:02:41  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:46  Extraction started getting data from MongoDB
+22/05/PM 06:02:46  Data inserted to Mysql.
+22/05/PM 06:02:46  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:51  Extraction started getting data from MongoDB
+22/05/PM 06:02:51  Data inserted to Mysql.
+22/05/PM 06:02:51  Migration Finished. Documents in collection deleted.
+22/05/PM 06:02:56  Extraction started getting data from MongoDB
+22/05/PM 06:02:56  Data inserted to Mysql.
+22/05/PM 06:02:56  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:01  Extraction started getting data from MongoDB
+22/05/PM 06:03:02  Data inserted to Mysql.
+22/05/PM 06:03:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:06  Extraction started getting data from MongoDB
+22/05/PM 06:03:06  Data inserted to Mysql.
+22/05/PM 06:03:06  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:11  Extraction started getting data from MongoDB
+22/05/PM 06:03:11  Data inserted to Mysql.
+22/05/PM 06:03:11  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:16  Extraction started getting data from MongoDB
+22/05/PM 06:03:16  Data inserted to Mysql.
+22/05/PM 06:03:16  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:21  Extraction started getting data from MongoDB
+22/05/PM 06:03:21  Data inserted to Mysql.
+22/05/PM 06:03:21  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:26  Extraction started getting data from MongoDB
+22/05/PM 06:03:26  Data inserted to Mysql.
+22/05/PM 06:03:26  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:31  Extraction started getting data from MongoDB
+22/05/PM 06:03:31  Data inserted to Mysql.
+22/05/PM 06:03:31  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:36  Extraction started getting data from MongoDB
+22/05/PM 06:03:36  Data inserted to Mysql.
+22/05/PM 06:03:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:41  Extraction started getting data from MongoDB
+22/05/PM 06:03:41  Data inserted to Mysql.
+22/05/PM 06:03:41  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:46  Extraction started getting data from MongoDB
+22/05/PM 06:03:46  Data inserted to Mysql.
+22/05/PM 06:03:46  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:51  Extraction started getting data from MongoDB
+22/05/PM 06:03:51  Data inserted to Mysql.
+22/05/PM 06:03:51  Migration Finished. Documents in collection deleted.
+22/05/PM 06:03:56  Extraction started getting data from MongoDB
+22/05/PM 06:03:57  Data inserted to Mysql.
+22/05/PM 06:03:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:01  Extraction started getting data from MongoDB
+22/05/PM 06:04:01  Data inserted to Mysql.
+22/05/PM 06:04:01  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:06  Extraction started getting data from MongoDB
+22/05/PM 06:04:06  Data inserted to Mysql.
+22/05/PM 06:04:06  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:11  Extraction started getting data from MongoDB
+22/05/PM 06:04:11  Data inserted to Mysql.
+22/05/PM 06:04:11  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:16  Extraction started getting data from MongoDB
+22/05/PM 06:04:16  Data inserted to Mysql.
+22/05/PM 06:04:16  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:21  Extraction started getting data from MongoDB
+22/05/PM 06:04:21  Data inserted to Mysql.
+22/05/PM 06:04:21  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:26  Extraction started getting data from MongoDB
+22/05/PM 06:04:26  Data inserted to Mysql.
+22/05/PM 06:04:26  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:31  Extraction started getting data from MongoDB
+22/05/PM 06:04:31  Data inserted to Mysql.
+22/05/PM 06:04:31  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:36  Extraction started getting data from MongoDB
+22/05/PM 06:04:36  Data inserted to Mysql.
+22/05/PM 06:04:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:41  Extraction started getting data from MongoDB
+22/05/PM 06:04:41  Data inserted to Mysql.
+22/05/PM 06:04:41  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:46  Extraction started getting data from MongoDB
+22/05/PM 06:04:46  Data inserted to Mysql.
+22/05/PM 06:04:46  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:51  Extraction started getting data from MongoDB
+22/05/PM 06:04:51  Data inserted to Mysql.
+22/05/PM 06:04:51  Migration Finished. Documents in collection deleted.
+22/05/PM 06:04:56  Extraction started getting data from MongoDB
+22/05/PM 06:04:56  Data inserted to Mysql.
+22/05/PM 06:04:56  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:01  Extraction started getting data from MongoDB
+22/05/PM 06:05:01  Data inserted to Mysql.
+22/05/PM 06:05:01  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:06  Extraction started getting data from MongoDB
+22/05/PM 06:05:06  Data inserted to Mysql.
+22/05/PM 06:05:06  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:11  Extraction started getting data from MongoDB
+22/05/PM 06:05:11  Data inserted to Mysql.
+22/05/PM 06:05:11  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:16  Extraction started getting data from MongoDB
+22/05/PM 06:05:16  Data inserted to Mysql.
+22/05/PM 06:05:16  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:21  Extraction started getting data from MongoDB
+22/05/PM 06:05:21  Data inserted to Mysql.
+22/05/PM 06:05:21  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:26  Extraction started getting data from MongoDB
+22/05/PM 06:05:26  Data inserted to Mysql.
+22/05/PM 06:05:26  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:31  Extraction started getting data from MongoDB
+22/05/PM 06:05:31  Data inserted to Mysql.
+22/05/PM 06:05:31  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:36  Extraction started getting data from MongoDB
+22/05/PM 06:05:36  Data inserted to Mysql.
+22/05/PM 06:05:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:41  Extraction started getting data from MongoDB
+22/05/PM 06:05:41  Data inserted to Mysql.
+22/05/PM 06:05:41  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:46  Extraction started getting data from MongoDB
+22/05/PM 06:05:47  Data inserted to Mysql.
+22/05/PM 06:05:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:51  Extraction started getting data from MongoDB
+22/05/PM 06:05:51  Data inserted to Mysql.
+22/05/PM 06:05:51  Migration Finished. Documents in collection deleted.
+22/05/PM 06:05:56  Extraction started getting data from MongoDB
+22/05/PM 06:05:56  Data inserted to Mysql.
+22/05/PM 06:05:56  Migration Finished. Documents in collection deleted.
+22/05/PM 06:06:01  Extraction started getting data from MongoDB
+22/05/PM 06:06:01  Data inserted to Mysql.
+22/05/PM 06:06:01  Migration Finished. Documents in collection deleted.
+22/05/PM 06:06:06  Extraction started getting data from MongoDB
+22/05/PM 06:06:11  Extraction started getting data from MongoDB
+22/05/PM 06:06:16  Extraction started getting data from MongoDB
+22/05/PM 06:06:21  Extraction started getting data from MongoDB
+22/05/PM 06:06:26  Extraction started getting data from MongoDB
+22/05/PM 06:06:31  Extraction started getting data from MongoDB
+22/05/PM 06:06:36  Extraction started getting data from MongoDB
+22/05/PM 06:06:36  Data inserted to Mysql.
+22/05/PM 06:06:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:06:41  Extraction started getting data from MongoDB
+22/05/PM 06:06:41  Data inserted to Mysql.
+22/05/PM 06:06:41  Migration Finished. Documents in collection deleted.
+22/05/PM 06:06:46  Extraction started getting data from MongoDB
+22/05/PM 06:06:46  Data inserted to Mysql.
+22/05/PM 06:06:46  Migration Finished. Documents in collection deleted.
+22/05/PM 06:06:51  Extraction started getting data from MongoDB
+22/05/PM 06:06:56  Extraction started getting data from MongoDB
+22/05/PM 06:06:56  Data inserted to Mysql.
+22/05/PM 06:06:56  Migration Finished. Documents in collection deleted.
+22/05/PM 06:07:01  Extraction started getting data from MongoDB
+22/05/PM 06:07:01  Data inserted to Mysql.
+22/05/PM 06:07:01  Migration Finished. Documents in collection deleted.
+22/05/PM 06:07:06  Extraction started getting data from MongoDB
+22/05/PM 06:07:06  Data inserted to Mysql.
+22/05/PM 06:07:06  Migration Finished. Documents in collection deleted.
+22/05/PM 06:07:11  Extraction started getting data from MongoDB
+22/05/PM 06:07:11  Data inserted to Mysql.
+22/05/PM 06:07:11  Migration Finished. Documents in collection deleted.
+22/05/PM 06:07:16  Extraction started getting data from MongoDB
+22/05/PM 06:07:16  Data inserted to Mysql.
+22/05/PM 06:07:16  Migration Finished. Documents in collection deleted.
+22/05/PM 06:07:21  Extraction started getting data from MongoDB
+22/05/PM 06:07:21  Data inserted to Mysql.
+22/05/PM 06:07:21  Migration Finished. Documents in collection deleted.
+22/05/PM 06:07:26  Extraction started getting data from MongoDB
+22/05/PM 06:07:26  Data inserted to Mysql.
+22/05/PM 06:07:26  Migration Finished. Documents in collection deleted.
+
+
+22/05/PM 06:10:24  Log Start
+22/05/PM 06:10:24  Settings File read
+22/05/PM 06:10:24  Mongo To MySql initialized
+22/05/PM 06:10:24  Program started.
+22/05/PM 06:10:25  Connected to mongoDb
+22/05/PM 06:10:25  Connected to database 'sensorbd'
+22/05/PM 06:10:25  Connected to collection 'MigracaoSensor'
+22/05/PM 06:10:25  Extraction started getting data from MongoDB
+22/05/PM 06:10:25  Data inserted to Mysql.
+22/05/PM 06:10:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:10:30  Extraction started getting data from MongoDB
+22/05/PM 06:10:35  Extraction started getting data from MongoDB
+22/05/PM 06:10:40  Extraction started getting data from MongoDB
+22/05/PM 06:10:45  Extraction started getting data from MongoDB
+22/05/PM 06:10:50  Extraction started getting data from MongoDB
+22/05/PM 06:10:50  Data inserted to Mysql.
+22/05/PM 06:10:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:10:55  Extraction started getting data from MongoDB
+22/05/PM 06:10:55  Data inserted to Mysql.
+22/05/PM 06:10:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:00  Extraction started getting data from MongoDB
+22/05/PM 06:11:00  Data inserted to Mysql.
+22/05/PM 06:11:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:05  Extraction started getting data from MongoDB
+22/05/PM 06:11:05  Data inserted to Mysql.
+22/05/PM 06:11:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:10  Extraction started getting data from MongoDB
+22/05/PM 06:11:10  Data inserted to Mysql.
+22/05/PM 06:11:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:15  Extraction started getting data from MongoDB
+22/05/PM 06:11:15  Data inserted to Mysql.
+22/05/PM 06:11:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:20  Extraction started getting data from MongoDB
+22/05/PM 06:11:20  Data inserted to Mysql.
+22/05/PM 06:11:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:25  Extraction started getting data from MongoDB
+22/05/PM 06:11:25  Data inserted to Mysql.
+22/05/PM 06:11:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:30  Extraction started getting data from MongoDB
+22/05/PM 06:11:30  Data inserted to Mysql.
+22/05/PM 06:11:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:35  Extraction started getting data from MongoDB
+22/05/PM 06:11:35  Data inserted to Mysql.
+22/05/PM 06:11:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:40  Extraction started getting data from MongoDB
+22/05/PM 06:11:40  Data inserted to Mysql.
+22/05/PM 06:11:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:45  Extraction started getting data from MongoDB
+22/05/PM 06:11:45  Data inserted to Mysql.
+22/05/PM 06:11:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:50  Extraction started getting data from MongoDB
+22/05/PM 06:11:50  Data inserted to Mysql.
+22/05/PM 06:11:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:11:55  Extraction started getting data from MongoDB
+22/05/PM 06:11:55  Data inserted to Mysql.
+22/05/PM 06:11:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:00  Extraction started getting data from MongoDB
+22/05/PM 06:12:00  Data inserted to Mysql.
+22/05/PM 06:12:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:05  Extraction started getting data from MongoDB
+22/05/PM 06:12:05  Data inserted to Mysql.
+22/05/PM 06:12:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:10  Extraction started getting data from MongoDB
+22/05/PM 06:12:10  Data inserted to Mysql.
+22/05/PM 06:12:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:15  Extraction started getting data from MongoDB
+22/05/PM 06:12:15  Data inserted to Mysql.
+22/05/PM 06:12:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:20  Extraction started getting data from MongoDB
+22/05/PM 06:12:20  Data inserted to Mysql.
+22/05/PM 06:12:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:25  Extraction started getting data from MongoDB
+22/05/PM 06:12:25  Data inserted to Mysql.
+22/05/PM 06:12:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:30  Extraction started getting data from MongoDB
+22/05/PM 06:12:30  Data inserted to Mysql.
+22/05/PM 06:12:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:35  Extraction started getting data from MongoDB
+22/05/PM 06:12:35  Data inserted to Mysql.
+22/05/PM 06:12:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:40  Extraction started getting data from MongoDB
+22/05/PM 06:12:40  Data inserted to Mysql.
+22/05/PM 06:12:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:45  Extraction started getting data from MongoDB
+22/05/PM 06:12:45  Data inserted to Mysql.
+22/05/PM 06:12:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:50  Extraction started getting data from MongoDB
+22/05/PM 06:12:50  Data inserted to Mysql.
+22/05/PM 06:12:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:12:55  Extraction started getting data from MongoDB
+22/05/PM 06:12:55  Data inserted to Mysql.
+22/05/PM 06:12:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:00  Extraction started getting data from MongoDB
+22/05/PM 06:13:00  Data inserted to Mysql.
+22/05/PM 06:13:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:05  Extraction started getting data from MongoDB
+22/05/PM 06:13:05  Data inserted to Mysql.
+22/05/PM 06:13:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:10  Extraction started getting data from MongoDB
+22/05/PM 06:13:10  Data inserted to Mysql.
+22/05/PM 06:13:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:15  Extraction started getting data from MongoDB
+22/05/PM 06:13:15  Data inserted to Mysql.
+22/05/PM 06:13:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:20  Extraction started getting data from MongoDB
+22/05/PM 06:13:20  Data inserted to Mysql.
+22/05/PM 06:13:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:25  Extraction started getting data from MongoDB
+22/05/PM 06:13:25  Data inserted to Mysql.
+22/05/PM 06:13:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:30  Extraction started getting data from MongoDB
+22/05/PM 06:13:30  Data inserted to Mysql.
+22/05/PM 06:13:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:35  Extraction started getting data from MongoDB
+22/05/PM 06:13:35  Data inserted to Mysql.
+22/05/PM 06:13:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:40  Extraction started getting data from MongoDB
+22/05/PM 06:13:40  Data inserted to Mysql.
+22/05/PM 06:13:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:45  Extraction started getting data from MongoDB
+22/05/PM 06:13:45  Data inserted to Mysql.
+22/05/PM 06:13:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:50  Extraction started getting data from MongoDB
+22/05/PM 06:13:50  Data inserted to Mysql.
+22/05/PM 06:13:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:13:55  Extraction started getting data from MongoDB
+22/05/PM 06:13:55  Data inserted to Mysql.
+22/05/PM 06:13:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:00  Extraction started getting data from MongoDB
+22/05/PM 06:14:00  Data inserted to Mysql.
+22/05/PM 06:14:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:05  Extraction started getting data from MongoDB
+22/05/PM 06:14:05  Data inserted to Mysql.
+22/05/PM 06:14:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:10  Extraction started getting data from MongoDB
+22/05/PM 06:14:10  Data inserted to Mysql.
+22/05/PM 06:14:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:15  Extraction started getting data from MongoDB
+22/05/PM 06:14:15  Data inserted to Mysql.
+22/05/PM 06:14:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:20  Extraction started getting data from MongoDB
+22/05/PM 06:14:20  Data inserted to Mysql.
+22/05/PM 06:14:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:25  Extraction started getting data from MongoDB
+22/05/PM 06:14:25  Data inserted to Mysql.
+22/05/PM 06:14:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:30  Extraction started getting data from MongoDB
+22/05/PM 06:14:30  Data inserted to Mysql.
+22/05/PM 06:14:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:35  Extraction started getting data from MongoDB
+22/05/PM 06:14:35  Data inserted to Mysql.
+22/05/PM 06:14:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:40  Extraction started getting data from MongoDB
+22/05/PM 06:14:40  Data inserted to Mysql.
+22/05/PM 06:14:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:45  Extraction started getting data from MongoDB
+22/05/PM 06:14:45  Data inserted to Mysql.
+22/05/PM 06:14:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:50  Extraction started getting data from MongoDB
+22/05/PM 06:14:50  Data inserted to Mysql.
+22/05/PM 06:14:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:14:55  Extraction started getting data from MongoDB
+22/05/PM 06:14:55  Data inserted to Mysql.
+22/05/PM 06:14:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:00  Extraction started getting data from MongoDB
+22/05/PM 06:15:00  Data inserted to Mysql.
+22/05/PM 06:15:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:05  Extraction started getting data from MongoDB
+22/05/PM 06:15:05  Data inserted to Mysql.
+22/05/PM 06:15:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:10  Extraction started getting data from MongoDB
+22/05/PM 06:15:10  Data inserted to Mysql.
+22/05/PM 06:15:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:15  Extraction started getting data from MongoDB
+22/05/PM 06:15:15  Data inserted to Mysql.
+22/05/PM 06:15:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:20  Extraction started getting data from MongoDB
+22/05/PM 06:15:20  Data inserted to Mysql.
+22/05/PM 06:15:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:25  Extraction started getting data from MongoDB
+22/05/PM 06:15:25  Data inserted to Mysql.
+22/05/PM 06:15:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:30  Extraction started getting data from MongoDB
+22/05/PM 06:15:30  Data inserted to Mysql.
+22/05/PM 06:15:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:35  Extraction started getting data from MongoDB
+22/05/PM 06:15:35  Data inserted to Mysql.
+22/05/PM 06:15:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:40  Extraction started getting data from MongoDB
+22/05/PM 06:15:40  Data inserted to Mysql.
+22/05/PM 06:15:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:45  Extraction started getting data from MongoDB
+22/05/PM 06:15:45  Data inserted to Mysql.
+22/05/PM 06:15:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:50  Extraction started getting data from MongoDB
+22/05/PM 06:15:50  Data inserted to Mysql.
+22/05/PM 06:15:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:15:55  Extraction started getting data from MongoDB
+22/05/PM 06:15:55  Data inserted to Mysql.
+22/05/PM 06:15:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:00  Extraction started getting data from MongoDB
+22/05/PM 06:16:00  Data inserted to Mysql.
+22/05/PM 06:16:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:05  Extraction started getting data from MongoDB
+22/05/PM 06:16:05  Data inserted to Mysql.
+22/05/PM 06:16:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:10  Extraction started getting data from MongoDB
+22/05/PM 06:16:10  Data inserted to Mysql.
+22/05/PM 06:16:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:15  Extraction started getting data from MongoDB
+22/05/PM 06:16:15  Data inserted to Mysql.
+22/05/PM 06:16:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:20  Extraction started getting data from MongoDB
+22/05/PM 06:16:20  Data inserted to Mysql.
+22/05/PM 06:16:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:25  Extraction started getting data from MongoDB
+22/05/PM 06:16:25  Data inserted to Mysql.
+22/05/PM 06:16:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:30  Extraction started getting data from MongoDB
+22/05/PM 06:16:30  Data inserted to Mysql.
+22/05/PM 06:16:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:35  Extraction started getting data from MongoDB
+22/05/PM 06:16:35  Data inserted to Mysql.
+22/05/PM 06:16:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:40  Extraction started getting data from MongoDB
+22/05/PM 06:16:40  Data inserted to Mysql.
+22/05/PM 06:16:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:45  Extraction started getting data from MongoDB
+22/05/PM 06:16:45  Data inserted to Mysql.
+22/05/PM 06:16:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:50  Extraction started getting data from MongoDB
+22/05/PM 06:16:50  Data inserted to Mysql.
+22/05/PM 06:16:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:16:55  Extraction started getting data from MongoDB
+22/05/PM 06:16:55  Data inserted to Mysql.
+22/05/PM 06:16:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:00  Extraction started getting data from MongoDB
+22/05/PM 06:17:00  Data inserted to Mysql.
+22/05/PM 06:17:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:05  Extraction started getting data from MongoDB
+22/05/PM 06:17:05  Data inserted to Mysql.
+22/05/PM 06:17:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:10  Extraction started getting data from MongoDB
+22/05/PM 06:17:10  Data inserted to Mysql.
+22/05/PM 06:17:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:15  Extraction started getting data from MongoDB
+22/05/PM 06:17:15  Data inserted to Mysql.
+22/05/PM 06:17:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:20  Extraction started getting data from MongoDB
+22/05/PM 06:17:20  Data inserted to Mysql.
+22/05/PM 06:17:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:25  Extraction started getting data from MongoDB
+22/05/PM 06:17:25  Data inserted to Mysql.
+22/05/PM 06:17:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:30  Extraction started getting data from MongoDB
+22/05/PM 06:17:30  Data inserted to Mysql.
+22/05/PM 06:17:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:35  Extraction started getting data from MongoDB
+22/05/PM 06:17:35  Data inserted to Mysql.
+22/05/PM 06:17:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:40  Extraction started getting data from MongoDB
+22/05/PM 06:17:40  Data inserted to Mysql.
+22/05/PM 06:17:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:45  Extraction started getting data from MongoDB
+22/05/PM 06:17:45  Data inserted to Mysql.
+22/05/PM 06:17:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:50  Extraction started getting data from MongoDB
+22/05/PM 06:17:50  Data inserted to Mysql.
+22/05/PM 06:17:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:17:55  Extraction started getting data from MongoDB
+22/05/PM 06:17:55  Data inserted to Mysql.
+22/05/PM 06:17:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:00  Extraction started getting data from MongoDB
+22/05/PM 06:18:00  Data inserted to Mysql.
+22/05/PM 06:18:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:05  Extraction started getting data from MongoDB
+22/05/PM 06:18:05  Data inserted to Mysql.
+22/05/PM 06:18:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:10  Extraction started getting data from MongoDB
+22/05/PM 06:18:10  Data inserted to Mysql.
+22/05/PM 06:18:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:15  Extraction started getting data from MongoDB
+22/05/PM 06:18:15  Data inserted to Mysql.
+22/05/PM 06:18:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:20  Extraction started getting data from MongoDB
+22/05/PM 06:18:20  Data inserted to Mysql.
+22/05/PM 06:18:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:25  Extraction started getting data from MongoDB
+22/05/PM 06:18:25  Data inserted to Mysql.
+22/05/PM 06:18:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:30  Extraction started getting data from MongoDB
+22/05/PM 06:18:30  Data inserted to Mysql.
+22/05/PM 06:18:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:35  Extraction started getting data from MongoDB
+22/05/PM 06:18:35  Data inserted to Mysql.
+22/05/PM 06:18:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:40  Extraction started getting data from MongoDB
+22/05/PM 06:18:40  Data inserted to Mysql.
+22/05/PM 06:18:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:45  Extraction started getting data from MongoDB
+22/05/PM 06:18:45  Data inserted to Mysql.
+22/05/PM 06:18:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:50  Extraction started getting data from MongoDB
+22/05/PM 06:18:50  Data inserted to Mysql.
+22/05/PM 06:18:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:18:55  Extraction started getting data from MongoDB
+22/05/PM 06:18:55  Data inserted to Mysql.
+22/05/PM 06:18:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:00  Extraction started getting data from MongoDB
+22/05/PM 06:19:00  Data inserted to Mysql.
+22/05/PM 06:19:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:05  Extraction started getting data from MongoDB
+22/05/PM 06:19:05  Data inserted to Mysql.
+22/05/PM 06:19:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:10  Extraction started getting data from MongoDB
+22/05/PM 06:19:10  Data inserted to Mysql.
+22/05/PM 06:19:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:15  Extraction started getting data from MongoDB
+22/05/PM 06:19:15  Data inserted to Mysql.
+22/05/PM 06:19:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:20  Extraction started getting data from MongoDB
+22/05/PM 06:19:20  Data inserted to Mysql.
+22/05/PM 06:19:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:25  Extraction started getting data from MongoDB
+22/05/PM 06:19:25  Data inserted to Mysql.
+22/05/PM 06:19:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:30  Extraction started getting data from MongoDB
+22/05/PM 06:19:30  Data inserted to Mysql.
+22/05/PM 06:19:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:35  Extraction started getting data from MongoDB
+22/05/PM 06:19:35  Data inserted to Mysql.
+22/05/PM 06:19:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:40  Extraction started getting data from MongoDB
+22/05/PM 06:19:40  Data inserted to Mysql.
+22/05/PM 06:19:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:45  Extraction started getting data from MongoDB
+22/05/PM 06:19:45  Data inserted to Mysql.
+22/05/PM 06:19:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:50  Extraction started getting data from MongoDB
+22/05/PM 06:19:51  Data inserted to Mysql.
+22/05/PM 06:19:51  Migration Finished. Documents in collection deleted.
+22/05/PM 06:19:55  Extraction started getting data from MongoDB
+22/05/PM 06:19:55  Data inserted to Mysql.
+22/05/PM 06:19:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:00  Extraction started getting data from MongoDB
+22/05/PM 06:20:00  Data inserted to Mysql.
+22/05/PM 06:20:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:05  Extraction started getting data from MongoDB
+22/05/PM 06:20:05  Data inserted to Mysql.
+22/05/PM 06:20:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:10  Extraction started getting data from MongoDB
+22/05/PM 06:20:10  Data inserted to Mysql.
+22/05/PM 06:20:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:15  Extraction started getting data from MongoDB
+22/05/PM 06:20:15  Data inserted to Mysql.
+22/05/PM 06:20:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:20  Extraction started getting data from MongoDB
+22/05/PM 06:20:20  Data inserted to Mysql.
+22/05/PM 06:20:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:25  Extraction started getting data from MongoDB
+22/05/PM 06:20:25  Data inserted to Mysql.
+22/05/PM 06:20:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:30  Extraction started getting data from MongoDB
+22/05/PM 06:20:30  Data inserted to Mysql.
+22/05/PM 06:20:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:35  Extraction started getting data from MongoDB
+22/05/PM 06:20:35  Data inserted to Mysql.
+22/05/PM 06:20:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:40  Extraction started getting data from MongoDB
+22/05/PM 06:20:40  Data inserted to Mysql.
+22/05/PM 06:20:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:45  Extraction started getting data from MongoDB
+22/05/PM 06:20:45  Data inserted to Mysql.
+22/05/PM 06:20:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:50  Extraction started getting data from MongoDB
+22/05/PM 06:20:50  Data inserted to Mysql.
+22/05/PM 06:20:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:20:55  Extraction started getting data from MongoDB
+22/05/PM 06:20:55  Data inserted to Mysql.
+22/05/PM 06:20:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:00  Extraction started getting data from MongoDB
+22/05/PM 06:21:00  Data inserted to Mysql.
+22/05/PM 06:21:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:05  Extraction started getting data from MongoDB
+22/05/PM 06:21:05  Data inserted to Mysql.
+22/05/PM 06:21:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:10  Extraction started getting data from MongoDB
+22/05/PM 06:21:10  Data inserted to Mysql.
+22/05/PM 06:21:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:15  Extraction started getting data from MongoDB
+22/05/PM 06:21:15  Data inserted to Mysql.
+22/05/PM 06:21:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:20  Extraction started getting data from MongoDB
+22/05/PM 06:21:20  Data inserted to Mysql.
+22/05/PM 06:21:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:25  Extraction started getting data from MongoDB
+22/05/PM 06:21:25  Data inserted to Mysql.
+22/05/PM 06:21:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:30  Extraction started getting data from MongoDB
+22/05/PM 06:21:30  Data inserted to Mysql.
+22/05/PM 06:21:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:35  Extraction started getting data from MongoDB
+22/05/PM 06:21:35  Data inserted to Mysql.
+22/05/PM 06:21:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:40  Extraction started getting data from MongoDB
+22/05/PM 06:21:40  Data inserted to Mysql.
+22/05/PM 06:21:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:45  Extraction started getting data from MongoDB
+22/05/PM 06:21:46  Data inserted to Mysql.
+22/05/PM 06:21:46  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:50  Extraction started getting data from MongoDB
+22/05/PM 06:21:50  Data inserted to Mysql.
+22/05/PM 06:21:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:21:55  Extraction started getting data from MongoDB
+22/05/PM 06:21:55  Data inserted to Mysql.
+22/05/PM 06:21:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:00  Extraction started getting data from MongoDB
+22/05/PM 06:22:00  Data inserted to Mysql.
+22/05/PM 06:22:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:05  Extraction started getting data from MongoDB
+22/05/PM 06:22:05  Data inserted to Mysql.
+22/05/PM 06:22:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:10  Extraction started getting data from MongoDB
+22/05/PM 06:22:10  Data inserted to Mysql.
+22/05/PM 06:22:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:15  Extraction started getting data from MongoDB
+22/05/PM 06:22:15  Data inserted to Mysql.
+22/05/PM 06:22:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:20  Extraction started getting data from MongoDB
+22/05/PM 06:22:20  Data inserted to Mysql.
+22/05/PM 06:22:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:25  Extraction started getting data from MongoDB
+22/05/PM 06:22:25  Data inserted to Mysql.
+22/05/PM 06:22:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:30  Extraction started getting data from MongoDB
+22/05/PM 06:22:30  Data inserted to Mysql.
+22/05/PM 06:22:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:35  Extraction started getting data from MongoDB
+22/05/PM 06:22:35  Data inserted to Mysql.
+22/05/PM 06:22:35  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:40  Extraction started getting data from MongoDB
+22/05/PM 06:22:40  Data inserted to Mysql.
+22/05/PM 06:22:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:45  Extraction started getting data from MongoDB
+22/05/PM 06:22:45  Data inserted to Mysql.
+22/05/PM 06:22:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:50  Extraction started getting data from MongoDB
+22/05/PM 06:22:50  Data inserted to Mysql.
+22/05/PM 06:22:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:22:55  Extraction started getting data from MongoDB
+22/05/PM 06:22:55  Data inserted to Mysql.
+22/05/PM 06:22:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:00  Extraction started getting data from MongoDB
+22/05/PM 06:23:00  Data inserted to Mysql.
+22/05/PM 06:23:00  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:05  Extraction started getting data from MongoDB
+22/05/PM 06:23:05  Data inserted to Mysql.
+22/05/PM 06:23:05  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:10  Extraction started getting data from MongoDB
+22/05/PM 06:23:10  Data inserted to Mysql.
+22/05/PM 06:23:10  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:15  Extraction started getting data from MongoDB
+22/05/PM 06:23:15  Data inserted to Mysql.
+22/05/PM 06:23:15  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:20  Extraction started getting data from MongoDB
+22/05/PM 06:23:20  Data inserted to Mysql.
+22/05/PM 06:23:20  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:25  Extraction started getting data from MongoDB
+22/05/PM 06:23:25  Data inserted to Mysql.
+22/05/PM 06:23:25  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:30  Extraction started getting data from MongoDB
+22/05/PM 06:23:30  Data inserted to Mysql.
+22/05/PM 06:23:30  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:35  Extraction started getting data from MongoDB
+22/05/PM 06:23:36  Data inserted to Mysql.
+22/05/PM 06:23:36  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:40  Extraction started getting data from MongoDB
+22/05/PM 06:23:40  Data inserted to Mysql.
+22/05/PM 06:23:40  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:45  Extraction started getting data from MongoDB
+22/05/PM 06:23:45  Data inserted to Mysql.
+22/05/PM 06:23:45  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:50  Extraction started getting data from MongoDB
+22/05/PM 06:23:50  Data inserted to Mysql.
+22/05/PM 06:23:50  Migration Finished. Documents in collection deleted.
+22/05/PM 06:23:55  Extraction started getting data from MongoDB
+22/05/PM 06:23:55  Data inserted to Mysql.
+22/05/PM 06:23:55  Migration Finished. Documents in collection deleted.
+22/05/PM 06:24:00  Extraction started getting data from MongoDB
+22/05/PM 06:24:00  Data inserted to Mysql.
+22/05/PM 06:24:00  Migration Finished. Documents in collection deleted.
+
+
+22/05/PM 06:29:01  Log Start
+22/05/PM 06:29:01  Settings File read
+22/05/PM 06:29:01  Mongo To MySql initialized
+22/05/PM 06:29:01  Program started.
+22/05/PM 06:29:02  Connected to mongoDb
+22/05/PM 06:29:02  Connected to database 'sensorbd'
+22/05/PM 06:29:02  Connected to collection 'MigracaoSensor'
+22/05/PM 06:29:02  Extraction started getting data from MongoDB
+22/05/PM 06:29:02  Data inserted to Mysql.
+22/05/PM 06:29:03  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:07  Extraction started getting data from MongoDB
+22/05/PM 06:29:07  Data inserted to Mysql.
+22/05/PM 06:29:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:12  Extraction started getting data from MongoDB
+22/05/PM 06:29:12  Data inserted to Mysql.
+22/05/PM 06:29:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:17  Extraction started getting data from MongoDB
+22/05/PM 06:29:17  Data inserted to Mysql.
+22/05/PM 06:29:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:22  Extraction started getting data from MongoDB
+22/05/PM 06:29:22  Data inserted to Mysql.
+22/05/PM 06:29:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:27  Extraction started getting data from MongoDB
+22/05/PM 06:29:27  Data inserted to Mysql.
+22/05/PM 06:29:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:32  Extraction started getting data from MongoDB
+22/05/PM 06:29:32  Data inserted to Mysql.
+22/05/PM 06:29:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:37  Extraction started getting data from MongoDB
+22/05/PM 06:29:37  Data inserted to Mysql.
+22/05/PM 06:29:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:42  Extraction started getting data from MongoDB
+22/05/PM 06:29:42  Data inserted to Mysql.
+22/05/PM 06:29:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:47  Extraction started getting data from MongoDB
+22/05/PM 06:29:47  Data inserted to Mysql.
+22/05/PM 06:29:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:52  Extraction started getting data from MongoDB
+22/05/PM 06:29:52  Data inserted to Mysql.
+22/05/PM 06:29:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:29:57  Extraction started getting data from MongoDB
+22/05/PM 06:29:57  Data inserted to Mysql.
+22/05/PM 06:29:57  Migration Finished. Documents in collection deleted.
+
+
+22/05/PM 06:46:01  Log Start
+22/05/PM 06:46:01  Settings File read
+22/05/PM 06:46:01  Mongo To MySql initialized
+22/05/PM 06:46:01  Program started.
+22/05/PM 06:46:02  Connected to mongoDb
+22/05/PM 06:46:02  Connected to database 'sensorbd'
+22/05/PM 06:46:02  Connected to collection 'MigracaoSensor'
+22/05/PM 06:46:02  Extraction started getting data from MongoDB
+22/05/PM 06:46:02  Data inserted to Mysql.
+22/05/PM 06:46:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:07  Extraction started getting data from MongoDB
+22/05/PM 06:46:12  Extraction started getting data from MongoDB
+22/05/PM 06:46:17  Extraction started getting data from MongoDB
+22/05/PM 06:46:22  Extraction started getting data from MongoDB
+22/05/PM 06:46:22  Data inserted to Mysql.
+22/05/PM 06:46:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:27  Extraction started getting data from MongoDB
+22/05/PM 06:46:27  Data inserted to Mysql.
+22/05/PM 06:46:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:32  Extraction started getting data from MongoDB
+22/05/PM 06:46:32  Data inserted to Mysql.
+22/05/PM 06:46:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:37  Extraction started getting data from MongoDB
+22/05/PM 06:46:37  Data inserted to Mysql.
+22/05/PM 06:46:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:42  Extraction started getting data from MongoDB
+22/05/PM 06:46:42  Data inserted to Mysql.
+22/05/PM 06:46:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:47  Extraction started getting data from MongoDB
+22/05/PM 06:46:47  Data inserted to Mysql.
+22/05/PM 06:46:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:52  Extraction started getting data from MongoDB
+22/05/PM 06:46:52  Data inserted to Mysql.
+22/05/PM 06:46:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:46:57  Extraction started getting data from MongoDB
+22/05/PM 06:46:57  Data inserted to Mysql.
+22/05/PM 06:46:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:02  Extraction started getting data from MongoDB
+22/05/PM 06:47:02  Data inserted to Mysql.
+22/05/PM 06:47:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:07  Extraction started getting data from MongoDB
+22/05/PM 06:47:07  Data inserted to Mysql.
+22/05/PM 06:47:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:12  Extraction started getting data from MongoDB
+22/05/PM 06:47:12  Data inserted to Mysql.
+22/05/PM 06:47:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:17  Extraction started getting data from MongoDB
+22/05/PM 06:47:17  Data inserted to Mysql.
+22/05/PM 06:47:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:22  Extraction started getting data from MongoDB
+22/05/PM 06:47:22  Data inserted to Mysql.
+22/05/PM 06:47:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:27  Extraction started getting data from MongoDB
+22/05/PM 06:47:27  Data inserted to Mysql.
+22/05/PM 06:47:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:32  Extraction started getting data from MongoDB
+22/05/PM 06:47:32  Data inserted to Mysql.
+22/05/PM 06:47:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:37  Extraction started getting data from MongoDB
+22/05/PM 06:47:37  Data inserted to Mysql.
+22/05/PM 06:47:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:42  Extraction started getting data from MongoDB
+22/05/PM 06:47:42  Data inserted to Mysql.
+22/05/PM 06:47:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:47  Extraction started getting data from MongoDB
+22/05/PM 06:47:47  Data inserted to Mysql.
+22/05/PM 06:47:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:52  Extraction started getting data from MongoDB
+22/05/PM 06:47:52  Data inserted to Mysql.
+22/05/PM 06:47:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:47:57  Extraction started getting data from MongoDB
+22/05/PM 06:47:57  Data inserted to Mysql.
+22/05/PM 06:47:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:02  Extraction started getting data from MongoDB
+22/05/PM 06:48:02  Data inserted to Mysql.
+22/05/PM 06:48:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:07  Extraction started getting data from MongoDB
+22/05/PM 06:48:07  Data inserted to Mysql.
+22/05/PM 06:48:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:12  Extraction started getting data from MongoDB
+22/05/PM 06:48:12  Data inserted to Mysql.
+22/05/PM 06:48:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:17  Extraction started getting data from MongoDB
+22/05/PM 06:48:17  Data inserted to Mysql.
+22/05/PM 06:48:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:22  Extraction started getting data from MongoDB
+22/05/PM 06:48:22  Data inserted to Mysql.
+22/05/PM 06:48:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:27  Extraction started getting data from MongoDB
+22/05/PM 06:48:27  Data inserted to Mysql.
+22/05/PM 06:48:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:32  Extraction started getting data from MongoDB
+22/05/PM 06:48:32  Data inserted to Mysql.
+22/05/PM 06:48:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:37  Extraction started getting data from MongoDB
+22/05/PM 06:48:37  Data inserted to Mysql.
+22/05/PM 06:48:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:42  Extraction started getting data from MongoDB
+22/05/PM 06:48:42  Data inserted to Mysql.
+22/05/PM 06:48:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:47  Extraction started getting data from MongoDB
+22/05/PM 06:48:47  Data inserted to Mysql.
+22/05/PM 06:48:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:52  Extraction started getting data from MongoDB
+22/05/PM 06:48:52  Data inserted to Mysql.
+22/05/PM 06:48:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:48:57  Extraction started getting data from MongoDB
+22/05/PM 06:48:57  Data inserted to Mysql.
+22/05/PM 06:48:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:02  Extraction started getting data from MongoDB
+22/05/PM 06:49:02  Data inserted to Mysql.
+22/05/PM 06:49:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:07  Extraction started getting data from MongoDB
+22/05/PM 06:49:07  Data inserted to Mysql.
+22/05/PM 06:49:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:12  Extraction started getting data from MongoDB
+22/05/PM 06:49:12  Data inserted to Mysql.
+22/05/PM 06:49:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:17  Extraction started getting data from MongoDB
+22/05/PM 06:49:17  Data inserted to Mysql.
+22/05/PM 06:49:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:22  Extraction started getting data from MongoDB
+22/05/PM 06:49:22  Data inserted to Mysql.
+22/05/PM 06:49:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:27  Extraction started getting data from MongoDB
+22/05/PM 06:49:27  Data inserted to Mysql.
+22/05/PM 06:49:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:32  Extraction started getting data from MongoDB
+22/05/PM 06:49:32  Data inserted to Mysql.
+22/05/PM 06:49:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:37  Extraction started getting data from MongoDB
+22/05/PM 06:49:37  Data inserted to Mysql.
+22/05/PM 06:49:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:42  Extraction started getting data from MongoDB
+22/05/PM 06:49:42  Data inserted to Mysql.
+22/05/PM 06:49:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:47  Extraction started getting data from MongoDB
+22/05/PM 06:49:47  Data inserted to Mysql.
+22/05/PM 06:49:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:52  Extraction started getting data from MongoDB
+22/05/PM 06:49:52  Data inserted to Mysql.
+22/05/PM 06:49:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:49:57  Extraction started getting data from MongoDB
+22/05/PM 06:49:57  Data inserted to Mysql.
+22/05/PM 06:49:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:02  Extraction started getting data from MongoDB
+22/05/PM 06:50:02  Data inserted to Mysql.
+22/05/PM 06:50:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:07  Extraction started getting data from MongoDB
+22/05/PM 06:50:07  Data inserted to Mysql.
+22/05/PM 06:50:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:12  Extraction started getting data from MongoDB
+22/05/PM 06:50:12  Data inserted to Mysql.
+22/05/PM 06:50:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:17  Extraction started getting data from MongoDB
+22/05/PM 06:50:17  Data inserted to Mysql.
+22/05/PM 06:50:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:22  Extraction started getting data from MongoDB
+22/05/PM 06:50:22  Data inserted to Mysql.
+22/05/PM 06:50:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:27  Extraction started getting data from MongoDB
+22/05/PM 06:50:27  Data inserted to Mysql.
+22/05/PM 06:50:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:32  Extraction started getting data from MongoDB
+22/05/PM 06:50:32  Data inserted to Mysql.
+22/05/PM 06:50:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:37  Extraction started getting data from MongoDB
+22/05/PM 06:50:37  Data inserted to Mysql.
+22/05/PM 06:50:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:42  Extraction started getting data from MongoDB
+22/05/PM 06:50:42  Data inserted to Mysql.
+22/05/PM 06:50:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:47  Extraction started getting data from MongoDB
+22/05/PM 06:50:47  Data inserted to Mysql.
+22/05/PM 06:50:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:52  Extraction started getting data from MongoDB
+22/05/PM 06:50:52  Data inserted to Mysql.
+22/05/PM 06:50:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:50:57  Extraction started getting data from MongoDB
+22/05/PM 06:50:57  Data inserted to Mysql.
+22/05/PM 06:50:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:02  Extraction started getting data from MongoDB
+22/05/PM 06:51:02  Data inserted to Mysql.
+22/05/PM 06:51:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:07  Extraction started getting data from MongoDB
+22/05/PM 06:51:07  Data inserted to Mysql.
+22/05/PM 06:51:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:12  Extraction started getting data from MongoDB
+22/05/PM 06:51:12  Data inserted to Mysql.
+22/05/PM 06:51:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:17  Extraction started getting data from MongoDB
+22/05/PM 06:51:17  Data inserted to Mysql.
+22/05/PM 06:51:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:22  Extraction started getting data from MongoDB
+22/05/PM 06:51:22  Data inserted to Mysql.
+22/05/PM 06:51:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:27  Extraction started getting data from MongoDB
+22/05/PM 06:51:27  Data inserted to Mysql.
+22/05/PM 06:51:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:32  Extraction started getting data from MongoDB
+22/05/PM 06:51:32  Data inserted to Mysql.
+22/05/PM 06:51:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:37  Extraction started getting data from MongoDB
+22/05/PM 06:51:37  Data inserted to Mysql.
+22/05/PM 06:51:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:42  Extraction started getting data from MongoDB
+22/05/PM 06:51:42  Data inserted to Mysql.
+22/05/PM 06:51:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:47  Extraction started getting data from MongoDB
+22/05/PM 06:51:47  Data inserted to Mysql.
+22/05/PM 06:51:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:52  Extraction started getting data from MongoDB
+22/05/PM 06:51:52  Data inserted to Mysql.
+22/05/PM 06:51:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:51:57  Extraction started getting data from MongoDB
+22/05/PM 06:51:57  Data inserted to Mysql.
+22/05/PM 06:51:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:02  Extraction started getting data from MongoDB
+22/05/PM 06:52:02  Data inserted to Mysql.
+22/05/PM 06:52:02  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:07  Extraction started getting data from MongoDB
+22/05/PM 06:52:07  Data inserted to Mysql.
+22/05/PM 06:52:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:12  Extraction started getting data from MongoDB
+22/05/PM 06:52:12  Data inserted to Mysql.
+22/05/PM 06:52:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:17  Extraction started getting data from MongoDB
+22/05/PM 06:52:17  Data inserted to Mysql.
+22/05/PM 06:52:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:22  Extraction started getting data from MongoDB
+22/05/PM 06:52:22  Data inserted to Mysql.
+22/05/PM 06:52:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:27  Extraction started getting data from MongoDB
+22/05/PM 06:52:27  Data inserted to Mysql.
+22/05/PM 06:52:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:32  Extraction started getting data from MongoDB
+22/05/PM 06:52:32  Data inserted to Mysql.
+22/05/PM 06:52:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:37  Extraction started getting data from MongoDB
+22/05/PM 06:52:37  Data inserted to Mysql.
+22/05/PM 06:52:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:42  Extraction started getting data from MongoDB
+22/05/PM 06:52:42  Data inserted to Mysql.
+22/05/PM 06:52:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:47  Extraction started getting data from MongoDB
+22/05/PM 06:52:47  Data inserted to Mysql.
+22/05/PM 06:52:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:52  Extraction started getting data from MongoDB
+22/05/PM 06:52:52  Data inserted to Mysql.
+22/05/PM 06:52:52  Migration Finished. Documents in collection deleted.
+22/05/PM 06:52:57  Extraction started getting data from MongoDB
+22/05/PM 06:52:57  Data inserted to Mysql.
+22/05/PM 06:52:57  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:02  Extraction started getting data from MongoDB
+22/05/PM 06:53:03  Data inserted to Mysql.
+22/05/PM 06:53:03  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:07  Extraction started getting data from MongoDB
+22/05/PM 06:53:07  Data inserted to Mysql.
+22/05/PM 06:53:07  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:12  Extraction started getting data from MongoDB
+22/05/PM 06:53:12  Data inserted to Mysql.
+22/05/PM 06:53:12  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:17  Extraction started getting data from MongoDB
+22/05/PM 06:53:17  Data inserted to Mysql.
+22/05/PM 06:53:17  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:22  Extraction started getting data from MongoDB
+22/05/PM 06:53:22  Data inserted to Mysql.
+22/05/PM 06:53:22  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:27  Extraction started getting data from MongoDB
+22/05/PM 06:53:27  Data inserted to Mysql.
+22/05/PM 06:53:27  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:32  Extraction started getting data from MongoDB
+22/05/PM 06:53:32  Data inserted to Mysql.
+22/05/PM 06:53:32  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:37  Extraction started getting data from MongoDB
+22/05/PM 06:53:37  Data inserted to Mysql.
+22/05/PM 06:53:37  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:42  Extraction started getting data from MongoDB
+22/05/PM 06:53:42  Data inserted to Mysql.
+22/05/PM 06:53:42  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:47  Extraction started getting data from MongoDB
+22/05/PM 06:53:47  Data inserted to Mysql.
+22/05/PM 06:53:47  Migration Finished. Documents in collection deleted.
+22/05/PM 06:53:52  Extraction started getting data from MongoDB
+22/05/PM 06:53:52  Data inserted to Mysql.
+22/05/PM 06:53:52  Migration Finished. Documents in collection deleted.

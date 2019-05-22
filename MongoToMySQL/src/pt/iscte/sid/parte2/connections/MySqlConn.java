@@ -5,8 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.util.Date;
+
 
 import pt.iscte.sid.parte2.util.Config;
 import pt.iscte.sid.parte2.util.Log;
@@ -49,10 +48,10 @@ public class MySqlConn {
 
 		
 		/*código de teste para tempo médio de chegada*/
-		Date date1= new Date();
-		long time = date1.getTime();
-		Timestamp ts = new Timestamp(time);
-		System.out.print(ts.toString());
+		//Date date1= new Date();
+		//long time = date1.getTime();
+		//Timestamp ts = new Timestamp(time);
+		//System.out.print(ts.toString());
 		
 		
 		Statement stmt = con.createStatement();
